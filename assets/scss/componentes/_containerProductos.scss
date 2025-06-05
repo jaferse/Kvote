@@ -1,0 +1,146 @@
+@use './variables' as *;
+
+.containerProductos {
+    // border: 3px solid black;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 1rem;
+    row-gap: 3rem;
+    width: 96vw;
+    font-family: $fuente_secundaria;
+
+    &__producto {
+        @include dimensiones(80%, auto, 16px, 3px solid $rojo_primario);
+
+        @include flex(column, start, center);
+
+        overflow: hidden;
+        box-shadow: $box_shadow;
+        background-color: white;
+
+        &__img {
+            margin-top: 1rem;
+            width: 80%;
+
+            img {
+                aspect-ratio: 3/4;
+                width: 100%;
+            }
+        }
+
+        &__info {
+            @include flex(column, flex-start, start);
+            width: 90%;
+
+            h2,
+            h3 {
+                font-size: 1rem;
+                margin: 0.2rem 1.5rem;
+                width: 90%;
+
+            }
+
+            p {
+                min-height: 3rem;
+            }
+
+            &__precio {
+                margin: 0.2rem auto;
+                font-weight: bold;
+
+                &::after {
+                    content: "€"
+                }
+            }
+
+            .verMas {
+                @include button-style(#00b83d, white);
+            min-height: 1rem;
+            min-width: 85px;
+            }
+
+            hr {
+                width: 90%;
+                margin: 0.3rem;
+            }
+
+            &__autor {
+                font-size: 1rem;
+                font-weight: 400;
+                color: gray;
+                margin: 0.5rem 1.8rem;
+            }
+
+            &__adicional {
+                display: none;
+
+                &__Formato {
+                    @include localized-before((es: "Formato:",
+                            en: "Format: ",
+                            ja: "形式： "
+                        ));
+
+                    &::before {
+                        font-weight: 600;
+                    }
+                }
+
+                &__Tipo {
+                    @include localized-before((es: "Tipo: ",
+                            en: "Type: ",
+                            ja: "タイプ "
+                        ));
+
+                    &::before {
+                        font-weight: 600;
+                    }
+                }
+
+                &__Paginas {
+                    @include localized-before((es: "Nº Páginas ",
+                            en: "No. pages ",
+                            ja: "ページ数 "
+                        ));
+
+                    &::before {
+                        font-weight: 600;
+                    }
+
+                }
+
+                &__ISBN {
+                    &::before {
+                        content: "ISBN: ";
+                        font-weight: 600;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .containerProductos__producto--dark {
+        border: 3px solid $fondoOscuro !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .containerProductos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 792px) {
+    .containerProductos {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .containerProductos {
+        grid-template-columns: 1fr;
+    }
+
+}

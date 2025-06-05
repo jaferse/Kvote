@@ -1,0 +1,83 @@
+@use './variables' as *;
+// Número de imágenes 
+$numero-imagenes: 6;
+
+// Calculamos el tamaño del contenedor
+$size: $numero-imagenes * 100%;
+$transiciones: 100 / $numero-imagenes;
+
+.main__sliderFrame {
+    position: relative;
+    grid-row: 1;
+    grid-column: 1/3;
+    @include dimensiones(95vw, auto, 6px);
+    margin: 0rem auto;
+    overflow: hidden;
+
+    // min-height: 35.438rem;
+    .next {
+        @include cargarImagen("./../img/next.png", contain);
+        position: absolute;
+        color: white;
+        right: 0;
+        z-index: 1;
+        @include dimensiones(4rem, 100%);
+    }
+
+    .before {
+        @include cargarImagen("./../img/before.png", contain);
+        @include dimensiones(5rem, 100%);
+        position: absolute;
+        color: white;
+        left: 0;
+        z-index: 1;
+
+    }
+
+    .next:hover,
+    .before:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        backdrop-filter: blur(10px);
+        background-size: contain;
+        height: 100%;
+
+    }
+
+    ul {
+        margin: 0;
+        display: flex;
+        padding: 0;
+
+        @include dimensiones($size, 100%);
+
+        li {
+            position: relative;
+            width: 100%;
+            list-style: none;
+
+            img {
+                @include dimensiones(100%, 100%, 6px);
+            }
+
+            map {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .main__sliderFrame {
+        height: 19rem;
+        min-height: 19rem;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .main__sliderFrame {
+        height: 15rem;
+        min-height: 10rem;
+    }
+}

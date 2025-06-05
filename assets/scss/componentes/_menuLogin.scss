@@ -1,0 +1,53 @@
+@import './variables';
+
+.menuLogin{
+    position: absolute;
+    top: 4.2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: $rojo_primario;
+    border: 2px solid $blanco_letra;
+    border-radius: 7px;
+    padding: 1rem;
+    z-index: 1;
+    display: none;
+    a{
+        color: $blanco_letra;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    hr{
+        width: 100%;
+        margin: 0.7rem auto;
+    }
+}
+.none{
+    display: none;
+}
+
+/*  Animación de entrada */
+@keyframes slideIn {
+    0% {
+        left: -300px;
+        opacity: 0;
+    }
+
+    100% {
+        left: -100px;
+        opacity: 1;
+    }
+}
+
+/*  Animación de salida */
+@keyframes slideOut {
+    0% {
+        left: -100px;
+        opacity: 1;
+    }
+
+    100% {
+        left: -300px;
+        opacity: 0;
+    }
+}

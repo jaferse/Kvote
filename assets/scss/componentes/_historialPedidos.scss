@@ -1,0 +1,85 @@
+@use './variables' as *;
+
+.containerPedidos {
+    width: 90vw;
+    margin: 1rem auto;
+
+    h1 {
+        font-family: $fuente_secundaria;
+        text-align: center;
+    }
+
+    .compra,
+    .titulo {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr 1fr;
+        gap: 5px;
+
+        p,
+        a {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f9f9f9;
+            font-family: $fuente_secundaria;
+            margin: 10px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .detallePedido {
+
+            border: green;
+            background-color: green;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bolder;
+            max-width: 140px;
+            margin: auto auto;
+            cursor: pointer;
+
+        }
+
+    }
+
+    .titulo {
+        p {
+            background-color: #B8001F;
+            color: white;
+            font-weight: bolder;
+
+        }
+
+    }
+
+    .compra {
+        grid-template-rows: auto auto;
+
+        .detalleCompra {
+            display: none;
+            grid-template-columns: repeat(6, 1fr);
+            grid-column: 1 / -1;
+            /* hace que ocupe toda la fila */
+            width: 90%;
+
+            p {
+                background-color: transparent;
+                border: 0;
+                padding: 10px;
+                font-family: $fuente_secundaria;
+                margin: 10px 0;
+                text-align: center;
+                border-radius: 0px;
+            }
+
+            hr {
+                grid-column: 1 / -1;
+                width: 100%;
+                margin: 0px auto;
+            }
+        }
+    }
+
+}

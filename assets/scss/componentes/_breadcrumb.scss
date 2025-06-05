@@ -1,0 +1,91 @@
+@use './variables' as *;
+
+.subnavegador {
+    display: flex;
+    @include dimensiones(94vw, 2rem);
+    justify-content: space-between;
+    margin: 1rem auto;
+}
+
+.breadcrumb {
+
+    a {
+        text-decoration: none;
+        @include dimensiones(2rem, 100%);
+        
+        img {
+            @include dimensiones(auto, 100%);
+            aspect-ratio: 1/1;
+        }
+    }
+
+    img {
+        @include dimensiones(auto, 100%);
+        aspect-ratio: 1/1;
+    }
+}
+
+.darkMode {
+    @include dimensiones(2rem, 2rem);
+
+    &__button {
+        display: block;
+        @include dimensiones(100%, 100%);
+        .icon {
+            display: block;
+            @include dimensiones(100%, 100%);
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        .icon-moon {
+            @include cargarImagen('./../img/moon.svg', contain);
+        }
+        
+        .icon-sun {
+            @include cargarImagen('./../img/sun.svg', contain);
+
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .subnavegador {
+        flex-direction: column;
+        height: auto;
+
+        .breadcrumb {
+            margin: 0.5rem 0;
+
+            a {
+                display: inline-block;
+                height: 1.5rem;
+            }
+
+            img {
+                height: 1.5rem;
+
+            }
+        }
+
+        .translate {
+            li {
+                height: 1.5rem;
+
+                a {
+                    width: 100%;
+
+                    img {
+
+                        width: 100%;
+
+                    }
+                }
+            }
+
+        }
+    }
+}

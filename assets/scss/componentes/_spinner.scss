@@ -1,0 +1,55 @@
+.Container {
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid black; */
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: spin;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    &__spinner {
+        // position: relative;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 100%;
+        background-image: url('./../img/Kvote.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background-color: red;
+
+        &__img {
+            background-image: url('./../img/spinner.jpg');
+            background-position: center;
+            background-size: contain;
+            // background-color: red;
+            width: 80%;
+            height: 80%;
+            border-radius: 100%;
+        }
+    }
+}
+
+
+
+
+
+@keyframes spin {
+    from {
+        transform: rotate(360deg);
+        /* left: 1vw; */
+    }
+
+    to {
+        transform: rotate(720deg);
+        /* left: 90vw; */
+    }
+}

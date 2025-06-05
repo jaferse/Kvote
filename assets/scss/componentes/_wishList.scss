@@ -1,0 +1,45 @@
+@use './variables' as *;
+.containerProductosWishList{
+    width: 90vw;
+    margin: 1rem auto;
+
+    .productosWishList{
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        img{
+            width:8rem;
+            height: auto;
+            border-radius: 10px;
+        }
+        h2{
+            font-size: 2rem;
+        }
+        h3{
+            font-size: 1.5rem;
+            color: #888888;
+        }
+
+        .Producto__info__boton{
+            border: green;
+            background-color: green;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .Producto__borrar__boton{
+
+            padding: 1rem;
+            @include cargarImagen('./../img/delete.png');
+        }
+
+    }
+}

@@ -1,0 +1,329 @@
+@import './variables';
+
+.header {
+    @include dimensiones(100%, 4rem);
+    @include flex(row, space-between, stretch);
+    margin: auto;
+    text-decoration: none;
+    background-color: $rojo_primario;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.75);
+
+
+    &__logo {
+        background-image: url('./../img/Kvote.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 70%;
+        aspect-ratio: 1/1;
+        margin: 0.5rem 1rem;
+
+        // img{
+        //     width: 100%;
+        //     height: 100%;
+        // }
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+
+    .menuHamburguesa {
+        display: none;
+        @include dimensiones(2rem, 2rem);
+        margin: auto 1rem;
+
+        img {
+            @include dimensiones(100%, 100%);
+        }
+    }
+
+
+    .nav {
+        font-family: $fuente_general;
+        @include flex(row, stretch, stretch);
+        flex-grow: 1;
+        position: relative;
+
+        &__menu {
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+
+            &__button {
+                display: flex;
+                align-items: center;
+                background-color: $rojo_primario;
+                list-style: none;
+                color: $blanco_letra;
+                text-align: center;
+                padding: 0.3% 3%;
+                font-weight: bold;
+                text-decoration: none;
+                flex-shrink: 1;
+                position: relative;
+
+                i {
+                    font-style: normal;
+                    z-index: 2;
+
+                }
+
+                &:hover>i {
+                    @include animacion(transicionLetras, linear, 0.5s, forwards);
+                }
+
+                &:hover:before {
+                    animation: slide2 0.5s forwards;
+                }
+
+                &:before {
+                    z-index: 0;
+                    background: $nav_hover;
+                    // opacity: 0.3;
+                    content: "";
+                    position: absolute;
+                    @include dimensiones(100%, 100%);
+                    left: 0%;
+                    top: -100%;
+                }
+            }
+        }
+
+
+        &__login {
+            @include flex(row, space-evenly, center);
+            flex: 1;
+
+            .login {
+                @include flex(row, space-between, center);
+                min-width: 7rem;
+                .carro {
+                    @include dimensiones(1.5rem, 1.5rem);
+
+                    @include cargarImagen('./../img/carro.svg');
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+
+                .carro--dark {
+                    background-image: url(('./../img/carro--dark.svg'));
+                }
+
+                .login {
+                    @include dimensiones(2rem, 2rem, 50%);
+                    // background-color: white;
+                    @include cargarImagen('./../img/batlogin1.png', contain);
+
+                    &:hover {
+                        transform: scale(1.1);
+                        background-image: url(('./../img/batlogin2.png'));
+                    }
+                }
+
+                .logeado {
+                    @include dimensiones(2rem, 2rem, 50%);
+                    // background-color: white;
+                    @include cargarImagen('./../img/batlogin2.png', contain);
+
+                    &:hover {
+                        transform: scale(1.1);
+                        background-image: url(('./../img/batlogin2.png'));
+                    }
+                }
+
+
+                .search {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    label {
+                        display: inline-block;
+                        @include dimensiones(1.5rem, 1.5rem);
+                        cursor: pointer;
+                        @include cargarImagen("./../img/lupa.svg");
+                    }
+
+
+                    input {
+                        background-color: white;
+                        border-radius: 0.438rem;
+
+                        &::placeholder {
+                            color: black;
+                        }
+
+                        &:focus {
+                            background-color: $blanco_letra;
+                        }
+                    }
+                }
+
+                .search--dark {
+                    label {
+                        //  @include cargarImagen("./../img/lupa--dark.svg");
+                        background-image: url("./../img/lupa--dark.svg");
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+.header--dark {
+    background-color: $fondoOscuro;
+
+    .nav__menu__button {
+        background-color: $fondoOscuro;
+    }
+
+
+}
+
+
+@keyframes slide2 {
+    0% {
+        left: 0%;
+        top: -100%;
+    }
+
+    100% {
+        left: 0%;
+        top: 0%;
+    }
+}
+
+@keyframes transicionLetras {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        color: $blanco_letra;
+        transform: scale(1.2);
+    }
+}
+
+
+
+@media screen and (max-width: 992px) {
+
+    .header {
+        input {
+            display: none;
+            position: absolute;
+            right: 5px;
+            top: 5rem;
+        }
+
+        width: 100%;
+
+        &__logo {
+            margin: 0.5rem 0.3rem;
+        }
+
+        .nav {
+            opacity: 1;
+            font-size: 1rem;
+
+            &__menu {
+
+                @include flex(row, space-between, stretch);
+
+                &__button {
+                    padding: 0.3% 1.5%;
+                }
+
+                flex-shrink: 0;
+            }
+
+            &__login {
+                justify-content: space-evenly;
+                margin-left: 0.5rem;
+                flex: 0;
+
+                .carro {
+                    margin: 0rem 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header {
+        .menuHamburguesa {
+            display: block;
+            cursor: pointer;
+        }
+
+        .nav {
+            align-items: center;
+            justify-content: center;
+
+            &__menu {
+                z-index: 5;
+                width: 50%;
+                position: absolute;
+                flex-direction: column;
+                top: 4.2rem;
+                left: -400px;
+                border-radius: 16px;
+                overflow: hidden;
+
+                &__button {
+                    padding: 2rem;
+
+                    &:hover {
+                        background-color: $nav_hover;
+
+                    }
+
+                    &::before {
+                        content: none;
+                    }
+                }
+            }
+
+            &__login {
+                justify-content: space-around;
+                flex: 1;
+            }
+        }
+
+        .nav.open {
+            animation: slideIn 0.3s forwards;
+        }
+    }
+}
+
+/*  Animación de entrada */
+@keyframes slideIn {
+    0% {
+        left: -300px;
+        opacity: 0;
+    }
+
+    100% {
+        left: -100px;
+        opacity: 1;
+    }
+}
+
+/*  Animación de salida */
+@keyframes slideOut {
+    0% {
+        left: -100px;
+        opacity: 1;
+    }
+
+    100% {
+        left: -300px;
+        opacity: 0;
+    }
+}

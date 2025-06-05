@@ -1,0 +1,124 @@
+@use './variables' as *;
+
+
+.containerEditorial {
+
+    // border: 2px solid $rojo_primario;
+    &__titulo {
+        text-align: center;
+    }
+
+    h2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .seccion {
+        border: 2px solid $rojo_primario;
+        // width: 60%;
+        @include dimensiones(60%, auto, 16px, 2px solid $rojo_primario);
+        background-color: white;
+        box-shadow: $box_shadow;
+        margin: 1rem auto;
+        // display: flex;
+        @include flex(row, space-evenly, start, wrap);
+
+        .opcion {
+            width: 200px;
+            height: 342px;
+            div {
+                margin: auto;
+                width: 80%;
+                
+                img {
+                    border-radius: 6px;
+                    width: 100%;
+
+                }
+
+                h3 {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+
+        .active {
+            transform: scale(1.05);
+
+            img {
+                box-shadow: 0px 0px 9px 0px rgba(235, 92, 20, 0.75);
+            }
+        }
+    }
+
+    .containerEditorial {
+
+        &__segundo,
+        &__tercero,
+        &__cuarto,
+        &__quinto,
+        &__sexto,
+        &__septimo,
+        &__octavo,
+        &__noveno,
+        &__decimo {
+            display: none
+        }
+    }
+
+    .navSeccion {
+
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        .verMas {
+            @include button-style(#00b83d, white, 8rem, 2rem, 6px);
+        margin: 1rem;
+
+        }
+
+        .siguiente {
+            order: 2;
+        }
+
+        .atras {
+            order: 1;
+        }
+    }
+
+
+    .resumen {
+        width: 80%;
+        text-align: left;
+        font-size: 1.5rem;
+        border-collapse: collapse;
+
+        th {
+            border-bottom: 2px solid black;
+        }
+
+        td,
+        th {
+            // border: ;
+            padding: 0.5rem;
+            // margin: 1rem;
+        }
+
+        #precioTotal {
+            text-align: center;
+
+            &::before {
+                content: "Precio Total: ";
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navSeccion {
+        flex-wrap: wrap;
+    }
+
+}

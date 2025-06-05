@@ -1,0 +1,539 @@
+{
+    "es": {
+        "title": "Kvote Tienda de Comics",
+        "nav": {
+            "primero": "Novedades",
+            "segundo": "Comic",
+            "tercero": "Libros",
+            "cuarto": "CRUD",
+            "quinto": "Nosotros"
+        },
+        "buscador": "Buscar",
+        "main__bestSellers": {
+            "bookMonth": "Libros de ",
+            "comicMonth": "Comics de ",
+            "months": [
+                "enero",
+                "febrero",
+                "marzo",
+                "abril",
+                "mayo",
+                "junio",
+                "julio",
+                "agosto",
+                "septiembre",
+                "octubre",
+                "noviembre",
+                "diciembre"
+            ]
+        },
+        "Footer": {
+            "ayuda": {
+                "title": "Ayuda",
+                "first": "Localizar Pedido",
+                "second": "Devoluciones",
+                "third": "Métodos De Pago"
+            },
+            "Contacto": {
+                "title": "Contacto"
+            },
+            "Redes Sociales": {
+                "title": "Redes Sociales"
+            }
+        },
+        "nosotros": {
+            "title": "Nosotros",
+            "nosotros__historia": {
+                "title": "Nuestra Historia",
+                "parrafo1": " Todo comenzó en un pequeño rincón de Internet, donde un grupo de apasionados del cómic se reunía en un foro para compartir opiniones, reseñas y consejos sobre tiendas que ofrecían esos ejemplares difíciles de conseguir y las importaciones de cómics raros provenientes de otros países. En ese espacio de diálogo nació Kvote.",
+                "parrafo2": " Con el tiempo, la comunidad creció, y junto a ella surgió la inquietud de transformar ese foro en algo más ambicioso. Javier Fernández, el creador de Kvote, decidió dar el siguiente paso: convertir la web en una tienda especializada que ayudara tanto a los novatos del cómic como a los verdaderos aficionados a conseguir sus ejemplares soñados.",
+                "parrafo3": "Hoy, Kvote es mucho más que una tienda online. Es el resultado de la pasión y el esfuerzo colectivo de una comunidad que vive el cómic en todas sus formas. Hemos recorrido un largo camino desde aquel foro inicial, y cada reseña, recomendación y debate ha contribuido a forjar la identidad de una plataforma que conecta a quienes desean descubrir o profundizar en este universo."
+            },
+            "nosotros__mision": {
+                "title": "Nuestra Mision",
+                "parrafo1": " En Kvote, nuestra misión es acompañarte en cada etapa de tu aventura en el mundo del cómic, adaptándonos a tus necesidades y gustos. Por ello, ofrecemos una experiencia pensada para cada tipo de lector:",
+                "parrafo2": {
+                    "subtitulo1": "Para los que empiezan:",
+                    "subseccion1": "Queremos ayudarte a dar tus primeros pasos en este apasionante universo. Te ofrecemos recomendaciones personalizadas y asesoramiento para que inicies tu experiencia de lectura con títulos y autores que se adapten a tus intereses, permitiéndote descubrir el cómic de la manera más amena y segura.",
+                    "subtitulo2": "Para el lector medio:",
+                    "subseccion2": "Sabemos que hay quienes disfrutan del cómic de forma habitual sin buscar necesariamente ediciones exclusivas o rarezas. Para ti, Kvote ha seleccionado un catálogo equilibrado que combina los clásicos y las novedades más populares, garantizando calidad, accesibilidad y un servicio pensado para tu consumo diario. Así, disfrutarás de una oferta variada que se ajusta a tus expectativas y ritmo.",
+                    "subtitulo3": "Para los aficionados avanzados:",
+                    "subseccion3": "Reconocemos a aquellos verdaderos conocedores que buscan piezas únicas y difíciles de conseguir. Nos adentramos en el mundo de colecciones privadas e importaciones directas desde los países de origen del cómic para ofrecerte títulos exclusivos y rarezas que enriquezcan tu colección y enciendan tu pasión."
+                },
+                "parrafo3": "Con este compromiso, en Kvote creemos que cada lector, sin importar su nivel de experiencia, merece disfrutar del mejor universo del cómic. ¡Estamos aquí para guiarte, acompañarte y sorprenderte en cada lectura!"
+            },
+            "nosotros__editorial": {
+                "title": "Nuestra Editorial",
+                "parrafo1": "                    En Kvote creemos en el poder transformador del cómic y en la necesidad de impulsar nuevas voces. Por ello, hemos creado nuestra propia editorial, dedicada a la publicación de cómics locales de Ciudad Real y sus alrededores, así como al rescate de pequeños autores poco conocidos del resto de España e incluso de otros países.",
+                "parrafo2": "Nuestra misión editorial es clara:",
+                "parrafo3": {
+                    "subtitulo1": "Impulsar el talento emergente:",
+                    "subseccion1": " Brindamos una plataforma para que los creadores locales y aquellos que han pasado desapercibidos en el circuito convencional puedan ver sus obras publicadas y llegar a un público más amplio.",
+                    "subtitulo2": "Calidad en cada detalle:",
+                    "subseccion2": "Cuidamos todo el proceso creativo, desde el guion hasta la producción final, asegurándonos de que cada cómic refleje la pasión y el esfuerzo de sus autores.",
+                    "subtitulo3": "Diversidad y originalidad:",
+                    "subseccion3": "Fomentamos una propuesta artística diversa, que rompa esquemas y aporte nuevas miradas al universo del cómic."
+                },
+                "parrafo4": "Trabajamos mano a mano con los creadores, ofreciéndoles asesoramiento personalizado, recursos y el acompañamiento necesario para transformar sus ideas en obras únicas y de alta calidad."
+            },
+            "nosotros__talleres": {
+                "title": "Talleres y Formación",
+                "parrafo1": "En Kvote estamos convencidos de que el futuro del cómic se construye compartiendo conocimientos y experiencias. Por ello, hemos implantado una serie de talleres de aprendizaje diseñados para todos aquellos que deseen adentrarse en el arte de crear cómics, ya sea perfeccionando técnicas o aprendiendo nuevos métodos. Nuestros talleres abarcan diversas áreas:",
+                "parrafo2": {
+                    "subtitulo1": "Creación de Guiones:",
+                    "subseccion1": " Aprende a estructurar y desarrollar historias sólidas que enganchen a tus lectores desde el primer bocadillo.",
+                    "subtitulo2": "Dibujo e Ilustración:",
+                    "subseccion2": "Mejora tus habilidades para dar vida a personajes y escenarios, dominando tanto el dibujo tradicional como digital.",
+                    "subtitulo3": "Coloración y Entintado:",
+                    "subseccion3": "Descubre cómo el uso del color y el entintado pueden transformar tus viñetas, aportando dinamismo y profundidad a tus obras.",
+                    "subtitulo4": "Talleres de Mercado:",
+                    "subseccion4": "Conoce las claves para mover el cómic comercialmente. Expertos de grandes editoriales te enseñarán estrategias para posicionar y comercializar tus creaciones en el competitivo mundo del cómic."
+                }
+            },
+            "colaboradores": {
+                "title": "Nuestros Profesores",
+                "subtitulo1": "Autor de \"Arrugas\" y \"La casa\"",
+                "subtitulo2": "Autora de \"Cénit\" y \"Satori\"",
+                "subtitulo3": "Ilustradora de \"Todo bajo el sol\"",
+                "subtitulo4": "Dibujante de \"Blacksad\""
+            }
+        },
+        "formulario": {
+            "title": "Rellene el formulario",
+            "nombreUsuario": "Nombre Usuario",
+            "Nombre": "Nombre",
+            "Apellido1": "Primer Apellido",
+            "Apellido2": "Segundo Apellido",
+            "email": "Correo Electrónico",
+            "password1": "Contraseña",
+            "password2": "Confirme Contraseña",
+            "fecha": "Fecha nacimiento",
+            "tarjeta": "Nº Tarjeta de Credito",
+            "caducidad": "Caducidad",
+            "cvv": "CVV",
+            "genero": {
+                "title": "Género Favorito",
+                "opcion1": "Seleccione un género",
+                "opcion2": "Americano",
+                "opcion3": "Europeo",
+                "opcion4": "Manga",
+                "opcion5": "Indie",
+                "opcion6": "Novela",
+                "opcion7": "Otros"
+            },
+            "tipo_tarjeta": {
+                "title": "Tipo de Tarjeta",
+                "tipoTarjeta0": "Selecionar Tipo de Tarjeta",
+                "tipoTarjeta1": "Credito",
+                "tipoTarjeta2": "Debito",
+                "tipoTarjeta3": "Prepago"
+            },
+            "emisor_tarjeta": {
+                "title": "Emisor de Tarjeta",
+                "emisor0": "Selecionar emisor de tarjeta",
+                "emisor1": "Visa",
+                "emisor2": "MasterCard",
+                "emisor3": "American Express",
+                "emisor4": "Discover",
+                "emisor5": "JCB",
+                "emisor6": "Diners Club",
+                "emisor7": "UnionPay",
+                "emisor8": "Maestro",
+                "emisor9": "Elo",
+                "emisor10": "Mir"
+            },
+            "registrar": "Registrarse",
+            "yaTienesCuenta": "¿Ya tienes cuenta?"
+        },
+        "formularioLogIn": {
+            "title": "Bienvenido",
+            "nombreUsuario": "Nombre Usuario",
+            "password1": "Contraseña",
+            "tieneCuenta?": "¿No tienes cuenta?",
+            "entrar": "Iniciar Sesión"
+        },
+        "menuLogin": {
+            "pedidos": "Pedidos",
+            "perfil": "Perfil",
+            "wishList": "Lista de deseos",
+            "cerrarSession": "Cerrar Sesión"
+        },
+        "producto": {
+            "annadirCesta": "Añadir al carrito",
+            "annadirWishlist": "Añadir a Wishlist",
+            "verMas": "Ver Más",
+            "ocultar": "Ocultar"
+        },
+        "historialPedidos": {
+            "titulo": "Historial de Pedidos",
+            "fecha": "Fecha",
+            "idPedido": "Número de pedido",
+            "precioTotal": "Precio Total",
+            "detallePedido": "Detalle Pedido",
+            "tituloProducto": "Titulo",
+            "autor": "Autor",
+            "precioUnitario": "Precio unidad",
+            "unidades": "Unidades",
+            "subtotal": "Subtotal",
+            "botonDetalle": "Ver Detalle"
+        }
+    },
+    "en": {
+        "title": "Kvote Comic Store",
+        "nav": {
+            "primero": "News",
+            "segundo": "Comic",
+            "tercero": "Books",
+            "cuarto": "Publisher",
+            "quinto": "About Us"
+        },
+        "buscador": "Search",
+        "main__bestSellers": {
+            "bookMonth": "Books of ",
+            "comicMonth": "Comics of ",
+            "months": [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ]
+        },
+        "Footer": {
+            "ayuda": {
+                "title": "Help",
+                "first": "Track Order",
+                "second": "Returns",
+                "third": "Payment Methods"
+            },
+            "Contacto": {
+                "title": "Contact"
+            },
+            "Redes Sociales": {
+                "title": "Social Media"
+            }
+        },
+        "nosotros": {
+            "title": "About Us",
+            "nosotros__historia": {
+                "title": "Our History",
+                "parrafo1": "It all began in a small corner of the Internet, where a group of comic book enthusiasts gathered in a forum to share opinions, reviews, and tips on stores that offered rare editions and imported comics from other countries. In that space, Kvote was born.",
+                "parrafo2": "Over time, the community grew, and with it came the idea of turning that forum into something more ambitious. Javier Fernández, the creator of Kvote, decided to take the next step: transforming the website into a specialized store that would help both comic book newcomers and true fans obtain their dream editions.",
+                "parrafo3": "Today, Kvote is much more than an online store. It is the result of the passion and collective effort of a community that lives and breathes comics. We have come a long way since that initial forum, and every review, recommendation, and discussion has helped shape the identity of a platform that connects those who want to discover or dive deeper into this universe."
+            },
+            "nosotros__mision": {
+                "title": "Our Mission",
+                "parrafo1": "At Kvote, our mission is to accompany you on your journey into the world of comics, adapting to your needs and preferences. That's why we offer an experience designed for every type of reader:",
+                "parrafo2": {
+                    "subtitulo1": "For Beginners:",
+                    "subseccion1": "We want to help you take your first steps into this fascinating universe. We offer personalized recommendations and guidance to introduce you to titles and authors suited to your interests, allowing you to discover comics in the most enjoyable and secure way.",
+                    "subtitulo2": "For Regular Readers:",
+                    "subseccion2": "We know that some enjoy comics regularly without necessarily looking for exclusive or rare editions. For you, Kvote has curated a balanced catalog that combines classics with the most popular new releases, ensuring quality, accessibility, and a service tailored to your reading habits.",
+                    "subtitulo3": "For Advanced Enthusiasts:",
+                    "subseccion3": "We recognize true connoisseurs who seek unique and hard-to-find pieces. We delve into private collections and direct imports from the origins of comics to offer you exclusive titles and rarities to enrich your collection."
+                },
+                "parrafo3": "With this commitment, Kvote believes that every reader, regardless of their experience level, deserves to enjoy the best of the comic universe. We are here to guide, accompany, and surprise you with every read!"
+            },
+            "nosotros__editorial": {
+                "title": "Our Publishing House",
+                "parrafo1": "At Kvote, we believe in the transformative power of comics and the need to support new voices. That’s why we created our own publishing house, dedicated to publishing local comics from Ciudad Real and its surroundings, as well as rediscovering lesser-known authors from the rest of Spain and even other countries.",
+                "parrafo2": "Our editorial mission is clear:",
+                "parrafo3": {
+                    "subtitulo1": "Supporting Emerging Talent:",
+                    "subseccion1": "We provide a platform for local creators and those who have gone unnoticed in the conventional circuit to publish their works and reach a broader audience.",
+                    "subtitulo2": "Quality in Every Detail:",
+                    "subseccion2": "We take care of the entire creative process, from the script to the final production, ensuring that each comic reflects the passion and effort of its authors.",
+                    "subtitulo3": "Diversity and Originality:",
+                    "subseccion3": "We foster a diverse artistic proposal that breaks conventions and brings new perspectives to the comic universe."
+                },
+                "parrafo4": "We work hand in hand with creators, offering them personalized guidance, resources, and support to transform their ideas into unique, high-quality works."
+            },
+            "nosotros__talleres": {
+                "title": "Workshops and Training",
+                "parrafo1": "At Kvote, we believe that the future of comics is built by sharing knowledge and experiences. That’s why we have launched a series of learning workshops for those interested in comic creation, whether to refine techniques or learn new methods. Our workshops cover various areas:",
+                "parrafo2": {
+                    "subtitulo1": "Scriptwriting:",
+                    "subseccion1": "Learn to structure and develop compelling stories that captivate your readers from the first panel.",
+                    "subtitulo2": "Drawing and Illustration:",
+                    "subseccion2": "Enhance your skills to bring characters and settings to life, mastering both traditional and digital drawing techniques.",
+                    "subtitulo3": "Coloring and Inking:",
+                    "subseccion3": "Discover how the use of color and inking can transform your comics, adding dynamism and depth to your work.",
+                    "subtitulo4": "Market Workshops:",
+                    "subseccion4": "Learn the keys to selling comics commercially. Experts from major publishing houses will teach you strategies to position and market your creations in the competitive comic world."
+                }
+            },
+            "colaboradores": {
+                "title": "Our Professors",
+                "subtitulo1": "Author of 'Wrinkles' and 'The House'",
+                "subtitulo2": "Author of 'Zenith' and 'Satori'",
+                "subtitulo3": "Illustrator of 'Everything Under the Sun'",
+                "subtitulo4": "Artist of 'Blacksad'"
+            }
+        },
+        "formulario": {
+            "title": "Fill out the form",
+            "nombreUsuario": "Username",
+            "Nombre": "First Name",
+            "Apellido1": "Last Name",
+            "Apellido2": "Second Last Name",
+            "email": "Email",
+            "password1": "Password",
+            "password2": "Confirm Password",
+            "fecha": "Date of Birth",
+            "tarjeta": "Credit Card Number",
+            "caducidad": "Expiration Date",
+            "cvv": "CVV",
+            "genero": {
+                "title": "Favorite Genre",
+                "opcion1": "Select a genre",
+                "opcion2": "American",
+                "opcion3": "European",
+                "opcion4": "Manga",
+                "opcion5": "Indie",
+                "opcion6": "Novel",
+                "opcion7": "Others"
+            },
+            "tipo_tarjeta": {
+                "title": "Card Type",
+                "tipoTarjeta0": "Select Card Type",
+                "tipoTarjeta1": "Credit",
+                "tipoTarjeta2": "Debit",
+                "tipoTarjeta3": "Prepaid"
+            },
+            "emisor_tarjeta": {
+                "title": "Card Network",
+                "emisor0": "Select Card Network",
+                "emisor1": "Visa",
+                "emisor2": "MasterCard",
+                "emisor3": "American Express",
+                "emisor4": "Discover",
+                "emisor5": "JCB",
+                "emisor6": "Diners Club",
+                "emisor7": "UnionPay",
+                "emisor8": "Maestro",
+                "emisor9": "Elo",
+                "emisor10": "Mir"
+            },
+            "registrar": "Register",
+            "yaTienesCuenta": "Do you have an account?"
+        },
+        "formularioLogIn": {
+            "title": "Welcome",
+            "nombreUsuario": "Username",
+            "password1": "Password",
+            "entrar": "Log In",
+            "tieneCuenta?": "Don't have an account?"
+        },
+        "menuLogin": {
+            "pedidos": "Orders",
+            "perfil": "Profile",
+            "wishList": "Wishlist",
+            "cerrarSession": "Log Out"
+        },
+        "producto": {
+            "annadirCesta": "Add to Cart",
+            "annadirWishlist": "Add to Wishlist",
+            "verMas": "See more",
+            "ocultar": "Hide"
+        },
+        "historialPedidos": {
+            "titulo": "Order History",
+            "fecha": "Date",
+            "idPedido": "Order Number",
+            "precioTotal": "Total Price",
+            "detallePedido": "Order Details",
+            "tituloProducto": "Title",
+            "autor": "Author",
+            "precioUnitario": "Unit Price",
+            "unidades": "Units",
+            "subtotal": "Subtotal",
+            "botonDetalle": "View Details"
+        }
+    },
+    "ja": {
+        "title": "Kvote コミックストア",
+        "nav": {
+            "primero": "ニュース",
+            "segundo": "コミック",
+            "tercero": "書籍",
+            "cuarto": "出版社",
+            "quinto": "私たちについて"
+        },
+        "buscador": "検索",
+        "main__bestSellers": {
+            "bookMonth": "の書籍",
+            "comicMonth": "のコミック",
+            "months": [
+                "1月",
+                "2月",
+                "3月",
+                "4月",
+                "5月",
+                "6月",
+                "7月",
+                "8月",
+                "9月",
+                "10月",
+                "11月",
+                "12月"
+            ]
+        },
+        "Footer": {
+            "ayuda": {
+                "title": "ヘルプ",
+                "first": "注文を追跡",
+                "second": "返品",
+                "third": "支払い方法"
+            },
+            "Contacto": {
+                "title": "お問い合わせ"
+            },
+            "Redes Sociales": {
+                "title": "ソーシャルメディア"
+            }
+        },
+        "nosotros": {
+            "title": "私たちについて",
+            "nosotros__historia": {
+                "title": "私たちの歴史",
+                "parrafo1": "すべては、コミック愛好家たちが集まる小さなインターネットフォーラムから始まりました。そこで、レビューや意見を交換し、希少な版や海外のコミックを扱う店舗の情報を共有していました。その空間からKvoteが誕生しました。",
+                "parrafo2": "やがてコミュニティが成長し、それに伴いフォーラムをより大きなプロジェクトへと発展させるアイデアが生まれました。創設者のハビエル・フェルナンデスは、Kvoteを単なるフォーラムから、初心者もベテランのファンも理想のコミックを手に入れられる専門店へと進化させることを決意しました。",
+                "parrafo3": "今日、Kvoteは単なるオンラインストアではありません。それは、コミックを愛する人々の情熱と努力の結晶です。初期のフォーラムから大きく成長し、すべてのレビュー、推薦、議論がこのプラットフォームの個性を形作るのに貢献しました。"
+            },
+            "nosotros__mision": {
+                "title": "私たちの使命",
+                "parrafo1": "Kvoteの使命は、あなたのコミックの旅をサポートし、あなたのニーズや好みに適応することです。そのため、あらゆる読者に合わせた体験を提供しています。",
+                "parrafo2": {
+                    "subtitulo1": "初心者向け:",
+                    "subseccion1": "この魅力的な世界への第一歩をサポートします。あなたの興味に合った作品や作家を提案し、安心してコミックを楽しめるようお手伝いします。",
+                    "subtitulo2": "一般読者向け:",
+                    "subseccion2": "定期的にコミックを楽しむ方のために、クラシック作品と最新の人気作をバランスよく取り揃えたカタログを用意しています。",
+                    "subtitulo3": "コレクター向け:",
+                    "subseccion3": "希少な作品や限定版を求める熱心なファンのために、個人コレクションや海外からの直輸入を行い、ユニークなタイトルを提供します。"
+                },
+                "parrafo3": "Kvoteは、すべての読者がコミックの世界を存分に楽しめるようサポートします。あなたの旅をガイドし、驚きと感動をお届けします！"
+            },
+            "nosotros__editorial": {
+                "title": "私たちの出版社",
+                "parrafo1": "Kvoteは、コミックの持つ変革力と新たな才能を支援する必要性を信じています。そのため、私たちは独自の出版社を設立し、シウダ・レアル周辺のローカル作家や、スペイン国内外のあまり知られていない作家の作品を発表しています。",
+                "parrafo2": "私たちの編集方針は明確です。",
+                "parrafo3": {
+                    "subtitulo1": "新しい才能を支援:",
+                    "subseccion1": "ローカルクリエイターや、従来の市場で埋もれてしまった作家が、自分の作品を発表し、広い読者層に届けるためのプラットフォームを提供します。",
+                    "subtitulo2": "品質へのこだわり:",
+                    "subseccion2": "シナリオから最終制作まで、作品の細部にこだわり、作家の情熱と努力を最大限に引き出します。",
+                    "subtitulo3": "多様性と独創性:",
+                    "subseccion3": "従来の枠を超えたアーティスティックな提案を奨励し、新たな視点をコミックの世界に提供します。"
+                },
+                "parrafo4": "私たちは作家と協力し、アイデアをユニークで高品質な作品に仕上げるためのサポートを提供します。"
+            },
+            "nosotros__talleres": {
+                "title": "ワークショップと研修",
+                "parrafo1": "Kvoteでは、コミックの未来は知識や経験を共有することで築かれると考えています。そのため、技術を磨きたい人や新たな方法を学びたい人のために、さまざまなワークショップを開催しています。",
+                "parrafo2": {
+                    "subtitulo1": "脚本:",
+                    "subseccion1": "読者を引き込む魅力的なストーリーの構築方法を学びます。",
+                    "subtitulo2": "作画とイラスト:",
+                    "subseccion2": "キャラクターや背景を生き生きと描く技術を磨き、伝統的な技法からデジタル技術まで幅広く学びます。",
+                    "subtitulo3": "彩色とインキング:",
+                    "subseccion3": "色彩とインキングの活用方法を学び、作品に深みとダイナミズムを加えます。",
+                    "subtitulo4": "マーケットワークショップ:",
+                    "subseccion4": "大手出版社の専門家から、コミックを商業的に成功させるための戦略を学びます。"
+                }
+            },
+            "colaboradores": {
+                "title": "講師陣",
+                "subtitulo1": "『シワ』『家』の著者",
+                "subtitulo2": "『ゼニス』『サトリ』の著者",
+                "subtitulo3": "『太陽の下すべて』のイラストレーター",
+                "subtitulo4": "『ブラックサッド』のアーティスト"
+            }
+        },
+        "formulario": {
+            "title": "フォームに記入してください",
+            "nombreUsuario": "ユーザー名",
+            "Nombre": "名",
+            "Apellido1": "姓",
+            "Apellido2": "第二姓",
+            "email": "メールアドレス",
+            "password1": "パスワード",
+            "password2": "パスワードを確認",
+            "fecha": "生年月日",
+            "tarjeta": "クレジットカード番号",
+            "caducidad": "有効期限",
+            "cvv": "CVV",
+            "genero": {
+                "title": "好きなジャンル",
+                "opcion1": "ジャンルを選択",
+                "opcion2": "アメリカン",
+                "opcion3": "ヨーロピアン",
+                "opcion4": "マンガ",
+                "opcion5": "インディー",
+                "opcion6": "小説",
+                "opcion7": "その他"
+            },
+            "tipo_tarjeta": {
+                "title": "カードの種類",
+                "tipoTarjeta0": "カードの種類を選択",
+                "tipoTarjeta1": "クレジット",
+                "tipoTarjeta2": "デビット",
+                "tipoTarjeta3": "プリペイド"
+            },
+            "emisor_tarjeta": {
+                "title": "カード発行会社",
+                "emisor0": "カードネットワークの選択",
+                "emisor1": "Visa",
+                "emisor2": "MasterCard",
+                "emisor3": "American Express",
+                "emisor4": "Discover",
+                "emisor5": "JCB",
+                "emisor6": "Diners Club",
+                "emisor7": "UnionPay",
+                "emisor8": "Maestro",
+                "emisor9": "Elo",
+                "emisor10": "Mir"
+            },
+            "registrar": "登録",
+            "yaTienesCuenta": "アカウントをお持ちですか？"
+        },
+        "formularioLogIn": {
+            "title": "ようこそ",
+            "nombreUsuario": "ユーザー名",
+            "password1": "パスワード",
+            "entrar": "ログイン",
+            "tieneCuenta?": "アカウントをお持ちではありませんか？"
+        },
+        "menuLogin": {
+            "pedidos": "注文履歴",
+            "perfil": "プロフィール",
+            "wishList": "ウィッシュリスト",
+            "cerrarSession": "ログアウト"
+        },
+        "producto": {
+            "annadirCesta": "カートに追加",
+            "annadirWishlist": "ウィッシュリストに追加",
+            "verMas": "もっと見る",
+            "ocultar": "変装"
+        },
+        "historialPedidos": {
+            "titulo": "注文履歴",
+            "fecha": "日付",
+            "idPedido": "注文番号",
+            "precioTotal": "合計金額",
+            "detallePedido": "注文の詳細",
+            "tituloProducto": "タイトル",
+            "autor": "著者",
+            "precioUnitario": "単価",
+            "unidades": "数量",
+            "subtotal": "小計",
+            "botonDetalle": "詳細を見る"
+        }
+    }
+}
