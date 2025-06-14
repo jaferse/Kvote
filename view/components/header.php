@@ -28,19 +28,6 @@ if (session_status() === PHP_SESSION_NONE) {
             <a href="index.php?controller=Catalogo&action=libros" class="nav__menu__button">
                 <i class="lang" data-lang="tercero"></i>
             </a>
-            <?php
-            if (
-                isset($_SESSION['logueado'])
-                && $_SESSION['logueado'] == true
-                &&  isset($_SESSION['admin'])
-                && $_SESSION['admin'] == true
-            ) {
-                echo "    <a href='index.php?controller=Artista&action=view' class='nav__menu__button'>";
-                echo "  <i class='lang' data-lang='cuarto'></i>";
-                echo "  </a>";
-            }
-
-            ?>
 
             <a href="index.php?controller=Nosotros&action=view" class="nav__menu__button">
                 <i class="lang" data-lang="quinto"></i>
@@ -48,27 +35,40 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
         <div class="nav__login">
             <div class="login">
-            <?php
-            if (
-                isset($_SESSION['logueado'])
-                && $_SESSION['logueado'] == true
-            ) {
-                echo " <a class='logeado'></a>";
-                echo " <a class='carro' href='index.php?controller=Cesta&action=view'></a>";
-            } else {
-                echo " <a href='index.php?controller=LogIn&action=view' class='login'></a>";
-                echo " <a class='carro' href='index.php?controller=LogIn&action=view'></a>";
-            }
-            ?>
-            <div class="menuLogin none">
-                <a class="lang" data-lang="pedidos" href="index.php?controller=HistorialPedidos&action=view">Pedidos</a>
-                <hr>
-                <a class="lang" data-lang="perfil" href="">Perfil</a>
-                <hr>
-                <a class="lang" data-lang="wishList" href="index.php?controller=WishList&action=view">Wishlist</a>
-                <hr>
-                <a class="lang" data-lang="cerrarSession" href="index.php?controller=LogIn&action=logOut">Cerrar Sesión</a>
-            </div>
+                <?php
+                if (
+                    isset($_SESSION['logueado'])
+                    && $_SESSION['logueado'] == true
+                ) {
+                    echo " <a class='logeado'></a>";
+                    echo " <a class='carro' href='index.php?controller=Cesta&action=view'></a>";
+                } else {
+                    echo " <a href='index.php?controller=LogIn&action=view' class='login'></a>";
+                    echo " <a class='carro' href='index.php?controller=LogIn&action=view'></a>";
+                }
+                ?>
+                <div class="menuLogin none">
+                    <a class="lang" data-lang="pedidos" href="index.php?controller=HistorialPedidos&action=view">Pedidos</a>
+                    <hr>
+                    <a class="lang" data-lang="perfil" href="">Perfil</a>
+                    <hr>
+                    <a class="lang" data-lang="wishList" href="index.php?controller=WishList&action=view">Wishlist</a>
+                    <hr>
+                    <?php
+                    if (
+                        isset($_SESSION['logueado'])
+                        && $_SESSION['logueado'] == true
+                        &&  isset($_SESSION['admin'])
+                        && $_SESSION['admin'] == true
+                    ) {
+                        echo "    <a href='index.php?controller=Artista&action=view' class='lang' data-lang='admin'>";
+                        echo "  </a>";
+                        echo "<hr>";
+                    }
+
+                    ?>
+                    <a class="lang" data-lang="cerrarSession" href="index.php?controller=LogIn&action=logOut">Cerrar Sesión</a>
+                </div>
 
             </div>
             <div class="search">
