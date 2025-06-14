@@ -69,17 +69,17 @@ function crearTarjeta(containerProductos, producto, json) {
 
     let containerProductos__producto__info__adicional__Formato = document.createElement('p');
     containerProductos__producto__info__adicional__Formato.classList.add('containerProductos__producto__info__adicional__Formato');
-    containerProductos__producto__info__adicional__Formato.classList.add('lang');
+    containerProductos__producto__info__adicional__Formato.classList.add(lang);
     containerProductos__producto__info__adicional__Formato.setAttribute('data-lang', 'formato');
     containerProductos__producto__info__adicional__Formato.innerText = " " + producto.formato;
     let containerProductos__producto__info__adicional__Tipo = document.createElement('p');
     containerProductos__producto__info__adicional__Tipo.classList.add('containerProductos__producto__info__adicional__Tipo');
-    containerProductos__producto__info__adicional__Tipo.classList.add('lang');
+    containerProductos__producto__info__adicional__Tipo.classList.add(lang);
     containerProductos__producto__info__adicional__Tipo.setAttribute('data-lang', 'tipo');
     containerProductos__producto__info__adicional__Tipo.innerText = producto.tipo;
     let containerProductos__producto__info__adicional__Paginas = document.createElement('p');
     containerProductos__producto__info__adicional__Paginas.classList.add('containerProductos__producto__info__adicional__Paginas');
-    containerProductos__producto__info__adicional__Paginas.classList.add('lang');
+    containerProductos__producto__info__adicional__Paginas.classList.add(lang);
     containerProductos__producto__info__adicional__Paginas.setAttribute('data-lang', 'nPaginas');
     containerProductos__producto__info__adicional__Paginas.innerText = producto.paginas;
     let containerProductos__producto__info__adicional__ISBN = document.createElement('p');

@@ -1,11 +1,23 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    //obtenemos el json de idioma
+    const response = await fetch('/assets/lang/es.json');
+    const data = await response.json();
+    //cargamos el json de idioma del navegador
+    const lang = localStorage.getItem('lang');
+    // console.log(data[lang]['carrito']);
+    console.log(lang);
     let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
+    console.log(data[lang]['carrito']['titulo']);
+
+    document.querySelector('.containerCesta>h1').innerHTML = `${data[lang]['carrito']['titulo']}`;
+    document.querySelector('.comprar').textContent=data[lang]['carrito']['finalizarCompra'];
+
     //Si el carrito tiene productos, los mostramos
     if (Object.keys(carrito).length > 0) {
         let precio = 0;
         // Recorremos el carrito y mostramos los productos
         for (const key in carrito) {
-            // console.log(carrito[key]);
+            console.log(carrito[key]);
 
             let divProducto = document.createElement('div');
             divProducto.classList.add('productoCarrito');
@@ -13,16 +25,26 @@ document.addEventListener('DOMContentLoaded', function () {
             divProducto.innerHTML = `
                 <img src="data:image/jpeg;base64,${carrito[key].producto.portada}" alt="${carrito[key].producto.titulo}">
                 <h3>${carrito[key].producto.nombre}</h3>
-                <p>Autor: ${carrito[key].producto.nombreArtista} ${carrito[key].producto.apellido1} ${carrito[key].producto.apellido2}</p> 
-                <p>Precio: ${carrito[key].producto.precio} €</p>
-                <label for="cantidad[${key}]" >Cantidad: </label><input id="cantidad[${key}]" type="number" value="${carrito[key].cantidad}"  min="0">  </label>
-                <a class="btnEliminar" data-isbn="${key}"></a>
+                <div class="contenido">
+                <span class="lang" data-lang="autor">${data[lang]['carrito']['autor']}</span>
+                ${carrito[key].producto.nombreArtista} ${carrito[key].producto.apellido1} ${carrito[key].producto.apellido2}
+                </div> 
+                <div class="contenido">
+                <span class="lang" data-lang="precioUnitario">${data[lang]['carrito']['precioUnitario']}</span>${carrito[key].producto.precio} €</div>
+                <div class="contenido">
+                <label for="cantidad[${key}]"  class="lang" data-lang="cantidad">${data[lang]['carrito']['cantidad']}</label><input id="cantidad[${key}]" type="number" value="${carrito[key].cantidad}"  min="0" max="${carrito[key].producto.stock}">  </label>
+                <span class="error_stock lang">Stock maximo</span>
+                </div>
+                <div class="contenido">
+                <span class="lang" data-lang="importe">${data[lang]['carrito']['importe']}</span> <span class="importeProducto">${(carrito[key].producto.precio * carrito[key].cantidad).toFixed(2)} €</span>
+                </div>
+                <a class="btnEliminar lang" data-isbn="${key}">}</a>
             `;
             document.querySelector('.productos').appendChild(divProducto);
 
             // Acumulamos el precio totalprecio
             precio += carrito[key].producto.precio * carrito[key].cantidad;
-            document.querySelector('.precioTotal').textContent = `Precio total: ${precio.toFixed(2)} €`;
+            document.querySelector('.precioTotal').innerHTML = `<span class="lang" data-lang="subtotal">${data[lang]['carrito']['subtotal']}:</span> ${precio.toFixed(2)} €`;
         }
 
     }
@@ -30,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
     else {
         document.querySelector('.containerCesta').innerHTML = `<p>No existen productos en la cesta</p>`
     }
-
 });
 
 
@@ -50,12 +71,23 @@ document.querySelector('.productos').addEventListener('change', function (e) {
                 delete carrito[isbn];
                 e.target.closest('.productoCarrito').remove();
             }
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            // console.log(localStorage.getItem("carrito"));
+            // Verificar si la cantidad es mayor que el stock
+            if (carrito[isbn].cantidad >= carrito[isbn].producto.stock) {
+                // Si la cantidad es mayor que el stock, mostrar un mensaje de error   
+                
+                e.target.value = carrito[isbn].producto.stock; // Restablecer al stock máximo
+                carrito[isbn].cantidad = carrito[isbn].producto.stock; // Actualizar la cantidad en el carrito
+                // Mostrar el mensaje de error
+                e.target.parentElement.querySelector('.error_stock').style.display = 'inline';
 
+            } else {
+                // Si la cantidad es válida, ocultar el mensaje de error
+                e.target.parentElement.querySelector('.error_stock').style.display = 'none';
+            }
+
+            localStorage.setItem("carrito", JSON.stringify(carrito));
             // Actualizar el precio total
             actualizarPrecio();
-
         }
     }
 
@@ -118,7 +150,11 @@ function actualizarPrecio() {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
     let precioTotal = 0;
     for (const key in carrito) {
+        let precioUnitario = carrito[key].producto.precio* carrito[key].cantidad;
         precioTotal += carrito[key].producto.precio * carrito[key].cantidad;
+        // Actualizar el importe del producto en el carrito
+        let productoCarrito = document.querySelector(`.productoCarrito[data-isbn="${key}"]`);
+        productoCarrito.querySelector('.importeProducto').textContent=precioUnitario.toFixed(2) + ' €';
     }
     // Mostrar el precio total actualizado
     document.querySelector('.precioTotal').textContent = `Precio total: ${precioTotal.toFixed(2)} €`;

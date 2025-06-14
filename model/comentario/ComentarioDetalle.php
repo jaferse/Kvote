@@ -1,6 +1,5 @@
 <?php
-//class Comentario
-class Comentario implements JsonSerializable
+class ComentarioDetelle implements JsonSerializable
 {
     private $id;
     private $usuario_id;
@@ -8,6 +7,9 @@ class Comentario implements JsonSerializable
     private $titulo;
     private $comentario;
     private $fecha;
+    private $autor_nombre;
+    private $autor_apellido1;
+    private $autor_apellido2;
     function __get($propiedad)
     {
         return $this->$propiedad;
@@ -25,6 +27,9 @@ class Comentario implements JsonSerializable
             'titulo' => $this->titulo,
             'comentario' => $this->comentario,
             'fecha' => $this->fecha,
+            'autor_nombre' => $this->autor_nombre,
+            'autor_apellido1' => $this->autor_apellido1,
+            'autor_apellido2' => $this->autor_apellido2
 
         ];
     }

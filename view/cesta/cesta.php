@@ -15,12 +15,13 @@
     ?>
 
     <main class="containerCesta">
+        <h1 class="lang" data-lang="titulo"></h1>
         <div class="productos"></div>
         <div class="resumen">
-            <h2>Resumen cesta</h2>
+            <h2 class="titulo lang" data-lang="resCesta">Resumen cesta</h2>
             <div class="resumen__total">
-                <p class="precioTotal"></p>
-                <a class="comprar" href="">Comprar ahora</a>
+                <p class="precioTotal"><span></span></p>
+                <a class="comprar btn lang" data-lang="finalizarCompra" href=""></a>
             </div>
         </div>
     </main>
@@ -28,7 +29,7 @@
     <?php
     require_once("view/components/footer.php");
     ?>
-    <script src="./assets/js/lang.js"></script>
+    <script type="module" src="./assets/js/lang.js"></script>
     <script src="./assets/js/cesta.js"></script>
     <script src="./assets/js/darkMode.js"></script>
     <!-- <script src="./assets/js/animacionLogo.js"></script> -->

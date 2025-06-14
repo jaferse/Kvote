@@ -21,7 +21,7 @@
     require_once("view/components/footer.php");
     ?>
 
-    <script src="./assets/js/lang.js"></script>
+    <script type="module" src="./assets/js/lang.js"></script>
     <script src="./assets/js/darkMode.js"></script>
     <!-- <script src="./assets/js/animacionLogo.js"></script> -->
     <script src="./assets/js/search.js"></script>

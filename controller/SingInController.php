@@ -95,15 +95,7 @@ class SingInController
             if ($datosTarjeta->__get("numero_tarjeta")) {
                 $codigoError .= "El numero de tarjeta ya existe <br>";
             }
-            // echo "Usename: ";
-            // var_dump($datosUsuario->__get("username"));
-            // echo "<br>";
-            // echo "email: ";
-            // var_dump($datosUsuarioEmail->__get("email"));
-            // echo "<br>";
-            // echo "Numero tarjeta: ";
-            // var_dump($datosTarjeta->__get("numero_tarjeta"));
-            // echo "<br>";
+
             echo "codigo error: ". $codigoError;
             //Redirigir al formulario de registro tras 3 segundos
             header("refresh:3;url=index.php?controller=SingIn&action=view");

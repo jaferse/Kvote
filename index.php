@@ -14,9 +14,11 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
     $action = $_GET['action'];
     if (isset($_GET['isbn'])) {
         $dato = $_GET['isbn'];
-    }else if (isset($_GET['tipo'])) {
+    } else if (isset($_GET['tipo'])) {
         $dato = $_GET['tipo'];
-    }else{
+    } else if (isset($_GET['id'])) {
+        $dato = $_GET['id'];
+    } else {
         $dato = null;
     }
     // echo "Existen controladores";

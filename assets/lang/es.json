@@ -143,7 +143,81 @@
                 "emisor10": "Mir"
             },
             "registrar": "Registrarse",
-            "yaTienesCuenta": "¿Ya tienes cuenta?"
+            "yaTienesCuenta": "¿Ya tienes cuenta?",
+            "validateSingIn": {
+                "username": {
+                    "required": "El nombre debe ser rellenado",
+                    "minLength": "Al menos debe de contener 3 caracteres",
+                    "maxLength": "No puede superar los 30 caracteres",
+                    "custom": "El nombre de usuario solo puede tener carácteres con mayúsculas, minúsculas, dígitos y estos carácteres especiales: ! \" # $ % & \\' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ { | } ~",
+                    "successMessage": "Nombre de usuario válido"
+                },
+                "password": {
+                    "required": "La contraseña debe ser rellenada",
+                    "minLength": "Al menos debe de contener 6 caracteres",
+                    "maxLength": "No puede superar los 50 caracteres",
+                    "custom": "La contraseña debe de tener una longitud minima de 6 caracteres e incluir al menos una mayuscula, minuscula numero y caracter especial . _ +",
+                    "successMessage": "Contraseña válida"
+                },
+                "password2": {
+                    "required": "Debes confirmar la contraseña",
+                    "errorMessage": "Las contraseñas deben coincidir",
+                    "successMessage": "Contraseña confirmada correctamente"
+                },
+                "nombre": {
+                    "required": "El nombre debe ser rellenado",
+                    "minLength": "Al menos debe de contener 3 caracteres",
+                    "maxLength": "No puede superar los 30 caracteres",
+                    "custom": "El nombre solo puede tener carácteres con mayúsculas, minúsculas y espacios",
+                    "successMessage": "Nombre valido"
+                },
+                "apellido1": {
+                    "required": "El primer apellido debe ser rellenado",
+                    "minLength": "Al menos debe de contener 3 caracteres",
+                    "maxLength": "No puede superar los 30 caracteres",
+                    "custom": "'El Apellido solo puede tener carácteres con mayúsculas, minúsculas y espacios",
+                    "successMessage": "Primer apellido valido"
+                },
+                "apellido2": {
+                    "minLength": "Al menos debe de contener 3 caracteres",
+                    "maxLength": "No puede superar los 30 caracteres",
+                    "custom": "'El Apellido solo puede tener carácteres con mayúsculas, minúsculas y espacios",
+                    "successMessage": "Segundo apellido valido"
+                },
+                "email": {
+                    "required": "El email debe ser rellenado",
+                    "maxLength": "No puede superar los 320 caracteres",
+                    "custom": "El correo debe de tener formato: nombre@dominio.com",
+                    "successMessage": "Email válido"
+                },
+                "birth": {
+                    "required": "La fecha de nacimiento debe ser rellenada",
+                    "menor": "Debes ser mayor de edad para poder registrarte",
+                    "successMessage": "Fecha correcta"
+                },
+                "tarjeta": {
+                    "required": "El número de tarjeta debe ser rellenado",
+                    "maxLength": "El número de tarjeta debe tener 16 dígitos",
+                    "custom": "Formato de tarjeta incorrecto",
+                    "successMessage": "Número de tarjeta válido"
+                },
+                "caducidad": {
+                    "caducidad": "Caducidad obligatoria",
+                    "custom": "Formato de caducidad incorrecto, debe ser MM/AA",
+                    "caducada": "La tarjeta ha caducado",
+                    "successMessage": "Caducidad correcta"
+                },
+                "cvv": {
+                    "required": "El CVV debe ser rellenado",
+                    "maxLength": "El CVV debe tener 3 dígitos",
+                    "minLength": "El CVV debe tener 3 dígitos",
+                    "number": "Debe ser un numero",
+                    "successMessage": "CVV válido"
+                },
+                "generoFavorito": "Elige un genero favorito",
+                "tipoTarjeta": "Elige un tipo de tarjeta",
+                "emisorTarjeta": "Elige un emisor de tarjeta"
+            }
         },
         "formularioLogIn": {
             "title": "Bienvenido",
@@ -162,7 +236,80 @@
             "annadirCesta": "Añadir al carrito",
             "annadirWishlist": "Añadir a Wishlist",
             "verMas": "Ver Más",
-            "ocultar": "Ocultar"
+            "ocultar": "Ocultar",
+            "Tipo": {
+                "Americano": "Americano",
+                "Manga": "Manga",
+                "Manhwa": "Manhwa",
+                "Europeo": "Europeo",
+                "Indi": "Indi",
+                "Webcomic": "Webcomic",
+                "Novela": "Novela",
+                "No Ficción": "No Ficción",
+                "Antologia": "Antología",
+                "Otro": "Otro"
+            },
+            "Subtipo": {
+                "Accion": "Acción",
+                "Aventura": "Aventura",
+                "Ciencia ficción": "Ciencia ficción",
+                "Comedia": "Comedia",
+                "Costumbrismo": "Costumbrismo",
+                "Crimen": "Crimen",
+                "Cyberpunk": "Cyberpunk",
+                "Deporte": "Deporte",
+                "Drama": "Drama",
+                "Escolar": "Escolar",
+                "Espacial": "Espacial",
+                "Fantasia": "Fantasía",
+                "Gore": "Gore",
+                "Historico": "Histórico",
+                "Horror": "Horror",
+                "Isekai": "Isekai",
+                "Josei": "Josei",
+                "Magia": "Magia",
+                "Mahou shoujo": "Mahou Shoujo",
+                "Mecha": "Mecha",
+                "Misterio": "Misterio",
+                "Musical": "Musical",
+                "Parodia": "Parodia",
+                "Policiaco": "Policiaco",
+                "Psicologico": "Psicológico",
+                "Romance": "Romance",
+                "Samurai": "Samurái",
+                "Seinen": "Seinen",
+                "Shoujo": "Shoujo",
+                "Shounen": "Shounen",
+                "Slice of life": "Slice of life",
+                "Sobrenatural": "Sobrenatural",
+                "Spokon": "Spokon",
+                "Steampunk": "Steampunk",
+                "Suspense": "Suspense",
+                "Terror": "Terror",
+                "Thriller": "Thriller",
+                "Viajes en el tiempo": "Viajes en el tiempo",
+                "Yaoi": "Yaoi",
+                "Yuri": "Yuri"
+            },
+            "Formato": {
+                "Grapa": "Grapa",
+                "Tomo": "Tomo",
+                "Digital": "Digital",
+                "Tapa Blanda": "Tapa Blanda",
+                "Tapa Dura": "Tapa Dura"
+            }
+        },
+        "comentarios": {
+            "titulo": "Comentarios",
+            "tituloComentario": "Título del comentario",
+            "escribeComentario": "Escribe tu comentario aquí",
+            "enviarComentario": "Enviar",
+            "eliminarComentario": "Eliminar",
+            "editarComentario": "Editar",
+            "sinComentarios": "No hay comentarios",
+            "autor": "Autor",
+            "fechaComentario": "Fecha",
+            "registrate": "Registrate y deja un comentario"
         },
         "historialPedidos": {
             "titulo": "Historial de Pedidos",
@@ -176,6 +323,21 @@
             "unidades": "Unidades",
             "subtotal": "Subtotal",
             "botonDetalle": "Ver Detalle"
+        },
+        "wishList": {
+            "titulo": "Productos de ",
+            "verProducto": "Ver Producto",
+            "sinProductos": "No existen productos en la cesta"
+        },
+        "carrito": {
+            "titulo": "Carrito de Compras",
+            "autor": "Autor",
+            "precioUnitario": "Precio",
+            "importe": "Importe",
+            "resCesta": "Resumen cesta",
+            "cantidad": "Cantidad",
+            "subtotal": "Subtotal",
+            "finalizarCompra": "Finalizar Compra"
         }
     },
     "en": {
@@ -322,7 +484,81 @@
                 "emisor10": "Mir"
             },
             "registrar": "Register",
-            "yaTienesCuenta": "Do you have an account?"
+            "yaTienesCuenta": "Do you have an account?",
+            "validateSingIn": {
+                "username": {
+                    "required": "Username is required",
+                    "minLength": "Must contain at least 3 characters",
+                    "maxLength": "Cannot exceed 30 characters",
+                    "custom": "Username may only include uppercase letters, lowercase letters, digits, and these special characters: ! \" # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ { | } ~",
+                    "successMessage": "Valid username"
+                },
+                "password": {
+                    "required": "Password is required",
+                    "minLength": "Must contain at least 6 characters",
+                    "maxLength": "Cannot exceed 50 characters",
+                    "custom": "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character . _ +",
+                    "successMessage": "Valid password"
+                },
+                "password2": {
+                    "required": "Password confirmation is required",
+                    "errorMessage": "Passwords must match",
+                    "successMessage": "Password confirmed successfully"
+                },
+                "nombre": {
+                    "required": "First name is required",
+                    "minLength": "Must contain at least 3 characters",
+                    "maxLength": "Cannot exceed 30 characters",
+                    "custom": "First name may only include uppercase letters, lowercase letters, and spaces",
+                    "successMessage": "Valid first name"
+                },
+                "apellido1": {
+                    "required": "First surname is required",
+                    "minLength": "Must contain at least 3 characters",
+                    "maxLength": "Cannot exceed 30 characters",
+                    "custom": "Surname may only include uppercase letters, lowercase letters, and spaces",
+                    "successMessage": "Valid first surname"
+                },
+                "apellido2": {
+                    "minLength": "Must contain at least 3 characters",
+                    "maxLength": "Cannot exceed 30 characters",
+                    "custom": "Surname may only include uppercase letters, lowercase letters, and spaces",
+                    "successMessage": "Valid second surname"
+                },
+                "email": {
+                    "required": "Email is required",
+                    "maxLength": "Cannot exceed 320 characters",
+                    "custom": "Email must follow format: name@domain.com",
+                    "successMessage": "Valid email"
+                },
+                "birth": {
+                    "required": "Date of birth is required",
+                    "menor": "You must be of legal age to register",
+                    "successMessage": "Valid date"
+                },
+                "tarjeta": {
+                    "required": "Card number is required",
+                    "maxLength": "Card number must be 16 digits",
+                    "custom": "Invalid card format",
+                    "successMessage": "Valid card number"
+                },
+                "caducidad": {
+                    "caducidad": "Expiration date is required",
+                    "custom": "Invalid expiration format, must be MM/YY",
+                    "caducada": "Card has expired",
+                    "successMessage": "Valid expiration date"
+                },
+                "cvv": {
+                    "required": "CVV is required",
+                    "maxLength": "CVV must be 3 digits",
+                    "minLength": "CVV must be 3 digits",
+                    "number": "Must be a number",
+                    "successMessage": "Valid CVV"
+                },
+                "generoFavorito": "Choose a favorite genre",
+                "tipoTarjeta": "Choose a card type",
+                "emisorTarjeta": "Choose a card issuer"
+            }
         },
         "formularioLogIn": {
             "title": "Welcome",
@@ -341,7 +577,80 @@
             "annadirCesta": "Add to Cart",
             "annadirWishlist": "Add to Wishlist",
             "verMas": "See more",
-            "ocultar": "Hide"
+            "ocultar": "Hide",
+            "Tipo": {
+                "Americano": "American",
+                "Manga": "Manga",
+                "Manhwa": "Manhwa",
+                "Europeo": "European",
+                "Indi": "Indie",
+                "Webcomic": "Webcomic",
+                "Novela": "Novel",
+                "No Ficción": "Non-fiction",
+                "Antologia": "Anthology",
+                "Otro": "Other"
+            },
+            "Subtipo": {
+                "Accion": "Action",
+                "Aventura": "Adventure",
+                "Ciencia ficción": "Science Fiction",
+                "Comedia": "Comedy",
+                "Costumbrismo": "Slice of customs",
+                "Crimen": "Crime",
+                "Cyberpunk": "Cyberpunk",
+                "Deporte": "Sports",
+                "Drama": "Drama",
+                "Escolar": "School",
+                "Espacial": "Space",
+                "Fantasia": "Fantasy",
+                "Gore": "Gore",
+                "Historico": "Historical",
+                "Horror": "Horror",
+                "Isekai": "Isekai",
+                "Josei": "Josei",
+                "Magia": "Magic",
+                "Mahou shoujo": "Magical Girl",
+                "Mecha": "Mecha",
+                "Misterio": "Mystery",
+                "Musical": "Musical",
+                "Parodia": "Parody",
+                "Policiaco": "Police",
+                "Psicologico": "Psychological",
+                "Romance": "Romance",
+                "Samurai": "Samurai",
+                "Seinen": "Seinen",
+                "Shoujo": "Shoujo",
+                "Shounen": "Shounen",
+                "Slice of life": "Slice of Life",
+                "Sobrenatural": "Supernatural",
+                "Spokon": "Spokon",
+                "Steampunk": "Steampunk",
+                "Suspense": "Suspense",
+                "Terror": "Terror",
+                "Thriller": "Thriller",
+                "Viajes en el tiempo": "Time Travel",
+                "Yaoi": "Yaoi",
+                "Yuri": "Yuri"
+            },
+            "Formato": {
+                "Grapa": "Stapled",
+                "Tomo": "Volume",
+                "Digital": "Digital",
+                "Tapa Blanda": "Paperback",
+                "Tapa Dura": "Hardcover"
+            }
+        },
+        "comentarios": {
+            "titulo": "Comments",
+            "tituloComentario": "Comment Title",
+            "escribeComentario": "Write your comment here",
+            "enviarComentario": "Submit",
+            "sinComentarios": "No comments",
+            "autor": "Author",
+            "fechaComentario": "Date",
+            "registrate": "Register and leave a comment",
+            "eliminarComentario": "Delete",
+            "editarComentario": "Edit"
         },
         "historialPedidos": {
             "titulo": "Order History",
@@ -355,6 +664,21 @@
             "unidades": "Units",
             "subtotal": "Subtotal",
             "botonDetalle": "View Details"
+        },
+        "wishList": {
+            "titulo": "Products by ",
+            "verProducto": "View Product ",
+            "sinProductos": "There are no products in the basket"
+        },
+        "carrito": {
+            "titulo": "Shopping Cart",
+            "autor": "Author",
+            "precioUnitario": "Price",
+            "importe": "Amount",
+            "cantidad": "Quantity",
+            "resCesta": "Summary basket",
+            "subtotal": "Subtotal",
+            "finalizarCompra": "Checkout"
         }
     },
     "ja": {
@@ -501,7 +825,81 @@
                 "emisor10": "Mir"
             },
             "registrar": "登録",
-            "yaTienesCuenta": "アカウントをお持ちですか？"
+            "yaTienesCuenta": "アカウントをお持ちですか？",
+            "validateSingIn": {
+                "username": {
+                    "required": "ユーザー名は必須です",
+                    "minLength": "最低でも3文字必要です",
+                    "maxLength": "30文字を超えることはできません",
+                    "custom": "ユーザー名には大文字、小文字、数字、そして次の記号のみ使用できます: ! \" # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ { | } ~",
+                    "successMessage": "有効なユーザー名です"
+                },
+                "password": {
+                    "required": "パスワードは必須です",
+                    "minLength": "最低でも6文字必要です",
+                    "maxLength": "50文字を超えることはできません",
+                    "custom": "パスワードは最低6文字で、大文字、小文字、数字、特殊文字（. _ +）を含む必要があります",
+                    "successMessage": "有効なパスワードです"
+                },
+                "password2": {
+                    "required": "パスワードの確認が必要です",
+                    "errorMessage": "パスワードが一致しません",
+                    "successMessage": "パスワードが正しく確認されました"
+                },
+                "nombre": {
+                    "required": "名前は必須です",
+                    "minLength": "最低でも3文字必要です",
+                    "maxLength": "30文字を超えることはできません",
+                    "custom": "名前には大文字、小文字、スペースのみ使用できます",
+                    "successMessage": "有効な名前です"
+                },
+                "apellido1": {
+                    "required": "名字は必須です",
+                    "minLength": "最低でも3文字必要です",
+                    "maxLength": "30文字を超えることはできません",
+                    "custom": "名字には大文字、小文字、スペースのみ使用できます",
+                    "successMessage": "有効な名字です"
+                },
+                "apellido2": {
+                    "minLength": "最低でも3文字必要です",
+                    "maxLength": "30文字を超えることはできません",
+                    "custom": "名字には大文字、小文字、スペースのみ使用できます",
+                    "successMessage": "有効な名字です"
+                },
+                "email": {
+                    "required": "メールアドレスは必須です",
+                    "maxLength": "320文字を超えることはできません",
+                    "custom": "メールは次の形式である必要があります: name@domain.com",
+                    "successMessage": "有効なメールアドレスです"
+                },
+                "birth": {
+                    "required": "生年月日は必須です",
+                    "menor": "登録するには成人である必要があります",
+                    "successMessage": "有効な日付です"
+                },
+                "tarjeta": {
+                    "required": "カード番号は必須です",
+                    "maxLength": "カード番号は16桁である必要があります",
+                    "custom": "カード形式が正しくありません",
+                    "successMessage": "有効なカード番号です"
+                },
+                "caducidad": {
+                    "caducidad": "有効期限は必須です",
+                    "custom": "有効期限の形式が正しくありません（MM/YY）",
+                    "caducada": "カードの有効期限が切れています",
+                    "successMessage": "有効な有効期限です"
+                },
+                "cvv": {
+                    "required": "CVVは必須です",
+                    "maxLength": "CVVは3桁である必要があります",
+                    "minLength": "CVVは3桁である必要があります",
+                    "number": "数字でなければなりません",
+                    "successMessage": "有効なCVVです"
+                },
+                "generoFavorito": "お気に入りのジャンルを選択してください",
+                "tipoTarjeta": "カードの種類を選択してください",
+                "emisorTarjeta": "カードの発行会社を選択してください"
+            }
         },
         "formularioLogIn": {
             "title": "ようこそ",
@@ -520,7 +918,80 @@
             "annadirCesta": "カートに追加",
             "annadirWishlist": "ウィッシュリストに追加",
             "verMas": "もっと見る",
-            "ocultar": "変装"
+            "ocultar": "変装",
+            "Tipo": {
+                "Americano": "アメリカン",
+                "Manga": "マンガ",
+                "Manhwa": "マンファ",
+                "Europeo": "ヨーロッパ",
+                "Indi": "インディー",
+                "Webcomic": "ウェブコミック",
+                "Novela": "小説",
+                "No Ficción": "ノンフィクション",
+                "Antologia": "アンソロジー",
+                "Otro": "その他"
+            },
+            "Subtipo": {
+                "Accion": "アクション",
+                "Aventura": "アドベンチャー",
+                "Ciencia ficción": "サイエンスフィクション",
+                "Comedia": "コメディ",
+                "Costumbrismo": "風俗描写",
+                "Crimen": "犯罪",
+                "Cyberpunk": "サイバーパンク",
+                "Deporte": "スポーツ",
+                "Drama": "ドラマ",
+                "Escolar": "学園",
+                "Espacial": "宇宙",
+                "Fantasia": "ファンタジー",
+                "Gore": "ゴア",
+                "Historico": "歴史",
+                "Horror": "ホラー",
+                "Isekai": "異世界",
+                "Josei": "女性向け",
+                "Magia": "魔法",
+                "Mahou shoujo": "魔法少女",
+                "Mecha": "メカ",
+                "Misterio": "ミステリー",
+                "Musical": "ミュージカル",
+                "Parodia": "パロディ",
+                "Policiaco": "警察",
+                "Psicologico": "心理",
+                "Romance": "ロマンス",
+                "Samurai": "侍",
+                "Seinen": "青年向け",
+                "Shoujo": "少女向け",
+                "Shounen": "少年向け",
+                "Slice of life": "日常系",
+                "Sobrenatural": "超自然",
+                "Spokon": "スポ根",
+                "Steampunk": "スチームパンク",
+                "Suspense": "サスペンス",
+                "Terror": "恐怖",
+                "Thriller": "スリラー",
+                "Viajes en el tiempo": "タイムトラベル",
+                "Yaoi": "やおい",
+                "Yuri": "百合"
+            },
+            "Formato": {
+                "Grapa": "中綴じ",
+                "Tomo": "単行本",
+                "Digital": "デジタル",
+                "Tapa Blanda": "ソフトカバー",
+                "Tapa Dura": "ハードカバー"
+            }
+        },
+        "comentarios": {
+            "titulo": "コメント",
+            "tituloComentario": "コメントのタイトル",
+            "escribeComentario": "ここにコメントを書いてください",
+            "enviarComentario": "送信",
+            "sinComentarios": "コメントはありません",
+            "autor": "投稿者",
+            "fechaComentario": "日付",
+            "registrate": "登録してコメントを残す",
+            "eliminarComentario": "削除",
+            "editarComentario": "編集"
         },
         "historialPedidos": {
             "titulo": "注文履歴",
@@ -534,6 +1005,21 @@
             "unidades": "数量",
             "subtotal": "小計",
             "botonDetalle": "詳細を見る"
+        },
+        "wishList": {
+            "titulo": "の製品 ",
+            "verProducto": "製品を見る ",
+            "sinProductos": "バスケットに商品がありません"
+        },
+        "carrito": {
+            "titulo": "ショッピングカート",
+            "precioUnitario": "価格",
+            "autor": "著者",
+            "cantidad": "製品数量",
+            "importe": "額",
+            "resCesta": "サマリーバスケット",
+            "subtotal": "小計",
+            "finalizarCompra": "購入を完了する"
         }
     }
 }

@@ -1,6 +1,7 @@
 @use './variables' as *;
 
 .nosotros {
+    max-width: 3840px;
     @include dimensiones(96vw, auto);
     font-family: $fuente_general;
     font-size: larger;
@@ -30,6 +31,7 @@
 
         @include cargarImagen('../img/hulkRed.png');
         @include dimensiones(96vw, 20rem, 6px);
+        max-width: 3840px;
     }
 
     .nosotros--desplazamientoRight {
@@ -50,7 +52,8 @@
         margin: 2rem auto;
         @include flex(row, space-between, center);
         position: relative;
-        left: -1500px;
+
+        left: -5000px;
         // visibility: hidden;
         @include dimensiones(100%, auto, 6px, 2px solid black);
 
@@ -87,7 +90,7 @@
             width: 98%;
 
             ul {
-                @include flex(row, space-between,start);
+                @include flex(row, space-between, start);
                 padding: 0;
 
                 li {
@@ -182,7 +185,7 @@
 
                     position: relative;
                     overflow: hidden;
-                    
+
                     @include flex(row, center, center);
 
                     img {
@@ -212,7 +215,7 @@
 
 @keyframes desplazarLeft {
     from {
-        left: -2500px;
+        left: -5000px;
     }
 
     to {
@@ -222,7 +225,7 @@
 
 @keyframes desplazarRight {
     from {
-        left: 2500px;
+        left: 5000px;
     }
 
     to {
@@ -245,6 +248,7 @@
     .nosotros {
         .welcome {
             @include dimensiones(100%, 15rem);
+
             h1 {
                 font-size: 8rem;
             }
@@ -344,6 +348,7 @@
 
         .welcome {
             @include dimensiones(100%, 10rem);
+
             h1 {
                 font-size: 5rem;
             }
@@ -425,6 +430,7 @@
 
         .welcome {
             @include dimensiones(100%, 6rem);
+
             h1 {
                 font-size: 3rem;
             }

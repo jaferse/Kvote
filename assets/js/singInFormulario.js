@@ -1,84 +1,94 @@
 const justValidate = new JustValidate('.registro__formulario');
 const formulario = document.querySelector('.registro__formulario');
-console.log(formulario);
+// console.log(formulario);
 
-//Recogemos todos los elementos del formulario
-for (const element of formulario.elements) {
-    //Si no es un botón de tipo submit, le añadimos el evento blur y input
-    if (element.type !== 'submit') {
-        console.log(element);
-        //Le añadimos el evento blur y input para que sea interactivo
-        element.addEventListener("blur", () => {
-            justValidate.revalidateField(`#${element.id}`);
-        });
-        element.addEventListener("input", (e) => {
-            justValidate.revalidateField(`#${element.id}`);
-        });
-    }
-}
-
-
-justValidate.addField('#userName',
-    [
-        {
-            rule: 'required',
-            errorMessage: 'El nombre debe ser rellenado'
-        },
-        {
-            rule: 'minLength',
-            value: 3,
-            errorMessage: 'Al menos debe de contener 3 caracteres'
-        },
-        {
-            rule: 'maxLength',
-            value: 30,
-            errorMessage: 'No puede superar los 30 caracteres'
-        },
-        {
-            rule: 'customRegexp',
-            value: /^[A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~]+$/,
-            errorMessage: 'El nombre de usuario solo puede tener carácteres con mayúsculas, minúsculas, dígitos y estos carácteres especiales: ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ { | } ~'
-        },
-
-    ],
-    {
-        successMessage: 'Nombre usuario valido',
-
+document.addEventListener('DOMContentLoaded', async () => {
+    const idiomaJson = await fetch('assets/lang/es.json')
+    const dataLand = await idiomaJson.json();
+    let lang= localStorage.getItem("lang");
+    // console.log(lang);
+    
+    // console.log(dataLand[lang]['formulario']['validateSingIn']['username']['required']);
+    //Recogemos todos los elementos del formulario
+    for (const element of formulario.elements) {
+        //Si no es un botón de tipo submit, le añadimos el evento blur y input
+        if (element.type !== 'submit') {
+            // console.log(element);
+            //Le añadimos el evento blur y input para que sea interactivo
+            element.addEventListener("blur", () => {
+                justValidate.revalidateField(`#${element.id}`);
+            });
+            element.addEventListener("input", (e) => {
+                justValidate.revalidateField(`#${element.id}`);
+            });
+        }
     }
 
-).addField('#password',
-    [
-        {
-            rule: 'required',
-            errorMessage: 'La contraseña debe ser rellenada'
 
-        },
-        {
-            rule: 'minLength',
-            value: 2,
-            errorMessage: 'Al menos debe de contener 6 caracteres'
-        },
-        {
-            rule: 'maxLength',
-            value: 50,
-            errorMessage: 'No puede superar los 50 caracteres'
-        },
-        {
-            rule: 'customRegexp',
-            value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[._+]).{6,}$/,
+    justValidate.addField('#userName',
+        [
+            {
+                rule: 'required',
+                errorMessage: dataLand[lang]['formulario']['validateSingIn']['username']['required']
+            },
+            {
+                rule: 'minLength',
+                value: 3,
+                errorMessage: dataLand[lang]['formulario']['validateSingIn']['username']['minLength']
+            },
+            {
+                rule: 'maxLength',
+                value: 30,
+                errorMessage: dataLand[lang]['formulario']['validateSingIn']['username']['maxLength']
+            },
+            {
+                rule: 'customRegexp',
+                value: /^[A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~]+$/,
+                errorMessage: dataLand[lang]['formulario']['validateSingIn']['username']['custom']
+            },
 
-            errorMessage: 'La contraseña debe de tener una longitud minima de 6 caracteres e incluir al menos una mayuscula, minuscula numero y caracter especial . _ +',
-        },
-    ],
-    {
-        successMessage: 'Contraseña valida',
-    }
-)
+        ],
+        {
+            successMessage: dataLand[lang]['formulario']['validateSingIn']['username']['successMessage'],
 
-formulario.addEventListener('submit', (e) => {
+        }
 
+    ).addField('#password',
+        [
+            {
+                rule: 'required',
+                errorMessage: dataLand[lang]['formulario']['validateSingIn']['password']['required']
+
+            },
+            {
+                rule: 'minLength',
+                value: 2,
+                errorMessage:  dataLand[lang]['formulario']['validateSingIn']['password']['minLength']
+            },
+            {
+                rule: 'maxLength',
+                value: 50,
+                errorMessage:  dataLand[lang]['formulario']['validateSingIn']['password']['maxLength']
+            },
+            {
+                rule: 'customRegexp',
+                value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[._+]).{6,}$/,
+
+                errorMessage:  dataLand[lang]['formulario']['validateSingIn']['password']['custom']
+            },
+        ],
+        {
+            successMessage:  dataLand[lang]['formulario']['validateSingIn']['password']['successMessage'],
+        }
+    )
+});
+formulario.addEventListener('submit', async (e) => {
+
+    const idiomaJson = await fetch('assets/lang/es.json')
+    const dataLand = await idiomaJson.json();
+    let lang= localStorage.getItem("lang");
     e.preventDefault();
-    console.log(e.target);
+    // console.log(e.target);
 
 
     justValidate.revalidate().then((isValid) => {
@@ -88,11 +98,7 @@ formulario.addEventListener('submit', (e) => {
 
             formulario.action = "index.php?controller=LogIn&action=logear";
             formulario.submit();
-            console.log("Formulario enviado correctamente.");
-            
-
-
-
+            // console.log("Formulario enviado correctamente.");
 
         } else {
             console.log("Formulario no válido, corrige los errores.");

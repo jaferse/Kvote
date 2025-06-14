@@ -5,6 +5,7 @@
     @include dimensiones(94vw, 2rem);
     justify-content: space-between;
     margin: 1rem auto;
+    max-width: 3840px;
 }
 
 .breadcrumb {

@@ -73,6 +73,7 @@ class LogInController
         ) {
             $response['logueado'] = true;
             $response['username'] = $_SESSION['username'];
+            $response['usernameId'] = $_SESSION['usernameId'];
         }
         header('Content-Type: application/json');
         echo json_encode($response);

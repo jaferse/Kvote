@@ -119,7 +119,7 @@
     <?php
     require_once("view/components/footer.php");
     ?>
-    <script src="./assets/js/animacionLogo.js"></script>
+    <!-- <script src="./assets/js/animacionLogo.js"></script> -->
 
     <!-- Se da info sobre si se pudo insertar o no  -->
     <?php
@@ -133,7 +133,7 @@
     }
     ?>
 
-    <script src="./assets/js/lang.js"></script>
+    <script type="module" src="./assets/js/lang.js"></script>
     <script src="./assets/js/darkMode.js"></script>
     <script src="./assets/js/search.js"></script>
     <script src="./assets/js/hamburguer.js"></script>

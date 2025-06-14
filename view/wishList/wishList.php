@@ -8,7 +8,7 @@
         header("Location: index.php?controller=LogIn&action=view");
         exit();
     }
-    
+
     ?>
     <title>Kvote Tienda de Comics</title>
 </head>
@@ -19,7 +19,7 @@
     require_once("view/components/subMenu.php");
     ?>
     <main class="containerProductosWishList">
-        <h1>Productos de <?php echo $_SESSION['username']; ?></h1>
+        <h1 class="lang" data-lang="titulo">Productos de <span><?php echo $_SESSION['username']; ?></span></h1>
     </main>
 
 
@@ -29,12 +29,12 @@
     ?>
 
 
-    <script src="./assets/js/lang.js"></script>
+    <script src="./assets/js/wishListCargar.js"></script>
     <script src="./assets/js/darkMode.js"></script>
     <!-- <script src="./assets/js/animacionLogo.js"></script> -->
     <script src="./assets/js/search.js"></script>
     <script src="./assets/js/hamburguer.js"></script>
-    <script src="./assets/js/wishListCargar.js"></script>
+    <script type="module" src="./assets/js/lang.js"></script>
     <!-- <script src="/js/carrusel.js"></script> -->
     <!-- <script type="module" src="./assets/js/listaProductos.js"></script>
     <script type="module" src="./assets/js/cargarProducto.js"></script> -->

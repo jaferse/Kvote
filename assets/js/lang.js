@@ -1,3 +1,4 @@
+import { convertirFormatoFecha, aplicarValidaciones } from './funcionesGenericas.js';
 document.addEventListener('DOMContentLoaded', () => {
     fetch("/assets/lang/es.json")
         .then(response => response.json())
@@ -82,11 +83,40 @@ function actualizarTexto(json, lang) {
      */
 
     if (document.querySelector('.containerPedidos')) {
-        let contenedor= document.querySelectorAll('.containerPedidos  .lang');
+        let contenedor = document.querySelectorAll('.containerPedidos  .lang');
         contenedor.forEach(element => {
             let data_lang = element.getAttribute('data-lang');
             element.textContent = json[lang]["historialPedidos"][data_lang];
-        })   
+        })
+    }
+
+    /**
+     * Cambiar idioma de whislist
+     */
+
+    if (document.querySelector('.containerProductosWishList')) {
+        // console.log( document.querySelector('.containerProductosWishList .lang').textContent);
+        let nombre = document.querySelector('.containerProductosWishList span');
+        document.querySelector('.containerProductosWishList .lang').textContent = json[lang]["wishList"]["titulo"];
+        document.querySelector('.containerProductosWishList .lang').appendChild(nombre);
+
+        document.querySelectorAll('.productosWishList .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["wishList"][data_lang];
+        });
+
+    }
+
+    /**
+     * Cambiar idioma de carrito
+     */
+    if (document.querySelector('.containerCesta')) {
+        document.querySelectorAll('.containerCesta .lang').forEach(element => {
+            // console.log(element);
+            let data_lang = element.getAttribute('data-lang');
+            // console.log(data_lang);
+            element.textContent = json[lang]["carrito"][data_lang];
+        });
     }
 
     /**
@@ -99,6 +129,40 @@ function actualizarTexto(json, lang) {
         document.querySelector('.botonWishlist').textContent = json[lang]["producto"]["annadirWishlist"];
     }
 
+    /**
+     * Cambiar idioma comentarios
+     */
+
+    if (document.querySelector('.Producto__comentarios')) {
+        document.querySelectorAll('.Producto__comentarios .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            // console.log(data_lang);
+            element.textContent = json[lang]["comentarios"][data_lang];
+            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                element.setAttribute("placeholder", json[lang]["comentarios"][data_lang]);
+            }
+        });
+    }
+
+    /**
+     * Cambiar idioma de categoria productos
+     */
+    if (document.querySelector('.Producto__info__caracteristicas')) {
+        document.querySelectorAll('.Producto__info__caracteristicas .lang').forEach(element => {
+
+            setTimeout(() => {
+                if (element.classList.contains("Producto__info__caracteristicas__publicacion")) {
+                    element.textContent = convertirFormatoFecha(element.getAttribute("data-fecha"));
+
+                } else {
+                    let data_lang = element.getAttribute('data-lang');
+                    let data_content = element.getAttribute('data-content');
+                    element.textContent = json[lang]["producto"][data_lang][data_content];
+                }
+            }, 500);
+        });
+
+    }
 
     /**
      * Cambiar idioma precio anterior
@@ -117,17 +181,15 @@ function actualizarTexto(json, lang) {
 
     document.querySelectorAll('.containerProductos__producto>.containerProductos__producto__info').forEach(element => {
         console.log(element);
-        let botonVermas=element.querySelector('.verMas')
-        console.log(botonVermas.classList.contains('active'));
-        botonVermas.textContent = (botonVermas.classList.contains('active'))? json[lang]["producto"]["ocultar"]:json[lang]["producto"]["verMas"];
-        element.querySelector('.containerProductos__producto__info__adicional__Formato').classList.add(lang);
-        element.querySelector('.containerProductos__producto__info__adicional__Tipo').classList.add(lang);
-        element.querySelector('.containerProductos__producto__info__adicional__Paginas').classList.add(lang);
+        let botonVermas = element.querySelector('.verMas')
+
+        botonVermas.textContent = (botonVermas.classList.contains('active')) ? json[lang]["producto"]["ocultar"] : json[lang]["producto"]["verMas"];
         element.querySelector('.containerProductos__producto__info__adicional__Formato').classList.remove('es', 'en', 'ja');
         element.querySelector('.containerProductos__producto__info__adicional__Tipo').classList.remove('es', 'en', 'ja');
         element.querySelector('.containerProductos__producto__info__adicional__Paginas').classList.remove('es', 'en', 'ja');
-        // element.classList.remove("es", "en", "ja");
-        // element.classList.add(lang);
+        element.querySelector('.containerProductos__producto__info__adicional__Formato').classList.add(lang);
+        element.querySelector('.containerProductos__producto__info__adicional__Tipo').classList.add(lang);
+        element.querySelector('.containerProductos__producto__info__adicional__Paginas').classList.add(lang);
     });
 
     /**
@@ -260,14 +322,7 @@ function actualizarTexto(json, lang) {
 
             //Si es el botón
             if (elemento.tagName === 'A') {
-                console.log(data_lang);
-
                 elemento.textContent = json[lang]["formularioLogIn"][data_lang];
-                console.log(json[lang]["formularioLogIn"]);
-
-                console.log(elemento);
-
-
             } else if (elemento.querySelector('input').getAttribute('type') == "submit") {
                 elemento.querySelector('input').value = json[lang]["formularioLogIn"][data_lang];
             }
@@ -277,6 +332,14 @@ function actualizarTexto(json, lang) {
                 elemento.querySelector('input').setAttribute("placeholder", json[lang]["formularioLogIn"][data_lang]);
             }
         });
+    }
+
+    /**
+     * cambiar idioma de los errores del formulario 
+     */
+
+    if (document.querySelector('.just-validate-success-label') || document.querySelector('.just-validate-error-label')) {
+        location.reload(); //Recargamos la página para que se apliquen los cambios de idioma en los errores del formulario
     }
 
 

@@ -1,5 +1,4 @@
-
-
+import { convertirFormatoFecha } from './funcionesGenericas.js';
 /**
  * Devuelve el ISBN13 de un producto desde la URL actual
  * @param {string} nombre - El nombre del par metro en la URL
@@ -57,28 +56,40 @@ function agregarProductoWishlist() {
 }
 
 // Cargar el producto al cargar la página
-window.addEventListener('DOMContentLoaded', () => {
-    let descuento=5;
+window.addEventListener('DOMContentLoaded', async () => {
+    let descuento = 5;
     // console.log(getISBN13("ISBN"));
     const ContainerProducto = document.querySelector(".ContainerProducto");
-
+    const response = await fetch('assets/lang/es.json');
+    const dataLang = await response.json();
+    let lang = localStorage.getItem("lang") || "es";
     fetch(`index.php?controller=ProductoDetalle&action=getProducto&isbn=${getISBN13("ISBN")}`)
         .then(response => response.json())
         .then(producto => {
-            // console.log(typeof producto);
+            let fecha = convertirFormatoFecha(producto.anio_publicacion);
+            // console.log(new Date(producto.anio_publicacion).getTime());
             document.querySelector('.Producto__img > img').src = `data:image/jpeg;base64,${producto.portada}`;
             document.querySelector('.Producto__info__titulo').textContent = producto.nombre;
             document.querySelector('.Producto__info__autor').textContent = `${producto.nombreArtista} ${producto.apellido1} ${producto.apellido2}`;//falta el autor
             document.querySelector('.Producto__info__sinopsis').textContent = producto.sinopsis;
-            document.querySelector('.Producto__info__caracteristicas__publicacion').textContent = producto.anio_publicacion;
+            document.querySelector('.Producto__info__caracteristicas__publicacion').textContent = fecha;
+            document.querySelector('.Producto__info__caracteristicas__publicacion').setAttribute('data-fecha', producto.anio_publicacion);
             document.querySelector('.Producto__info__caracteristicas__paginas').textContent = producto.paginas;
-            document.querySelector('.Producto__info__caracteristicas__tipo').textContent = producto.tipo;
-            document.querySelector('.Producto__info__caracteristicas__subtipo').textContent = producto.subtipo;
-            document.querySelector('.Producto__info__caracteristicas__formato').textContent = producto.formato;
+            document.querySelector('.Producto__info__caracteristicas__tipo').textContent = dataLang[lang]['producto']['Tipo'][producto.tipo];
+            document.querySelector('.Producto__info__caracteristicas__tipo').setAttribute('data-lang', 'Tipo');
+            document.querySelector('.Producto__info__caracteristicas__tipo').setAttribute('data-content', producto.tipo);
+            document.querySelector('.Producto__info__caracteristicas__subtipo').textContent = dataLang[lang]['producto']['Subtipo'][producto.subtipo];
+            document.querySelector('.Producto__info__caracteristicas__subtipo').setAttribute('data-lang', 'Subtipo');
+            document.querySelector('.Producto__info__caracteristicas__subtipo').setAttribute('data-content', producto.subtipo);
+            document.querySelector('.Producto__info__caracteristicas__formato').textContent = dataLang[lang]['producto']['Formato'][producto.formato];
+            document.querySelector('.Producto__info__caracteristicas__formato').setAttribute('data-lang', 'Formato');
+            document.querySelector('.Producto__info__caracteristicas__formato').setAttribute('data-content', producto.formato);
             document.querySelector('.Producto__info__caracteristicas__editorial').textContent = producto.editorial;
             document.querySelector('.Producto__info__precioComprar__precio__actual').textContent = (Math.ceil(producto.precio / 1.05));
             document.querySelector('.Producto__info__precioComprar__precio__anterior').textContent = producto.precio;
-            document.querySelector('.Producto__info__precioComprar__precio__descuento').textContent = descuento+'%';
+            document.querySelector('.Producto__info__precioComprar__precio__descuento').textContent = descuento + '%';
+
+            document.querySelector('.Producto__comentarios__formulario>#isbn13').value = producto.isbn_13;
         });
 
     ContainerProducto.style.visibility = 'visible';
@@ -120,7 +131,7 @@ document.addEventListener('click', (e) => {
     }
 
     // Eliminar mensaje de error si existe
-    if(document.querySelector('.mensajeError')) {
+    if (document.querySelector('.mensajeError')) {
         document.querySelector('.mensajeError').remove();
     }
 

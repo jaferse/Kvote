@@ -299,6 +299,80 @@
 
         }
     }
+
+    .Producto__comentarios {
+        margin: 3rem auto;
+        width: 90%;
+
+        h2 {
+            margin: 1rem auto;
+            text-align: center;
+        }
+
+        .Producto__comentario__info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .Producto__comentarios__formulario {
+
+            margin: 1rem auto;
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 8px;
+            padding: 0.5rem;
+
+            .Producto__comentarios__formulario__titulo {
+                display: flex;
+                flex-direction: column;
+
+                &__input {
+                    font-size: 1.5rem;
+                    margin: 0.5rem 0;
+                    padding: 0.5rem;
+                    border-radius: 8px;
+                }
+            }
+
+
+            .Producto__comentarios__formulario__texto {
+                width: 100%;
+                height: 5rem;
+                resize: none;
+                padding: 0.5rem;
+                border-radius: 8px;
+                border: 1px solid black;
+            }
+        }
+
+        .Producto__comentarios__lista {
+            .Producto__comentario {
+                margin: 1rem auto;
+                width: 100%;
+                border: 1px solid black;
+                border-radius: 8px;
+                padding: 0.5rem;
+
+                &__botones {
+                    width: 30%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    #editComment {
+                        background-color: #0077ff;
+                        margin: 1rem;
+                    }
+
+                    #deleteComment {
+                        background-color: $rojo_primario;
+                        margin: 1rem;
+                    }
+                }
+
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 1080px) {

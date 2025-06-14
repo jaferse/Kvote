@@ -16,15 +16,18 @@
 @use './componentes/wishList';
 @use './componentes/carrito';
 @use './componentes/historialPedidos';
+
 * {
     box-sizing: border-box;
 }
-html{
+
+html {
     width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -32,12 +35,33 @@ body {
     background-image: url('./../img/textura.png');
     overflow-x: hidden;
 }
-.body--Dark{
+
+.body--Dark {
     // background-image: url('../img/texturaDark.png');
     background-image: none;
     background-color: #2babc83c;
 }
+
 //Produce error al compilar
 p {
     font-family: $fuente_secundaria;
+}
+
+.btn {
+    @include button-style(#00b83d, white, 8rem, auto, 6px);
+    // margin: auto;
+    text-decoration: none;
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.btnBlue{
+    @include button-style(#007bff, white, 8rem, auto, 6px);
+    // margin: auto;
+    text-decoration: none;
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
 }

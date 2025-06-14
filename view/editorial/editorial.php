@@ -370,7 +370,7 @@
     require_once("view/components/footer.php");
     ?>
 
-    <script src="/js/lang.js"></script>
+    <script type="module" src="/js/lang.js"></script>
     <script src="/js/darkMode.js"></script>
     <script src="/js/animacionLogo.js"></script>
     <script src="/js/search.js"></script>

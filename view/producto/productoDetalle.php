@@ -24,11 +24,11 @@
                 <p class="Producto__info__sinopsis"></p>
                 <div class="Producto__info__caracteristicas">
                     <ul>
-                        <li class="Producto__info__caracteristicas__publicacion"></li>
+                        <li class="Producto__info__caracteristicas__publicacion lang"></li>
                         <li class="Producto__info__caracteristicas__paginas"></li>
-                        <li class="Producto__info__caracteristicas__tipo"></li>
-                        <li class="Producto__info__caracteristicas__subtipo"></li>
-                        <li class="Producto__info__caracteristicas__formato"></li>
+                        <li class="Producto__info__caracteristicas__tipo lang"></li>
+                        <li class="Producto__info__caracteristicas__subtipo lang"></li>
+                        <li class="Producto__info__caracteristicas__formato lang"></li>
                         <li class="Producto__info__caracteristicas__editorial"></li>
                     </ul>
                 </div>
@@ -62,20 +62,42 @@
 
             </div>
         </article>
+        <article class="Producto__comentarios">
+            <h2 class="Producto__comentarios__titulo lang" data-lang="titulo">Comentarios</h2>
+
+            <?php
+            if (isset($_SESSION['username'])) {
+                echo "<form method='post' class='Producto__comentarios__formulario'>";
+                echo "<div class='Producto__comentarios__formulario__titulo'>";
+                echo "<input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder=''></input>";
+                echo "</div>";
+                echo "<div>";
+                echo "    <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder=''></textarea>";
+                echo "</div>";
+                echo "    <button type='submit' class='Producto__comentarios__formulario__boton lang btn' id='newComment' data-lang='enviarComentario'></button>";
+                echo "<input type='hidden' name='isbn13' id='isbn13' value=''>";
+                echo "</form>";
+            } else {
+                echo '<a href="index.php?controller=LogIn&action=view" class="Producto__comentarios__formulario__boton lang" data-lang="registrate"></a>';
+            }
+            ?>
+            <div class="Producto__comentarios__lista">
+                <!-- Aquí se cargarán los comentarios -->
+            </div>
+        </article>
 
     </main>
     <?php
     require_once("view/components/footer.php");
     ?>
 
-    <script src="./assets/js/lang.js"></script>
     <script src="./assets/js/darkMode.js"></script>
     <!-- <script src="./assets/js/animacionLogo.js"></script> -->
     <script src="./assets/js/search.js"></script>
     <script src="./assets/js/hamburguer.js"></script>
-    <!-- <script src="/js/carrusel.js"></script> -->
-    <script type="module" src="./assets/js/listaProductos.js"></script>
+    <script type="module" src="./assets/js/comentarios.js"></script>
     <script type="module" src="./assets/js/cargarProducto.js"></script>
+    <script type="module" src="./assets/js/lang.js"></script>
 </body>
 
 </html>
