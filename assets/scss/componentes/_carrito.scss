@@ -69,7 +69,7 @@
             }
 
             .btnEliminar {
-
+                cursor: pointer;
                 padding: 1rem;
                 @include cargarImagen('./../img/delete.png');
             }

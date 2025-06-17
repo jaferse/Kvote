@@ -1,16 +1,27 @@
+ let carritosUsuarios = {};
+ let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
+ let carrito
 document.addEventListener('DOMContentLoaded', async function () {
     //obtenemos el json de idioma
     const response = await fetch('/assets/lang/es.json');
     const data = await response.json();
+
+    //obtenermos el login del usuario
+    const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
+    const user = await responseUser.json();
+    let usuarioLogueadoId = user.usernameId;
+    
     //cargamos el json de idioma del navegador
     const lang = localStorage.getItem('lang');
-    // console.log(data[lang]['carrito']);
-    console.log(lang);
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
-    console.log(data[lang]['carrito']['titulo']);
+    // let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
+    carritosUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
+    carrito = carritosUsuarios[usuarioLogueadoId] || {};
+    console.log(carritosUsuarios);
+    console.log(usuarioLogueadoId);
+    console.log(carrito);
 
     document.querySelector('.containerCesta>h1').innerHTML = `${data[lang]['carrito']['titulo']}`;
-    document.querySelector('.comprar').textContent=data[lang]['carrito']['finalizarCompra'];
+    document.querySelector('.comprar').textContent = data[lang]['carrito']['finalizarCompra'];
 
     //Si el carrito tiene productos, los mostramos
     if (Object.keys(carrito).length > 0) {
@@ -61,7 +72,7 @@ document.querySelector('.productos').addEventListener('change', function (e) {
     if (e.target.matches('[id^="cantidad"]')) {
         let isbn = e.target.closest('.productoCarrito').getAttribute('data-isbn');
         let cantidad = parseInt(e.target.value);
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
+        
         if (carrito[isbn]) {
             // Actualizar la cantidad del producto en el carrito
             carrito[isbn].cantidad = cantidad;
@@ -74,7 +85,7 @@ document.querySelector('.productos').addEventListener('change', function (e) {
             // Verificar si la cantidad es mayor que el stock
             if (carrito[isbn].cantidad >= carrito[isbn].producto.stock) {
                 // Si la cantidad es mayor que el stock, mostrar un mensaje de error   
-                
+
                 e.target.value = carrito[isbn].producto.stock; // Restablecer al stock máximo
                 carrito[isbn].cantidad = carrito[isbn].producto.stock; // Actualizar la cantidad en el carrito
                 // Mostrar el mensaje de error
@@ -84,8 +95,9 @@ document.querySelector('.productos').addEventListener('change', function (e) {
                 // Si la cantidad es válida, ocultar el mensaje de error
                 e.target.parentElement.querySelector('.error_stock').style.display = 'none';
             }
+            carritosUsuarios[usuarioLogueadoId] = carrito; // Actualizar el carrito del usuario logueado
 
-            localStorage.setItem("carrito", JSON.stringify(carrito));
+            localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
             // Actualizar el precio total
             actualizarPrecio();
         }
@@ -96,26 +108,31 @@ document.querySelector('.productos').addEventListener('change', function (e) {
 document.querySelector('.productos').addEventListener('click', function (e) {
     //Borrar producto de la cesta
     if (e.target.matches('.btnEliminar')) {
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
         if (carrito[e.target.getAttribute('data-isbn')]) {
             delete carrito[e.target.getAttribute('data-isbn')];
             e.target.closest('.productoCarrito').remove();
-            localStorage.setItem("carrito", JSON.stringify(carrito));
+            carritosUsuarios[usuarioLogueadoId] = carrito; // Actualizar el carrito del usuario logueado
+
+            localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
             actualizarPrecio();
-            console.log(carrito);
         }
     }
 })
 
 document.querySelector('.comprar').addEventListener('click', function (e) {
-
     e.preventDefault();
     comprar();
 });
 
 
+/**
+ * Realiza la compra de los productos en el carrito.
+ * Si no hay productos en el carrito, muestra un mensaje de alerta.
+ * Si la compra es exitosa, limpia el carrito y muestra un mensaje de confirmación.
+ * Si falla la compra, muestra un mensaje de error en la consola.
+ */
 function comprar() {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
+    carrito = JSON.parse(localStorage.getItem("carrito")) || {};
     if (Object.keys(carrito).length > 0) {
 
         // Redirigir a la página de compra
@@ -146,15 +163,19 @@ function comprar() {
 
 }
 
+
+/**
+ * Actualiza el precio total de los productos en el carrito y muestra el resultado en 
+ * la etiqueta con clase "precioTotal".
+ */
 function actualizarPrecio() {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
     let precioTotal = 0;
     for (const key in carrito) {
-        let precioUnitario = carrito[key].producto.precio* carrito[key].cantidad;
+        let precioUnitario = carrito[key].producto.precio * carrito[key].cantidad;
         precioTotal += carrito[key].producto.precio * carrito[key].cantidad;
         // Actualizar el importe del producto en el carrito
         let productoCarrito = document.querySelector(`.productoCarrito[data-isbn="${key}"]`);
-        productoCarrito.querySelector('.importeProducto').textContent=precioUnitario.toFixed(2) + ' €';
+        productoCarrito.querySelector('.importeProducto').textContent = precioUnitario.toFixed(2) + ' €';
     }
     // Mostrar el precio total actualizado
     document.querySelector('.precioTotal').textContent = `Precio total: ${precioTotal.toFixed(2)} €`;

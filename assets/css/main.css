@@ -1621,6 +1621,7 @@
 }
 .containerProductos__producto__info__adicional {
   display: none;
+  width: 100%;
 }
 .containerProductos__producto__info__adicional__Formato.es::before {
   content: "Formato:";
@@ -2497,6 +2498,7 @@
   text-decoration: none;
 }
 .containerCesta .productos .productoCarrito .btnEliminar {
+  cursor: pointer;
   padding: 1rem;
   background-image: url("./../img/delete.png");
   background-position: center;

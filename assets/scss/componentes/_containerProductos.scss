@@ -57,8 +57,8 @@
 
             .verMas {
                 @include button-style(#00b83d, white);
-            min-height: 1rem;
-            min-width: 85px;
+                min-height: 1rem;
+                min-width: 85px;
             }
 
             hr {
@@ -75,6 +75,7 @@
 
             &__adicional {
                 display: none;
+                width: 100%;
 
                 &__Formato {
                     @include localized-before((es: "Formato:",

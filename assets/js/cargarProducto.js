@@ -1,4 +1,6 @@
 import { convertirFormatoFecha } from './funcionesGenericas.js';
+
+let carritosUsuarios;
 /**
  * Devuelve el ISBN13 de un producto desde la URL actual
  * @param {string} nombre - El nombre del par metro en la URL
@@ -22,16 +24,34 @@ function getISBN13(nombre) {
  * Si el producto no está en el carrito, se agrega
  * @returns {void}
  */
-function agregarProductoCarrito() {
+async function agregarProductoCarrito() {
+
+    //obtenermos el login del usuario
+    const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
+    const user = await responseUser.json();
+    let usuarioLogueadoId = user.usernameId;
+    // console.log("Usuario logueado: " + usuarioLogueadoId);
+    // console.log(localStorage.getItem("carrito"));
+
+    //Tienes que diferenciar entre los carritos de los usuarios y el carrito del usuario logueado
+    carritosUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
+    // console.log(carritosUsuarios);
 
     fetch(`index.php?controller=ProductoDetalle&action=getProducto&isbn=${getISBN13("ISBN")}`)
         .then(response => response.json())
         .then(producto => {
+            //Inicializamos el carrito del usuario logueado
+            let carrito = {}; // Carrito del usuario logueado
 
-            // console.log(JSON.parse(localStorage.getItem("carrito")));
-
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
-
+            // Si el carrito del usuario logueado ya existe, lo usamos
+            if (carritosUsuarios[usuarioLogueadoId]) {
+                carrito = carritosUsuarios[usuarioLogueadoId];
+            }
+            // Si el carrito del usuario logueado no existe, lo creamos
+            else{
+                carritosUsuarios[usuarioLogueadoId] = {};
+                carrito = carritosUsuarios[usuarioLogueadoId];
+            }
             if (carrito[producto.isbn_13]) {
                 // Si el producto ya está en el carrito, incrementar la cantidad
                 carrito[producto.isbn_13].cantidad++;
@@ -43,10 +63,9 @@ function agregarProductoCarrito() {
                 };
             }
 
-            // Guardar el carrito actualizado en localStorage
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-
-            // console.log(JSON.parse(localStorage.getItem("carrito")));
+            carritosUsuarios[usuarioLogueadoId] = carrito; // Actualizar el carrito del usuario logueado
+            //Volcamos el contenido en el localStorage
+            localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
         })
 }
 

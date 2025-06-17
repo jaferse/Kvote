@@ -36,8 +36,6 @@
     <script src="./assets/js/hamburguer.js"></script>
     <script type="module" src="./assets/js/lang.js"></script>
     <!-- <script src="/js/carrusel.js"></script> -->
-    <!-- <script type="module" src="./assets/js/listaProductos.js"></script>
-    <script type="module" src="./assets/js/cargarProducto.js"></script> -->
 </body>
 
 </html>

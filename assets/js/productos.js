@@ -1,6 +1,3 @@
-// import { listaProductos } from "./listaProductos.js";
-// debugger;
-
 /**
  * Crea una tarjeta de un producto
  * @param {HTMLElement} containerProductos - Elemento que contiene todas las tarjetas de productos
@@ -59,7 +56,7 @@ function crearTarjeta(containerProductos, producto, json) {
     botonVermas.classList.add('verMas');
     botonVermas.classList.add('lang');
     botonVermas.setAttribute('data-lang', 'verMas');
-    console.log(json);
+    // console.log(json);
     let lang = localStorage.getItem('lang');
     botonVermas.textContent = json[lang]["producto"]["verMas"];
 
@@ -146,7 +143,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         boton.addEventListener('click', (e) => {
                             let lang = localStorage.getItem("lang");
                             //Si esta oculto se muestra y si está mostrado se oculta
-                            console.log("click en boton ver mas");
 
                             if (boton.nextElementSibling.style.display == "block") {
                                 boton.nextElementSibling.style.display = "none";
@@ -164,7 +160,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 .catch(error => console.error('Error al cargar productos:', error));
 
         });
-    // contruirGridProductos(listaProductos, containerProductos, seccion);
 
     containerProductos.addEventListener('click', (e) => {
         if (e.target.classList.contains('containerProductos__producto__img__portada')) {
