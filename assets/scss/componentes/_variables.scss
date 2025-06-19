@@ -1,67 +1,75 @@
 $blanco_letra: #FCFAEE;
+$negro_letra: #000000;
+$bancoFondo: #ffffff;
 $rojo_primario: #B8001F;
 // $rojo_primario: #000000;
 $boton_hover: hsl(350, 100%, 46%);
+$boton_hoverPaginacion: hsl(350, 100%, 46%);
 $nav_hover: hsl(350, 100%, 50%);
 $button_hover: #B81E88;
-$verde_validacion: #00b80a;
+$verde_validacion: #1fb800;
 $azulFocus: #0062D5;
 $fuente_general: "Kotta One", serif;
 $fuente_secundaria: "Montserrat", serif;
 $fuente_logo: "Aladin", serif;
 $fondo_footer: rgb(40, 39, 39);
 $shadow_nav: rgb(0, 0, 0);
-
+$verdeBotonPrimario: #008000;
+$verdeBotonSecundario: #0c500c;
+$grisLetra: #808080;
+$grisTooltip: #515151;
+$colorFooter--dark: #092337;
 $border_main: 3px solid $rojo_primario;
 $border_main--dark: 3px solid #005c94;
 
 $box_shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
 
 $fondoOscuro: #005c94;
+$fondoOscuro2: #2babc83c;
 $fondoOscuroElementos: #2babc8;
 
 @mixin cargarImagen($url, $size: cover) {
-    background-image: url($url);
-    background-position: center;
-    background-size: $size;
-    background-repeat: no-repeat;
+  background-image: url($url);
+  background-position: center;
+  background-size: $size;
+  background-repeat: no-repeat;
 }
 
 
 @mixin flex($direction, $justify, $align, $wrap: nowrap) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
-    flex-wrap: $wrap;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
 }
 
 @mixin dimensiones($width, $height, $borderRadius: 0px, $border: none) {
-    width: $width;
-    height: $height;
-    border-radius: $borderRadius;
-    border: $border;
+  width: $width !important;
+  height: $height !important;
+  border-radius: $borderRadius !important;
+  border: $border !important;
 }
 
 @mixin animacion($name, $timing-function, $duracion, $fill-mode) {
-    animation-name: $name;
-    animation-timing-function: $timing-function;
-    animation-duration: $duracion;
-    animation-fill-mode: $fill-mode;
+  animation-name: $name;
+  animation-timing-function: $timing-function;
+  animation-duration: $duracion;
+  animation-fill-mode: $fill-mode;
 
 }
 
 @mixin button-style($bg-color, $text-color, $width: auto, $height: auto, $border-radius: 5px) {
-    background-color: $bg-color;
-    color: $text-color;
-    font-weight: bold;
-    margin: 0.5rem auto 2rem;
-    @include dimensiones($width, $height, $border-radius, 2px solid gray);
-    cursor: pointer;
+  background-color: $bg-color !important;
+  color: $text-color !important;
+  font-weight: bold !important;
+  margin: 0.5rem auto 2rem !important;
+  @include dimensiones($width, $height, $border-radius, 2px solid gray);
+  cursor: pointer !important;
 
-    &:hover {
-        transform: scale(1.1);
-    }
+  &:hover {
+    transform: scale(1.1) !important;
+  }
 }
 
 // Localized before le añades un map y te genera un before para cada idioma

@@ -18,9 +18,7 @@
         }
 
         td {
-            border: 2px solid black;
-            // border-width: 0 0 2px 0;
-            // background-color: #00b83d;
+            border: 2px solid $negro_letra;
             text-align: center;
             input {
                 width: 100%;
@@ -28,8 +26,8 @@
                 padding: 0.5rem;
                 border-radius: 5px;
                 border: none;
-                background-color: white;
-                color: black;
+                background-color: $bancoFondo;
+                color: $negro_letra;
                 font-size: 1.2rem;
             }
             .fileInput{
@@ -37,7 +35,7 @@
             }
             .fileInputLabel{
                 // background-color: $rojo_primario;
-               @include button-style($rojo_primario, white, $width: 100%, $height: 100%, $border-radius: 5px);
+               @include button-style($rojo_primario, $bancoFondo, $width: 100%, $height: 100%, $border-radius: 5px);
             }
         }
 
@@ -72,7 +70,7 @@
     }
 
     .btn {
-        @include button-style(#00b83d, white, 6.5rem, 1.5rem, 6px);
+        @include button-style($verdeBotonPrimario, white, 6.5rem, 1.5rem, 6px);
         margin: 0;
     }
 }

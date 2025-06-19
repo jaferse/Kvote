@@ -19,7 +19,7 @@ function getISBN13(nombre) {
 document.addEventListener('click', async function (event) {
     const responseLang = await fetch('assets/lang/es.json');
     const dataLang = await responseLang.json();
-    let lang = localStorage.getItem("lang");
+    let lang = localStorage.getItem("lang");    
     //Comprobamos que se encuentre dentro de un formulario
     if (event.target.parentElement.tagName === "FORM") {
         event.preventDefault();
@@ -27,7 +27,7 @@ document.addEventListener('click', async function (event) {
         //Si el elemento que se ha pulsado es el botón de nuevo comentario
         if (event.target.getAttribute("id") === "newComment") {
             form.action = "index.php?controller=Comentarios&action=nuevoComentario";
-            form.submit();
+            // form.submit();
         }
     }
     if (event.target.getAttribute("id") === "editComment") {
@@ -35,7 +35,7 @@ document.addEventListener('click', async function (event) {
         let comentario = event.target.parentElement.parentElement;
         let idComentario = comentario.getAttribute("data-id");
         let titulo = comentario.querySelector("h3").textContent;
-        
+
         let texto = comentario.querySelector(".texto").textContent;
         let form = document.createElement("form");
         form.classList.add("Producto__comentarios__formulario");
@@ -46,10 +46,10 @@ document.addEventListener('click', async function (event) {
             <input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder='' value="${titulo}"></input>
         </div>
         <div>
-            <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder=''>${texto}</textarea>
+            <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder='${texto}'></textarea>
         </div>
         <button type='submit' class='Producto__comentarios__formulario__boton lang btnBlue' id='editComment' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
-        <input type='hidden' name='isbn13' id='isbn13' value='${ getISBN13()}'>
+        <input type='hidden' name='isbn13' id='isbn13' value='${getISBN13()}'>
         <input type='hidden' name='idComentario' id='idComentario' value='${idComentario}'>
         `;
         comentario.innerHTML = "";
@@ -70,7 +70,9 @@ document.addEventListener('click', async function (event) {
                 console.error("Error en la solicitud:", error);
             });
     }
-
+    if (event.target.tagName === "TEXTAREA") {
+        event.target.textContent = '';
+    }
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -95,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // console.log(comentario);
         let fecha = convertirFormatoFecha(comentario.fecha); //new Date(comentario.fecha);
         console.log(fecha);
-        
+
         comentariosContainer.innerHTML += `
         <div class="Producto__comentario" data-id="${comentario.id}">
             <h3>${comentario.titulo}</h3>
@@ -107,19 +109,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             
         </div>
         `
-        // console.log(index);
 
         if (usuarioLogueadoId == comentario.usuario_id) {
             let divBotones = document.createElement("div");
             divBotones.classList.add("Producto__comentario__botones");
             let botonEditar = document.createElement("button");
             botonEditar.setAttribute("type", "submit");
-            botonEditar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn");
+            botonEditar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnVerdePrimario");
             botonEditar.setAttribute("id", "editComment");
             botonEditar.setAttribute("data-lang", "editarComentario");
             let botonBorrar = document.createElement("button");
             botonBorrar.setAttribute("type", "submit");
-            botonBorrar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn");
+            botonBorrar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnRojo");
             botonBorrar.setAttribute("id", "deleteComment");
             botonBorrar.setAttribute("data-lang", "eliminarComentario");
             divBotones.appendChild(botonEditar);

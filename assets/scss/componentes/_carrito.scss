@@ -20,7 +20,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            background-color: white;
+            background-color: $bancoFondo;
             background-image: red;
 
             img {
@@ -59,15 +59,6 @@
                 }
             }
 
-            .Producto__info__boton {
-                border: green;
-                background-color: green;
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 10px;
-                text-decoration: none;
-            }
-
             .btnEliminar {
                 cursor: pointer;
                 padding: 1rem;
@@ -76,17 +67,5 @@
 
         }
     }
-
-    // .resumen {
-    //     width: 40%;
-    //     margin: 2rem 0.5rem;
-    //     border: 2px solid #ccc;
-    //     border-radius: 10px;
-    //     position: static;
-    //     padding: 1rem;
-    //     h2{
-    //         text-align: center;
-    //     }
-    // }
 
 }

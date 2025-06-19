@@ -40,7 +40,7 @@
                         <span class="Producto__info__precioComprar__precio__anterior"></span>
                     </div>
                     <div class="tooltip Producto__info__precioComprar__tooltip">
-                        <button class="Producto__info__precioComprar__boton botonCesta">Añadir a la cesta</button>
+                        <button class="Producto__info__precioComprar__boton botonCesta btnVerdePrimario">Añadir a la cesta</button>
                         <?php
                         // if (isset($_SESSION['mensajeError'])) {
                         //     echo "<span class='mensajeError'>" . $_SESSION['mensajeError'] . "</span>";
@@ -49,7 +49,7 @@
 
                     </div>
                     <div class="tooltip Producto__info__precioWishlist__tooltip">
-                        <button class="Producto__info__precioComprar__boton botonWishlist">Añadir a wishlist</button>
+                        <button class="Producto__info__precioComprar__boton botonWishlist btnVerdeSecundario">Añadir a wishlist</button>
                         <?php
                         if (isset($_SESSION['mensajeErrorWishlist'])) {
                             echo "<span class='mensajeError'>" . $_SESSION['mensajeErrorWishlist'] . "</span>";
@@ -74,7 +74,7 @@
                 echo "<div>";
                 echo "    <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder=''></textarea>";
                 echo "</div>";
-                echo "    <button type='submit' class='Producto__comentarios__formulario__boton lang btn' id='newComment' data-lang='enviarComentario'></button>";
+                echo "    <button type='submit' class='Producto__comentarios__formulario__boton lang btnVerdePrimario' id='newComment' data-lang='enviarComentario'></button>";
                 echo "<input type='hidden' name='isbn13' id='isbn13' value=''>";
                 echo "</form>";
             } else {

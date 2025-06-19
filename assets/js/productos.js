@@ -53,8 +53,8 @@ function crearTarjeta(containerProductos, producto, json) {
 
     //creamos boton
     let botonVermas = document.createElement('button');
-    botonVermas.classList.add('verMas');
-    botonVermas.classList.add('lang');
+    botonVermas.classList.add('verMas', 'lang', 'btnVerdePrimario');
+    // botonVermas.classList.add();
     botonVermas.setAttribute('data-lang', 'verMas');
     // console.log(json);
     let lang = localStorage.getItem('lang');
@@ -116,58 +116,115 @@ function contruirGridProductos(listaProductos, containerProductos, tipo, json) {
     });
 
 }
-window.addEventListener('DOMContentLoaded', () => {
+
+async function sacarProductos(seccion, page = 1) {
+    //Ponemos en el titulo la seccion en mayuscula la primera letra
+    let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
+    const responseProductos = await fetch(`index.php?controller=Catalogo&action=get${seccionMayuscula}&page=${page}`);
+    const productos = await responseProductos.json();
+    return productos;
+}
+
+/**
+ * Crea una lista de paginacion para una seccion con un numero determinado de productos
+ * 
+ * @param {number} totalProductos - Numero total de productos
+ * @param {string} seccion - Seccion a la que se va a renderizar la paginacion
+ */
+function construirPaginacion(productosRespuesta, seccion, paginaActual) {
+    let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
+    let listaPaginacion = document.createElement('div');
+    listaPaginacion.classList.add('paginacion');
+    console.log(productosRespuesta);
+    
+    let paginas = Math.ceil(productosRespuesta['total'] / productosRespuesta['productoPaginas']);
+    for (let i = 1; i <= paginas; i++) {
+        let a = document.createElement('a');
+        a.textContent = i;
+        console.log(paginaActual);
+        if (i==paginaActual) {
+            a.classList.add('active');
+        }
+        a.classList.add('numeroPaginacion');
+        a.setAttribute('data-page', i);
+        a.setAttribute('href', `index.php?controller=Catalogo&action=${seccionMayuscula}&page=${i}`);
+        listaPaginacion.appendChild(a);
+    }
+    document.querySelector('.container').appendChild(listaPaginacion);
+}
+window.addEventListener('DOMContentLoaded', async () => {
+    let container = document.querySelector('.container');
     const containerProductos = document.querySelector('.containerProductos');
     let parametros = new URLSearchParams(window.location.search);
-    // console.log("Seccion",parametros.get("action"));
     let seccion = parametros.get("action");
-    console.log();
-    fetch("/assets/lang/es.json")
-        .then(response => response.json())
-        .then(json => {
-            //Ponemos en el titulo la seccion en mayuscula la primera letra
-            let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
-            fetch(`index.php?controller=Catalogo&action=get${seccionMayuscula}`)
-                .then(response => response.json())
-                .then(productos => {
-                    // console.log(productos);
+    let paginaActual=sessionStorage.getItem("paginaActual") || 1;
+    console.log(paginaActual);
+    
+    // Nos traemos el json de los textos de traducción
+    const responseLang = await fetch("/assets/lang/es.json");
+    const json = await responseLang.json();
 
-                    contruirGridProductos(productos, containerProductos, seccion, json);
+    let productosRespuesta = await sacarProductos(seccion, paginaActual);
+    let productos = productosRespuesta['productos'];
+    let totalProductos = productosRespuesta['total'];
+    console.log("Productos", productosRespuesta);
+    console.log("Productos", productos);
+    console.log("Productos", totalProductos);
 
-                    const verMas = document.querySelectorAll('.verMas');
 
 
-                    //Controlar el mostrar info
-                    verMas.forEach(boton => {
+    contruirGridProductos(productos, containerProductos, seccion, json);
 
-                        boton.addEventListener('click', (e) => {
-                            let lang = localStorage.getItem("lang");
-                            //Si esta oculto se muestra y si está mostrado se oculta
+    const verMas = document.querySelectorAll('.verMas');
 
-                            if (boton.nextElementSibling.style.display == "block") {
-                                boton.nextElementSibling.style.display = "none";
-                            } else {
-                                e.target.parentNode.parentNode.style.height = "auto";
-                                boton.nextElementSibling.style.display = "block";
-                            }
-                            boton.classList.toggle('active');
+    construirPaginacion(productosRespuesta, seccion, paginaActual);
 
-                            boton.textContent = (boton.classList.contains('active')) ? json[lang]["producto"]["ocultar"] : json[lang]["producto"]["verMas"];
+    //Controlar el mostrar info
+    verMas.forEach(boton => {
 
-                        });
-                    });
-                })
-                .catch(error => console.error('Error al cargar productos:', error));
+        boton.addEventListener('click', (e) => {
+            let lang = localStorage.getItem("lang");
+            //Si esta oculto se muestra y si está mostrado se oculta
+
+            if (boton.nextElementSibling.style.display == "block") {
+                boton.nextElementSibling.style.display = "none";
+            } else {
+                e.target.parentNode.parentNode.style.height = "auto";
+                boton.nextElementSibling.style.display = "block";
+            }
+            boton.classList.toggle('active');
+
+            boton.textContent = (boton.classList.contains('active')) ? json[lang]["producto"]["ocultar"] : json[lang]["producto"]["verMas"];
 
         });
+    });
 
+    //Redirigir al detalle del producto al hacer click en la imagen
     containerProductos.addEventListener('click', (e) => {
         if (e.target.classList.contains('containerProductos__producto__img__portada')) {
-            console.log(e.target.id);
-            // document.cookie = `ISBN=${e.target.isbn_13};`;
-            console.log("index.php?controller=Producto&action=view&isbn=" + e.target.id);
-
             window.location.href = "index.php?controller=ProductoDetalle&action=view&isbn=" + e.target.id;
+        }
+    });
+
+    container.addEventListener('click', async (e) => {
+
+        if (e.target.classList.contains('numeroPaginacion')) {
+            // console.log(e.target);
+            e.preventDefault();
+            sessionStorage.setItem("paginaActual", e.target.getAttribute('data-page'));
+            e.target.parentNode.querySelectorAll('.active').forEach(element => {
+                element.classList.remove('active');
+            })
+            e.target.classList.add('active');
+            let productosRespuesta = await sacarProductos(seccion, e.target.getAttribute('data-page'));
+            let productos = productosRespuesta['productos'];
+            let totalProductos = productosRespuesta['total'];
+            containerProductos.innerHTML = '';
+            console.log("Productos", productos);
+            
+            contruirGridProductos(productos, containerProductos, seccion, json);
+            // let page = e.target.getAttribute('data-page');
+            // window.location.href = `index.php?controller=Catalogo&action=${seccion}&page=${page}`;
         }
     });
 

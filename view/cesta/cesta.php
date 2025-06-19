@@ -21,7 +21,7 @@
             <h2 class="titulo lang" data-lang="resCesta">Resumen cesta</h2>
             <div class="resumen__total">
                 <p class="precioTotal"><span></span></p>
-                <a class="comprar btn lang" data-lang="finalizarCompra" href=""></a>
+                <a class="comprar btnVerdePrimario lang" data-lang="finalizarCompra" href=""></a>
             </div>
         </div>
     </main>

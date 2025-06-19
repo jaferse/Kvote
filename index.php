@@ -18,6 +18,8 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
         $dato = $_GET['tipo'];
     } else if (isset($_GET['id'])) {
         $dato = $_GET['id'];
+    } else if(isset($_GET['page'])){
+        $dato = $_GET['page'];
     } else {
         $dato = null;
     }

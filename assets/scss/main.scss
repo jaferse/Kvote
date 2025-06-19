@@ -39,7 +39,7 @@ body {
 .body--Dark {
     // background-image: url('../img/texturaDark.png');
     background-image: none;
-    background-color: #2babc83c;
+    background-color: $fondoOscuro2;
 }
 
 //Produce error al compilar
@@ -56,8 +56,26 @@ p {
     text-align: center;
     vertical-align: middle;
 }
-.btnBlue{
-    @include button-style(#007bff, white, 8rem, auto, 6px);
+.btnVerdePrimario{
+    @include button-style($verdeBotonPrimario, white, 8rem, auto, 6px);
+    // margin: auto;
+    text-decoration: none;
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.btnVerdeSecundario{
+    @include button-style($verdeBotonSecundario, white, 8rem, auto, 6px);
+    // margin: auto;
+    text-decoration: none;
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.btnRojo{
+    @include button-style($rojo_primario, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
     min-height: 30px;

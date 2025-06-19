@@ -24,13 +24,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        // background-color: red;
 
         &__img {
             background-image: url('./../img/spinner.jpg');
             background-position: center;
             background-size: contain;
-            // background-color: red;
             width: 80%;
             height: 80%;
             border-radius: 100%;

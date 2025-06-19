@@ -4,6 +4,7 @@ require_once("./core/DBClass.php");
 require_once("ProductoClass.php");
 class Daoproducto extends DB
 {
+    private $productosPagina = 3; //Número de productos por página
     public $productos = array();
     /**
      * Constructor de la clase. Llama al constructor de la clase DB.
@@ -12,6 +13,7 @@ class Daoproducto extends DB
     function __construct($base)
     {
         parent::__construct($base); //Llama al constructor de la clase DB
+
     }
     public function listar()
     {
@@ -46,7 +48,7 @@ class Daoproducto extends DB
                         OR tipo="Europeo"
                         OR tipo="Indie"
                         OR tipo="Webcomic"
-                        ';
+                        LIMIT  ' . ($_GET['page'] - 1) * $this->productosPagina . ',' . $this->productosPagina;
         $this->consultaDatos($consulta);
         foreach ($this->filas as $fila) {
             $prod = new Producto(); //creamos un objeto de la entidad situacion
@@ -75,7 +77,7 @@ class Daoproducto extends DB
                         OR tipo="No Ficción"
                         OR tipo="Antología"
                         OR tipo="Otro"
-                        ';
+                        LIMIT  ' . ($_GET['page'] - 1) * $this->productosPagina . ',' . $this->productosPagina;
         $this->consultaDatos($consulta);
         foreach ($this->filas as $fila) {
             $prod = new Producto(); //creamos un objeto de la entidad situacion
@@ -100,7 +102,8 @@ class Daoproducto extends DB
     //Meter dato nuevo
     public function listarNovedades()
     {
-        $consulta = 'SELECT * FROM producto ORDER BY anio_publicacion DESC';
+        $_GET['page']; //Forzamos a que la paginación empiece desde la primera página
+        $consulta = 'SELECT * FROM producto ORDER BY anio_publicacion DESC LIMIT  ' . ($_GET['page'] - 1) * $this->productosPagina . ',' . $this->productosPagina;
         $this->consultaDatos($consulta);
         foreach ($this->filas as $fila) {
             $prod = new Producto(); //creamos un objeto de la entidad situacion
@@ -248,7 +251,7 @@ class Daoproducto extends DB
         if ($type == "comic") {
             // echo "comic". $type;
             $consulta .= "IN ('Americano', 'Manga', 'Manhwa', 'Europeo', 'Indi', 'Webcomic') ";
-        }else{
+        } else {
             // echo "libro". $type;
             $consulta .= "IN ('Novela', 'No Ficción', 'Antología', 'Otro') ";
         }
@@ -275,5 +278,19 @@ class Daoproducto extends DB
             $prod->__set("ventas", $fila['ventas']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $this->productos[] = $prod; //Guardamos ese objeto en el array de objetos prod
         }
+    }
+    public function numeroProductos($tipo='')
+    {
+        $consulta = "SELECT COUNT(*) as total FROM producto WHERE 1 ";
+        if ($tipo == 'comic') {
+            $consulta .= "AND tipo IN ('Americano', 'Manga', 'Manhwa', 'Europeo', 'Indie', 'Webcomic') ";
+        } else if ($tipo == 'libro') {
+            $consulta .= "AND tipo IN ('Novela', 'No Ficción', 'Antología', 'Otro') ";
+        }
+        $this->consultaDatos($consulta);
+        return $this->filas[0]['total'];
+    }
+    public function getProductoPaginas(){
+        return $this->productosPagina;
     }
 }

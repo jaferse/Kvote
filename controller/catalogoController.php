@@ -22,7 +22,9 @@ class CatalogoController
     {
         $this->tablaProductos->listarComic();
         $productos = $this->tablaProductos->productos;
-        $productoArtista = productoArtista($productos);
+        $productoArtista['productos'] = productoArtista($productos);
+        $productoArtista['total'] = $this->tablaProductos->numeroProductos('comic');
+        $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }
@@ -30,7 +32,9 @@ class CatalogoController
     {
         $this->tablaProductos->listarLibros();
         $productos = $this->tablaProductos->productos;
-        $productoArtista = productoArtista($productos);
+        $productoArtista['productos'] = productoArtista($productos);
+        $productoArtista['total'] = $this->tablaProductos->numeroProductos('libro');
+        $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }
@@ -38,7 +42,9 @@ class CatalogoController
     {
         $this->tablaProductos->listarNovedades();
         $productos = $this->tablaProductos->productos;
-        $productoArtista = productoArtista($productos);
+        $productoArtista['productos'] = productoArtista($productos);
+        $productoArtista['total'] = $this->tablaProductos->numeroProductos();
+        $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }

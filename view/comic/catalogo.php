@@ -14,7 +14,8 @@
     require_once("view/components/header.php");
     require_once("view/components/subMenu.php");
     ?>
-    <main class="containerProductos">
+    <main class="container">
+        <div class="containerProductos"></div>
     </main>
     <!-- Footer -->
     <?php

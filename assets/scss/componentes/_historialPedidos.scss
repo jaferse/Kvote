@@ -28,26 +28,15 @@
         }
 
         .detallePedido {
-
-            border: green;
-            background-color: green;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bolder;
-            max-width: 140px;
-            margin: auto auto;
-            cursor: pointer;
-
+            margin: auto auto !important;
         }
 
     }
 
     .titulo {
         p {
-            background-color: #B8001F;
-            color: white;
+            background-color: $rojo_primario;
+            color: $blanco_letra;
             font-weight: bolder;
 
         }

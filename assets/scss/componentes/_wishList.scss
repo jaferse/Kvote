@@ -3,7 +3,7 @@
     width: 90vw;
     margin: 1rem auto;
 
-    .productosWishList{
+    .producto{
         border: 2px solid #ccc;
         border-radius: 10px;
         padding: 1rem;
@@ -12,7 +12,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background-color: white;
+        background-color: $bancoFondo;
         img{
             width:8rem;
             height: auto;
@@ -27,12 +27,7 @@
         }
 
         .Producto__info__boton{
-            border: green;
-            background-color: green;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            text-decoration: none;
+          margin: 1rem !important;
         }
 
         .Producto__borrar__boton{
