@@ -34,6 +34,13 @@ body {
     width: 100%;
     background-image: url('./../img/textura.png');
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 .body--Dark {
@@ -56,7 +63,8 @@ p {
     text-align: center;
     vertical-align: middle;
 }
-.btnVerdePrimario{
+
+.btnVerdePrimario {
     @include button-style($verdeBotonPrimario, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
@@ -65,7 +73,8 @@ p {
     text-align: center;
     vertical-align: middle;
 }
-.btnVerdeSecundario{
+
+.btnVerdeSecundario {
     @include button-style($verdeBotonSecundario, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
@@ -74,7 +83,8 @@ p {
     text-align: center;
     vertical-align: middle;
 }
-.btnRojo{
+
+.btnRojo {
     @include button-style($rojo_primario, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
@@ -82,4 +92,31 @@ p {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+}
+
+.enlaceBoton {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // gap: 1rem;
+    margin: 0.5rem auto;
+    border: 1px solid $negroBorde;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: $rojo_primario;
+    cursor: pointer;
+
+    a {
+        color: $blanco_letra;
+        text-decoration: none;
+        font-size: medium;
+        font-weight: bolder;
+        cursor: inherit;
+    }
+
+    &:hover {
+        background-color: $rojo_primario--hover;
+        transform: scale(1.01);
+    }
 }

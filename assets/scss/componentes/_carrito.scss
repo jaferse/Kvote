@@ -20,7 +20,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            background-color: $bancoFondo;
+            background-color: $blancoFondo;
             background-image: red;
 
             img {
@@ -66,6 +66,29 @@
             }
 
         }
+    }
+
+    .cestaVacia{
+        display: flex;
+        text-align: center;
+        width: 70%;
+        margin: auto;
+        border: 1px solid $negroBorde;
+        border-radius: 8px;
+        background-color: $blancoFondo;
+        justify-content: space-evenly;
+        align-items: center;
+        img{
+            width: 15rem;
+            height: auto;
+        }
+        p{
+            font-family: $fuente_general;
+            font-size: 2rem;
+            vertical-align: middle;
+
+        }
+
     }
 
 }

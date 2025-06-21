@@ -1515,10 +1515,13 @@
 @media screen and (max-width: 500px) {
   .subnavegador {
     flex-direction: column;
-    height: auto;
+    min-height: 10rem;
+    justify-content: center;
+    align-items: center;
   }
   .subnavegador .breadcrumb {
     margin: 0.5rem 0;
+    height: 2rem;
   }
   .subnavegador .breadcrumb a {
     display: inline-block;
@@ -1526,6 +1529,12 @@
   }
   .subnavegador .breadcrumb img {
     height: 1.5rem;
+    width: 1.5rem;
+  }
+  .subnavegador .translate {
+    display: flex;
+    justify-content: space-between;
+    min-width: 176px;
   }
   .subnavegador .translate li {
     height: 1.5rem;
@@ -1729,7 +1738,7 @@
 }
 .ContainerProducto .Producto__img img {
   width: 100% !important;
-  height: 100% !important;
+  height: auto !important;
   border-radius: 0px !important;
   border: none !important;
 }
@@ -2017,10 +2026,10 @@
   font-size: 1.2rem;
   text-align: center;
   position: absolute;
-  top: 3rem;
+  top: 3.8rem;
   display: block;
   background-color: #515151;
-  color: #808080;
+  color: #FCFAEE;
   bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
@@ -2081,6 +2090,30 @@
 }
 .ContainerProducto .Producto__comentarios .Producto__comentarios__lista .Producto__comentario__botones button {
   margin: 1rem;
+}
+.ContainerProducto .Producto__comentarios__nologueado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem auto;
+  width: 100%;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: #B8001F;
+  cursor: pointer;
+}
+.ContainerProducto .Producto__comentarios__nologueado a {
+  color: #FCFAEE;
+  text-decoration: none;
+  font-size: large;
+  font-weight: bolder;
+  cursor: inherit;
+}
+.ContainerProducto .Producto__comentarios__nologueado:hover {
+  background-color: #9c001a;
+  transform: scale(1.01);
 }
 
 @media screen and (max-width: 1080px) {
@@ -2428,6 +2461,27 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+.containerProductosWishList .cestaVacia {
+  display: flex;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background-color: #ffffff;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 20rem;
+}
+.containerProductosWishList .cestaVacia img {
+  width: auto;
+  height: 15rem;
+}
+.containerProductosWishList .cestaVacia p {
+  font-family: "Kotta One", serif;
+  font-size: 2rem;
+  vertical-align: middle;
+}
 
 .containerCesta {
   width: 90vw;
@@ -2490,6 +2544,26 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.containerCesta .cestaVacia {
+  display: flex;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background-color: #ffffff;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.containerCesta .cestaVacia img {
+  width: 15rem;
+  height: auto;
+}
+.containerCesta .cestaVacia p {
+  font-family: "Kotta One", serif;
+  font-size: 2rem;
+  vertical-align: middle;
 }
 
 .containerPedidos {
@@ -2570,6 +2644,13 @@ body {
   width: 100%;
   background-image: url("./../img/textura.png");
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 .body--Dark {
@@ -2659,4 +2740,27 @@ p {
 }
 .btnRojo:hover {
   transform: scale(1.1) !important;
+}
+
+.enlaceBoton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem auto;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: #B8001F;
+  cursor: pointer;
+}
+.enlaceBoton a {
+  color: #FCFAEE;
+  text-decoration: none;
+  font-size: medium;
+  font-weight: bolder;
+  cursor: inherit;
+}
+.enlaceBoton:hover {
+  background-color: #9c001a;
+  transform: scale(1.01);
 }/*# sourceMappingURL=main.css.map */

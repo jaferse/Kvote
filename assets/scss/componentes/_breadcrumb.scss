@@ -13,7 +13,7 @@
     a {
         text-decoration: none;
         @include dimensiones(2rem, 100%);
-        
+
         img {
             @include dimensiones(auto, 100%);
             aspect-ratio: 1/1;
@@ -32,6 +32,7 @@
     &__button {
         display: block;
         @include dimensiones(100%, 100%);
+
         .icon {
             display: block;
             @include dimensiones(100%, 100%);
@@ -45,7 +46,7 @@
         .icon-moon {
             @include cargarImagen('./../img/moon.svg', contain);
         }
-        
+
         .icon-sun {
             @include cargarImagen('./../img/sun.svg', contain);
 
@@ -56,10 +57,13 @@
 @media screen and (max-width: 500px) {
     .subnavegador {
         flex-direction: column;
-        height: auto;
+        min-height: 10rem;
+        justify-content: center;
+        align-items: center;
 
         .breadcrumb {
             margin: 0.5rem 0;
+            height: 2rem;
 
             a {
                 display: inline-block;
@@ -68,17 +72,19 @@
 
             img {
                 height: 1.5rem;
-
+                width: 1.5rem;
             }
         }
 
         .translate {
+            display: flex;
+            justify-content: space-between;
+            min-width: 176px;
             li {
                 height: 1.5rem;
 
                 a {
                     width: 100%;
-
                     img {
 
                         width: 100%;

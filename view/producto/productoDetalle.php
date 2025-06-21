@@ -69,16 +69,18 @@
             if (isset($_SESSION['username'])) {
                 echo "<form method='post' class='Producto__comentarios__formulario'>";
                 echo "<div class='Producto__comentarios__formulario__titulo'>";
-                echo "<input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder=''></input>";
+                echo "<input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder='' required></input>";
                 echo "</div>";
                 echo "<div>";
-                echo "    <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder=''></textarea>";
+                echo "    <textarea class='Producto__comentarios__formulario__texto lang nuevoComentario' data-lang='escribeComentario' name='comentario' placeholder='' required></textarea>";
                 echo "</div>";
                 echo "    <button type='submit' class='Producto__comentarios__formulario__boton lang btnVerdePrimario' id='newComment' data-lang='enviarComentario'></button>";
                 echo "<input type='hidden' name='isbn13' id='isbn13' value=''>";
                 echo "</form>";
             } else {
+                echo "<div class='Producto__comentarios__nologueado'>";
                 echo '<a href="index.php?controller=LogIn&action=view" class="Producto__comentarios__formulario__boton lang" data-lang="registrate"></a>';
+                echo "</div>";
             }
             ?>
             <div class="Producto__comentarios__lista">

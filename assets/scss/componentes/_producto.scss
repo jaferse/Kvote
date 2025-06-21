@@ -3,7 +3,7 @@
 .ContainerProducto {
     margin: 1rem auto;
     width: 96vw;
-    background-color: $bancoFondo;
+    background-color: $blancoFondo;
     border: 2px solid $rojo_primario;
     box-shadow: $box_shadow;
     border-radius: 16px;
@@ -23,7 +23,7 @@
             // overflow: hidden;
 
             img {
-                @include dimensiones(100%, 100%);
+                @include dimensiones(100%, auto);
             }
         }
 
@@ -276,10 +276,10 @@
                     font-size: 1.2rem;
                     text-align: center;
                     position: absolute;
-                    top: 3rem;
+                    top: 3.8rem;
                     display: block;
                     background-color: $grisTooltip;
-                    color: $grisLetra;
+                    color: $blanco_letra;
                     bottom: 125%;
                     left: 50%;
                     transform: translateX(-50%);
@@ -356,6 +356,31 @@
                     }
                 }
 
+            }
+        }
+
+        &__nologueado{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem auto;
+            width: 100%;
+            border: 1px solid $negroBorde;
+            border-radius: 8px;
+            padding: 0.5rem;
+            background-color: $rojo_primario;
+            cursor: pointer;
+            a{
+                color: $blanco_letra;
+                text-decoration: none;
+                font-size: large;
+                font-weight: bolder;
+                cursor: inherit;
+            }
+            &:hover{
+                background-color: $rojo_primario--hover;
+                transform: scale(1.01);
             }
         }
     }

@@ -1,6 +1,6 @@
- let carritosUsuarios = {};
- let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
- let carrito
+let carritosUsuarios = {};
+let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
+let carrito
 document.addEventListener('DOMContentLoaded', async function () {
     //obtenemos el json de idioma
     const response = await fetch('/assets/lang/es.json');
@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
     const user = await responseUser.json();
     let usuarioLogueadoId = user.usernameId;
-    
+
     //cargamos el json de idioma del navegador
     const lang = localStorage.getItem('lang');
     // let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
     carritosUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
     carrito = carritosUsuarios[usuarioLogueadoId] || {};
-    console.log(carritosUsuarios);
-    console.log(usuarioLogueadoId);
-    console.log(carrito);
+    // console.log(carritosUsuarios);
+    // console.log(usuarioLogueadoId);
+    // console.log(carrito);
 
     document.querySelector('.containerCesta>h1').innerHTML = `${data[lang]['carrito']['titulo']}`;
     document.querySelector('.comprar').textContent = data[lang]['carrito']['finalizarCompra'];
@@ -61,7 +61,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     // Si el carrito está vacío, mostramos un mensaje
     else {
-        document.querySelector('.containerCesta').innerHTML = `<p>No existen productos en la cesta</p>`
+        console.log(lang);
+
+        document.querySelector('.containerCesta').innerHTML =
+            `<div class="cestaVacia">
+                <img src='assets/img/libroCestaVacia${lang}.png'>
+                <p class='lang' data-lang='sinProductos'>${data[lang]['carrito']['sinProductos']}</p>
+            </div>`
     }
 });
 
@@ -72,18 +78,20 @@ document.querySelector('.productos').addEventListener('change', function (e) {
     if (e.target.matches('[id^="cantidad"]')) {
         let isbn = e.target.closest('.productoCarrito').getAttribute('data-isbn');
         let cantidad = parseInt(e.target.value);
+        console.log(carrito);
         
         if (carrito[isbn]) {
+            console.log(carrito[isbn]);
             // Actualizar la cantidad del producto en el carrito
             carrito[isbn].cantidad = cantidad;
             // Guardar el carrito actualizado en localStorage
             if (carrito[isbn].cantidad <= 0) {
-                // Si la cantidad es 0 o menor, eliminar el producto del carrito
+                // Si la cantidad es 0 o menor, eliminar el producto del carrito       
                 delete carrito[isbn];
                 e.target.closest('.productoCarrito').remove();
-            }
+            }   
             // Verificar si la cantidad es mayor que el stock
-            if (carrito[isbn].cantidad >= carrito[isbn].producto.stock) {
+            if (carrito[isbn] && carrito[isbn].cantidad >= carrito[isbn].producto.stock) {
                 // Si la cantidad es mayor que el stock, mostrar un mensaje de error   
 
                 e.target.value = carrito[isbn].producto.stock; // Restablecer al stock máximo
@@ -100,6 +108,12 @@ document.querySelector('.productos').addEventListener('change', function (e) {
             localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
             // Actualizar el precio total
             actualizarPrecio();
+            
+        }
+
+        //Si no hay nada en el carrito se recarga la pagina
+        if (Object.keys(carrito).length <= 0) {
+            window.location.reload();
         }
     }
 
@@ -115,6 +129,9 @@ document.querySelector('.productos').addEventListener('click', function (e) {
 
             localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
             actualizarPrecio();
+        }
+        if (Object.keys(carrito).length <= 0) {
+            window.location.reload();
         }
     }
 })

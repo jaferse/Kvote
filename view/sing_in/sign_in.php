@@ -106,11 +106,12 @@
                             ?>
                         </select>
                     </div>
+                    <div class="enlaceBoton">
+                        <a href="index.php?controller=LogIn&action=view" class="lang " data-lang="yaTienesCuenta"></a>
+                    </div>
                     <div class="registro__formulario__group  lang" data-lang="registrar">
                         <input type="submit" name="enviar" value="Registrarse" id="botonRegistrar">
                     </div>
-
-                    <a href="index.php?controller=LogIn&action=view" class="lang" data-lang="yaTienesCuenta"></a>
                 </form>
                 <div class="progress-container">
                     <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">

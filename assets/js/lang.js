@@ -118,6 +118,16 @@ function actualizarTexto(json, lang) {
             element.textContent = json[lang]["carrito"][data_lang];
         });
     }
+    if (document.querySelector('.cestaVacia img')) {
+        if (document.querySelector('.cestaVacia img').closest('.productosWishList')) {
+            
+            document.querySelector('.cestaVacia img').src = `assets/img/libroWishListVacia${lang}.png`;
+        }
+        if (document.querySelector('.cestaVacia img').closest('.containerCesta')) {
+            document.querySelector('.cestaVacia img').src = `assets/img/libroCestaVacia${lang}.png`;
+        }
+    }
+
 
     /**
      * Botones producto
@@ -136,7 +146,6 @@ function actualizarTexto(json, lang) {
     if (document.querySelector('.Producto__comentarios')) {
         document.querySelectorAll('.Producto__comentarios .lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
-            // console.log(data_lang);
             element.textContent = json[lang]["comentarios"][data_lang];
             if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
                 element.setAttribute("placeholder", json[lang]["comentarios"][data_lang]);

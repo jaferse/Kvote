@@ -15,7 +15,7 @@
     &__contenedor {
         margin: 0 auto;
         @include flex(row, center, center, wrap);
-        background-color: $bancoFondo;
+        background-color: $blancoFondo;
         box-shadow: $box_shadow;
 
         @include dimensiones(60%, auto, 16px, 2px solid $rojo_primario);
@@ -163,7 +163,7 @@
         position: absolute;
         top: 20%;
         border-radius: 16px;
-        background-color: $bancoFondo;
+        background-color: $blancoFondo;
         border: 2px solid $rojo_primario;
         box-shadow: $box_shadow;
 

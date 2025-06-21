@@ -327,7 +327,7 @@
         "wishList": {
             "titulo": "Productos de ",
             "verProducto": "Ver Producto",
-            "sinProductos": "No existen productos en la cesta"
+            "sinProductos": "No existen productos en la lista de deseos"
         },
         "carrito": {
             "titulo": "Carrito de Compras",
@@ -337,7 +337,8 @@
             "resCesta": "Resumen cesta",
             "cantidad": "Cantidad",
             "subtotal": "Subtotal",
-            "finalizarCompra": "Finalizar Compra"
+            "finalizarCompra": "Finalizar Compra",
+            "sinProductos": "No existen productos en la cesta"
         }
     },
     "en": {
@@ -668,7 +669,7 @@
         "wishList": {
             "titulo": "Products by ",
             "verProducto": "View Product ",
-            "sinProductos": "There are no products in the basket"
+            "sinProductos": "There are no products in the wish list."
         },
         "carrito": {
             "titulo": "Shopping Cart",
@@ -678,7 +679,8 @@
             "cantidad": "Quantity",
             "resCesta": "Summary basket",
             "subtotal": "Subtotal",
-            "finalizarCompra": "Checkout"
+            "finalizarCompra": "Checkout",
+            "sinProductos": "You have no items in your shopping cart."
         }
     },
     "ja": {
@@ -1009,7 +1011,7 @@
         "wishList": {
             "titulo": "の製品 ",
             "verProducto": "製品を見る ",
-            "sinProductos": "バスケットに商品がありません"
+            "sinProductos": "ウィッシュリストに商品がありません。"
         },
         "carrito": {
             "titulo": "ショッピングカート",
@@ -1019,7 +1021,8 @@
             "importe": "額",
             "resCesta": "サマリーバスケット",
             "subtotal": "小計",
-            "finalizarCompra": "購入を完了する"
+            "finalizarCompra": "購入を完了する",
+            "sinProductos": "ショッピングカートに商品がありません。"
         }
     }
 }

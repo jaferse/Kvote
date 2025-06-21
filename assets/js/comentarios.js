@@ -19,7 +19,7 @@ function getISBN13(nombre) {
 document.addEventListener('click', async function (event) {
     const responseLang = await fetch('assets/lang/es.json');
     const dataLang = await responseLang.json();
-    let lang = localStorage.getItem("lang");    
+    let lang = localStorage.getItem("lang");
     //Comprobamos que se encuentre dentro de un formulario
     if (event.target.parentElement.tagName === "FORM") {
         event.preventDefault();
@@ -27,7 +27,7 @@ document.addEventListener('click', async function (event) {
         //Si el elemento que se ha pulsado es el botón de nuevo comentario
         if (event.target.getAttribute("id") === "newComment") {
             form.action = "index.php?controller=Comentarios&action=nuevoComentario";
-            // form.submit();
+            form.requestSubmit();
         }
     }
     if (event.target.getAttribute("id") === "editComment") {
@@ -87,7 +87,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
     const user = await responseUser.json();
     let usuarioLogueadoId = user.usernameId;
-
+    if (document.querySelector('.nuevoComentario')) {   
+        document.querySelector('.nuevoComentario').textContent = '';
+    }
     //Obtenemos el idioma del navegador
     let lang = localStorage.getItem("lang")
     const productosComentarios = document.querySelector(".Producto__comentarios");
@@ -95,8 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     data.forEach((comentario, index) => {
         // console.log(comentario);
-        let fecha = convertirFormatoFecha(comentario.fecha); //new Date(comentario.fecha);
-        console.log(fecha);
+        let fecha = convertirFormatoFecha(comentario.fecha);
 
         comentariosContainer.innerHTML += `
         <div class="Producto__comentario" data-id="${comentario.id}">
@@ -130,12 +131,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     productosComentarios.querySelectorAll('.lang').forEach((element) => {
-        // console.log(element);
         if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
             element.setAttribute("placeholder", dataLang[lang]['comentarios'][element.getAttribute("data-lang")]);
         } else {
+
             element.textContent = dataLang[lang]['comentarios'][element.getAttribute("data-lang")];
         }
     });
 
+
+    //Si no está logeado
+    if (document.querySelector('.Producto__comentarios__nologueado')) {
+        
+        const divNologueado = document.querySelector('.Producto__comentarios__nologueado');
+        divNologueado.addEventListener('click', () => {
+            divNologueado.querySelector('.Producto__comentarios__formulario__boton').click();
+            
+        })
+    }
 });

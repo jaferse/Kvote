@@ -107,8 +107,10 @@ window.addEventListener('DOMContentLoaded', async () => {
             document.querySelector('.Producto__info__precioComprar__precio__actual').textContent = (Math.ceil(producto.precio / 1.05));
             document.querySelector('.Producto__info__precioComprar__precio__anterior').textContent = producto.precio;
             document.querySelector('.Producto__info__precioComprar__precio__descuento').textContent = descuento + '%';
-
-            document.querySelector('.Producto__comentarios__formulario>#isbn13').value = producto.isbn_13;
+            //Si existe le damos el valor del ISBN
+            if (document.querySelector('.Producto__comentarios__formulario>#isbn13')) {
+                document.querySelector('.Producto__comentarios__formulario>#isbn13').value = producto.isbn_13;
+            }
         });
 
     ContainerProducto.style.visibility = 'visible';
