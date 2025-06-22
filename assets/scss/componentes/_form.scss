@@ -35,7 +35,7 @@
             }
             .fileInputLabel{
                 // background-color: $rojo_primario;
-               @include button-style($rojo_primario, $blancoFondo, $width: 100%, $height: 100%, $border-radius: 5px);
+               @include button-style($rojo_primario, $boton_hover, $blancoFondo, $width: 100%, $height: 100%, $border-radius: 5px);
             }
         }
 

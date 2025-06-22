@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     //obtenermos el login del usuario
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
     const user = await responseUser.json();
-    let usuarioLogueadoId = user.usernameId;
+    usuarioLogueadoId = user.usernameId;
 
     //cargamos el json de idioma del navegador
     const lang = localStorage.getItem('lang');
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <div class="contenido">
                 <span class="lang" data-lang="importe">${data[lang]['carrito']['importe']}</span> <span class="importeProducto">${(carrito[key].producto.precio * carrito[key].cantidad).toFixed(2)} €</span>
                 </div>
-                <a class="btnEliminar lang" data-isbn="${key}">}</a>
+                <a class="btnEliminar lang" data-isbn="${key}"></a>
             `;
             document.querySelector('.productos').appendChild(divProducto);
 

@@ -257,13 +257,13 @@
                 ?>
                 </select></td>
                 <td>
-                    <input type="submit" value="Nuevo" class="btn btn-primary" name="nuevoProducto">
+                    <input type="submit" value="Nuevo" class="btnVerdePrimario" name="nuevoProducto">
                 </td>
                 </tr>
             </table>
             <div>
-                <input type="submit" value="Eliminar" class="btn" name="eliminarProducto">
-                <input type="submit" value="Actualizar" class="btn" name="actualizarProducto">
+                <input type="submit" value="Eliminar" class="btnRojo" name="eliminarProducto">
+                <input type="submit" value="Actualizar" class="btnVerdePrimario" name="actualizarProducto">
             </div>
         </form>
     </main>

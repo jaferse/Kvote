@@ -16,6 +16,7 @@ $fuente_logo: "Aladin", serif;
 $fondo_footer: rgb(40, 39, 39);
 $shadow_nav: rgb(0, 0, 0);
 $verdeBotonPrimario: #008000;
+$verdeBotonPrimarioHover: #0c500c;
 $verdeBotonSecundario: #0c500c;
 $grisLetra: #808080;
 $grisTooltip: #515151;
@@ -60,7 +61,7 @@ $fondoOscuroElementos: #2babc8;
 
 }
 
-@mixin button-style($bg-color, $text-color, $width: auto, $height: auto, $border-radius: 5px) {
+@mixin button-style($bg-color, $bg-color-hover, $text-color, $width: auto, $height: auto, $border-radius: 5px) {
   background-color: $bg-color !important;
   color: $text-color !important;
   font-weight: bold !important;
@@ -70,6 +71,7 @@ $fondoOscuroElementos: #2babc8;
 
   &:hover {
     transform: scale(1.1) !important;
+    background-color: $bg-color-hover !important;
   }
 }
 

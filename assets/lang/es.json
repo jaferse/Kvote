@@ -306,6 +306,7 @@
             "enviarComentario": "Enviar",
             "eliminarComentario": "Eliminar",
             "editarComentario": "Editar",
+            "atrasComentario": "Volver",
             "sinComentarios": "No hay comentarios",
             "autor": "Autor",
             "fechaComentario": "Fecha",
@@ -651,7 +652,8 @@
             "fechaComentario": "Date",
             "registrate": "Register and leave a comment",
             "eliminarComentario": "Delete",
-            "editarComentario": "Edit"
+            "editarComentario": "Edit",
+            "atrasComentario": "Return"
         },
         "historialPedidos": {
             "titulo": "Order History",
@@ -993,7 +995,8 @@
             "fechaComentario": "日付",
             "registrate": "登録してコメントを残す",
             "eliminarComentario": "削除",
-            "editarComentario": "編集"
+            "editarComentario": "編集",
+            "atrasComentario": "戻る"
         },
         "historialPedidos": {
             "titulo": "注文履歴",

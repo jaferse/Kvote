@@ -105,13 +105,13 @@
                         </select></td>
                     <td><input name="fecha_nacimiento" type="date"></td>
                     <td>
-                        <input type="submit" value="Nuevo" class="btn btn-primary" name="nuevoArtista">
+                        <input type="submit" value="Nuevo" class="btnVerdePrimario" name="nuevoArtista">
                     </td>
                 </tr>
             </table>
             <div>
-                <input type="submit" value="Eliminar" class="btn" name="eliminarArtista">
-                <input type="submit" value="Actualizar" class="btn" name="actualizarArtista">
+                <input type="submit" value="Eliminar" class="btnRojo" name="eliminarArtista">
+                <input type="submit" value="Actualizar" class="btnVerdePrimario" name="actualizarArtista">
             </div>
         </form>
     </main>

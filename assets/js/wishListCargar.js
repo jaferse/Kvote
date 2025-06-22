@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <h2 class="Producto__info__titulo">${producto.nombre}</h2>
                         <h3 class="Producto__info__autor">${producto.nombreArtista} ${producto.apellido1} ${producto.apellido2}</h3>
                         <p class="Producto__info__precio">${producto.precio}€</p>
-                        <a class="Producto__info__boton btnVerdePrimario lang" data-lang="verProducto" href="index.php?controller=ProductoDetalle&action=view&isbn=${producto.isbn_13}">${json[lang]['wishList']['verProducto']}</a>`;
+                        <div class="enlaceBotonSmall">
+                        <a class="Producto__info__boton lang" data-lang="verProducto" href="index.php?controller=ProductoDetalle&action=view&isbn=${producto.isbn_13}">${json[lang]['wishList']['verProducto']}</a>
+                        </div>`;
                 //añadimos el contenedor al contenedor principal
                 contenedor.appendChild(contenedorProducto)
             });

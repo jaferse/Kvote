@@ -16,6 +16,45 @@ function getISBN13(nombre) {
     }
 
 }
+
+function construirComentario(comentario, index) {
+    let fecha = convertirFormatoFecha(comentario.fecha);
+    
+    comentariosContainer.innerHTML += `
+    <div>
+    <div class="Producto__comentario" data-id="${comentario.id}">
+    <h3>${comentario.titulo}</h3>
+    <div class="Producto__comentario__info">
+    <p><strong class="lang" data-lang="autor">Autor:</strong> ${comentario.autor_nombre} ${comentario.autor_apellido1}</p>
+    <p><strong class="lang" data-lang="fechaComentario">Fecha:</strong> ${fecha}</p>
+    </div>
+    <p class="texto">${comentario.comentario}</p>
+    </div>
+    </div>
+        `
+
+    if (usuarioLogueadoId == comentario.usuario_id) {
+        let divBotones = document.createElement("div");
+        divBotones.classList.add("Producto__comentario__botones");
+        let botonEditar = document.createElement("button");
+        botonEditar.setAttribute("type", "submit");
+        botonEditar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnVerdePrimario");
+        botonEditar.setAttribute("id", "editComment");
+        botonEditar.setAttribute("data-lang", "editarComentario");
+        let botonBorrar = document.createElement("button");
+        botonBorrar.setAttribute("type", "submit");
+        botonBorrar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnRojo");
+        botonBorrar.setAttribute("id", "deleteComment");
+        botonBorrar.setAttribute("data-lang", "eliminarComentario");
+        divBotones.appendChild(botonEditar);
+        divBotones.appendChild(botonBorrar);
+        productosComentarios.querySelectorAll('.Producto__comentario')[index].appendChild(divBotones);
+    }
+}
+
+let comentariosContainer;
+let productosComentarios;
+let usuarioLogueadoId;
 document.addEventListener('click', async function (event) {
     const responseLang = await fetch('assets/lang/es.json');
     const dataLang = await responseLang.json();
@@ -30,6 +69,7 @@ document.addEventListener('click', async function (event) {
             form.requestSubmit();
         }
     }
+    //Si se pulta editar
     if (event.target.getAttribute("id") === "editComment") {
         //Si el elemento que se ha pulsado es el botón de editar comentario
         let comentario = event.target.parentElement.parentElement;
@@ -39,6 +79,7 @@ document.addEventListener('click', async function (event) {
         let texto = comentario.querySelector(".texto").textContent;
         let form = document.createElement("form");
         form.classList.add("Producto__comentarios__formulario");
+        form.setAttribute("id", `formComentario${idComentario}`);
         form.setAttribute("action", `index.php?controller=Comentarios&action=editarComentario`);
         form.setAttribute("method", 'POST');
         form.innerHTML = `
@@ -46,16 +87,31 @@ document.addEventListener('click', async function (event) {
             <input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder='' value="${titulo}"></input>
         </div>
         <div>
-            <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder='${texto}'></textarea>
+            <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder=''>${texto}</textarea>
         </div>
-        <button type='submit' class='Producto__comentarios__formulario__boton lang btnBlue' id='editComment' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
+        <button type='submit' class='Producto__comentarios__formulario__boton btnVerdePrimario lang' id='editComment' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
+        <button type="button" class='Producto__comentarios__formulario__boton btnRojo lang' id='backComment' data-lang='atrasComentario'>${dataLang[lang]['comentarios']['atrasComentario']}</button>
         <input type='hidden' name='isbn13' id='isbn13' value='${getISBN13()}'>
         <input type='hidden' name='idComentario' id='idComentario' value='${idComentario}'>
         `;
-        comentario.innerHTML = "";
-        comentario.appendChild(form);
+        console.log(comentario);
+        
+        //ocultamos el comentario
+        comentario.style.display = "none";
+        
+        //Añadimos el formulario
+        comentario.parentNode.appendChild(form);
 
     }
+    //Botón de atras
+    if (event.target.getAttribute("id") === "backComment") {
+        console.log("Boton atras");
+        console.log(event.target.parentElement.parentElement);
+        let comentarioDiv = event.target.parentElement.parentElement;
+        comentarioDiv.querySelector(".Producto__comentario").style.display = "block"; 
+        comentarioDiv.querySelector(".Producto__comentarios__formulario").remove(); 
+    }
+
     if (event.target.getAttribute("id") === "deleteComment") {
         console.log("Eliminar comentario no implementado");
         console.log(event.target.parentElement.parentElement.getAttribute("data-id"));
@@ -70,9 +126,6 @@ document.addEventListener('click', async function (event) {
                 console.error("Error en la solicitud:", error);
             });
     }
-    if (event.target.tagName === "TEXTAREA") {
-        event.target.textContent = '';
-    }
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -86,48 +139,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     //obtenermos el login del usuario
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
     const user = await responseUser.json();
-    let usuarioLogueadoId = user.usernameId;
-    if (document.querySelector('.nuevoComentario')) {   
+    usuarioLogueadoId = user.usernameId;
+    if (document.querySelector('.nuevoComentario')) {
         document.querySelector('.nuevoComentario').textContent = '';
     }
     //Obtenemos el idioma del navegador
     let lang = localStorage.getItem("lang")
-    const productosComentarios = document.querySelector(".Producto__comentarios");
-    const comentariosContainer = document.querySelector(".Producto__comentarios__lista");
+    productosComentarios = document.querySelector(".Producto__comentarios");
+    comentariosContainer = document.querySelector(".Producto__comentarios__lista");
 
     data.forEach((comentario, index) => {
-        // console.log(comentario);
-        let fecha = convertirFormatoFecha(comentario.fecha);
-
-        comentariosContainer.innerHTML += `
-        <div class="Producto__comentario" data-id="${comentario.id}">
-            <h3>${comentario.titulo}</h3>
-            <div class="Producto__comentario__info">
-            <p><strong class="lang" data-lang="autor">Autor:</strong> ${comentario.autor_nombre} ${comentario.autor_apellido1}</p>
-            <p><strong class="lang" data-lang="fechaComentario">Fecha:</strong> ${fecha}</p>
-            </div>
-            <p class="texto">${comentario.comentario}</p>
-            
-        </div>
-        `
-
-        if (usuarioLogueadoId == comentario.usuario_id) {
-            let divBotones = document.createElement("div");
-            divBotones.classList.add("Producto__comentario__botones");
-            let botonEditar = document.createElement("button");
-            botonEditar.setAttribute("type", "submit");
-            botonEditar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnVerdePrimario");
-            botonEditar.setAttribute("id", "editComment");
-            botonEditar.setAttribute("data-lang", "editarComentario");
-            let botonBorrar = document.createElement("button");
-            botonBorrar.setAttribute("type", "submit");
-            botonBorrar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnRojo");
-            botonBorrar.setAttribute("id", "deleteComment");
-            botonBorrar.setAttribute("data-lang", "eliminarComentario");
-            divBotones.appendChild(botonEditar);
-            divBotones.appendChild(botonBorrar);
-            productosComentarios.querySelectorAll('.Producto__comentario')[index].appendChild(divBotones);
-        }
+        construirComentario(comentario, index);
     });
 
     productosComentarios.querySelectorAll('.lang').forEach((element) => {
@@ -142,11 +164,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //Si no está logeado
     if (document.querySelector('.Producto__comentarios__nologueado')) {
-        
+
         const divNologueado = document.querySelector('.Producto__comentarios__nologueado');
         divNologueado.addEventListener('click', () => {
             divNologueado.querySelector('.Producto__comentarios__formulario__boton').click();
-            
+
         })
     }
 });

@@ -26,12 +26,7 @@
             color: #888888;
         }
 
-        .Producto__info__boton{
-          margin: 1rem !important;
-        }
-
         .Producto__borrar__boton{
-
             padding: 1rem;
             @include cargarImagen('./../img/delete.png');
         }

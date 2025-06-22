@@ -55,7 +55,7 @@ p {
 }
 
 .btn {
-    @include button-style(#00b83d, white, 8rem, auto, 6px);
+    @include button-style(#00b83d,$verdeBotonPrimarioHover, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
     min-height: 30px;
@@ -65,7 +65,7 @@ p {
 }
 
 .btnVerdePrimario {
-    @include button-style($verdeBotonPrimario, white, 8rem, auto, 6px);
+    @include button-style($verdeBotonPrimario,$verdeBotonPrimarioHover, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
     min-height: 30px;
@@ -75,7 +75,7 @@ p {
 }
 
 .btnVerdeSecundario {
-    @include button-style($verdeBotonSecundario, white, 8rem, auto, 6px);
+    @include button-style($verdeBotonSecundario, $verdeBotonPrimarioHover, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
     min-height: 30px;
@@ -85,7 +85,7 @@ p {
 }
 
 .btnRojo {
-    @include button-style($rojo_primario, white, 8rem, auto, 6px);
+    @include button-style($rojo_primario, $rojo_primario--hover, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
     min-height: 30px;
@@ -117,6 +117,32 @@ p {
 
     &:hover {
         background-color: $rojo_primario--hover;
+        transform: scale(1.01);
+    }
+}
+
+.enlaceBotonSmall{
+    
+    width:  10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid $negroBorde;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: $verdeBotonPrimario;
+    cursor: pointer;
+
+    a {
+        color: $blanco_letra;
+        text-decoration: none;
+        font-size: medium;
+        font-weight: bolder;
+        cursor: inherit;
+    }
+
+    &:hover {
+        background-color: $verdeBotonSecundario;
         transform: scale(1.01);
     }
 }

@@ -35,38 +35,37 @@ async function agregarProductoCarrito() {
 
     //Tienes que diferenciar entre los carritos de los usuarios y el carrito del usuario logueado
     carritosUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
-    // console.log(carritosUsuarios);
 
-    fetch(`index.php?controller=ProductoDetalle&action=getProducto&isbn=${getISBN13("ISBN")}`)
-        .then(response => response.json())
-        .then(producto => {
-            //Inicializamos el carrito del usuario logueado
-            let carrito = {}; // Carrito del usuario logueado
+    const responseProducto = await fetch(`index.php?controller=ProductoDetalle&action=getProducto&isbn=${getISBN13("ISBN")}`);
+    const producto = await responseProducto.json();
 
-            // Si el carrito del usuario logueado ya existe, lo usamos
-            if (carritosUsuarios[usuarioLogueadoId]) {
-                carrito = carritosUsuarios[usuarioLogueadoId];
-            }
-            // Si el carrito del usuario logueado no existe, lo creamos
-            else{
-                carritosUsuarios[usuarioLogueadoId] = {};
-                carrito = carritosUsuarios[usuarioLogueadoId];
-            }
-            if (carrito[producto.isbn_13]) {
-                // Si el producto ya está en el carrito, incrementar la cantidad
-                carrito[producto.isbn_13].cantidad++;
-            } else {
-                // Si el producto no está en el carrito, agregarlo
-                carrito[producto.isbn_13] = {
-                    producto,
-                    cantidad: 1
-                };
-            }
+    //Inicializamos el carrito del usuario logueado
+    let carrito = {}; // Carrito del usuario logueado
 
-            carritosUsuarios[usuarioLogueadoId] = carrito; // Actualizar el carrito del usuario logueado
-            //Volcamos el contenido en el localStorage
-            localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
-        })
+    // Si el carrito del usuario logueado ya existe, lo usamos
+    if (carritosUsuarios[usuarioLogueadoId]) {
+        carrito = carritosUsuarios[usuarioLogueadoId];
+    }
+    // Si el carrito del usuario logueado no existe, lo creamos
+    else {
+        carritosUsuarios[usuarioLogueadoId] = {};
+        carrito = carritosUsuarios[usuarioLogueadoId];
+    }
+    if (carrito[producto.isbn_13]) {
+        // Si el producto ya está en el carrito, incrementar la cantidad
+        carrito[producto.isbn_13].cantidad++;
+    } else {
+        // Si el producto no está en el carrito, agregarlo
+        carrito[producto.isbn_13] = {
+            producto,
+            cantidad: 1
+        };
+    }
+
+    carritosUsuarios[usuarioLogueadoId] = carrito; // Actualizar el carrito del usuario logueado
+    //Volcamos el contenido en el localStorage
+    localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
+
 }
 
 function agregarProductoWishlist() {

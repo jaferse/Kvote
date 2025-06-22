@@ -2245,18 +2245,19 @@
 }
 .containerEditorial .navSeccion .verMas {
   background-color: #00b83d !important;
-  color: white !important;
+  color: 8rem !important;
   font-weight: bold !important;
   margin: 0.5rem auto 2rem !important;
-  width: 8rem !important;
-  height: 2rem !important;
-  border-radius: 6px !important;
+  width: 2rem !important;
+  height: 6px !important;
+  border-radius: 5px !important;
   border: 2px solid gray !important;
   cursor: pointer !important;
   margin: 1rem;
 }
 .containerEditorial .navSeccion .verMas:hover {
   transform: scale(1.1) !important;
+  background-color: white !important;
 }
 .containerEditorial .navSeccion .siguiente {
   order: 2;
@@ -2331,6 +2332,7 @@
 }
 .mainAdmin table td .fileInputLabel:hover {
   transform: scale(1.1) !important;
+  background-color: hsl(350, 100%, 46%) !important;
 }
 .mainAdmin table .isbn {
   width: 9rem;
@@ -2361,18 +2363,19 @@
 }
 .mainAdmin .btn {
   background-color: #008000 !important;
-  color: white !important;
+  color: 6.5rem !important;
   font-weight: bold !important;
   margin: 0.5rem auto 2rem !important;
-  width: 6.5rem !important;
-  height: 1.5rem !important;
-  border-radius: 6px !important;
+  width: 1.5rem !important;
+  height: 6px !important;
+  border-radius: 5px !important;
   border: 2px solid gray !important;
   cursor: pointer !important;
   margin: 0;
 }
 .mainAdmin .btn:hover {
   transform: scale(1.1) !important;
+  background-color: white !important;
 }
 
 .menuLogin {
@@ -2450,9 +2453,6 @@
 .containerProductosWishList .producto h3 {
   font-size: 1.5rem;
   color: #888888;
-}
-.containerProductosWishList .producto .Producto__info__boton {
-  margin: 1rem !important;
 }
 .containerProductosWishList .producto .Producto__borrar__boton {
   padding: 1rem;
@@ -2544,6 +2544,9 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.containerCesta .productos .productoCarrito .btnEliminar:hover {
+  transform: scale(1.1);
 }
 .containerCesta .cestaVacia {
   display: flex;
@@ -2680,6 +2683,7 @@ p {
 }
 .btn:hover {
   transform: scale(1.1) !important;
+  background-color: #0c500c !important;
 }
 
 .btnVerdePrimario {
@@ -2700,6 +2704,7 @@ p {
 }
 .btnVerdePrimario:hover {
   transform: scale(1.1) !important;
+  background-color: #0c500c !important;
 }
 
 .btnVerdeSecundario {
@@ -2720,6 +2725,7 @@ p {
 }
 .btnVerdeSecundario:hover {
   transform: scale(1.1) !important;
+  background-color: #0c500c !important;
 }
 
 .btnRojo {
@@ -2740,6 +2746,7 @@ p {
 }
 .btnRojo:hover {
   transform: scale(1.1) !important;
+  background-color: #9c001a !important;
 }
 
 .enlaceBoton {
@@ -2762,5 +2769,28 @@ p {
 }
 .enlaceBoton:hover {
   background-color: #9c001a;
+  transform: scale(1.01);
+}
+
+.enlaceBotonSmall {
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: #008000;
+  cursor: pointer;
+}
+.enlaceBotonSmall a {
+  color: #FCFAEE;
+  text-decoration: none;
+  font-size: medium;
+  font-weight: bolder;
+  cursor: inherit;
+}
+.enlaceBotonSmall:hover {
+  background-color: #0c500c;
   transform: scale(1.01);
 }/*# sourceMappingURL=main.css.map */

@@ -135,14 +135,12 @@ function construirPaginacion(productosRespuesta, seccion, paginaActual) {
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
     let listaPaginacion = document.createElement('div');
     listaPaginacion.classList.add('paginacion');
-    console.log(productosRespuesta);
-    
+
     let paginas = Math.ceil(productosRespuesta['total'] / productosRespuesta['productoPaginas']);
     for (let i = 1; i <= paginas; i++) {
         let a = document.createElement('a');
         a.textContent = i;
-        console.log(paginaActual);
-        if (i==paginaActual) {
+        if (i == paginaActual) {
             a.classList.add('active');
         }
         a.classList.add('numeroPaginacion');
@@ -152,14 +150,21 @@ function construirPaginacion(productosRespuesta, seccion, paginaActual) {
     }
     document.querySelector('.container').appendChild(listaPaginacion);
 }
+
+
 window.addEventListener('DOMContentLoaded', async () => {
     let container = document.querySelector('.container');
     const containerProductos = document.querySelector('.containerProductos');
     let parametros = new URLSearchParams(window.location.search);
     let seccion = parametros.get("action");
-    let paginaActual=sessionStorage.getItem("paginaActual") || 1;
-    console.log(paginaActual);
-    
+    let paginaActual = 1;
+
+    //Si no se ha recargado la pagina se mantiene la pagina actual
+    if (sessionStorage.getItem("seccion") === seccion) {
+        paginaActual = sessionStorage.getItem("paginaActual") || 1;
+    }
+    sessionStorage.setItem("seccion", seccion);
+
     // Nos traemos el json de los textos de traducción
     const responseLang = await fetch("/assets/lang/es.json");
     const json = await responseLang.json();
@@ -167,9 +172,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     let productosRespuesta = await sacarProductos(seccion, paginaActual);
     let productos = productosRespuesta['productos'];
     let totalProductos = productosRespuesta['total'];
-    console.log("Productos", productosRespuesta);
-    console.log("Productos", productos);
-    console.log("Productos", totalProductos);
+    // console.log("Productos", productosRespuesta);
+    // console.log("Productos", productos);
+    // console.log("Productos", totalProductos);
 
 
 
@@ -220,11 +225,8 @@ window.addEventListener('DOMContentLoaded', async () => {
             let productos = productosRespuesta['productos'];
             let totalProductos = productosRespuesta['total'];
             containerProductos.innerHTML = '';
-            console.log("Productos", productos);
-            
+
             contruirGridProductos(productos, containerProductos, seccion, json);
-            // let page = e.target.getAttribute('data-page');
-            // window.location.href = `index.php?controller=Catalogo&action=${seccion}&page=${page}`;
         }
     });
 
