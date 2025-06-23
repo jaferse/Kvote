@@ -69,7 +69,6 @@ async function agregarProductoCarrito() {
 }
 
 function agregarProductoWishlist() {
-
     window.location.href = "index.php?controller=WishList&action=agregarProducto&isbn=" + getISBN13("ISBN");
 }
 

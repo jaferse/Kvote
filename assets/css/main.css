@@ -19,6 +19,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  min-width: 3rem;
   border-radius: 70%;
   aspect-ratio: 1/1;
   margin: 0.5rem 1rem;
