@@ -94,7 +94,7 @@ class Daocompra extends DB
 
     public function obtenerPedidosUsuario($idUsuario)
     {
-        $consulta = "SELECT * FROM compra where idUsuario = :idUsuario";
+        $consulta = "SELECT * FROM compra where idUsuario = :idUsuario ORDER BY fechaCompra DESC";
         $param = array();
         $param[":idUsuario"] = $idUsuario;
         $this->consultaDatos($consulta, $param);

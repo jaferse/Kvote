@@ -1,47 +1,50 @@
-import { convertirFormatoFecha, aplicarValidaciones } from './funcionesGenericas.js';
-document.addEventListener('DOMContentLoaded', () => {
-    fetch("/assets/lang/es.json")
-        .then(response => response.json())
-        .then(json => {
+import { convertirFormatoFecha } from './funcionesGenericas.js';
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch("/assets/lang/es.json");
+        const json = await response.json();
 
-            //Si no hay local storage le asignamos español por defecto
-            if (!localStorage.getItem("lang")) {
-                localStorage.setItem("lang", "es");
-            }
-            // console.log(lang);
-            //Si hay local storage le asignamos el idioma que haya
-            let lang = localStorage.getItem("lang");
-            actualizarTexto(json, lang);
+        //Si no hay local storage le asignamos español por defecto
+        if (!localStorage.getItem("lang")) {
+            localStorage.setItem("lang", "es");
+        }
+        // console.log(lang);
+        //Si hay local storage le asignamos el idioma que haya
+        let lang = localStorage.getItem("lang");
+        actualizarTexto(json, lang);
 
-            // Agregar eventos de traducción a los botones
-            document.querySelectorAll(".translate").forEach(button => {
-                let lang;
-                button.addEventListener("click", function (e) {
-                    // console.log(e.target.classList);
+        // Agregar eventos de traducción a los botones
+        document.querySelectorAll(".translate").forEach(button => {
+            let lang;
+            button.addEventListener("click", function (e) {
+                // console.log(e.target.classList);
 
-                    if (e.target.parentElement.classList.contains("es")) {
-                        lang = "es"; // Obtener el idioma del botón
-                        this.classList.add("es");
-                        this.classList.remove("en", "ja");
-                    }
-                    if (e.target.parentElement.classList.contains("en")) {
-                        lang = "en"; // Obtener el idioma del botón
-                        this.classList.add("en");
-                        this.classList.remove("es", "ja");
+                if (e.target.parentElement.classList.contains("es")) {
+                    lang = "es"; // Obtener el idioma del botón
+                    this.classList.add("es");
+                    this.classList.remove("en", "ja");
+                }
+                if (e.target.parentElement.classList.contains("en")) {
+                    lang = "en"; // Obtener el idioma del botón
+                    this.classList.add("en");
+                    this.classList.remove("es", "ja");
 
-                    }
-                    if (e.target.parentElement.classList.contains("ja")) {
-                        lang = "ja"; // Obtener el idioma del botón
-                        this.classList.add("ja");
-                        this.classList.remove("es", "es");
+                }
+                if (e.target.parentElement.classList.contains("ja")) {
+                    lang = "ja"; // Obtener el idioma del botón
+                    this.classList.add("ja");
+                    this.classList.remove("es", "es");
 
-                    }
-                    localStorage.setItem("lang", lang);
-                    lang = localStorage.getItem("lang");
-                    actualizarTexto(json, lang);
-                });
+                }
+                localStorage.setItem("lang", lang);
+                lang = localStorage.getItem("lang");
+                actualizarTexto(json, lang);
             });
-        }).catch(error => console.error("Error cargando el archivo JSON:", error));
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 // Función para actualizar los textos
@@ -81,12 +84,15 @@ function actualizarTexto(json, lang) {
     /**
      * Cambiar idoma historial de pedidos
      */
-
     if (document.querySelector('.containerPedidos')) {
         let contenedor = document.querySelectorAll('.containerPedidos  .lang');
         contenedor.forEach(element => {
-            let data_lang = element.getAttribute('data-lang');
-            element.textContent = json[lang]["historialPedidos"][data_lang];
+            if (element.classList.contains('fecha')) {
+                element.innerHTML = convertirFormatoFecha(element.getAttribute("data-fecha"),true);
+            }else{
+                let data_lang = element.getAttribute('data-lang');
+                element.textContent = json[lang]["historialPedidos"][data_lang];
+            }
         })
     }
 
@@ -120,7 +126,7 @@ function actualizarTexto(json, lang) {
     }
     if (document.querySelector('.cestaVacia img')) {
         if (document.querySelector('.cestaVacia img').closest('.productosWishList')) {
-            
+
             document.querySelector('.cestaVacia img').src = `assets/img/libroWishListVacia${lang}.png`;
         }
         if (document.querySelector('.cestaVacia img').closest('.containerCesta')) {

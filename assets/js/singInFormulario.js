@@ -84,21 +84,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 formulario.addEventListener('submit', async (e) => {
 
-    const idiomaJson = await fetch('assets/lang/es.json')
-    const dataLand = await idiomaJson.json();
-    let lang= localStorage.getItem("lang");
     e.preventDefault();
-    // console.log(e.target);
-
 
     justValidate.revalidate().then((isValid) => {
         if (isValid) {
-            // console.log("Formulario enviado correctamente.");
-            // // e.submit();
-
             formulario.action = "index.php?controller=LogIn&action=logear";
             formulario.submit();
-            // console.log("Formulario enviado correctamente.");
 
         } else {
             console.log("Formulario no válido, corrige los errores.");

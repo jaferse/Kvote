@@ -2,51 +2,55 @@ let carritosUsuarios = {};
 let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
 let carrito
 
-function crearDialogo(datos){
-     // Si ya existe, no lo volvemos a crear
-  if (document.getElementById("dialogoPersonalizado")) return;
+function crearDialogo(datos, onAceptar, onCancelar) {
+    // Si ya existe, no lo volvemos a crear
+    if (document.getElementById("dialogoPersonalizado")) return;
+    console.log(datos);
 
-  // Crear overlay
-  const overlay = document.createElement("div");
-  overlay.id = "overlayPersonalizado";
-  overlay.style.cssText = `
+    let titulo = datos.titulo;
+    let mensaje = datos.mensaje;
+    // Crear overlay
+    const overlay = document.createElement("div");
+    overlay.id = "overlayPersonalizado";
+    overlay.style.cssText = `
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.5); z-index: 999;
   `;
 
-  // Crear diálogo
-  const dialogo = document.createElement("div");
-  dialogo.id = "dialogoPersonalizado";
-  dialogo.style.cssText = `
+    // Crear diálogo
+    const dialogo = document.createElement("div");
+    dialogo.id = "dialogoPersonalizado";
+    dialogo.style.cssText = `
     position: fixed; top: 30%; left: 50%;
     transform: translate(-50%, -50%);
     background: white; padding: 20px;
     border: 2px solid #333; z-index: 1000;
   `;
 
-  dialogo.innerHTML = `
+    dialogo.innerHTML = `
+    <h1>${titulo}</h1>
     <p>${mensaje}</p>
-    <button id="btnAceptar">Aceptar</button>
-    <button id="btnCancelar">Cancelar</button>
+    <button id="btnAceptar">${datos['mensajeAceptar']}</button>
+    <button id="btnCancelar">${datos['mensajeCancelar']}</button>
   `;
 
-  document.body.appendChild(overlay);
-  document.body.appendChild(dialogo);
+    document.body.appendChild(overlay);
+    document.body.appendChild(dialogo);
 
-  document.getElementById("btnAceptar").onclick = () => {
-    cerrarDialogo();
-    if (typeof onAceptar === "function") onAceptar();
-  };
+    document.getElementById("btnAceptar").onclick = () => {
+        cerrarDialogo();
+        if (typeof onAceptar === "function") onAceptar();
+    };
 
-  document.getElementById("btnCancelar").onclick = () => {
-    cerrarDialogo();
-    if (typeof onCancelar === "function") onCancelar();
-  };
+    document.getElementById("btnCancelar").onclick = () => {
+        cerrarDialogo();
+        if (typeof onCancelar === "function") onCancelar();
+    };
 
-  function cerrarDialogo() {
-    overlay.remove();
-    dialogo.remove();
-  }
+    function cerrarDialogo() {
+        overlay.remove();
+        dialogo.remove();
+    }
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -187,9 +191,9 @@ document.querySelector('.comprar').addEventListener('click', async function (e) 
  */
 async function comprar() {
     carritoUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
-    carrito=carritoUsuarios[usuarioLogueadoId] || {};
+    carrito = carritoUsuarios[usuarioLogueadoId] || {};
     console.log(carrito);
-    
+
     if (Object.keys(carrito).length > 0) {
         try {
             // Redirigir a la página de compra
@@ -201,14 +205,27 @@ async function comprar() {
                 body: JSON.stringify(carrito)
             });
             const data = await responseCompra.json();
-            console.log('Respuesta del servidor:', data);
+            // console.log('Respuesta del servidor:', data);
             if (data.status === 'success') {
                 // Si la compra fue exitosa, limpiar el carrito
                 localStorage.removeItem("carrito");
                 document.querySelector('.productos').innerHTML = ''; // Limpiar los productos mostrados
                 document.querySelector('.precioTotal').textContent = 'Precio total: 0.00 €'; // Reiniciar el precio total
                 // alert('Compra realizada con exito');
-                crearDialogo();
+                let datos = {};
+                datos['titulo'] = 'Compra realizada con exito';
+                datos['mensaje'] = 'Compra realizada con exito';
+                datos['mensajeAceptar'] = 'Aceptar';
+                datos['mensajeCancelar'] = 'Ver Pedidos';
+                datos['data'] = data;
+                crearDialogo
+                    (datos,
+                        () => {
+                            location.reload();
+                        },
+                        () => {
+                             window.location.href = "index.php?controller=HistorialPedidos&action=view";
+                        });
             } else {
                 alert('Error en la compra: ' + (data.message || 'Respuesta inesperada'));
             }
@@ -240,7 +257,7 @@ function actualizarPrecio() {
     // Mostrar el precio total actualizado
     document.querySelector('.precioTotal').textContent = `Precio total: ${precioTotal.toFixed(2)} €`;
     //Si el precio es 0 se recarga la pagina
-    if (precioTotal===0) {
+    if (precioTotal === 0) {
         window.location.reload();
     }
 }

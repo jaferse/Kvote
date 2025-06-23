@@ -1,21 +1,6 @@
-import { convertirFormatoFecha } from './funcionesGenericas.js';
+import { convertirFormatoFecha, getISBN13 } from './funcionesGenericas.js';
 
 let carritosUsuarios;
-/**
- * Devuelve el ISBN13 de un producto desde la URL actual
- * @returns {string} El ISBN13 del producto
- * @throws {Error} Si no se encuentra el par metro en la URL
- */
-function getISBN13() {
-    let URL = new URLSearchParams(window.location.search);
-    let isbn = URL.get("isbn");
-    if (isbn) {
-        return isbn;
-    } else {
-        console.error("Error: No se ha encontrado el ISBN en la URL.");
-    }
-
-}
 
 /**
  * Agrega el producto actual a la lista de productos en el carrito
