@@ -1,6 +1,54 @@
 let carritosUsuarios = {};
 let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
 let carrito
+
+function crearDialogo(datos){
+     // Si ya existe, no lo volvemos a crear
+  if (document.getElementById("dialogoPersonalizado")) return;
+
+  // Crear overlay
+  const overlay = document.createElement("div");
+  overlay.id = "overlayPersonalizado";
+  overlay.style.cssText = `
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); z-index: 999;
+  `;
+
+  // Crear diálogo
+  const dialogo = document.createElement("div");
+  dialogo.id = "dialogoPersonalizado";
+  dialogo.style.cssText = `
+    position: fixed; top: 30%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white; padding: 20px;
+    border: 2px solid #333; z-index: 1000;
+  `;
+
+  dialogo.innerHTML = `
+    <p>${mensaje}</p>
+    <button id="btnAceptar">Aceptar</button>
+    <button id="btnCancelar">Cancelar</button>
+  `;
+
+  document.body.appendChild(overlay);
+  document.body.appendChild(dialogo);
+
+  document.getElementById("btnAceptar").onclick = () => {
+    cerrarDialogo();
+    if (typeof onAceptar === "function") onAceptar();
+  };
+
+  document.getElementById("btnCancelar").onclick = () => {
+    cerrarDialogo();
+    if (typeof onCancelar === "function") onCancelar();
+  };
+
+  function cerrarDialogo() {
+    overlay.remove();
+    dialogo.remove();
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async function () {
     //obtenemos el json de idioma
     const response = await fetch('/assets/lang/es.json');
@@ -16,9 +64,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     // let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
     carritosUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
     carrito = carritosUsuarios[usuarioLogueadoId] || {};
-    // console.log(carritosUsuarios);
-    // console.log(usuarioLogueadoId);
-    // console.log(carrito);
 
     document.querySelector('.containerCesta>h1').innerHTML = `${data[lang]['carrito']['titulo']}`;
     document.querySelector('.comprar').textContent = data[lang]['carrito']['finalizarCompra'];
@@ -78,8 +123,7 @@ document.querySelector('.productos').addEventListener('change', function (e) {
     if (e.target.matches('[id^="cantidad"]')) {
         let isbn = e.target.closest('.productoCarrito').getAttribute('data-isbn');
         let cantidad = parseInt(e.target.value);
-        console.log(carrito);
-        
+
         if (carrito[isbn]) {
             console.log(carrito[isbn]);
             // Actualizar la cantidad del producto en el carrito
@@ -89,7 +133,7 @@ document.querySelector('.productos').addEventListener('change', function (e) {
                 // Si la cantidad es 0 o menor, eliminar el producto del carrito       
                 delete carrito[isbn];
                 e.target.closest('.productoCarrito').remove();
-            }   
+            }
             // Verificar si la cantidad es mayor que el stock
             if (carrito[isbn] && carrito[isbn].cantidad >= carrito[isbn].producto.stock) {
                 // Si la cantidad es mayor que el stock, mostrar un mensaje de error   
@@ -108,13 +152,9 @@ document.querySelector('.productos').addEventListener('change', function (e) {
             localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
             // Actualizar el precio total
             actualizarPrecio();
-            
+
         }
 
-        //Si no hay nada en el carrito se recarga la pagina
-        if (Object.keys(carrito).length <= 0) {
-            window.location.reload();
-        }
     }
 
 })
@@ -130,15 +170,12 @@ document.querySelector('.productos').addEventListener('click', function (e) {
             localStorage.setItem("carrito", JSON.stringify(carritosUsuarios));
             actualizarPrecio();
         }
-        if (Object.keys(carrito).length <= 0) {
-            window.location.reload();
-        }
     }
 })
 
-document.querySelector('.comprar').addEventListener('click', function (e) {
+document.querySelector('.comprar').addEventListener('click', async function (e) {
     e.preventDefault();
-    comprar();
+    await comprar();
 });
 
 
@@ -148,32 +185,38 @@ document.querySelector('.comprar').addEventListener('click', function (e) {
  * Si la compra es exitosa, limpia el carrito y muestra un mensaje de confirmación.
  * Si falla la compra, muestra un mensaje de error en la consola.
  */
-function comprar() {
-    carrito = JSON.parse(localStorage.getItem("carrito")) || {};
+async function comprar() {
+    carritoUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
+    carrito=carritoUsuarios[usuarioLogueadoId] || {};
+    console.log(carrito);
+    
     if (Object.keys(carrito).length > 0) {
-
-        // Redirigir a la página de compra
-        fetch('index.php?controller=Cesta&action=comprar', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(carrito)
-        })
-            .then(response => response.json())  // O response.json()
-            .then(data => {
-                console.log(typeof data);
-                console.log('Respuesta del servidor:', data.status);
-                if (data.status === 'success') {
-                    // Si la compra fue exitosa, limpiar el carrito
-                    localStorage.removeItem("carrito");
-                    document.querySelector('.productos').innerHTML = ''; // Limpiar los productos mostrados
-                    document.querySelector('.precioTotal').textContent = 'Precio total: 0.00 €'; // Reiniciar el precio total
-                    alert('Compra realizada con exito');
-                }
-            }).catch(error => {
-                console.error('Error al enviar el carrito:', error);
+        try {
+            // Redirigir a la página de compra
+            const responseCompra = await fetch('index.php?controller=Cesta&action=comprar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(carrito)
             });
+            const data = await responseCompra.json();
+            console.log('Respuesta del servidor:', data);
+            if (data.status === 'success') {
+                // Si la compra fue exitosa, limpiar el carrito
+                localStorage.removeItem("carrito");
+                document.querySelector('.productos').innerHTML = ''; // Limpiar los productos mostrados
+                document.querySelector('.precioTotal').textContent = 'Precio total: 0.00 €'; // Reiniciar el precio total
+                // alert('Compra realizada con exito');
+                crearDialogo();
+            } else {
+                alert('Error en la compra: ' + (data.message || 'Respuesta inesperada'));
+            }
+        } catch (error) {
+            console.error('Error al enviar el carrito:', error);
+            alert('Ha ocurrido un error al realizar la compra. Intenta más tarde.');
+        }
+
     } else {
         alert("No hay productos en la cesta para comprar.");
     }
@@ -196,4 +239,8 @@ function actualizarPrecio() {
     }
     // Mostrar el precio total actualizado
     document.querySelector('.precioTotal').textContent = `Precio total: ${precioTotal.toFixed(2)} €`;
+    //Si el precio es 0 se recarga la pagina
+    if (precioTotal===0) {
+        window.location.reload();
+    }
 }
