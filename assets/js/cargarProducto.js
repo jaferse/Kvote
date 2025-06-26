@@ -1,4 +1,4 @@
-import { convertirFormatoFecha, getISBN13 } from './funcionesGenericas.js';
+import { convertirFormatoFecha, getISBN13, cargarIdioma } from './funcionesGenericas.js';
 
 let carritosUsuarios;
 
@@ -55,8 +55,7 @@ let producto;
 window.addEventListener('DOMContentLoaded', async () => {
     let descuento = 5;
     const ContainerProducto = document.querySelector(".ContainerProducto");
-    const response = await fetch('assets/lang/es.json');
-    const dataLang = await response.json();
+    const dataLang = await cargarIdioma();
     let lang = localStorage.getItem("lang") || "es";
 
     //Obtenemos el login del usuario

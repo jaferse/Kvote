@@ -61,7 +61,7 @@
         <script src="./assets/js/search.js"></script>
         <script src="./assets/js/hamburguer.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/just-validate@latest/dist/just-validate.production.min.js"></script>
-        <script src="./assets/js/singInFormulario.js"></script>
+        <script type="module" src="./assets/js/singInFormulario.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.19/jquery.inputmask.min.js"></script>

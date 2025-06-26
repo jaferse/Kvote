@@ -1,5 +1,5 @@
 
-import {aplicarValidaciones} from './funcionesGenericas.js';
+import {aplicarValidaciones, cargarIdioma} from './funcionesGenericas.js';
 
 /**
  * Actualiza el circulo de progreso y el texto adyacente en la pantalla
@@ -27,8 +27,7 @@ const registro = document.querySelector('.registro');
 const justValidate = new JustValidate('.registro__formulario');
 const formulario = document.querySelector('.registro__formulario');
 document.addEventListener('DOMContentLoaded', async () => {
-    const idiomaJson = await fetch('assets/lang/es.json')
-    const dataLand = await idiomaJson.json();
+    const dataLand = await cargarIdioma();
     let lang = localStorage.getItem("lang");
     // console.log(formulario);
     console.log(lang);

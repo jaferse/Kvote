@@ -1,25 +1,8 @@
-import { convertirFormatoFecha } from './funcionesGenericas.js';
-
-/**
- * Devuelve el ISBN13 de un producto desde la URL actual
- * @param {string} nombre - El nombre del par metro en la URL
- * @returns {string} El ISBN13 del producto
- * @throws {Error} Si no se encuentra el par metro en la URL
- */
-function getISBN13(nombre) {
-    let URL = new URLSearchParams(window.location.search);
-    let isbn = URL.get("isbn");
-    if (isbn) {
-        return isbn;
-    } else {
-        console.error("Error: No se ha encontrado el ISBN en la URL.");
-    }
-
-}
+import { convertirFormatoFecha, getISBN13, cargarIdioma } from './funcionesGenericas.js';
 
 function construirComentario(comentario, index) {
     let fecha = convertirFormatoFecha(comentario.fecha);
-    
+
     comentariosContainer.innerHTML += `
     <div>
     <div class="Producto__comentario" data-id="${comentario.id}">
@@ -55,9 +38,8 @@ function construirComentario(comentario, index) {
 let comentariosContainer;
 let productosComentarios;
 let usuarioLogueadoId;
+let dataLang;
 document.addEventListener('click', async function (event) {
-    const responseLang = await fetch('assets/lang/es.json');
-    const dataLang = await responseLang.json();
     let lang = localStorage.getItem("lang");
     //Comprobamos que se encuentre dentro de un formulario
     if (event.target.parentElement.tagName === "FORM") {
@@ -95,10 +77,10 @@ document.addEventListener('click', async function (event) {
         <input type='hidden' name='idComentario' id='idComentario' value='${idComentario}'>
         `;
         console.log(comentario);
-        
+
         //ocultamos el comentario
         comentario.style.display = "none";
-        
+
         //Añadimos el formulario
         comentario.parentNode.appendChild(form);
 
@@ -108,8 +90,8 @@ document.addEventListener('click', async function (event) {
         console.log("Boton atras");
         console.log(event.target.parentElement.parentElement);
         let comentarioDiv = event.target.parentElement.parentElement;
-        comentarioDiv.querySelector(".Producto__comentario").style.display = "block"; 
-        comentarioDiv.querySelector(".Producto__comentarios__formulario").remove(); 
+        comentarioDiv.querySelector(".Producto__comentario").style.display = "block";
+        comentarioDiv.querySelector(".Producto__comentarios__formulario").remove();
     }
 
     if (event.target.getAttribute("id") === "deleteComment") {
@@ -118,7 +100,8 @@ document.addEventListener('click', async function (event) {
 
         fetch(`index.php?controller=Comentarios&action=eliminarComentario&id=${event.target.parentElement.parentElement.getAttribute("data-id")}`, {
             method: 'DELETE',
-        }).then(response => response.text())
+        })
+            .then(response => response.text())
             .then(data => {
                 console.log("Comentario eliminado:", data);
                 window.location.reload(); // Recargar la página para ver los cambios
@@ -130,12 +113,10 @@ document.addEventListener('click', async function (event) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     //obtenemos los comentarios del producto
-    const response = await fetch(`index.php?controller=Comentarios&action=listarComentarios&isbn=${getISBN13("ISBN")}`)
+    const response = await fetch(`index.php?controller=Comentarios&action=listarComentarios&isbn=${getISBN13()}`);
     const data = await response.json();
     //obtenemos json de idioma
-    const responseLang = await fetch('assets/lang/es.json');
-    const dataLang = await responseLang.json();
-
+    dataLang = await cargarIdioma();
     //obtenermos el login del usuario
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
     const user = await responseUser.json();

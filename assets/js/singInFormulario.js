@@ -1,10 +1,11 @@
+import { cargarIdioma } from './funcionesGenericas.js';
 const justValidate = new JustValidate('.registro__formulario');
 const formulario = document.querySelector('.registro__formulario');
 // console.log(formulario);
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const idiomaJson = await fetch('assets/lang/es.json')
-    const dataLand = await idiomaJson.json();
+    
+    const dataLand = await cargarIdioma();
     let lang= localStorage.getItem("lang");
     // console.log(lang);
     

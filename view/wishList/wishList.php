@@ -29,7 +29,7 @@
     ?>
 
 
-    <script src="./assets/js/wishListCargar.js"></script>
+    <script type="module" src="./assets/js/wishListCargar.js"></script>
     <script src="./assets/js/darkMode.js"></script>
     <!-- <script src="./assets/js/animacionLogo.js"></script> -->
     <script src="./assets/js/search.js"></script>

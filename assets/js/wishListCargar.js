@@ -1,6 +1,6 @@
+import { cargarIdioma } from './funcionesGenericas.js';
 document.addEventListener('DOMContentLoaded', async () => {
-    const responseLang = await fetch("/assets/lang/es.json");
-    const json = await responseLang.json();
+    const json = await cargarIdioma();
     const responseProducto = await fetch('index.php?controller=WishList&action=listarWishlist');
     const productos = await responseProducto.json();
     if (document.querySelector(".containerProductosWishList")) {

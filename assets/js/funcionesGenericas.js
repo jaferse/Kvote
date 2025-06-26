@@ -385,3 +385,9 @@ export function getISBN13() {
     }
 
 }
+
+export async function cargarIdioma() {
+    const responseLang = await fetch('assets/lang/es.json');
+    const dataLang = await responseLang.json();
+    return dataLang;
+}

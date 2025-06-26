@@ -1,3 +1,4 @@
+import { cargarIdioma } from "./funcionesGenericas.js";
 let carritosUsuarios = {};
 let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
 let carrito
@@ -55,8 +56,8 @@ function crearDialogo(datos, onAceptar, onCancelar) {
 
 document.addEventListener('DOMContentLoaded', async function () {
     //obtenemos el json de idioma
-    const response = await fetch('/assets/lang/es.json');
-    const data = await response.json();
+    
+    const data = await cargarIdioma();
 
     //obtenermos el login del usuario
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);

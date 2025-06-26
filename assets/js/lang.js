@@ -1,8 +1,7 @@
-import { convertirFormatoFecha } from './funcionesGenericas.js';
+import { convertirFormatoFecha, cargarIdioma } from './funcionesGenericas.js';
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch("/assets/lang/es.json");
-        const json = await response.json();
+        const json = await cargarIdioma();
 
         //Si no hay local storage le asignamos español por defecto
         if (!localStorage.getItem("lang")) {

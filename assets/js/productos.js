@@ -166,8 +166,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     sessionStorage.setItem("seccion", seccion);
 
     // Nos traemos el json de los textos de traducción
-    const responseLang = await fetch("/assets/lang/es.json");
-    const json = await responseLang.json();
+    const json = await cargarIdioma();
 
     let productosRespuesta = await sacarProductos(seccion, paginaActual);
     let productos = productosRespuesta['productos'];
