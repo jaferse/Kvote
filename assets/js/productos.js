@@ -1,3 +1,5 @@
+import {cargarIdioma } from './funcionesGenericas.js';
+
 /**
  * Crea una tarjeta de un producto
  * @param {HTMLElement} containerProductos - Elemento que contiene todas las tarjetas de productos

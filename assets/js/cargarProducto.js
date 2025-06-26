@@ -1,4 +1,4 @@
-import { convertirFormatoFecha, getISBN13, cargarIdioma } from './funcionesGenericas.js';
+import { convertirFormatoFecha, getISBN13, cargarIdioma, crearDialogo } from './funcionesGenericas.js';
 
 let carritosUsuarios;
 
@@ -57,7 +57,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     const ContainerProducto = document.querySelector(".ContainerProducto");
     const dataLang = await cargarIdioma();
     let lang = localStorage.getItem("lang") || "es";
-
     //Obtenemos el login del usuario
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
     user = await responseUser.json();

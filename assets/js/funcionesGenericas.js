@@ -391,3 +391,60 @@ export async function cargarIdioma() {
     const dataLang = await responseLang.json();
     return dataLang;
 }
+
+
+/**
+ * Crea un diálogo modal con el título y mensaje proporcionados,
+ * y llama a las funciones onAceptar y onCancelar cuando se
+ * pulsa el botón de aceptar o cancelar, respectivamente.
+ * @param {Object} datos - Un objeto con los siguientes
+ *   campos: titulo, mensaje, mensajeAceptar, mensajeCancelar
+ * @param {function} onAceptar - Función a llamar cuando se
+ *   pulsa el botón de aceptar
+ * @param {function} onCancelar - Función a llamar cuando se
+ *   pulsa el botón de cancelar
+ */
+export function crearDialogo(datos, onAceptar, onCancelar) {
+    // Si ya existe, no lo volvemos a crear
+    if (document.getElementById("dialogoPersonalizado")) return;
+    console.log(datos);
+
+    let titulo = datos.titulo;
+    let mensaje = datos.mensaje;
+    // Crear overlay
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+    console.log(typeof mensaje);
+    
+
+    // Crear diálogo
+    const dialogo = document.createElement("div");
+    dialogo.id = "dialog";
+
+    dialogo.innerHTML = `
+    <h1>${titulo}</h1>
+    <p>${mensaje}</p>
+    <div class="botones">
+    <button id="btnAceptar" class="btnVerdePrimario">${datos['mensajeAceptar']}</button>
+    <button id="btnCancelar" class="btnRojo">${datos['mensajeCancelar']}</button>
+    </div>
+  `;
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(dialogo);
+
+    document.getElementById("btnAceptar").onclick = () => {
+        cerrarDialogo();
+        if (typeof onAceptar === "function") onAceptar();
+    };
+
+    document.getElementById("btnCancelar").onclick = () => {
+        cerrarDialogo();
+        if (typeof onCancelar === "function") onCancelar();
+    };
+
+    function cerrarDialogo() {
+        overlay.remove();
+        dialogo.remove();
+    }
+}

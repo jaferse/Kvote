@@ -48,10 +48,16 @@
                     <div class="registro__formulario__group  lang" data-lang="password1">
                         <label for="password">Contraseña </label> <input type="password" id="password"
                             placeholder="Contraseña" name="password">
+                        <span class="toggle-password" id="togglePassword">
+                            <img class="eye" src="./assets/img/eye.png" alt="toggle-password">
+                        </span>
                     </div>
                     <div class="registro__formulario__group  lang" data-lang="password2">
                         <label for="password2">Confirme Contraseña </label> <input type="password" id="password2"
                             placeholder="Confirme Contraseña" name="password2">
+                        <span class="toggle-password" id="togglePassword">
+                            <img class="eye" src="./assets/img/eye.png" alt="toggle-password">
+                        </span>
                     </div>
                     <div class="registro__formulario__group  lang" data-lang="fecha">
                         <label for="birth">Fecha nacimiento</label><input type="date" id="birth"
@@ -110,7 +116,7 @@
                         <a href="index.php?controller=LogIn&action=view" class="lang " data-lang="yaTienesCuenta"></a>
                     </div>
                     <div class="registro__formulario__group  lang" data-lang="registrar">
-                        <input type="submit" name="enviar" value="Registrarse" id="botonRegistrar">
+                        <input type="submit" name="enviar" value="Registrarse" id="botonRegistrar" class="btnVerdePrimario">
                     </div>
                 </form>
                 <div class="progress-container">

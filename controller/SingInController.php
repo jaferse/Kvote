@@ -82,7 +82,7 @@ class SingInController
             $this->daologinDatos->insertar($login);
             //Insertamos el objeto tarjeta en la base de datos
             $this->daotarjeta->insertar($tarjeta);
-            header("url=index.php?controller=SingIn&action=view");
+header("Location: index.php?controller=Index&action=view");
         } else {
 
             $codigoError = "";

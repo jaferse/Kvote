@@ -4,11 +4,11 @@ const formulario = document.querySelector('.registro__formulario');
 // console.log(formulario);
 
 document.addEventListener('DOMContentLoaded', async () => {
-    
+
     const dataLand = await cargarIdioma();
-    let lang= localStorage.getItem("lang");
+    let lang = localStorage.getItem("lang");
     // console.log(lang);
-    
+
     // console.log(dataLand[lang]['formulario']['validateSingIn']['username']['required']);
     //Recogemos todos los elementos del formulario
     for (const element of formulario.elements) {
@@ -64,25 +64,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             {
                 rule: 'minLength',
                 value: 2,
-                errorMessage:  dataLand[lang]['formulario']['validateSingIn']['password']['minLength']
+                errorMessage: dataLand[lang]['formulario']['validateSingIn']['password']['minLength']
             },
             {
                 rule: 'maxLength',
                 value: 50,
-                errorMessage:  dataLand[lang]['formulario']['validateSingIn']['password']['maxLength']
+                errorMessage: dataLand[lang]['formulario']['validateSingIn']['password']['maxLength']
             },
             {
                 rule: 'customRegexp',
                 value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[._+]).{6,}$/,
 
-                errorMessage:  dataLand[lang]['formulario']['validateSingIn']['password']['custom']
+                errorMessage: dataLand[lang]['formulario']['validateSingIn']['password']['custom']
             },
         ],
         {
-            successMessage:  dataLand[lang]['formulario']['validateSingIn']['password']['successMessage'],
+            successMessage: dataLand[lang]['formulario']['validateSingIn']['password']['successMessage'],
         }
     )
 });
+
 formulario.addEventListener('submit', async (e) => {
 
     e.preventDefault();
@@ -111,3 +112,12 @@ formulario.addEventListener('submit', async (e) => {
 
     });
 });
+
+document.addEventListener('click', function (event) {
+    if (event.target.closest('.toggle-password')) {
+        let passwordInput = event.target.closest('.registro__formulario__group').querySelector('#password');
+        let spanEye = event.target.closest('.registro__formulario__group').querySelector('.eye');
+        passwordInput.setAttribute('type', passwordInput.getAttribute('type') === 'password' ? 'text' : 'password'); // Cambia el atributo type = 'text' o 'pastword'
+        spanEye.setAttribute('src', spanEye.getAttribute('src') === './assets/img/eyeOpen.png' ? './assets/img/eye.png' : './assets/img/eyeOpen.png'); // Cambia el ojo 
+    }
+})

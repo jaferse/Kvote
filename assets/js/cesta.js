@@ -1,58 +1,7 @@
-import { cargarIdioma } from "./funcionesGenericas.js";
+import { cargarIdioma, crearDialogo } from "./funcionesGenericas.js";
 let carritosUsuarios = {};
 let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
-let carrito
-
-function crearDialogo(datos, onAceptar, onCancelar) {
-    // Si ya existe, no lo volvemos a crear
-    if (document.getElementById("dialogoPersonalizado")) return;
-    console.log(datos);
-
-    let titulo = datos.titulo;
-    let mensaje = datos.mensaje;
-    // Crear overlay
-    const overlay = document.createElement("div");
-    overlay.id = "overlayPersonalizado";
-    overlay.style.cssText = `
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5); z-index: 999;
-  `;
-
-    // Crear diálogo
-    const dialogo = document.createElement("div");
-    dialogo.id = "dialogoPersonalizado";
-    dialogo.style.cssText = `
-    position: fixed; top: 30%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: white; padding: 20px;
-    border: 2px solid #333; z-index: 1000;
-  `;
-
-    dialogo.innerHTML = `
-    <h1>${titulo}</h1>
-    <p>${mensaje}</p>
-    <button id="btnAceptar">${datos['mensajeAceptar']}</button>
-    <button id="btnCancelar">${datos['mensajeCancelar']}</button>
-  `;
-
-    document.body.appendChild(overlay);
-    document.body.appendChild(dialogo);
-
-    document.getElementById("btnAceptar").onclick = () => {
-        cerrarDialogo();
-        if (typeof onAceptar === "function") onAceptar();
-    };
-
-    document.getElementById("btnCancelar").onclick = () => {
-        cerrarDialogo();
-        if (typeof onCancelar === "function") onCancelar();
-    };
-
-    function cerrarDialogo() {
-        overlay.remove();
-        dialogo.remove();
-    }
-}
+let carrito;
 
 document.addEventListener('DOMContentLoaded', async function () {
     //obtenemos el json de idioma

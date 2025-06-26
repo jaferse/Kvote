@@ -197,7 +197,7 @@
                 "tarjeta": {
                     "required": "El número de tarjeta debe ser rellenado",
                     "maxLength": "El número de tarjeta debe tener 16 dígitos",
-                    "custom": "Formato de tarjeta incorrecto",
+                    "custom": "Formato correcto: XXXX-XXXX-XXXX-XXXX",
                     "successMessage": "Número de tarjeta válido"
                 },
                 "caducidad": {
@@ -540,7 +540,7 @@
                 "tarjeta": {
                     "required": "Card number is required",
                     "maxLength": "Card number must be 16 digits",
-                    "custom": "Invalid card format",
+                    "custom": "Correct format: XXXX-XXXX-XXXX-XXXX",
                     "successMessage": "Valid card number"
                 },
                 "caducidad": {
@@ -883,7 +883,7 @@
                 "tarjeta": {
                     "required": "カード番号は必須です",
                     "maxLength": "カード番号は16桁である必要があります",
-                    "custom": "カード形式が正しくありません",
+                    "custom": "正しいフォーマット：XXXX-XXXX-XXXX-XXXX",
                     "successMessage": "有効なカード番号です"
                 },
                 "caducidad": {

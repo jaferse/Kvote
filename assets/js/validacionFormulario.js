@@ -1,5 +1,5 @@
 
-import {aplicarValidaciones, cargarIdioma} from './funcionesGenericas.js';
+import { aplicarValidaciones, cargarIdioma, crearDialogo } from './funcionesGenericas.js';
 
 /**
  * Actualiza el circulo de progreso y el texto adyacente en la pantalla
@@ -22,7 +22,7 @@ function updateProgress(value, total) {
     circle.style.strokeDashoffset = offset;
     text.textContent = `${value}/${total}`;
 }
-const cuadroDialogo = document.createElement('dialog');
+// const cuadroDialogo = document.createElement('dialog');
 const registro = document.querySelector('.registro');
 const justValidate = new JustValidate('.registro__formulario');
 const formulario = document.querySelector('.registro__formulario');
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         }
     }
-    aplicarValidaciones(justValidate,dataLand, lang);
+    aplicarValidaciones(justValidate, dataLand, lang);
 
     // .onSuccess((e) => { //En caso de que sea correcto cada uno de los campos envia el formulario
     //     // formulario.submit();
@@ -120,29 +120,44 @@ formulario.addEventListener('submit', (e) => {
             // formulario.submit();
             const inputs = e.target.querySelectorAll('input');
             const opcion = document.querySelector('#generoFavorito');
-            cuadroDialogo.classList.add('confirmacion');
-            let contenidoHTML =
-                `<div class="confirmacion__contenedor">
-            <h2>Confirmas tus datos</h2>
-            <ul>`;
-
+            console.log(inputs);
+            console.log(opcion);
+            let contenidoHTML = "";
             inputs.forEach(element => {
+                if (element.getAttribute('type') !== 'submit') {
 
-                if (element.type !== 'submit') {
+                    console.log(element);
+                    console.log(element.previousElementSibling.textContent);
+                    console.log(element.value);
+                    if (element.getAttribute('id') !== 'password2') {
+                        if (element.getAttribute('id') == 'password') {
+                            contenidoHTML += `
+                            <li class="password oculta">
+                                ${element.previousElementSibling.textContent}:
+                                <span class="oculta">${'*'.repeat(element.value.length)}</span>
+                                <span class="real" style="display: none;">${element.value}</span>
+                                <a class="mostrarPassword"><img class="eye" src="assets/img/eye.png" alt="Mostrar contraseña"></a>
+                                </li>`;
 
-                    contenidoHTML += `<li>${element.previousElementSibling.textContent}: ${element.value}</li>`;
+                        } else {
+                            contenidoHTML += `<li>${element.previousElementSibling.textContent}: ${element.value}</li>`;
+                        }
+                    }
+                    console.log(contenidoHTML);
+
                 }
-
             });
-            contenidoHTML += ` <li>Genero Favorito: ${opcion.value}</li>
-            </ul>
-            <button class="dialog__confirmar">Confirmar</button>
-                <button class="dialog__volver">Volver atras</button>
-                </div>`;
-            cuadroDialogo.innerHTML = contenidoHTML;
-            registro.appendChild(cuadroDialogo);
+            crearDialogo({ titulo: "Confirma los datos", mensaje: contenidoHTML, mensajeAceptar: "Registrarse", mensajeCancelar: "Atrás" },
+                () => {
 
-            cuadroDialogo.style.display = "block";
+                    formulario.action = "index.php?controller=SingIn&action=registrar";
+                    console.log(formulario);
+                    formulario.submit();
+
+                },
+                () => {
+                }
+            )
 
 
 
@@ -166,16 +181,29 @@ formulario.addEventListener('submit', (e) => {
     });
 });
 
-cuadroDialogo.addEventListener('click', (e) => {
-    if (e.target.closest(".dialog__confirmar")) {
 
-        formulario.action = "index.php?controller=SingIn&action=registrar";
-        console.log(formulario);
-        formulario.submit();
+document.addEventListener('click', (e) => {
+
+    if (e.target.parentElement.classList.contains('mostrarPassword')) {
+        console.log(e.target.parentElement);
+
+        const passwordItem = e.target.closest('.password'); // el <li>
+
+        if (passwordItem.classList.contains('oculta')) {
+            passwordItem.querySelector('.oculta').style.display = 'none';
+            passwordItem.querySelector('.real').style.display = 'inline';
+        } else {
+            passwordItem.querySelector('.oculta').style.display = 'inline';
+            passwordItem.querySelector('.real').style.display = 'none';
+        }
+        passwordItem.classList.toggle('oculta');
 
     }
-    if (e.target.closest(".dialog__volver")) {
-        cuadroDialogo.style.display = "none";
-        cuadroDialogo.innerHTML = "";
+
+    if (e.target.closest('.toggle-password')) {
+        let passwordInput = e.target.closest('.registro__formulario__group').querySelector('#password') || e.target.closest('.registro__formulario__group').querySelector('#password2');
+        let spanEye = e.target.closest('.registro__formulario__group').querySelector('.eye');
+        passwordInput.setAttribute('type', passwordInput.getAttribute('type') === 'password' ? 'text' : 'password'); // Cambia el atributo type = 'text';
+        spanEye.setAttribute('src', spanEye.getAttribute('src') === './assets/img/eyeOpen.png' ? './assets/img/eye.png' : './assets/img/eyeOpen.png'); // Cambia el ojo 
     }
-});
+})

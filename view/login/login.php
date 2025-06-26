@@ -30,12 +30,16 @@
                             placeholder="Nombre Usuario" name="userName" required>
                     </div>
                     <div class="registro__formulario__group  lang" data-lang="password1">
-                        <label for="password"></label> <input type="password" id="password"
-                            placeholder="Contraseña" name="password">
+                        <label for="password"></label>
+                             <input type="password" id="password"
+                                placeholder="Contraseña" name="password">
+                                <span class="toggle-password" id="togglePassword">
+                                    <img class="eye" src="./assets/img/eye.png" alt="toggle-password">
+                                </span>
                     </div>
                     <?php
                     if (isset($_SESSION['logueado']) && $_SESSION['logueado'] == false) {
-                        echo "<p class='error'>".$_SESSION['mensajeError']."</p>";
+                        echo "<p class='error'>" . $_SESSION['mensajeError'] . "</p>";
                         unset($_SESSION['logueado']);
                         unset($_SESSION['mensajeError']);
                     }
@@ -43,8 +47,8 @@
                     <div class="enlaceBoton">
                         <a href="index.php?controller=SingIn&action=view" class="lang" data-lang="tieneCuenta?"></a>
                     </div>
-                    <div class="registro__formulario__group  lang" data-lang="entrar">
-                        <input type="submit" name="Entrar" value="Iniciar Sesión" id="botonRegistrar">
+                    <div class="registro__formulario__group   lang" data-lang="entrar">
+                        <input type="submit" name="Entrar" value="Iniciar Sesión" id="botonRegistrar" class="btnVerdePrimario">
                     </div>
 
                 </form>

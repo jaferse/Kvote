@@ -93,10 +93,9 @@
 
         &__group {
             @include flex(column, space-between, start, wrap);
-
+            position: relative;
             margin: 1rem 5rem;
             min-height: 4rem;
-
 
             .just-validate-success-field {
                 border-color: $verde_validacion;
@@ -134,68 +133,35 @@
             }
 
             #botonRegistrar {
-
-                @include dimensiones(auto, 2rem, 16px, none);
-
-                background-color: $rojo_primario;
-                color: $blanco_letra;
-                padding: 0.5rem 1rem;
-                font-family: $fuente_general;
-                font-weight: bold;
-                cursor: pointer;
-                transition: background-color 0.1s ease;
-                margin: 0 auto;
-
-                &:hover {
-                    background-color: $boton_hover;
-                    transform: scale(1.1);
-                }
+                padding: 0.6rem 0rem;
             }
 
             .botonRegistrar--dark {
                 background-color: $fondoOscuro !important;
             }
-        }
-    }
 
+            // .input-contenedor {
+            //     width: 100%;
+            //     display: flex;
+            //     flex-direction: row;
+            //     align-items: center;
+            //     position: relative;
 
-    .confirmacion {
-        position: absolute;
-        top: 20%;
-        border-radius: 16px;
-        background-color: $blancoFondo;
-        border: 2px solid $rojo_primario;
-        box-shadow: $box_shadow;
-
-        &__contenedor {
-            @include flex(row, space-evenly, center, wrap);
-
-            h2 {
-                @include dimensiones(100%, 100%, 10px 10px 0 0);
-
-                margin-top: 0px;
-                padding: 0.8rem 0px;
-                text-align: center;
-                background-color: $rojo_primario;
-                font-family: $fuente_general;
-                color: $blanco_letra;
-            }
-
-            ul {
-                width: 100%;
-                @include flex(column, center, center);
-
-                li {
-                    margin-left: 1rem;
-                    margin: 1rem;
+                .toggle-password {
+                    cursor: pointer;
+                    .eye {
+                        position: absolute;
+                        right: 1rem;
+                        width: 1.8rem;
+                        top: 1.5rem;
+                        right: 0.5rem;
+                    }
                 }
-            }
-
+            // }
         }
-
-
     }
-    .error{
+
+    .error {
         color: red;
     }
 }
