@@ -39,7 +39,7 @@
                         <!-- <button>Comprar</button> -->
                         <span class="Producto__info__precioComprar__precio__anterior"></span>
                     </div>
-                    <div class="tooltip Producto__info__precioComprar__tooltip">
+                    <div class="Producto__info__precioComprar__tooltip">
                         <button class="Producto__info__precioComprar__boton botonCesta btnVerdePrimario">Añadir a la cesta</button>
                         <?php
                         // if (isset($_SESSION['mensajeError'])) {
@@ -48,11 +48,11 @@
                         ?>
 
                     </div>
-                    <div class="tooltip Producto__info__precioWishlist__tooltip">
+                    <div class="Producto__info__precioWishlist__tooltip">
                         <button class="Producto__info__precioComprar__boton botonWishlist btnVerdeSecundario">Añadir a wishlist</button>
                         <?php
                         if (isset($_SESSION['mensajeErrorWishlist'])) {
-                            echo "<span class='mensajeError'>" . $_SESSION['mensajeErrorWishlist'] . "</span>";
+                            echo "<div class='tooltip warning'>" . $_SESSION['mensajeErrorWishlist'] . "</div>";
                             unset($_SESSION['mensajeErrorWishlist']);
                         }
                         ?>

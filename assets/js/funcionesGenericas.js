@@ -415,7 +415,7 @@ export function crearDialogo(datos, onAceptar, onCancelar) {
     const overlay = document.createElement("div");
     overlay.id = "overlay";
     console.log(typeof mensaje);
-    
+
 
     // Crear diálogo
     const dialogo = document.createElement("div");
@@ -447,4 +447,27 @@ export function crearDialogo(datos, onAceptar, onCancelar) {
         overlay.remove();
         dialogo.remove();
     }
+}
+
+
+/**
+ * Crea un tooltip con el mensaje y estilo dados, y lo agrega al
+ * contenedor proporcionado. El tooltip se elimina automáticamente
+ * después del tiempo especificado (por defecto 2000ms). La función
+ * devuelve el elemento del tooltip.
+ * @param {string} mensaje - El mensaje que se mostrará en el tooltip
+ * @param {string} style - El estilo del tooltip ( "exito", "error", "warning" )
+ * @param {HTMLElement} contenedor - El contenedor donde se agregará el tooltip
+ * @param {number} [time=2000] - El tiempo en ms que el tooltip permanecerá visible
+ * @returns {HTMLElement} El elemento del tooltip
+ */
+export function tooltip(mensaje, style, contenedor, time=2000) {
+    const tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip', style);
+    tooltip.innerHTML = mensaje;
+    contenedor.appendChild(tooltip);
+    setTimeout(() => {
+        tooltip.remove();
+    },time);
+    return tooltip;
 }

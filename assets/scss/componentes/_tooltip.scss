@@ -1,0 +1,28 @@
+@use './variables' as *;
+
+.tooltip {
+    padding: 0.2rem;
+    text-align: center;
+    padding: 0.2rem;
+    border-radius: 8px 8px 0px 0px;
+    position: fixed;
+    bottom: 4px;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.exito {
+    border-bottom: 3px solid $verdeTooltipBorder;
+    background-color: $verdeTooltip;
+}
+
+.error {
+    border-bottom: 3px solid $rojoTooltipBorder;
+    background-color: $rojoTooltip;
+}
+
+.warning {
+    border-bottom: 3px solid $warningTooltipBorder;
+    background-color: $warningTooltip;
+}

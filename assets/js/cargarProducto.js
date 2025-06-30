@@ -1,4 +1,4 @@
-import { convertirFormatoFecha, getISBN13, cargarIdioma, crearDialogo } from './funcionesGenericas.js';
+import { convertirFormatoFecha, getISBN13, cargarIdioma, tooltip } from './funcionesGenericas.js';
 
 let carritosUsuarios;
 
@@ -49,10 +49,19 @@ function agregarProductoWishlist() {
     window.location.href = "index.php?controller=WishList&action=agregarProducto&isbn=" + getISBN13();
 }
 
+function ocultarTooltip() {
+    const tooltip = document.querySelector('.tooltip');
+    if (tooltip) {
+        setTimeout(() => {
+            tooltip.remove(); // o tooltip.style.display = 'none';
+        }, 3000);
+    }
+}
 let user;
 let producto;
 // Cargar el producto al cargar la página
 window.addEventListener('DOMContentLoaded', async () => {
+    ocultarTooltip();
     let descuento = 5;
     const ContainerProducto = document.querySelector(".ContainerProducto");
     const dataLang = await cargarIdioma();
@@ -103,9 +112,11 @@ document.addEventListener('click', (e) => {
         if (user.logueado) {
             // Agregar al carrito
             agregarProductoCarrito(user, producto);
+            tooltip('Añadido a la cesta', 'exito', e.target.parentElement);
         } else {
+            tooltip('Inicia sesión', 'warning', e.target.parentElement);
             //redirigir a la página de inicio de sesión
-            window.location.href = "index.php?controller=LogIn&action=view";
+            // window.location.href = "index.php?controller=LogIn&action=view";
         }
     }
     //Si se pulsa el botón de añadir a la wishlist
@@ -115,8 +126,9 @@ document.addEventListener('click', (e) => {
             // Agregar al la wishlist
             agregarProductoWishlist();
         } else {
+            tooltip('Inicia sesión', 'warning', e.target.parentElement);
             //redirigir a la página de inicio de sesión
-            window.location.href = "index.php?controller=LogIn&action=view";
+            // window.location.href = "index.php?controller=LogIn&action=view";
         }
     }
 

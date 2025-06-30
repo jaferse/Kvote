@@ -351,7 +351,8 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    button{
+
+                    button {
                         margin: 1rem;
                     }
                 }
@@ -359,7 +360,7 @@
             }
         }
 
-        &__nologueado{
+        &__nologueado {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -371,14 +372,16 @@
             padding: 0.5rem;
             background-color: $rojo_primario;
             cursor: pointer;
-            a{
+
+            a {
                 color: $blanco_letra;
                 text-decoration: none;
                 font-size: large;
                 font-weight: bolder;
                 cursor: inherit;
             }
-            &:hover{
+
+            &:hover {
                 background-color: $rojo_primario--hover;
                 transform: scale(1.01);
             }
@@ -403,6 +406,7 @@
 
                 &__caracteristicas {
                     width: 100%;
+
                     ul {
                         display: flex;
                         flex-wrap: wrap;
