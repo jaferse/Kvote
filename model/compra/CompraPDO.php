@@ -92,6 +92,14 @@ class Daocompra extends DB
         $this->consultaSimple($consulta, $param);
     }
 
+        public function borrarporIdUsuario($idUsuario)
+    { //Se introduce un objeto por parametro que se insertará
+        $consulta = " DELETE FROM compra WHERE idUsuario= :idUsuario";
+        $param = array();
+        $param[":idUsuario"] = $idUsuario;
+        $this->consultaSimple($consulta, $param);
+    }
+
     public function obtenerPedidosUsuario($idUsuario)
     {
         $consulta = "SELECT * FROM compra where idUsuario = :idUsuario ORDER BY fechaCompra DESC";

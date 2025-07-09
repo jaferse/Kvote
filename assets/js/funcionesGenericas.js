@@ -425,8 +425,8 @@ export function crearDialogo(datos, onAceptar, onCancelar) {
     <h1>${titulo}</h1>
     <p>${mensaje}</p>
     <div class="botones">
-    <button id="btnAceptar" class="btnVerdePrimario">${datos['mensajeAceptar']}</button>
-    <button id="btnCancelar" class="btnRojo">${datos['mensajeCancelar']}</button>
+    ${datos['mensajeAceptar'] ? `<button id="btnAceptar" class="btnVerdePrimario">${datos['mensajeAceptar']}</button>` : ''}
+    ${datos['mensajeCancelar'] ? `<button id="btnCancelar" class="btnRojo">${datos['mensajeCancelar']}</button>` : ''}
     </div>
   `;
 
@@ -461,13 +461,13 @@ export function crearDialogo(datos, onAceptar, onCancelar) {
  * @param {number} [time=2000] - El tiempo en ms que el tooltip permanecerá visible
  * @returns {HTMLElement} El elemento del tooltip
  */
-export function tooltip(mensaje, style, contenedor, time=2000) {
+export function tooltip(mensaje, style, contenedor, time = 2000) {
     const tooltip = document.createElement('div');
     tooltip.classList.add('tooltip', style);
     tooltip.innerHTML = mensaje;
     contenedor.appendChild(tooltip);
     setTimeout(() => {
         tooltip.remove();
-    },time);
+    }, time);
     return tooltip;
 }

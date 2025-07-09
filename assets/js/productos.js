@@ -1,4 +1,4 @@
-import {cargarIdioma } from './funcionesGenericas.js';
+import { cargarIdioma } from './funcionesGenericas.js';
 
 /**
  * Crea una tarjeta de un producto
@@ -13,9 +13,12 @@ import {cargarIdioma } from './funcionesGenericas.js';
  * @property {string} isbn - ISBN del producto
  */
 function crearTarjeta(containerProductos, producto, json) {
+    const darkMode = localStorage.getItem('darkMode')
     //creamos la sección
     let containerProductos__producto = document.createElement('section');
-    containerProductos__producto.classList.add('containerProductos__producto');
+    ((darkMode == 'dark') ?
+        containerProductos__producto.classList.add('containerProductos__producto', 'containerProductos__producto--dark')
+        : containerProductos__producto.classList.add('containerProductos__producto'));
 
     //creamos el div img
     let containerProductos__producto__img = document.createElement('div');

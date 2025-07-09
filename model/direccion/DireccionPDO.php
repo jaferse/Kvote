@@ -115,4 +115,12 @@ class Daodireccion extends DB
         $param[":id"] = $id;
         $this->consultaSimple($consulta, $param);
     }
+
+        public function borrarPorIdUsuario($usuario_id)
+    { //Se introduce un objeto por parametro que se insertará
+        $consulta = " DELETE FROM direccion WHERE usuario_id= :usuario_id";
+        $param = array();
+        $param[":usuario_id"] = $usuario_id;
+        $this->consultaSimple($consulta, $param);
+    }
 }

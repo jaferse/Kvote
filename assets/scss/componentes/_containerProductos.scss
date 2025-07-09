@@ -175,19 +175,19 @@
 
 @media screen and (max-width: 992px) {
     .containerProductos {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr !important;
     }
 }
 
 @media screen and (max-width: 792px) {
     .containerProductos {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr !important;
     }
 }
 
 @media screen and (max-width: 540px) {
     .containerProductos {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
 }

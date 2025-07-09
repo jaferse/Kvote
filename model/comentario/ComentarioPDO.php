@@ -124,4 +124,19 @@ class Daocomentario extends DB
         $param[":id"] = $id;
         $this->consultaSimple($consulta, $param);
     }
+
+    /**
+     * Borra todos los comentarios de un usuario
+     *
+     * @param int $usuario_id El id del usuario a borrar comentarios
+     *
+     * @return void
+     */
+    public function borrarPorIdUsuario($usuario_id)
+    {
+        $consulta = "DELETE FROM comentario WHERE usuario_id = :usuario_id";
+        $param = array();
+        $param[":usuario_id"] = $usuario_id;
+        $this->consultaSimple($consulta, $param);
+    }
 }

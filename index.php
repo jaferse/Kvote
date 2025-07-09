@@ -20,7 +20,9 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
         $dato = $_GET['id'];
     } else if(isset($_GET['page'])){
         $dato = $_GET['page'];
-    } else {
+    } else if(isset($_GET['username'])){
+        $dato = $_GET['username'];
+    }else {
         $dato = null;
     }
     // echo "Existen controladores";

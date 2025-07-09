@@ -53,7 +53,7 @@ class LogInController
     /**
      * Cierra la sesión actual y redirige a la página de inicio
      */
-    function logOut()
+   static function logOut()
     {
         session_start();
         session_destroy();

@@ -103,7 +103,20 @@ class Daotarjeta extends DB
         $param[":numero_tarjeta"] = $numero_tarjeta;
         $this->consultaSimple($consulta, $param);
     }
-
+    
+    public function borrarPorId($id){
+        $consulta = " DELETE FROM tarjeta WHERE usuario_id= :usuario_id";
+        $param = array();
+        $param[":usuario_id"] = $id;
+        $this->consultaSimple($consulta, $param);
+    }
+    /**
+     * Obtiene el enum de una columna de la tabla tarjeta
+     *
+     * @param string $columna La columna que se quiere obtener el enum
+     *
+     * @return array El enum de la columna en cuestión
+     */
         public function getEnum($columna)
     {
         $consulta = "SELECT COLUMN_TYPE

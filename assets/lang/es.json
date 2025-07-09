@@ -341,9 +341,33 @@
             "finalizarCompra": "Finalizar Compra",
             "sinProductos": "No existen productos en la cesta"
         },
-        "perfil":{
+        "perfil": {
             "passWord": "Contraseña"
-          }
+        },
+        "darseBaja": {
+            "title": "Darse de baja",
+            "bajaTexto1": "Al pulsar el botón \"Formalizar baja\", tu cuenta será eliminada de forma permanente.",
+            "bajaTexto2": "Esto implica:",
+            "bajaTexto3": "La eliminación de tu cuenta de usuario.",
+            "bajaTexto4": "La eliminación de todos tus datos personales y de tu historial de actividad.",
+            "bajaTexto5": "La imposibilidad de recuperar tu cuenta o cualquier contenido asociado a ella en el futuro.",
+            "bajaTexto6": "Si estás seguro de que deseas proceder con la baja, por favor, haz clic en el botón \"Formalizar baja\" a continuación.",
+            "btnBaja": "Formalizar baja"
+        },
+        "menuLateralPerfil": {
+            "datosPersonales": "Datos personales",
+            "passWord": "Contraseña",
+            "direcciones": "Direcciones",
+            "tarjetaCredito": "Metodos de pago",
+            "baja": "Darse de baja"
+        },
+        "cambiarPassword": {
+            "title": "Cambiar contraseña",
+            "passWordOld": "Contraseña antigua",
+            "passWordNew": "Contraseña nueva",
+            "passWordNew2": "Confirmar contraseña nueva",
+            "cambiarPass": "Cambiar contraseña"
+        }
     },
     "en": {
         "title": "Kvote Comic Store",
@@ -686,6 +710,30 @@
             "subtotal": "Subtotal",
             "finalizarCompra": "Checkout",
             "sinProductos": "You have no items in your shopping cart."
+        },
+        "darseBaja": {
+            "title": "Unsubscribe",
+            "bajaTexto1": "By clicking the \"Confirm Unsubscription\" button, your account will be permanently deleted.",
+            "bajaTexto2": "This means:",
+            "bajaTexto3": "The deletion of your user account.",
+            "bajaTexto4": "The deletion of all your personal data and activity history.",
+            "bajaTexto5": "The inability to recover your account or any content associated with it in the future.",
+            "bajaTexto6": "If you're sure you want to proceed with the unsubscription, please click the \"Confirm Unsubscription\" button below.",
+            "btnBaja": "Confirm Unsubscription"
+        },
+        "menuLateralPerfil": {
+            "datosPersonales": "Personal Information",
+            "passWord": "Password",
+            "direcciones": "Addresses",
+            "tarjetaCredito": "Payment Methods",
+            "baja": "Unsubscribe"
+        },
+        "cambiarPassword": {
+            "title": "Change Password",
+            "passWordOld": "Current Password",
+            "passWordNew": "New Password",
+            "passWordNew2": "Confirm New Password",
+            "cambiarPass": "Change Password"
         }
     },
     "ja": {
@@ -1029,6 +1077,30 @@
             "subtotal": "小計",
             "finalizarCompra": "購入を完了する",
             "sinProductos": "ショッピングカートに商品がありません。"
+        },
+        "darseBaja": {
+            "title": "退会する",
+            "bajaTexto1": "「退会を確定する」ボタンを押すと、アカウントは完全に削除されます。",
+            "bajaTexto2": "これは以下を意味します：",
+            "bajaTexto3": "ユーザーアカウントの削除。",
+            "bajaTexto4": "すべての個人情報およびアクティビティ履歴の削除。",
+            "bajaTexto5": "今後アカウントや関連コンテンツを復元することはできません。",
+            "bajaTexto6": "退会手続きを進めることに同意される場合は、以下の「退会を確定する」ボタンをクリックしてください。",
+            "btnBaja": "退会を確定する"
+        },
+        "menuLateralPerfil": {
+            "datosPersonales": "個人情報",
+            "passWord": "パスワード",
+            "direcciones": "住所",
+            "tarjetaCredito": "支払い方法",
+            "baja": "退会する"
+        },
+        "cambiarPassword": {
+            "title": "パスワードを変更する",
+            "passWordOld": "現在のパスワード",
+            "passWordNew": "新しいパスワード",
+            "passWordNew2": "新しいパスワードを確認",
+            "cambiarPass": "パスワードを変更する"
         }
     }
 }

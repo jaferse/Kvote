@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Función para actualizar los textos
 function actualizarTexto(json, lang) {
 
-
     //Cambio de titulo
     document.title = json[lang]["title"];
 
@@ -87,8 +86,8 @@ function actualizarTexto(json, lang) {
         let contenedor = document.querySelectorAll('.containerPedidos  .lang');
         contenedor.forEach(element => {
             if (element.classList.contains('fecha')) {
-                element.innerHTML = convertirFormatoFecha(element.getAttribute("data-fecha"),true);
-            }else{
+                element.innerHTML = convertirFormatoFecha(element.getAttribute("data-fecha"), true);
+            } else {
                 let data_lang = element.getAttribute('data-lang');
                 element.textContent = json[lang]["historialPedidos"][data_lang];
             }
@@ -379,4 +378,61 @@ function actualizarTexto(json, lang) {
                 break;
         }
     });
+
+
+    //Cambiar idioma de darse de baja
+    darseBajaTraduccir(json, lang);
+
+    //Cambiar idioma de menu lateral de perfil
+    menuLateralPerfilTraduccir(json, lang);
+
+    //Cambiar idioma de cambiar contraseña
+    cambiarPasswordTraduccir(json, lang);
+}
+
+export function cambiarPasswordTraduccir(json, lang) {
+
+    if (document.querySelector('.containerPassWord')) {
+        let container = document.querySelector('.containerPassWord');
+        container.querySelectorAll('.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            
+            if (element.getAttribute('type') == 'button') {
+                console.log("yes");
+                console.log(json[lang]["cambiarPassword"][data_lang]);
+                element.value = json[lang]["cambiarPassword"][data_lang];
+            }
+            else {
+
+                if (data_lang) {
+                    element.textContent = json[lang]["cambiarPassword"][data_lang];
+                }
+            }
+        });
+    }
+}
+
+export function darseBajaTraduccir(json, lang) {
+    if (document.querySelector('.containerBaja')) {
+        let container = document.querySelector('.containerBaja');
+        container.querySelectorAll('.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            if (data_lang) {
+                element.textContent = json[lang]["darseBaja"][data_lang];
+            }
+        });
+    }
+}
+
+export function menuLateralPerfilTraduccir(json, lang) {
+    if (document.querySelector('.menuLateral')) {
+        const menuLateral = document.querySelector('.menuLateral');
+        menuLateral.querySelectorAll('.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            if (data_lang) {
+                element.textContent = json[lang]["menuLateralPerfil"][data_lang];
+            }
+        });
+
+    }
 }

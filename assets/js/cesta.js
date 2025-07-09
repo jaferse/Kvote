@@ -140,7 +140,7 @@ document.querySelector('.comprar').addEventListener('click', async function (e) 
  * Si falla la compra, muestra un mensaje de error en la consola.
  */
 async function comprar() {
-    carritoUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
+  let carritoUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
     carrito = carritoUsuarios[usuarioLogueadoId] || {};
     console.log(carrito);
 

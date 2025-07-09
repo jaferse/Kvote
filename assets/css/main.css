@@ -1685,17 +1685,17 @@
 
 @media screen and (max-width: 992px) {
   .containerProductos {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr !important;
   }
 }
 @media screen and (max-width: 792px) {
   .containerProductos {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr !important;
   }
 }
 @media screen and (max-width: 540px) {
   .containerProductos {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 .ContainerProducto {
@@ -2723,16 +2723,20 @@
   width: 96vw;
   margin: 1rem auto;
   gap: 1rem;
+  height: 100%;
 }
 .perfilContainer .menuLateral {
-  width: 15%;
+  min-width: 230px;
   height: 100%;
-  min-height: 64vh;
   background-color: #fff;
   box-shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
   border-radius: 8px;
 }
 .perfilContainer .menuLateral ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   padding: 0;
   border-radius: 8px;
@@ -2744,6 +2748,7 @@
   font-family: "Montserrat";
   font-size: large;
   font-weight: 700;
+  cursor: pointer;
   margin: 0.5rem auto;
 }
 .perfilContainer .menuLateral ul .top {
@@ -2761,15 +2766,103 @@
   aspect-ratio: 1/1;
   margin-right: 1rem;
 }
+.perfilContainer .menuLateral hr {
+  width: 95%;
+  margin: 0rem;
+  border: 1px solid #000000;
+}
 .perfilContainer .containerContenido {
-  width: 85%;
+  position: relative;
+  display: flex;
+  flex: 1;
   height: 100%;
   min-height: 64vh;
   background-color: #fff;
   box-shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
   border-radius: 8px;
+  font-family: "Montserrat";
+}
+.perfilContainer .containerContenido .container {
+  position: relative;
+  padding: 1rem;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+}
+.perfilContainer .containerContenido .container .title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem auto;
+}
+.perfilContainer .containerContenido .container p {
+  font-size: 1rem;
+}
+.perfilContainer .containerContenido .container li {
+  margin: 0.5rem auto;
+  list-style: none;
+}
+.perfilContainer .containerContenido .container__btn {
+  margin: 1rem auto !important;
+  min-width: 10rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.perfilContainer .containerContenido .container__btn a {
+  color: #FCFAEE;
+  font-weight: 700;
+}
+.perfilContainer .containerContenido .formulario {
+  flex: 1;
+  display: flex;
+}
+.perfilContainer .containerContenido .formulario #formularioPass {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup {
+  display: flex;
+  width: 50%;
+  margin: 0.5rem auto;
+  justify-content: center;
+}
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  width: 170px;
+}
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  font-size: 1rem;
+  height: 36px;
+}
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .btn {
+  width: auto !important;
 }
 
+@media screen and (max-width: 700px) {
+  .perfilContainer {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    width: 80%;
+  }
+  .container .formGroup {
+    flex-direction: column;
+  }
+  .container .formGroup input {
+    width: 163px;
+  }
+}
 * {
   box-sizing: border-box;
 }
