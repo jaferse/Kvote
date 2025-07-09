@@ -41,7 +41,6 @@ class LogInController
             } else {
                 $_SESSION['admin'] = false;
             }
-            echo "Logueado <br>";
             header("Location: index.php?controller=Index&action=view");
         } else {
             echo "No logueado <br>";

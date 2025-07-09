@@ -340,7 +340,10 @@
             "subtotal": "Subtotal",
             "finalizarCompra": "Finalizar Compra",
             "sinProductos": "No existen productos en la cesta"
-        }
+        },
+        "perfil":{
+            "passWord": "Contraseña"
+          }
     },
     "en": {
         "title": "Kvote Comic Store",

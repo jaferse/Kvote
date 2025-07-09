@@ -7,7 +7,6 @@
     border: 2px solid $rojo_primario;
     box-shadow: $box_shadow;
     border-radius: 16px;
-    // overflow: hidden;
     visibility: hidden;
 
     .Producto {
@@ -20,7 +19,6 @@
             @include dimensiones(25rem, auto, 6px);
             min-width: 10rem;
             min-height: auto;
-            // overflow: hidden;
 
             img {
                 @include dimensiones(100%, auto);
@@ -241,9 +239,6 @@
                                 ja: "推奨価格： "
                             ));
 
-                        // &::before {
-                        //     content: "Precio recomendado: ";
-                        // }
                     }
 
                     &__descuento {

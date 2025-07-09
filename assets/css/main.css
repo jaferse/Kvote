@@ -56,6 +56,9 @@
   justify-content: space-between;
   flex: 1;
 }
+.header .nav__menu hr {
+  display: none;
+}
 .header .nav__menu__button {
   display: flex;
   align-items: center;
@@ -149,6 +152,7 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 .header .nav__login .login .logeado:hover {
   transform: scale(1.1);
@@ -257,25 +261,48 @@
   .header .nav {
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   .header .nav__menu {
+    top: 4.2rem;
+    position: absolute;
     z-index: 5;
     width: 50%;
-    position: absolute;
     flex-direction: column;
     top: 4.2rem;
     left: -400px;
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
+    min-width: 130px;
+    background-color: #B8001F;
+    border: 2px solid #FCFAEE;
   }
   .header .nav__menu__button {
-    padding: 2rem;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
   }
   .header .nav__menu__button:hover {
-    background-color: hsl(350, 100%, 50%);
+    background-color: #9c001a;
+    transform: scale(1.01);
+  }
+  .header .nav__menu__button a {
+    color: #FCFAEE;
+    text-decoration: none;
+    font-weight: bold;
   }
   .header .nav__menu__button::before {
     content: none;
+  }
+  .header .nav__menu hr {
+    display: block;
+    width: 100%;
+    margin: 0rem;
   }
   .header .nav__login {
     justify-content: space-around;
@@ -2336,7 +2363,7 @@
   background-color: white !important;
 }
 
-.menuLogin {
+.menu {
   position: absolute;
   top: 4.2rem;
   display: flex;
@@ -2344,19 +2371,32 @@
   background-color: #B8001F;
   border: 2px solid #FCFAEE;
   border-radius: 7px;
-  padding: 1rem;
-  z-index: 1;
+  z-index: 2;
   display: none;
   min-width: 130px;
 }
-.menuLogin a {
+.menu__button {
+  height: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+}
+.menu__button:hover {
+  background-color: #9c001a;
+  transform: scale(1.01);
+}
+.menu__button a {
   color: #FCFAEE;
   text-decoration: none;
   font-weight: bold;
 }
-.menuLogin hr {
+.menu hr {
   width: 100%;
-  margin: 0.7rem auto;
+  margin: 0rem;
 }
 
 .none {
@@ -2383,6 +2423,16 @@
   100% {
     left: -300px;
     opacity: 0;
+  }
+}
+@media screen and (max-width: 992px) {
+  .menu {
+    right: 10px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .menu {
+    right: 30px;
   }
 }
 .containerProductosWishList {
@@ -2663,6 +2713,61 @@
 .warning {
   border-bottom: 3px solid #c67607;
   background-color: #ffd08e;
+}
+
+.perfilContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 96vw;
+  margin: 1rem auto;
+  gap: 1rem;
+}
+.perfilContainer .menuLateral {
+  width: 15%;
+  height: 100%;
+  min-height: 64vh;
+  background-color: #fff;
+  box-shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
+  border-radius: 8px;
+}
+.perfilContainer .menuLateral ul {
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 8px;
+}
+.perfilContainer .menuLateral ul li {
+  list-style: none;
+  width: 100%;
+  padding: 1rem;
+  font-family: "Montserrat";
+  font-size: large;
+  font-weight: 700;
+  margin: 0.5rem auto;
+}
+.perfilContainer .menuLateral ul .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  background-color: #B8001F;
+  margin: 0;
+  box-shadow: 0.313rem 0rem 0.625rem -0.313rem rgb(0, 0, 0);
+  border-radius: 8px 8px 0 0;
+}
+.perfilContainer .menuLateral ul .top .fotoPerfil {
+  width: 2rem;
+  aspect-ratio: 1/1;
+  margin-right: 1rem;
+}
+.perfilContainer .containerContenido {
+  width: 85%;
+  height: 100%;
+  min-height: 64vh;
+  background-color: #fff;
+  box-shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
+  border-radius: 8px;
 }
 
 * {

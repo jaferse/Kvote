@@ -47,6 +47,10 @@
             justify-content: space-between;
             flex: 1;
 
+            hr {
+                display: none;
+            }
+
             &__button {
                 display: flex;
                 align-items: center;
@@ -94,6 +98,7 @@
             .login {
                 @include flex(row, space-between, center);
                 min-width: 7rem;
+
                 .carro {
                     @include dimensiones(1.5rem, 1.5rem);
 
@@ -121,6 +126,7 @@
                 .logeado {
                     @include dimensiones(2rem, 2rem, 50%);
                     @include cargarImagen('./../img/batlogin2.png', contain);
+                    cursor: pointer;
 
                     &:hover {
                         transform: scale(1.1);
@@ -134,6 +140,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
+
                     label {
                         display: inline-block;
                         @include dimensiones(1.5rem, 1.5rem);
@@ -258,28 +265,53 @@
         .nav {
             align-items: center;
             justify-content: center;
+            position: relative;
 
             &__menu {
+                top: 4.2rem;
+                position: absolute;
                 z-index: 5;
                 width: 50%;
-                position: absolute;
                 flex-direction: column;
                 top: 4.2rem;
                 left: -400px;
-                border-radius: 16px;
+                border-radius: $border-radius;
                 overflow: hidden;
+                min-width: 130px;
+                background-color: $rojo_primario;
+                border: 2px solid $blanco_letra;
 
                 &__button {
-                    padding: 2rem;
+                    height: 1.5rem;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: left;
+                    align-items: center;
+                    margin: 0.5rem;
+                    padding: 1rem 1.5rem;
+                    border-radius: $border-radius;
 
                     &:hover {
-                        background-color: $nav_hover;
+                        background-color: $rojo_primario--hover;
+                        transform: scale(1.01);
 
+                    }
+
+                    a {
+                        color: $blanco_letra;
+                        text-decoration: none;
+                        font-weight: bold;
                     }
 
                     &::before {
                         content: none;
                     }
+                }
+
+                hr {
+                    display: block;
+                      width: 100%;
+        margin: 0rem;
                 }
             }
 
