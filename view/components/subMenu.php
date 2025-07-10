@@ -14,7 +14,6 @@
         if ($url_actual !== "/") {
             //sacamos la query string
             $query = parse_url($url_actual)['query'];
-            // echo var_dump($query)."<br>";
 
             // Descomponemos la URL en sus partes
             parse_str($query, $params);

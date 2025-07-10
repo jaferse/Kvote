@@ -26,10 +26,17 @@
 
     $tablaProducto->listar();
     ?>
-    <nav class="subnavegador">
-        <?php
-        require_once("view/components/navegadorCrud.php");
-        ?>
+    <nav class="subMenuContainer">
+        <div class="submenu">
+            <?php
+            require_once("view/components/subMenu.php");
+            ?>
+        </div>
+        <div class="subMenuCrud">
+            <?php
+            require_once("view/components/navegadorCrud.php");
+            ?>
+        </div>
     </nav>
 
 

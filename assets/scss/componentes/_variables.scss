@@ -6,7 +6,8 @@ $rojo_primario--hover: #9c001a;
 $negroBorde:#000000;
 $boton_hover: hsl(350, 100%, 46%);
 $boton_hoverPaginacion: hsl(350, 100%, 46%);
-$nav_hover: hsl(350, 100%, 50%);
+$nav_hover: #ff002b;
+$nav_hover--dark: #2babc83c;
 $button_hover: #B81E88;
 $verde_validacion: #1fb800;
 $azulFocus: #0062D5;
@@ -34,6 +35,7 @@ $box_shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
 
 $fondoOscuro: #005c94;
 $fondoOscuro2: #2babc83c;
+$botonDark--hover: #00426a;
 $fondoOscuroElementos: #2babc8;
 
 @mixin cargarImagen($url, $size: cover) {
@@ -76,7 +78,7 @@ $fondoOscuroElementos: #2babc8;
   cursor: pointer !important;
 
   &:hover {
-    transform: scale(1.1) !important;
+    transform: scale(1.05) !important;
     background-color: $bg-color-hover !important;
   }
 }

@@ -2,12 +2,9 @@
 
 .container {
     .paginacion {
-        // width: 46vw;
         min-width: 46vw;
         max-width: 96vw;
         margin: 2rem auto;
-        // display: flex;
-        // justify-content: left;
         gap: 1rem;
         text-align: center;
         background-color: $blancoFondo;
@@ -15,7 +12,6 @@
         box-shadow: $box_shadow;
         padding: 1rem;
         a {
-            // border: 3px solid $rojo_primario;
             margin: auto 1rem;
             text-decoration: none;
             font-size: 1.5rem;
@@ -32,14 +28,25 @@
         .active {
             background-color: $rojo_primario;
             color: $blanco_letra;
-            // border-color: black;
+        }
+    }
+    .paginacion--dark {
+        background-color: $fondoOscuro;
+        color: $blanco_letra;
+        
+        a {
+            color: $blanco_letra;
+            &:hover {
+                background-color: $fondoOscuro2;
+            }
+        }
 
-            // color: $rojo_primario;
+        .active {
+            background-color: $fondoOscuro2;
         }
     }
 
     .containerProductos {
-        // border: 3px solid black;
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;

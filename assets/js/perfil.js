@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         //Si se ha hecho click en el botón de formalizar baja
         if (event.target.closest('.btnBaja')) {
-            // alert('Baja formalizada correctamente');
             //Redirigir a la página de baja
             try {
                 const responseBaja = await fetch(`index.php?controller=Perfil&action=baja&username=${user.username}`);
@@ -52,10 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log(baja);
             
         }
-        // if (event.target.closest('.btnCambiarPass')) {
-        //     console.log('Cambiar contraseña');
-            
-        // }
+
     });
 });
 

@@ -72,3 +72,13 @@
     }
 
 }
+
+.containerPedidos--dark{
+     .titulo {
+        p {
+            background-color: $fondoOscuro;
+            color: $blanco_letra;
+        }
+        
+    }
+}

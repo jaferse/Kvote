@@ -44,11 +44,11 @@
         }
 
         .icon-moon {
-            @include cargarImagen('./../img/moon.svg', contain);
+            @include cargarImagen('./../img/moon.png', contain);
         }
 
         .icon-sun {
-            @include cargarImagen('./../img/sun.svg', contain);
+            @include cargarImagen('./../img/sun.png', contain);
 
         }
     }

@@ -8,14 +8,12 @@
     background-color: $rojo_primario;
     border: 2px solid $blanco_letra;
     border-radius: 7px;
-    // padding: 0rem 1rem;
     z-index: 2;
     display: none;
     min-width: 130px;
 
     &__button {
         height: 1.5rem;
-        // width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: left;
@@ -43,7 +41,20 @@
     }
 
 }
+.menuLogin--dark{
+    background-color: $fondoOscuro;
+    border: 2px solid $blanco_letra;
 
+    .menu__button {
+        &:hover {
+            background-color: $fondoOscuro2;
+        }
+
+        a {
+            color: $blanco_letra;
+        }
+    }
+}
 .none {
     display: none;
 }

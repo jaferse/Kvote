@@ -20,8 +20,6 @@
     <?php
     require_once("view/components/header.php");
     require_once("view/components/subMenu.php");
-
-
     ?>
 
     <main class="main">

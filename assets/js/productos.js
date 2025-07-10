@@ -139,7 +139,9 @@ async function sacarProductos(seccion, page = 1) {
 function construirPaginacion(productosRespuesta, seccion, paginaActual) {
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
     let listaPaginacion = document.createElement('div');
-    listaPaginacion.classList.add('paginacion');
+    (localStorage.getItem('darkMode') == 'dark') ?
+        listaPaginacion.classList.add('paginacion', 'paginacion--dark')
+        :listaPaginacion.classList.add('paginacion');
 
     let paginas = Math.ceil(productosRespuesta['total'] / productosRespuesta['productoPaginas']);
     for (let i = 1; i <= paginas; i++) {

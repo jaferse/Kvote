@@ -149,3 +149,12 @@ p {
         transform: scale(1.01);
     }
 }
+
+.btnRojo.theme--dark {
+    @include button-style($fondoOscuro, $botonDark--hover, white, 8rem, auto, 6px);
+    text-decoration: none;
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}

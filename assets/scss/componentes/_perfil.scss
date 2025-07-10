@@ -11,10 +11,8 @@
     height: 100%;
 
     .menuLateral {
-        // width: 15%;
         min-width: 230px;
         height: 100%;
-        // min-height: 200px;
         background-color: #fff;
         box-shadow: $box_shadow;
         border-radius: $border-radius;
@@ -156,6 +154,16 @@
 
     }
 
+}
+
+.perfilContainer.theme--dark {
+    .menuLateral {
+        ul {
+            .top {
+                background-color: $fondoOscuro;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 700px) {

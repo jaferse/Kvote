@@ -178,10 +178,17 @@
 .header--dark {
     background-color: $fondoOscuro;
 
-    .nav__menu__button {
-        background-color: $fondoOscuro;
-    }
+    .nav__menu {
+        background-color: $fondoOscuro !important;
 
+        &__button {
+            background-color: $fondoOscuro;
+
+            &:before {
+                background: $nav_hover--dark;
+            }
+        }
+    }
 
 }
 
@@ -310,8 +317,8 @@
 
                 hr {
                     display: block;
-                      width: 100%;
-        margin: 0rem;
+                    width: 100%;
+                    margin: 0rem;
                 }
             }
 
@@ -323,6 +330,19 @@
 
         .nav.open {
             animation: slideIn 0.3s forwards;
+        }
+    }
+
+    .header--dark {
+        .nav {
+            &__menu {
+                &__button {
+                    &:hover {
+                        background-color: $fondoOscuro2;
+                        transform: scale(1.01);
+                    }
+                }
+            }
         }
     }
 }

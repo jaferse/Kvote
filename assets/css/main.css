@@ -87,7 +87,7 @@
 }
 .header .nav__menu__button:before {
   z-index: 0;
-  background: hsl(350, 100%, 50%);
+  background: #ff002b;
   content: "";
   position: absolute;
   width: 100% !important;
@@ -193,8 +193,14 @@
 .header--dark {
   background-color: #005c94;
 }
+.header--dark .nav__menu {
+  background-color: #005c94 !important;
+}
 .header--dark .nav__menu__button {
   background-color: #005c94;
+}
+.header--dark .nav__menu__button:before {
+  background: rgba(43, 171, 200, 0.2352941176);
 }
 
 @keyframes slide2 {
@@ -310,6 +316,10 @@
   }
   .header .nav.open {
     animation: slideIn 0.3s forwards;
+  }
+  .header--dark .nav__menu__button:hover {
+    background-color: rgba(43, 171, 200, 0.2352941176);
+    transform: scale(1.01);
   }
 }
 /*  Animación de entrada */
@@ -1485,13 +1495,13 @@
   transform: scale(1.1);
 }
 .darkMode__button .icon-moon {
-  background-image: url("./../img/moon.svg");
+  background-image: url("./../img/moon.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .darkMode__button .icon-sun {
-  background-image: url("./../img/sun.svg");
+  background-image: url("./../img/sun.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1557,6 +1567,19 @@
 .container .paginacion .active {
   background-color: #B8001F;
   color: #FCFAEE;
+}
+.container .paginacion--dark {
+  background-color: #005c94;
+  color: #FCFAEE;
+}
+.container .paginacion--dark a {
+  color: #FCFAEE;
+}
+.container .paginacion--dark a:hover {
+  background-color: rgba(43, 171, 200, 0.2352941176);
+}
+.container .paginacion--dark .active {
+  background-color: rgba(43, 171, 200, 0.2352941176);
 }
 .container .containerProductos {
   margin: 0 auto;
@@ -2241,7 +2264,7 @@
   margin: 1rem;
 }
 .containerEditorial .navSeccion .verMas:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
   background-color: white !important;
 }
 .containerEditorial .navSeccion .siguiente {
@@ -2280,6 +2303,10 @@
   margin: 0 auto;
   overflow-x: auto;
 }
+.mainAdmin .subMenuContainer {
+  display: flex;
+  flex-direction: column;
+}
 .mainAdmin table {
   border-collapse: collapse;
 }
@@ -2316,22 +2343,26 @@
   cursor: pointer !important;
 }
 .mainAdmin table td .fileInputLabel:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
   background-color: hsl(350, 100%, 46%) !important;
 }
 .mainAdmin table .isbn {
   width: 9rem;
 }
-.mainAdmin table .nombre, .mainAdmin table .colleccion {
+.mainAdmin table .nombre,
+.mainAdmin table .colleccion {
   width: 20rem;
 }
-.mainAdmin table .autor, .mainAdmin table .editorial {
+.mainAdmin table .autor,
+.mainAdmin table .editorial {
   width: 10rem;
 }
 .mainAdmin table .trabajo {
   width: 5.5rem;
 }
-.mainAdmin table .numero, .mainAdmin table .paginas, .mainAdmin table .stock {
+.mainAdmin table .numero,
+.mainAdmin table .paginas,
+.mainAdmin table .stock {
   width: 3.8rem;
 }
 .mainAdmin table .tipo {
@@ -2359,7 +2390,7 @@
   margin: 0;
 }
 .mainAdmin .btn:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
   background-color: white !important;
 }
 
@@ -2397,6 +2428,17 @@
 .menu hr {
   width: 100%;
   margin: 0rem;
+}
+
+.menuLogin--dark {
+  background-color: #005c94;
+  border: 2px solid #FCFAEE;
+}
+.menuLogin--dark .menu__button:hover {
+  background-color: rgba(43, 171, 200, 0.2352941176);
+}
+.menuLogin--dark .menu__button a {
+  color: #FCFAEE;
 }
 
 .none {
@@ -2638,6 +2680,11 @@
   margin: 0px auto;
 }
 
+.containerPedidos--dark .titulo p {
+  background-color: #005c94;
+  color: #FCFAEE;
+}
+
 #overlay {
   position: fixed;
   top: 0;
@@ -2847,6 +2894,10 @@
   width: auto !important;
 }
 
+.perfilContainer.theme--dark .menuLateral ul .top {
+  background-color: #005c94;
+}
+
 @media screen and (max-width: 700px) {
   .perfilContainer {
     flex-direction: column;
@@ -2915,7 +2966,7 @@ p {
   vertical-align: middle;
 }
 .btn:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
   background-color: #0c500c !important;
 }
 
@@ -2936,7 +2987,7 @@ p {
   vertical-align: middle;
 }
 .btnVerdePrimario:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
   background-color: #0c500c !important;
 }
 
@@ -2957,7 +3008,7 @@ p {
   vertical-align: middle;
 }
 .btnVerdeSecundario:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
   background-color: #0c500c !important;
 }
 
@@ -2978,7 +3029,7 @@ p {
   vertical-align: middle;
 }
 .btnRojo:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
   background-color: #9c001a !important;
 }
 
@@ -3026,4 +3077,25 @@ p {
 .enlaceBotonSmall:hover {
   background-color: #0c500c;
   transform: scale(1.01);
+}
+
+.btnRojo.theme--dark {
+  background-color: #005c94 !important;
+  color: white !important;
+  font-weight: bold !important;
+  margin: 0.5rem auto 2rem !important;
+  width: 8rem !important;
+  height: auto !important;
+  border-radius: 6px !important;
+  border: 2px solid gray !important;
+  cursor: pointer !important;
+  text-decoration: none;
+  min-height: 30px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.btnRojo.theme--dark:hover {
+  transform: scale(1.05) !important;
+  background-color: #00426a !important;
 }/*# sourceMappingURL=main.css.map */

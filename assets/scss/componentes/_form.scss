@@ -6,20 +6,22 @@
     margin: 0 auto;
     overflow-x: auto;
 
+    .subMenuContainer {
+        display: flex;
+        flex-direction: column;
+    }
 
     table {
         border-collapse: collapse;
-
-        // border: 1px solid $color_primario;
         th {
             border: 2px solid black;
-            // border-width: 0 0 2px 0;
             margin: auto 0;
         }
 
         td {
             border: 2px solid $negro_letra;
             text-align: center;
+
             input {
                 width: 100%;
                 height: 100%;
@@ -30,37 +32,50 @@
                 color: $negro_letra;
                 font-size: 1.2rem;
             }
-            .fileInput{
+
+            .fileInput {
                 display: none;
             }
-            .fileInputLabel{
+
+            .fileInputLabel {
                 // background-color: $rojo_primario;
-               @include button-style($rojo_primario, $boton_hover, $blancoFondo, $width: 100%, $height: 100%, $border-radius: 5px);
+                @include button-style($rojo_primario, $boton_hover, $blancoFondo, $width: 100%, $height: 100%, $border-radius: 5px);
             }
         }
 
-        .isbn{
+        .isbn {
             width: 9rem;
         }
-        .nombre, .colleccion{
+
+        .nombre,
+        .colleccion {
             width: 20rem;
         }
-        .autor, .editorial{
+
+        .autor,
+        .editorial {
             width: 10rem;
         }
-        .trabajo{
+
+        .trabajo {
             width: 5.5rem;
         }
-        .numero, .paginas, .stock{
+
+        .numero,
+        .paginas,
+        .stock {
             width: 3.8rem;
         }
-        .tipo{
+
+        .tipo {
             width: 6rem;
         }
-        .formato{
+
+        .formato {
             width: 6rem;
         }
-        .precio{
+
+        .precio {
             width: 5rem;
         }
 
