@@ -4,7 +4,7 @@ require_once("./core/DBClass.php");
 require_once("ProductoClass.php");
 class Daoproducto extends DB
 {
-    private $productosPagina = 3; //Número de productos por página
+    private $productosPagina = 8; //Número de productos por página
     public $productos = array();
     /**
      * Constructor de la clase. Llama al constructor de la clase DB.
@@ -166,8 +166,16 @@ class Daoproducto extends DB
      * @return void
      */
     public function insertar($prod)
-    { //Se introduce un objeto por parametro que se insertará
-        $consulta = "INSERT INTO producto VALUES (:isbn_13, :portada, :nombre, :coleccion, :numero, :tipo, :formato, :paginas, :subtipo, :editorial, :anio_publicacion, :sinopsis, :precio, :stock ) ";
+    {
+        //Se introduce un objeto por parametro que se insertará
+        $consulta = "INSERT INTO producto (
+                isbn_13, portada, nombre, coleccion, numero, tipo, formato, paginas, subtipo,
+                editorial, anio_publicacion, sinopsis, precio, stock, ventas
+            ) VALUES (
+                :isbn_13, :portada, :nombre, :coleccion, :numero, :tipo, :formato, :paginas, :subtipo,
+                :editorial, :anio_publicacion, :sinopsis, :precio, :stock, :ventas
+            )";
+
         $param = array();
         $param[":isbn_13"] = $prod->__get("isbn_13"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":portada"] = $prod->__get("portada"); //Le asignamos a las propiedades del objetos los campos de esa fila
@@ -183,6 +191,7 @@ class Daoproducto extends DB
         $param[":sinopsis"] = $prod->__get("sinopsis"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":precio"] = $prod->__get("precio"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":stock"] = $prod->__get("stock"); //Le asignamos a las propiedades del objetos los campos de esa fila
+        $param[":ventas"] = $prod->__get("ventas"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $this->consultaSimple($consulta, $param);
     }
     /**;
@@ -279,7 +288,7 @@ class Daoproducto extends DB
             $this->productos[] = $prod; //Guardamos ese objeto en el array de objetos prod
         }
     }
-    public function numeroProductos($tipo='')
+    public function numeroProductos($tipo = '')
     {
         $consulta = "SELECT COUNT(*) as total FROM producto WHERE 1 ";
         if ($tipo == 'comic') {
@@ -290,7 +299,8 @@ class Daoproducto extends DB
         $this->consultaDatos($consulta);
         return $this->filas[0]['total'];
     }
-    public function getProductoPaginas(){
+    public function getProductoPaginas()
+    {
         return $this->productosPagina;
     }
 }

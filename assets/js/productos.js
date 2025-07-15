@@ -122,6 +122,13 @@ function contruirGridProductos(listaProductos, containerProductos, tipo, json) {
 
 }
 
+/**
+ * Hace una peticion a la api para obtener los productos de una seccion
+ * 
+ * @param {string} seccion - seccion que se va a obtener, puede ser "libros" o "comic" o "novedades"
+ * @param {number} page - numero de pagina que se va a obtener, por defecto es 1
+ * @returns {object} objeto con la respuesta de la api
+ */
 async function sacarProductos(seccion, page = 1) {
     //Ponemos en el titulo la seccion en mayuscula la primera letra
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
@@ -130,12 +137,8 @@ async function sacarProductos(seccion, page = 1) {
     return productos;
 }
 
-/**
- * Crea una lista de paginacion para una seccion con un numero determinado de productos
- * 
- * @param {number} totalProductos - Numero total de productos
- * @param {string} seccion - Seccion a la que se va a renderizar la paginacion
- */
+
+
 function construirPaginacion(productosRespuesta, seccion, paginaActual) {
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
     let listaPaginacion = document.createElement('div');
@@ -178,11 +181,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     let productosRespuesta = await sacarProductos(seccion, paginaActual);
     let productos = productosRespuesta['productos'];
     let totalProductos = productosRespuesta['total'];
-    // console.log("Productos", productosRespuesta);
-    // console.log("Productos", productos);
-    // console.log("Productos", totalProductos);
-
-
 
     contruirGridProductos(productos, containerProductos, seccion, json);
 

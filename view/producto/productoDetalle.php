@@ -41,12 +41,6 @@
                     </div>
                     <div class="Producto__info__precioComprar__tooltip">
                         <button class="Producto__info__precioComprar__boton botonCesta btnPrimario">Añadir a la cesta</button>
-                        <?php
-                        // if (isset($_SESSION['mensajeError'])) {
-                        //     echo "<span class='mensajeError'>" . $_SESSION['mensajeError'] . "</span>";
-                        // }
-                        ?>
-
                     </div>
                     <div class="Producto__info__precioWishlist__tooltip">
                         <button class="Producto__info__precioComprar__boton botonWishlist btnSecundario">Añadir a wishlist</button>

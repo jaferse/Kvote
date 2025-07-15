@@ -15,7 +15,6 @@ class ProductoController
     public function view()
     {
         require_once("./view/crud/producto.php");
-
     }
 
 
@@ -23,41 +22,57 @@ class ProductoController
     {
         // echo "<script>alert('Entra');</script>";
         if (isset($_POST["isbn_13"]) && isset($_FILES["portadaFile"]) && isset($_POST["nombre"]) && isset($_POST["tipo"]) && isset($_POST["formato"])) {
-            // Validar los datos del formulario 
-            echo "Crear Producto";
-            $ProductoObjeto = new Producto();
-            $ProductoObjeto->__set("isbn_13", $_POST["isbn_13"]);
+            try {
 
-            //Controlar que si no existe la imagen subida se inserte la foto ya guardada en la base de datos
-            $imagenContenido = file_get_contents($_FILES["portadaFile"]['tmp_name']);
-            $imagenContenido = base64_encode($imagenContenido);
-            $ProductoObjeto->__set("portada", $imagenContenido);
-            $ProductoObjeto->__set("nombre", $_POST["nombre"]);
-            $ProductoObjeto->__set("coleccion", $_POST["coleccion"]);
-            $ProductoObjeto->__set("numero", $_POST["numero"]);
-            $ProductoObjeto->__set("tipo", $_POST["tipo"]);
-            $ProductoObjeto->__set("formato", $_POST["formato"]);
-            $ProductoObjeto->__set("paginas", $_POST["paginas"]);
-            $ProductoObjeto->__set("subtipo", $_POST["subtipo"]);
-            $ProductoObjeto->__set("editorial", $_POST["editorial"]);
-            $ProductoObjeto->__set("anio_publicacion", $_POST["anio_publicacion"]);
-            $ProductoObjeto->__set("sinopsis", $_POST["sinopsis"]);
-            $ProductoObjeto->__set("precio", $_POST["precio"]);
-            $ProductoObjeto->__set("stock", $_POST["stock"]);
-            $this->tabla->insertar($ProductoObjeto);
+                // Validar los datos del formulario 
+                $ProductoObjeto = new Producto();
+                $ProductoObjeto->__set("isbn_13", $_POST["isbn_13"]);
+
+                //Controlar que si no existe la imagen subida se inserte la foto ya guardada en la base de datos
+                $imagenContenido = file_get_contents($_FILES["portadaFile"]['tmp_name']);
+                $imagenContenido = base64_encode($imagenContenido);
+                $ProductoObjeto->__set("portada", $imagenContenido);
+                $ProductoObjeto->__set("nombre", $_POST["nombre"]);
+                $ProductoObjeto->__set("coleccion", $_POST["coleccion"]);
+                $ProductoObjeto->__set("numero", $_POST["numero"]);
+                $ProductoObjeto->__set("tipo", $_POST["tipo"]);
+                $ProductoObjeto->__set("subtipo", $_POST["subtipo"]);
+                $ProductoObjeto->__set("formato", $_POST["formato"]);
+                $ProductoObjeto->__set("paginas", $_POST["paginas"]);
+                $ProductoObjeto->__set("editorial", $_POST["editorial"]);
+                $ProductoObjeto->__set("anio_publicacion", $_POST["anio_publicacion"]);
+                $ProductoObjeto->__set("sinopsis", $_POST["sinopsis"]);
+                $ProductoObjeto->__set("precio", $_POST["precio"]);
+                $ProductoObjeto->__set("stock", $_POST["stock"]);
+                $ProductoObjeto->__set("ventas", 0);
+
+                // Insertar el producto en la base de datos
+                $this->tabla->insertar($ProductoObjeto);
 
 
-            $productoArtistaObjeto = new Artista_producto();
-            $productoArtistaObjeto->__set("artista_id", $_POST['autor']);
-            $productoArtistaObjeto->__set("isbn_13", $_POST['isbn_13']);
-            $productoArtistaObjeto->__set("trabajo", $_POST['trabajo']);
+                $productoArtistaObjeto = new Artista_producto();
+                $productoArtistaObjeto->__set("artista_id", $_POST['autor']);
+                $productoArtistaObjeto->__set("isbn_13", $_POST['isbn_13']);
+                $productoArtistaObjeto->__set("trabajo", $_POST['trabajo']);
 
-            $this->tablaArtProd->insertar($productoArtistaObjeto);
-            echo "Producto insertado correctamente";
-            header("Location: index.php?controller=Producto&action=view&estado=1");
+                $this->tablaArtProd->insertar($productoArtistaObjeto);
+            } catch (\Throwable $th) {
+                $_SESSION['type'] = "error";
+                $_SESSION['mensaje'] = "noInsertado";
+                throw $th;
+            }finally{
+                 echo "<script>
+                localStorage.setItem('flash_msg', JSON.stringify({
+                    type: '" . ($_SESSION['type']) . "',
+                    message: '" . addslashes($_SESSION['mensaje']) . "'
+                }));
+                window.location.href = 'index.php?controller=Producto&action=view';
+            </script>";
+            }
+            // header("Location: index.php?controller=Producto&action=view&estado=1");
         } else {
             echo "Producto NO insertado correctamente";
-            header("Location: index.php?controller=Producto&action=view&estado=0");
+            // header("Location: index.php?controller=Producto&action=view&estado=0");
         }
     }
 
@@ -133,7 +148,7 @@ class ProductoController
 
     public function getBestSellers($tipo)
     {
-        
+
         $this->tabla->getBestSellers($tipo);
         $productos = $this->tabla->productos;
         echo json_encode($productos);

@@ -97,7 +97,6 @@ class PerfilController
         if (password_verify($passWordOld, $datosUser->__get("password")) && $datosUser->__get("usuario_id") == $_SESSION['usernameId']) {
             //Cambiar la contraseña
             if ($passWordOld !== $passWordNew) {
-                # code...
                 $datosUser->__set("password", password_hash($passWordNew, PASSWORD_ARGON2ID));
                 $loginDatosDao->actualizar($datosUser);
                 $_SESSION['mensaje'] = "tooltipSuccess";

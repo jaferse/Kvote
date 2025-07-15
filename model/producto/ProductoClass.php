@@ -16,6 +16,7 @@ class Producto implements JsonSerializable
     private $sinopsis;
     private $precio;
     private $stock;
+    private $ventas;
     function __get($propiedad)
     {
         return $this->$propiedad;
@@ -40,7 +41,8 @@ class Producto implements JsonSerializable
         'anio_publicacion' => $this->anio_publicacion,
         'sinopsis' => $this->sinopsis,
         'precio' => $this->precio,
-        'stock' => $this->stock
+        'stock' => $this->stock,
+        'ventas' => $this->ventas,
     ];
 }
 }
