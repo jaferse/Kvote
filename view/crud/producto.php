@@ -19,7 +19,6 @@
     <?php
     require_once("view/components/header.php");
     require_once("model/producto/ProductoPDO.php");
-    // require_once("model/pais/PaisPDO.php");
 
     $tablaProducto = new Daoproducto("kvote_db");
     $tablaArtista_Producto = new Daoartista_producto("kvote_db");
@@ -264,13 +263,13 @@
                 ?>
                 </select></td>
                 <td>
-                    <input type="submit" value="Nuevo" class="btnVerdePrimario" name="nuevoProducto">
+                    <input type="submit" value="Nuevo" class="btnPrimario" name="nuevoProducto">
                 </td>
                 </tr>
             </table>
             <div>
-                <input type="submit" value="Eliminar" class="btnRojo" name="eliminarProducto">
-                <input type="submit" value="Actualizar" class="btnVerdePrimario" name="actualizarProducto">
+                <input type="submit" value="Eliminar" class="btnTerciario" name="eliminarProducto">
+                <input type="submit" value="Actualizar" class="btnPrimario" name="actualizarProducto">
             </div>
         </form>
     </main>

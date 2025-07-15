@@ -27,7 +27,7 @@ async function construirGridPedidos(pedidos) {
             <p class="fecha lang" data-fecha="${pedido.compra.fechaCompra}">${formatoFecha}</p>
             <p class="idPedido">${pedido.compra.idCompra}</p>
             <p class="precioTotal">${pedido.compra.totalCompra}€</p>
-            <a class="detallePedido btnVerdePrimario lang" data-lang="botonDetalle">Ver Detalle</a>
+            <a class="detallePedido btnPrimario lang" data-lang="botonDetalle">Ver Detalle</a>
         `;
 
         let divDetalleCompra = document.createElement('div');

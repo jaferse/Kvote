@@ -398,8 +398,6 @@ export function cambiarPasswordTraduccir(json, lang) {
             let data_lang = element.getAttribute('data-lang');
             
             if (element.getAttribute('type') == 'button') {
-                console.log("yes");
-                console.log(json[lang]["cambiarPassword"][data_lang]);
                 element.value = json[lang]["cambiarPassword"][data_lang];
             }
             else {

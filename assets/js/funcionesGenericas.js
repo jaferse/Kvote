@@ -425,8 +425,8 @@ export function crearDialogo(datos, onAceptar, onCancelar) {
     <h1>${titulo}</h1>
     <p>${mensaje}</p>
     <div class="botones">
-    ${datos['mensajeAceptar'] ? `<button id="btnAceptar" class="btnVerdePrimario">${datos['mensajeAceptar']}</button>` : ''}
-    ${datos['mensajeCancelar'] ? `<button id="btnCancelar" class="btnRojo">${datos['mensajeCancelar']}</button>` : ''}
+    ${datos['mensajeAceptar'] ? `<button id="btnAceptar" class="btnPrimario">${datos['mensajeAceptar']}</button>` : ''}
+    ${datos['mensajeCancelar'] ? `<button id="btnCancelar" class="btnTerciario">${datos['mensajeCancelar']}</button>` : ''}
     </div>
   `;
 

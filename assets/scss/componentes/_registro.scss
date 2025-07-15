@@ -6,7 +6,6 @@
 
 .registro {
 
-
     width: 80%;
     margin: 2em auto;
     font-family: $fuente_secundaria;
@@ -50,10 +49,9 @@
             }
         }
 
-    }
-
-    .contenerdor--dark {
-        border: $border_main--dark;
+        &.theme--dark {
+            border: $border_main--dark !important;
+        }
     }
 
     &__title {
@@ -65,17 +63,16 @@
         background-color: $rojo_primario;
         font-family: $fuente_general;
         color: $blanco_letra;
-    }
 
-    .title--dark {
-        background-color: $fondoOscuro;
+        &.theme--dark {
+            background-color: $fondoOscuro;
+            color: $blanco_letra;
+        }
     }
 
     &__img {
         @include dimensiones(35%, 100%);
         @include flex(column, center, center);
-        // display: flex;
-        // justify-content: center;
 
         img {
             border-top-left-radius: 6px;
@@ -136,27 +133,22 @@
                 padding: 0.6rem 0rem;
             }
 
-            .botonRegistrar--dark {
+            .botonRegistrar.theme--dark {
                 background-color: $fondoOscuro !important;
             }
 
-            // .input-contenedor {
-            //     width: 100%;
-            //     display: flex;
-            //     flex-direction: row;
-            //     align-items: center;
-            //     position: relative;
+            .toggle-password {
+                cursor: pointer;
 
-                .toggle-password {
-                    cursor: pointer;
-                    .eye {
-                        position: absolute;
-                        right: 1rem;
-                        width: 1.8rem;
-                        top: 1.5rem;
-                        right: 0.5rem;
-                    }
+                .eye {
+                    position: absolute;
+                    right: 1rem;
+                    width: 1.8rem;
+                    top: 1.5rem;
+                    right: 0.5rem;
                 }
+            }
+
             // }
         }
     }

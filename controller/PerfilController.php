@@ -84,7 +84,41 @@ class PerfilController
         }
     }
 
-    function cambiarPassword(){
-        
+    function cambiarPassword()
+    {
+        $loginDatosDao = new Daologin_datos(DDBB_NAME);
+        //Obtenemos los datos 
+        $passWordOld = $_POST['passWordOld'];
+        $passWordNew = $_POST['passWordNew'];
+        //Verificar que la contraseña actual es correcta
+        $datosUser = $loginDatosDao->obtenerId($_POST['idUsuario']);
+
+        //Si coincide la contraseña actual con la que tenemos en la base de datos y el usuario con el conectado
+        if (password_verify($passWordOld, $datosUser->__get("password")) && $datosUser->__get("usuario_id") == $_SESSION['usernameId']) {
+            //Cambiar la contraseña
+            if ($passWordOld !== $passWordNew) {
+                # code...
+                $datosUser->__set("password", password_hash($passWordNew, PASSWORD_ARGON2ID));
+                $loginDatosDao->actualizar($datosUser);
+                $_SESSION['mensaje'] = "tooltipSuccess";
+                $_SESSION['type'] = "exito";
+            } else {
+                $_SESSION['mensaje'] = "tooltipWarning";
+                $_SESSION['type'] = "warning";
+            }
+        }else{
+            $_SESSION['mensaje'] = "tooltipError";
+            $_SESSION['type'] = "error";
+
+        }
+        echo "<script>
+                localStorage.setItem('flash_msg', JSON.stringify({
+                    type: '" . ($_SESSION['type']) . "',
+                    message: '" . addslashes($_SESSION['mensaje']) . "'
+                }));
+                window.location.href = 'index.php?controller=Perfil&action=view';
+            </script>";
+
+        exit;
     }
 }

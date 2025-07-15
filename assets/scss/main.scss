@@ -46,7 +46,7 @@ main {
     flex: 1;
 }
 
-.body--Dark {
+.body.theme--Dark {
     // background-image: url('../img/texturaDark.png');
     background-image: none;
     background-color: $fondoOscuro2;
@@ -58,7 +58,7 @@ p {
 }
 
 .btn {
-    @include button-style(#00b83d,$verdeBotonPrimarioHover, white, 8rem, auto, 6px);
+    @include button-style(#00b83d, $btnPrimarioHover, white, 8rem, auto, 6px);
     // margin: auto;
     text-decoration: none;
     min-height: 30px;
@@ -67,48 +67,62 @@ p {
     vertical-align: middle;
 }
 
-.btnVerdePrimario {
-    @include button-style($verdeBotonPrimario,$verdeBotonPrimarioHover, white, 8rem, auto, 6px);
-    // margin: auto;
+.btnPrimario {
+    @include button-style($btnPrimario, $btnPrimarioHover, white, 8rem, auto, 6px);
     text-decoration: none;
     min-height: 30px;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+    &.theme--dark {
+        @include button-style($buttonPrimario--dark, $buttonPrimarioHover--dark, white, 8rem, auto, 6px);
+    }
 }
 
-.btnVerdeSecundario {
-    @include button-style($verdeBotonSecundario, $verdeBotonPrimarioHover, white, 8rem, auto, 6px);
-    // margin: auto;
+.btnSecundario {
+    @include button-style($btnSecundario, $btnSecundarioHover, white, 8rem, auto, 6px);
     text-decoration: none;
     min-height: 30px;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+     &.theme--dark {
+        @include button-style($buttonSecundario--dark, $buttonSecundarioHover--dark, white, 8rem, auto, 6px);
+    }
 }
 
-.btnRojo {
-    @include button-style($rojo_primario, $rojo_primario--hover, white, 8rem, auto, 6px);
-    // margin: auto;
+.btnTerciario {
+    @include button-style($btnTerciario, $btnTerciarioHover, white, 8rem, auto, 6px);
     text-decoration: none;
     min-height: 30px;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+
+    &.theme--dark {
+        @include button-style($buttonTerciario--dark, $buttonTerciarioHover--dark, white, 8rem, auto, 6px);
+    }
 }
 
 .enlaceBoton {
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    // gap: 1rem;
     margin: 0.5rem auto;
     border: 1px solid $negroBorde;
     border-radius: 8px;
     padding: 0.5rem;
     background-color: $rojo_primario;
     cursor: pointer;
+
+    &.theme--dark {
+        background-color: $fondoOscuro;
+
+        &:hover {
+            background-color: $botonDark--hover;
+            transform: scale(1.01);
+        }
+    }
 
     a {
         color: $blanco_letra;
@@ -124,16 +138,16 @@ p {
     }
 }
 
-.enlaceBotonSmall{
-    
-    width:  10rem;
+.enlaceBotonSmall {
+
+    width: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid $negroBorde;
     border-radius: 8px;
     padding: 0.5rem;
-    background-color: $verdeBotonPrimario;
+    background-color: $btnSecundario;
     cursor: pointer;
 
     a {
@@ -145,16 +159,7 @@ p {
     }
 
     &:hover {
-        background-color: $verdeBotonSecundario;
+        background-color: $btnSecundarioHover;
         transform: scale(1.01);
     }
-}
-
-.btnRojo.theme--dark {
-    @include button-style($fondoOscuro, $botonDark--hover, white, 8rem, auto, 6px);
-    text-decoration: none;
-    min-height: 30px;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
 }

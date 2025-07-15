@@ -29,12 +29,7 @@ const formulario = document.querySelector('.registro__formulario');
 document.addEventListener('DOMContentLoaded', async () => {
     const dataLand = await cargarIdioma();
     let lang = localStorage.getItem("lang");
-    // console.log(formulario);
-    console.log(lang);
 
-    console.log(dataLand[lang]['formulario']['validateSingIn']['username']['required']);
-
-    let contador = 0;
     //Inicializo información de progreso
     updateProgress(0, (formulario.elements.length - 1));
 
@@ -120,8 +115,7 @@ formulario.addEventListener('submit', (e) => {
             // formulario.submit();
             const inputs = e.target.querySelectorAll('input');
             const opcion = document.querySelector('#generoFavorito');
-            console.log(inputs);
-            console.log(opcion);
+
             let contenidoHTML = "";
             inputs.forEach(element => {
                 if (element.getAttribute('type') !== 'submit') {

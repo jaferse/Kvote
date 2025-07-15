@@ -366,7 +366,10 @@
             "passWordOld": "Contraseña antigua",
             "passWordNew": "Contraseña nueva",
             "passWordNew2": "Confirmar contraseña nueva",
-            "cambiarPass": "Cambiar contraseña"
+            "cambiarPass": "Cambiar contraseña",
+            "tooltipError": "La contraseña actual no es correcta.",
+            "tooltipWarning": "La nueva contraseña no puede ser la misma que la actual.",
+            "tooltipSuccess": "Contraseña cambiada correctamente."
         }
     },
     "en": {
@@ -733,7 +736,10 @@
             "passWordOld": "Current Password",
             "passWordNew": "New Password",
             "passWordNew2": "Confirm New Password",
-            "cambiarPass": "Change Password"
+            "cambiarPass": "Change Password",
+            "tooltipError": "The current password is incorrect.",
+            "tooltipWarning": "The new password cannot be the same as the current one.",
+            "tooltipSuccess": "Password changed successfully."
         }
     },
     "ja": {
@@ -1100,7 +1106,10 @@
             "passWordOld": "現在のパスワード",
             "passWordNew": "新しいパスワード",
             "passWordNew2": "新しいパスワードを確認",
-            "cambiarPass": "パスワードを変更する"
+            "cambiarPass": "パスワードを変更する",
+            "tooltipError": "現在のパスワードが正しくありません。",
+            "tooltipWarning": "新しいパスワードは現在のパスワードと同じにできません。",
+            "tooltipSuccess": "パスワードが正常に変更されました。"
         }
     }
 }

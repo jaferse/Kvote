@@ -21,12 +21,12 @@ function construirComentario(comentario, index) {
         divBotones.classList.add("Producto__comentario__botones");
         let botonEditar = document.createElement("button");
         botonEditar.setAttribute("type", "submit");
-        botonEditar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnVerdePrimario");
+        botonEditar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnPrimario");
         botonEditar.setAttribute("id", "editComment");
         botonEditar.setAttribute("data-lang", "editarComentario");
         let botonBorrar = document.createElement("button");
         botonBorrar.setAttribute("type", "submit");
-        botonBorrar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnRojo");
+        botonBorrar.classList.add("Producto__comentarios__formulario__boton", "lang", "btn", "btnTerciario");
         botonBorrar.setAttribute("id", "deleteComment");
         botonBorrar.setAttribute("data-lang", "eliminarComentario");
         divBotones.appendChild(botonEditar);
@@ -71,8 +71,8 @@ document.addEventListener('click', async function (event) {
         <div>
             <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder=''>${texto}</textarea>
         </div>
-        <button type='submit' class='Producto__comentarios__formulario__boton btnVerdePrimario lang' id='editComment' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
-        <button type="button" class='Producto__comentarios__formulario__boton btnRojo lang' id='backComment' data-lang='atrasComentario'>${dataLang[lang]['comentarios']['atrasComentario']}</button>
+        <button type='submit' class='Producto__comentarios__formulario__boton btnPrimario lang' id='editComment' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
+        <button type="button" class='Producto__comentarios__formulario__boton btnTerciario lang' id='backComment' data-lang='atrasComentario'>${dataLang[lang]['comentarios']['atrasComentario']}</button>
         <input type='hidden' name='isbn13' id='isbn13' value='${getISBN13()}'>
         <input type='hidden' name='idComentario' id='idComentario' value='${idComentario}'>
         `;

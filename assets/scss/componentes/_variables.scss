@@ -6,8 +6,6 @@ $rojo_primario--hover: #9c001a;
 $negroBorde:#000000;
 $boton_hover: hsl(350, 100%, 46%);
 $boton_hoverPaginacion: hsl(350, 100%, 46%);
-$nav_hover: #ff002b;
-$nav_hover--dark: #2babc83c;
 $button_hover: #B81E88;
 $verde_validacion: #1fb800;
 $azulFocus: #0062D5;
@@ -16,27 +14,51 @@ $fuente_secundaria: "Montserrat", serif;
 $fuente_logo: "Aladin", serif;
 $fondo_footer: rgb(40, 39, 39);
 $shadow_nav: rgb(0, 0, 0);
-$verdeBotonPrimario: #008000;
-$verdeBotonPrimarioHover: #0c500c;
-$verdeBotonSecundario: #0c500c;
+
 $grisLetra: #808080;
 $grisTooltip: #515151;
 $colorFooter--dark: #092337;
 $border_main: 3px solid $rojo_primario;
 $border_main--dark: 3px solid #005c94;
 $border-radius: 8px;
-$verdeTooltip: #a2e3a2;
-$verdeTooltipBorder: #0c500c;
-$rojoTooltip: #db6c7e;
-$rojoTooltipBorder: #9c001a;
-$warningTooltip: #ffd08e;
-$warningTooltipBorder: #c67607;
 $box_shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
 
 $fondoOscuro: #005c94;
 $fondoOscuro2: #2babc83c;
 $botonDark--hover: #00426a;
 $fondoOscuroElementos: #2babc8;
+
+/*Colores nav*/
+$navColor: #B8001F;
+$navColorHover: #ff002b;
+$navColorHover--dark: #2babc83c;
+$navColor--dark: #2babc83c;
+
+/*Colores tooltip*/
+$verdeTooltip: #a2e3a2;
+$verdeTooltipBorder: #0c500c;
+$rojoTooltip: #db6c7e;
+$rojoTooltipBorder: #9c001a;
+$warningTooltip: #ffd08e;
+$warningTooltipBorder: #c67607;
+
+/* Botones Primarios*/
+$btnPrimario: #008000;
+$btnPrimarioHover: #0c500c;
+$buttonPrimario--dark:#820094;
+$buttonPrimarioHover--dark:#41004a;
+
+/* Botones Secundarios */
+$btnSecundario: #0c500c;
+$btnSecundarioHover: #093c09;
+$buttonSecundario--dark: #00426a;
+$buttonSecundarioHover--dark: #002a4b;
+
+/*Botones Terciarios*/
+$btnTerciario: #B8001F;
+$btnTerciarioHover: #9c001a;
+$buttonTerciario--dark: #B8001F;
+$buttonTerciarioHover--dark: #9c001a;
 
 @mixin cargarImagen($url, $size: cover) {
   background-image: url($url);

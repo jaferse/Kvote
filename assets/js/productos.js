@@ -17,7 +17,7 @@ function crearTarjeta(containerProductos, producto, json) {
     //creamos la sección
     let containerProductos__producto = document.createElement('section');
     ((darkMode == 'dark') ?
-        containerProductos__producto.classList.add('containerProductos__producto', 'containerProductos__producto--dark')
+        containerProductos__producto.classList.add('containerProductos__producto', 'theme--dark')
         : containerProductos__producto.classList.add('containerProductos__producto'));
 
     //creamos el div img
@@ -58,7 +58,7 @@ function crearTarjeta(containerProductos, producto, json) {
 
     //creamos boton
     let botonVermas = document.createElement('button');
-    botonVermas.classList.add('verMas', 'lang', 'btnVerdePrimario');
+    botonVermas.classList.add('verMas', 'lang', 'btnPrimario');
     // botonVermas.classList.add();
     botonVermas.setAttribute('data-lang', 'verMas');
     // console.log(json);
@@ -140,7 +140,7 @@ function construirPaginacion(productosRespuesta, seccion, paginaActual) {
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
     let listaPaginacion = document.createElement('div');
     (localStorage.getItem('darkMode') == 'dark') ?
-        listaPaginacion.classList.add('paginacion', 'paginacion--dark')
+        listaPaginacion.classList.add('paginacion', 'theme--dark')
         :listaPaginacion.classList.add('paginacion');
 
     let paginas = Math.ceil(productosRespuesta['total'] / productosRespuesta['productoPaginas']);

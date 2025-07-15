@@ -14,6 +14,10 @@
     require_once("view/components/subMenu.php");
     require_once("model/tarjeta/TarjetaPDO.php");
     $tarjetaDao = new Daotarjeta(DDBB_NAME);
+    if (!isset($_SESSION['logueado']) || $_SESSION['logueado'] != true) {
+        header("Location: index.php?controller=Index&action=view");
+        header("Location: index.php?controller=LogIn&action=view");
+    }
     ?>
     <main class="perfilContainer">
         <div class="menuLateral">
@@ -31,7 +35,6 @@
                 <li id="tarjetaCredito" class="lang" data-lang="tarjetaCredito"></li>
                 <hr>
                 <li id="baja" class="lang" data-lang="baja"></li>
-
             </ul>
         </div>
         <div class="containerContenido">
@@ -51,7 +54,7 @@
                     <p class="lang" data-lang="bajaTexto6">
                     </p>
                 </div>
-                <div class="container__btn btn btnRojo btnBaja">
+                <div class="container__btn btn btnTerciario btnBaja">
                     <a class="lang" data-lang="btnBaja"></a>
                 </div>
             </div>
@@ -63,19 +66,24 @@
                 <div class="formulario">
                     <form id="formularioPass" action="index.php?controller=Perfil&action=cambiarPassword" method="post">
                         <div class="formGroup">
-                            <label for="passWordOld" class="lang" data-lang="passWordOld"></label> <input type="password" id="passWordOld" name="passWordOld" required>
+                            <label for="passWordOld" class="lang" data-lang="passWordOld"></label>
+                            <input type="password" id="passWordOld" name="passWordOld" required>
                         </div>
 
                         <div class="formGroup">
-                            <label for="passWordNew" class="lang" data-lang="passWordNew"></label> <input type="password" id="passWordNew" name="passWordNew" required>
+                            <label for="passWordNew" class="lang" data-lang="passWordNew"></label>
+                            <input type="password" id="passWordNew" name="passWordNew" required>
                         </div>
 
                         <div class="formGroup">
-                            <label for="passWordNew2" class="lang" data-lang="passWordNew2"></label> <input type="password" id="passWordNew2" name="passWordNew2" required>
+                            <label for="passWordNew2" class="lang" data-lang="passWordNew2"></label>
+                            <input type="password" id="passWordNew2" name="passWordNew2" required>
                         </div>
 
+                        <input type="hidden" name="idUsuario" value=" <?php echo $_SESSION['usernameId']; ?>">
+
                         <div class="formGroup">
-                            <input type="button" class="lang btn btnRojo btnCambiarPass" data-lang="cambiarPass" value="">
+                            <input type="button" class="lang btn btnTerciario btnCambiarPass" data-lang="cambiarPass" value="">
                         </div>
 
                     </form>
@@ -109,8 +117,11 @@
     <!-- <script src="./assets/js/animacionLogo.js"></script> -->
     <script src="./assets/js/search.js"></script>
     <script src="./assets/js/hamburguer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.19/jquery.inputmask.min.js"></script>
     <script type="module" src="./assets/js/perfil.js"></script>
-
 
 
 </body>

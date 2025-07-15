@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/*Colores nav*/
+/*Colores tooltip*/
+/* Botones Primarios*/
+/* Botones Secundarios */
+/*Botones Terciarios*/
 .header {
   width: 100% !important;
   height: 4rem !important;
@@ -126,7 +131,7 @@
 .header .nav__login .login .carro:hover {
   transform: scale(1.1);
 }
-.header .nav__login .login .carro--dark {
+.header .nav__login .login .carro.theme--dark {
   background-image: url("./../img/carro--dark.svg");
 }
 .header .nav__login .login .login {
@@ -186,20 +191,19 @@
 .header .nav__login .login .search input:focus {
   background-color: #FCFAEE;
 }
-.header .nav__login .login .search--dark label {
+.header .nav__login .login .search.theme--dark label {
   background-image: url("./../img/lupa--dark.svg");
 }
-
-.header--dark {
+.header.theme--dark {
   background-color: #005c94;
 }
-.header--dark .nav__menu {
+.header.theme--dark .nav__menu {
   background-color: #005c94 !important;
 }
-.header--dark .nav__menu__button {
+.header.theme--dark .nav__menu__button {
   background-color: #005c94;
 }
-.header--dark .nav__menu__button:before {
+.header.theme--dark .nav__menu__button:before {
   background: rgba(43, 171, 200, 0.2352941176);
 }
 
@@ -317,7 +321,7 @@
   .header .nav.open {
     animation: slideIn 0.3s forwards;
   }
-  .header--dark .nav__menu__button:hover {
+  .header.theme--dark .nav__menu__button:hover {
     background-color: rgba(43, 171, 200, 0.2352941176);
     transform: scale(1.01);
   }
@@ -344,6 +348,11 @@
     opacity: 0;
   }
 }
+/*Colores nav*/
+/*Colores tooltip*/
+/* Botones Primarios*/
+/* Botones Secundarios */
+/*Botones Terciarios*/
 .footer {
   background-color: rgb(40, 39, 39);
   color: #FCFAEE;
@@ -497,7 +506,7 @@
   --color: linear-gradient(77deg, rgba(252, 12, 83, 1) 30%, rgba(3, 240, 234, 1) 75%);
 }
 
-.footer--dark {
+.footer.theme--dark {
   background-color: #092337;
   border: 2px solid #ffffff;
 }
@@ -588,6 +597,11 @@
     margin: 0 1rem;
   }
 }
+/*Colores nav*/
+/*Colores tooltip*/
+/* Botones Primarios*/
+/* Botones Secundarios */
+/*Botones Terciarios*/
 .main__sliderFrame {
   position: relative;
   grid-row: 1;
@@ -671,6 +685,11 @@
     min-height: 10rem;
   }
 }
+/*Colores nav*/
+/*Colores tooltip*/
+/* Botones Primarios*/
+/* Botones Secundarios */
+/*Botones Terciarios*/
 .main {
   display: grid;
   font-family: "Kotta One", serif;
@@ -686,6 +705,7 @@
   height: 100%;
   grid-row: 2;
   grid-column: 1;
+  padding-bottom: 1.5rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -708,7 +728,7 @@
   margin: 0 0 1rem 0;
   color: #FCFAEE;
 }
-.main__bestSellers .title--dark {
+.main__bestSellers .title.theme--dark {
   background-color: #005c94;
 }
 .main__bestSellers__portadas {
@@ -718,55 +738,62 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
-.main__bestSellers__portadas .tarjetaProducto {
+.main__bestSellers__portadas .tarjetaProducto__enlace {
+  text-decoration: none;
+  color: #000000;
   width: 30% !important;
-  height: auto !important;
-  border-radius: 0px !important;
+  height: 320px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  display: flex;
+  justify-content: center;
+}
+.main__bestSellers__portadas .tarjetaProducto__enlace .tarjetaProducto {
+  cursor: pointer;
+  width: 30% !important;
+  height: 320px !important;
+  border-radius: 8px !important;
   border: none !important;
   min-width: 150px;
-  aspect-ratio: 3/6;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-wrap: nowrap;
 }
-.main__bestSellers__portadas .tarjetaProducto__portada {
+.main__bestSellers__portadas .tarjetaProducto__enlace .tarjetaProducto__portada {
   width: 90% !important;
   height: 75% !important;
   border-radius: 0.5rem !important;
   border: none !important;
   margin: 0;
 }
-.main__bestSellers__portadas .tarjetaProducto__portada img {
+.main__bestSellers__portadas .tarjetaProducto__enlace .tarjetaProducto__portada img {
   width: 100% !important;
   height: 100% !important;
   border-radius: 0.5rem !important;
   border: none !important;
 }
-.main__bestSellers__portadas .tarjetaProducto__portada:hover {
-  box-shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
-  transform: scale(1.01);
-}
-.main__bestSellers__portadas .tarjetaProducto__titulo {
+.main__bestSellers__portadas .tarjetaProducto__enlace .tarjetaProducto__titulo {
   text-align: center;
   margin: 0.5rem;
   font-size: 1.2rem;
   font-family: "Montserrat", serif;
-  min-height: 4rem;
+  min-height: 0rem;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 90%;
 }
-.main__bestSellers__portadas .tarjetaProducto__titulo a {
-  text-decoration: none;
-  color: black;
+.main__bestSellers__portadas .tarjetaProducto__enlace .tarjetaProducto:hover {
+  box-shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
+  transform: scale(1.01);
 }
-.main .bestSellers--dark {
+.main .bestSellers.theme--dark {
   border: 3px solid #005c94;
   background-color: #2babc8;
 }
-.main .bestSellers--dark a {
+.main .bestSellers.theme--dark a {
   color: #005c94;
 }
 .main__bestSellers:nth-of-type(1) {
@@ -807,19 +834,11 @@
   .main__bestSellers {
     flex-wrap: nowrap;
     flex-direction: column;
+    align-items: center;
   }
   .main__bestSellers__portadas {
     flex-direction: column;
     align-items: center;
-  }
-  .main__bestSellers__portadas .tarjetaProducto {
-    width: 70%;
-    justify-content: center;
-  }
-  .main__bestSellers__portadas .tarjetaProducto__titulo {
-    font-size: 2.5rem;
-    height: auto;
-    max-height: none;
   }
 }
 .ContainerGlobal {
@@ -872,8 +891,8 @@
   font-size: 16px;
   font-weight: bold;
 }
-.registro .contenerdor--dark {
-  border: 3px solid #005c94;
+.registro__contenedor.theme--dark {
+  border: 3px solid #005c94 !important;
 }
 .registro__title {
   width: 100% !important;
@@ -887,8 +906,9 @@
   font-family: "Kotta One", serif;
   color: #FCFAEE;
 }
-.registro .title--dark {
+.registro__title.theme--dark {
   background-color: #005c94;
+  color: #FCFAEE;
 }
 .registro__img {
   width: 35% !important;
@@ -958,7 +978,7 @@
 .registro__formulario__group #botonRegistrar {
   padding: 0.6rem 0rem;
 }
-.registro__formulario__group .botonRegistrar--dark {
+.registro__formulario__group .botonRegistrar.theme--dark {
   background-color: #005c94 !important;
 }
 .registro__formulario__group .toggle-password {
@@ -1568,17 +1588,17 @@
   background-color: #B8001F;
   color: #FCFAEE;
 }
-.container .paginacion--dark {
+.container .paginacion.theme--dark {
   background-color: #005c94;
   color: #FCFAEE;
 }
-.container .paginacion--dark a {
+.container .paginacion.theme--dark a {
   color: #FCFAEE;
 }
-.container .paginacion--dark a:hover {
+.container .paginacion.theme--dark a:hover {
   background-color: rgba(43, 171, 200, 0.2352941176);
 }
-.container .paginacion--dark .active {
+.container .paginacion.theme--dark .active {
   background-color: rgba(43, 171, 200, 0.2352941176);
 }
 .container .containerProductos {
@@ -1702,7 +1722,7 @@
   content: "ISBN: ";
   font-weight: 600;
 }
-.container .containerProductos .containerProductos__producto--dark {
+.container .containerProductos .containerProductos__producto.theme--dark {
   border: 3px solid #005c94 !important;
 }
 
@@ -2159,6 +2179,10 @@
     gap: 1rem;
   }
 }
+.ContainerProducto.theme--dark {
+  border-color: #005c94;
+}
+
 .translate {
   display: flex;
   position: relative;
@@ -2394,6 +2418,11 @@
   background-color: white !important;
 }
 
+/*Colores nav*/
+/*Colores tooltip*/
+/* Botones Primarios*/
+/* Botones Secundarios */
+/*Botones Terciarios*/
 .menu {
   position: absolute;
   top: 4.2rem;
@@ -2430,14 +2459,14 @@
   margin: 0rem;
 }
 
-.menuLogin--dark {
+.menuLogin.theme--dark {
   background-color: #005c94;
   border: 2px solid #FCFAEE;
 }
-.menuLogin--dark .menu__button:hover {
+.menuLogin.theme--dark .menu__button:hover {
   background-color: rgba(43, 171, 200, 0.2352941176);
 }
-.menuLogin--dark .menu__button a {
+.menuLogin.theme--dark .menu__button a {
   color: #FCFAEE;
 }
 
@@ -2680,7 +2709,7 @@
   margin: 0px auto;
 }
 
-.containerPedidos--dark .titulo p {
+.containerPedidos.theme--dark .titulo p {
   background-color: #005c94;
   color: #FCFAEE;
 }
@@ -2873,9 +2902,13 @@
 }
 .perfilContainer .containerContenido .formulario #formularioPass .formGroup {
   display: flex;
+  flex-direction: column;
   width: 50%;
   margin: 0.5rem auto;
   justify-content: center;
+  /*
+  Mensajes de validación
+  */
 }
 .perfilContainer .containerContenido .formulario #formularioPass .formGroup label {
   font-weight: 700;
@@ -2889,6 +2922,19 @@
   border: 1px solid #000000;
   font-size: 1rem;
   height: 36px;
+}
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-success-field {
+  border-color: #1fb800;
+}
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-error-field {
+  border-color: #B8001F;
+}
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-error-label {
+  width: 100%;
+}
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-success-label {
+  width: 100%;
+  color: green;
 }
 .perfilContainer .containerContenido .formulario #formularioPass .formGroup .btn {
   width: auto !important;
@@ -2940,7 +2986,7 @@ main {
   flex: 1;
 }
 
-.body--Dark {
+.body.theme--Dark {
   background-image: none;
   background-color: rgba(43, 171, 200, 0.2352941176);
 }
@@ -2970,7 +3016,7 @@ p {
   background-color: #0c500c !important;
 }
 
-.btnVerdePrimario {
+.btnPrimario {
   background-color: #008000 !important;
   color: white !important;
   font-weight: bold !important;
@@ -2986,12 +3032,27 @@ p {
   text-align: center;
   vertical-align: middle;
 }
-.btnVerdePrimario:hover {
+.btnPrimario:hover {
   transform: scale(1.05) !important;
   background-color: #0c500c !important;
 }
+.btnPrimario.theme--dark {
+  background-color: #820094 !important;
+  color: white !important;
+  font-weight: bold !important;
+  margin: 0.5rem auto 2rem !important;
+  width: 8rem !important;
+  height: auto !important;
+  border-radius: 6px !important;
+  border: 2px solid gray !important;
+  cursor: pointer !important;
+}
+.btnPrimario.theme--dark:hover {
+  transform: scale(1.05) !important;
+  background-color: #41004a !important;
+}
 
-.btnVerdeSecundario {
+.btnSecundario {
   background-color: #0c500c !important;
   color: white !important;
   font-weight: bold !important;
@@ -3007,12 +3068,27 @@ p {
   text-align: center;
   vertical-align: middle;
 }
-.btnVerdeSecundario:hover {
+.btnSecundario:hover {
   transform: scale(1.05) !important;
-  background-color: #0c500c !important;
+  background-color: #093c09 !important;
+}
+.btnSecundario.theme--dark {
+  background-color: #00426a !important;
+  color: white !important;
+  font-weight: bold !important;
+  margin: 0.5rem auto 2rem !important;
+  width: 8rem !important;
+  height: auto !important;
+  border-radius: 6px !important;
+  border: 2px solid gray !important;
+  cursor: pointer !important;
+}
+.btnSecundario.theme--dark:hover {
+  transform: scale(1.05) !important;
+  background-color: #002a4b !important;
 }
 
-.btnRojo {
+.btnTerciario {
   background-color: #B8001F !important;
   color: white !important;
   font-weight: bold !important;
@@ -3028,7 +3104,22 @@ p {
   text-align: center;
   vertical-align: middle;
 }
-.btnRojo:hover {
+.btnTerciario:hover {
+  transform: scale(1.05) !important;
+  background-color: #9c001a !important;
+}
+.btnTerciario.theme--dark {
+  background-color: #B8001F !important;
+  color: white !important;
+  font-weight: bold !important;
+  margin: 0.5rem auto 2rem !important;
+  width: 8rem !important;
+  height: auto !important;
+  border-radius: 6px !important;
+  border: 2px solid gray !important;
+  cursor: pointer !important;
+}
+.btnTerciario.theme--dark:hover {
   transform: scale(1.05) !important;
   background-color: #9c001a !important;
 }
@@ -3043,6 +3134,13 @@ p {
   padding: 0.5rem;
   background-color: #B8001F;
   cursor: pointer;
+}
+.enlaceBoton.theme--dark {
+  background-color: #005c94;
+}
+.enlaceBoton.theme--dark:hover {
+  background-color: #00426a;
+  transform: scale(1.01);
 }
 .enlaceBoton a {
   color: #FCFAEE;
@@ -3064,7 +3162,7 @@ p {
   border: 1px solid #000000;
   border-radius: 8px;
   padding: 0.5rem;
-  background-color: #008000;
+  background-color: #0c500c;
   cursor: pointer;
 }
 .enlaceBotonSmall a {
@@ -3075,27 +3173,6 @@ p {
   cursor: inherit;
 }
 .enlaceBotonSmall:hover {
-  background-color: #0c500c;
+  background-color: #093c09;
   transform: scale(1.01);
-}
-
-.btnRojo.theme--dark {
-  background-color: #005c94 !important;
-  color: white !important;
-  font-weight: bold !important;
-  margin: 0.5rem auto 2rem !important;
-  width: 8rem !important;
-  height: auto !important;
-  border-radius: 6px !important;
-  border: 2px solid gray !important;
-  cursor: pointer !important;
-  text-decoration: none;
-  min-height: 30px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-}
-.btnRojo.theme--dark:hover {
-  transform: scale(1.05) !important;
-  background-color: #00426a !important;
 }/*# sourceMappingURL=main.css.map */

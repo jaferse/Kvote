@@ -80,7 +80,7 @@
 
                 &:before {
                     z-index: 0;
-                    background: $nav_hover;
+                    background: $navColorHover;
                     content: "";
                     position: absolute;
                     @include dimensiones(100%, 100%);
@@ -109,7 +109,7 @@
                     }
                 }
 
-                .carro--dark {
+                .carro.theme--dark {
                     background-image: url(('./../img/carro--dark.svg'));
                 }
 
@@ -163,7 +163,7 @@
                     }
                 }
 
-                .search--dark {
+                .search.theme--dark {
                     label {
                         background-image: url("./../img/lupa--dark.svg");
                     }
@@ -172,25 +172,26 @@
         }
     }
 
+    &.theme--dark {
+        background-color: $fondoOscuro;
 
-}
+        .nav__menu {
+            background-color: $fondoOscuro !important;
 
-.header--dark {
-    background-color: $fondoOscuro;
+            &__button {
+                background-color: $fondoOscuro;
 
-    .nav__menu {
-        background-color: $fondoOscuro !important;
-
-        &__button {
-            background-color: $fondoOscuro;
-
-            &:before {
-                background: $nav_hover--dark;
+                &:before {
+                    background: $navColorHover--dark;
+                }
             }
         }
+
     }
 
 }
+
+
 
 
 @keyframes slide2 {
@@ -333,7 +334,7 @@
         }
     }
 
-    .header--dark {
+    .header.theme--dark {
         .nav {
             &__menu {
                 &__button {

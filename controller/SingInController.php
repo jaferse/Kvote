@@ -28,7 +28,6 @@ class SingInController
 
     public function registrar()
     {
-        // var_dump();
         $datosUsuario = $this->daologinDatos->obtener($_POST['userName']);
         $datosUsuarioEmail = $this->daologinDatos->obtenerPorEmail($_POST['email']);
         $tarjetaNumero = str_replace("-", "", $_POST['tarjeta']);

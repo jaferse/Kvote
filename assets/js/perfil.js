@@ -1,14 +1,27 @@
-import { cargarIdioma, crearDialogo } from "./funcionesGenericas.js";
+import { cargarIdioma, crearDialogo, tooltip } from "./funcionesGenericas.js";
 import { darseBajaTraduccir } from "./lang.js";
-document.addEventListener('DOMContentLoaded', async () => {
 
+const justValidate = new JustValidate('#formularioPass');
+let lang = 'es';
+let idiomasJson;
+const formularioPass = document.querySelector('#formularioPass');
+let seccionPerfil;
+document.addEventListener('DOMContentLoaded', async () => {
+    seccionPerfil = localStorage.getItem('seccionPerfil') ?? 'datosPersonales';
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
     const user = await responseUser.json();
-    const idiomasJson = await cargarIdioma();
-    console.log(idiomasJson);
-    let lang= localStorage.getItem('lang', user.idioma);
+    idiomasJson = await cargarIdioma();
+    lang = localStorage.getItem('lang', user.idioma);
+    let mensaje = JSON.parse(localStorage.getItem('flash_msg', user.idioma));
     darseBajaTraduccir(idiomasJson, lang);
 
+    let classContainer = `.container${seccionPerfil.charAt(0).toUpperCase() + seccionPerfil.slice(1)}`;
+    document.querySelector(classContainer).style.display = 'flex';
+
+    if (mensaje) {
+        tooltip(idiomasJson[lang]['cambiarPassword'][mensaje.message], mensaje.type, document.querySelector('.containerPassWord'));
+        localStorage.removeItem('flash_msg');
+    }
     document.querySelector('.usuario').textContent = user.username;
 
     document.addEventListener('click', async (event) => {
@@ -18,9 +31,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (id === 'baja' || id === 'tarjetaCredito' || id === 'direcciones' || id === 'passWord' || id === 'datosPersonales') {
             //Ocultar el resto de los contenedores
             ocultarContenedores();
-
+            //Guardar la sección en el localStorage
+            localStorage.setItem('seccionPerfil', id);
             //Mostrar el contenedor de baja
-            const classContainer = `.container${id.charAt(0).toUpperCase() + id.slice(1)}`;
+            classContainer = `.container${id.charAt(0).toUpperCase() + id.slice(1)}`;
             document.querySelector(classContainer).style.display = 'flex';
         }
 
@@ -48,11 +62,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             } catch (error) {
                 console.error(error);
             }
-            console.log(baja);
-            
         }
 
     });
+
+    //Recorremos los elementos del formularios para añadir eventos input y blur
+    for (const element of formularioPass.elements) {
+        if (element.type !== 'button') {
+            element.addEventListener('blur', () => {
+                justValidate.revalidateField(`#${element.id}`)
+            });
+
+            element.addEventListener("input", (e) => {
+                justValidate.revalidateField(`#${element.id}`);
+            });
+        }
+    }
+
+    validacionReglas(justValidate, idiomasJson, lang);
 });
 
 function ocultarContenedores() {
@@ -60,3 +87,95 @@ function ocultarContenedores() {
         container.style.display = 'none';
     });
 }
+
+function validacionReglas(justValidate, idiomasJson, lang) {
+    justValidate.addField('#passWordOld',
+        [
+            {
+                rule: 'required',
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['required']
+
+            }, {
+                rule: 'minLength',
+                value: 2,
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['minLength']
+            },
+            {
+                rule: 'maxLength',
+                value: 50,
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['maxLength']
+            },
+            {
+                rule: 'customRegexp',
+                value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[._+]).{6,}$/,
+
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['custom']
+            },
+
+        ],
+        {
+            successMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['successMessage'],
+        }
+    ).addField('#passWordNew',
+        [
+            {
+                rule: 'required',
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['required']
+
+            }, {
+                rule: 'minLength',
+                value: 2,
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['minLength']
+            },
+            {
+                rule: 'maxLength',
+                value: 50,
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['maxLength']
+            },
+            {
+                rule: 'customRegexp',
+                value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[._+]).{6,}$/,
+
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['custom']
+            },
+
+        ],
+        {
+            successMessage: idiomasJson[lang]['formulario']['validateSingIn']['password']['successMessage'],
+        }
+    ).addField('#passWordNew2',
+
+        [
+            {
+                rule: "required",
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password2']['required'],
+            },
+            {
+                validator: (value, fields) => {
+                    return value === fields['#passWordNew'].elem.value;
+                },
+                errorMessage: idiomasJson[lang]['formulario']['validateSingIn']['password2']['errorMessage'],
+            }
+
+        ],
+        {
+
+            successMessage: idiomasJson[lang]['formulario']['validateSingIn']['password2']['successMessage'],
+        }
+
+    );
+}
+const btnCambiarPass = document.querySelector('.btnCambiarPass');
+btnCambiarPass.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    justValidate.revalidate().then((isValid) => {
+        if (isValid) {
+            formularioPass.submit();
+        } else {
+            console.log("Formulario no válido.");
+        }
+    }).catch((error) => {
+        console.error("Error al validar el formulario:", error);
+    });
+});

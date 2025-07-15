@@ -125,6 +125,7 @@
 
                 .formGroup {
                     display: flex;
+                    flex-direction: column;
                     width: 50%;
                     margin: 0.5rem auto;
                     justify-content: center;
@@ -143,6 +144,26 @@
                         font-size: 1rem;
                         height: 36px;
                         // width: 100%;
+                    }
+
+                    .just-validate-success-field {
+                        border-color: $verde_validacion;
+                    }
+
+                    .just-validate-error-field {
+                        border-color: $rojo_primario;
+                    }
+
+                    /*
+                    Mensajes de validación
+                    */
+                    .just-validate-error-label {
+                        width: 100%;
+                    }
+
+                    .just-validate-success-label {
+                        width: 100%;
+                        color: green;
                     }
 
                     .btn {

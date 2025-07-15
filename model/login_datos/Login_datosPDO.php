@@ -52,7 +52,25 @@ class Daologin_datos extends DB
         return $logi;
     }
 
-        /**
+     public function obtenerId($usuario_id)
+    {
+        $consulta = "SELECT * FROM login_datos WHERE usuario_id= :usuario_id ";
+        $param = array();
+        $param[":usuario_id"] = $usuario_id;
+        $this->consultaDatos($consulta, $param);
+        $logi = new Login_datos(); //creamos un objeto de la entidad Login_datos
+        if (count($this->filas) == 1) {
+            $fila = $this->filas[0];
+            $logi->__set("username", $fila['username']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $logi->__set("email", $fila['email']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $logi->__set("password", $fila['password']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $logi->__set("usuario_id", $fila['usuario_id']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $logi->__set("admin", $fila['admin']); //Le asignamos a las propiedades del objetos los campos de esa fila
+        }
+        return $logi;
+    }
+
+    /**
      * Obtiene una situacion de la base de datos por su Id.
      *
      * @param int $Id El id de la situacion a obtener.

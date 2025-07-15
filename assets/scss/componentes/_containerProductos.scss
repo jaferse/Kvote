@@ -30,7 +30,7 @@
             color: $blanco_letra;
         }
     }
-    .paginacion--dark {
+    .paginacion.theme--dark {
         background-color: $fondoOscuro;
         color: $blanco_letra;
         
@@ -174,7 +174,7 @@
             }
         }
 
-        .containerProductos__producto--dark {
+        .containerProductos__producto.theme--dark {
             border: 3px solid $fondoOscuro !important;
         }
     }

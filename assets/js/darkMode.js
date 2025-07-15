@@ -39,79 +39,79 @@ document.addEventListener("DOMContentLoaded", () => {
 function cambiarModo() {
     //body
     if (document.querySelector('body')) {
-        document.querySelector('body').classList.toggle('body--Dark');
+        document.querySelector('body').classList.toggle('theme--Dark');
     }
 
     //header
     if (document.querySelector('.header')) {
         let header = document.querySelector('.header');
-        header.classList.toggle('header--dark');
+        header.classList.toggle('theme--dark');
     }
 
     //Login
     if (document.querySelector('.login')) {
         let login = document.querySelector('.login');
-        login.classList.toggle('login--dark');
+        login.classList.toggle('theme--dark');
     }
 
     //Buscador
     if (document.querySelector('.search')) {
         let searchdark = document.querySelector('.search');
-        searchdark.classList.toggle('search--dark');
+        searchdark.classList.toggle('theme--dark');
     }
 
     //Carro
     if (document.querySelector('.carro')) {
         let carroDark = document.querySelector('.carro');
-        carroDark.classList.toggle('carro--dark');
+        carroDark.classList.toggle('theme--dark');
     }
 
     //Fondo del titulo
     if (document.querySelector('.main__bestSellers__title')) {
         document.querySelectorAll('.main__bestSellers__title').forEach(titulo => {
-            titulo.classList.toggle('title--dark');
+            titulo.classList.toggle('theme--dark');
         });
     }
 
     //bordes tarjetas
     if (document.querySelector('.main__bestSellers')) {
         document.querySelectorAll('.main__bestSellers').forEach(tarjeta => {
-            tarjeta.classList.toggle('bestSellers--dark');
+            tarjeta.classList.toggle('theme--dark');
         });
     }
 
     //Footer
     if (document.querySelector('.footer')) {
-        document.querySelector('.footer').classList.toggle('footer--dark');
+        document.querySelector('.footer').classList.toggle('theme--dark');
     }
 
     //Tarjetas de productos
     if (document.querySelector('.containerProductos__producto')) {
         document.querySelectorAll('.containerProductos__producto').forEach(tarjeta => {
-            tarjeta.classList.toggle('containerProductos__producto--dark');
+            tarjeta.classList.toggle('theme--dark');
         });
     }
 
     //formulario
     if (document.querySelector('.registro__contenedor')) {
-        document.querySelector('.registro__contenedor').classList.toggle('contenerdor--dark');
-        document.querySelector('.registro__title').classList.toggle('title--dark');
-        document.querySelector('#botonRegistrar').classList.toggle('botonRegistrar--dark');
+        document.querySelector('.registro__contenedor').classList.toggle('theme--dark');
+        document.querySelector('.registro__title').classList.toggle('theme--dark');
+        document.querySelector('#botonRegistrar').classList.toggle('theme--dark');
     }
 
     //menu login
     if (document.querySelector('.menuLogin')) {
-        document.querySelector('.menuLogin').classList.toggle('menuLogin--dark');
+        document.querySelector('.menuLogin').classList.toggle('theme--dark');
     }
 
     //paginación
     if (document.querySelector('.paginacion')) {
-        document.querySelector('.paginacion').classList.toggle('paginacion--dark');
+        document.querySelector('.paginacion').classList.toggle('theme--dark');
     }
 
     //Contenedor de pedidos
     if (document.querySelector('.containerPedidos')) {
-        document.querySelector('.containerPedidos').classList.toggle('containerPedidos--dark');
+        document.querySelector('.containerPedidos').classList.toggle('theme--dark');
     }
 
     //Contenedor de perfil
@@ -119,10 +119,36 @@ function cambiarModo() {
         document.querySelector('.perfilContainer').classList.toggle('theme--dark');
     }
 
-    if (document.querySelector('.btnRojo')) {
-        document.querySelectorAll('.btnRojo').forEach(btn => {
+    //Botones Rojos
+    if (document.querySelector('.btnTerciario')) {
+        document.querySelectorAll('.btnTerciario').forEach(btn => {
             btn.classList.toggle('theme--dark');
         });
-        
+    }
+
+    //botones enlace
+    if (document.querySelector('.enlaceBoton')) {
+        document.querySelectorAll('.enlaceBoton').forEach(btn => {
+            btn.classList.toggle('theme--dark');
+        });
+    }
+
+    //Botones primarios
+    if (document.querySelector('.btnPrimario')) {
+        document.querySelectorAll('.btnPrimario').forEach(btn => {
+            btn.classList.toggle('theme--dark');
+        });
+    }
+
+    //Botones secundarios
+    if (document.querySelector('.btnSecundario')) {
+        document.querySelectorAll('.btnSecundario').forEach(btn => {
+            btn.classList.toggle('theme--dark');
+        });
+    }
+
+    //Borde producto en detalle
+    if (document.querySelector('.ContainerProducto')) {
+        document.querySelector('.ContainerProducto').classList.toggle('theme--dark');
     }
 }
