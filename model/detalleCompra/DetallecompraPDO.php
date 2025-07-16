@@ -125,4 +125,13 @@ class Daodetallecompra extends DB
             $this->detallecompras[] = $deta; //Guardamos ese objeto en el array de objetos deta
         }
     }
+
+    public function existenComprasISBN($isbn)
+    {
+        $consulta = "SELECT * FROM detallecompra WHERE isbn13= :isbn13";
+        $param = array();
+        $param[":isbn13"] = $isbn;
+        $this->consultaDatos($consulta, $param);
+        return count($this->filas) > 0; //Devuelve true si hay filas, false si no hay
+    }
 }

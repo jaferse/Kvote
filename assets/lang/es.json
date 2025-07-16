@@ -370,6 +370,15 @@
             "tooltipError": "La contraseña actual no es correcta.",
             "tooltipWarning": "La nueva contraseña no puede ser la misma que la actual.",
             "tooltipSuccess": "Contraseña cambiada correctamente."
+        },
+        "crudProducto": {
+            "insertado": "Producto insertado correctamente",
+            "noInsertado": "El producto no se ha podido insertar correctamente",
+            "eliminado": "Producto eliminado correctamente",
+            "noEliminado": "El producto no se ha podido eliminar correctamente",
+            "actualizado": "Producto actualizado correctamente",
+            "noActualizado": "El producto no se ha podido actualizar correctamente",
+            "comprasAsociadas": "Existen compras asociadas a este producto, no se puede eliminar"
         }
     },
     "en": {
@@ -740,6 +749,15 @@
             "tooltipError": "The current password is incorrect.",
             "tooltipWarning": "The new password cannot be the same as the current one.",
             "tooltipSuccess": "Password changed successfully."
+        },
+        "crudProducto": {
+            "insertado": "Product inserted successfully",
+            "noInsertado": "The product could not be inserted",
+            "eliminado": "Product deleted successfully",
+            "noEliminado": "The product could not be deleted",
+            "actualizado": "Product updated successfully",
+            "noActualizado": "The product could not be updated",
+            "comprasAsociadas": "There are purchases associated with this product, it cannot be deleted"
         }
     },
     "ja": {
@@ -1110,6 +1128,15 @@
             "tooltipError": "現在のパスワードが正しくありません。",
             "tooltipWarning": "新しいパスワードは現在のパスワードと同じにできません。",
             "tooltipSuccess": "パスワードが正常に変更されました。"
+        },
+        "crudProducto": {
+            "insertado": "商品が正常に追加されました",
+            "noInsertado": "商品を追加できませんでした",
+            "eliminado": "商品が正常に削除されました",
+            "noEliminado": "商品を削除できませんでした",
+            "actualizado": "商品が正常に更新されました",
+            "noActualizado": "商品を更新できませんでした",
+            "comprasAsociadas": "この商品には購入が関連付けられているため、削除できません"
         }
     }
 }

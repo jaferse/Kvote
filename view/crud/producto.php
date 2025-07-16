@@ -186,14 +186,14 @@
 
                 <!-- Validar Formulario!!!!!!!!!!!!!!!!!!!!!!!! -->
                 <!-- Verifica tipo de dato de los imput -->
-                <td><input name="isbn_13" type="text"></td>
+                <td><input name="isbn_13" type="number" minlength="13" maxlength="13" required></td>
                 <td colspan="2">
                     <!-- <input name="portada" type="text"> -->
-                    <input type="file" name="portadaFile">
+                    <input type="file" name="portadaFile" required>
                 </td>
-                <td><input name="nombre" type="text"></td>
+                <td><input name="nombre" type="text" required></td>
                 <td>
-                    <select class="autor" name="autor" id="">
+                    <select class="autor" name="autor" id="" required>
                         <option value="" disabled selected>Seleccione Artista</option>
                         <?php
                         foreach ($tablaAutor->artistas as $key => $value) {
@@ -203,7 +203,7 @@
                     </select>
                 </td>
                 <td>
-                    <select class="trabajo" name="trabajo" id="">
+                    <select class="trabajo" name="trabajo" id="" required>
                         <option value="" disabled selected>Trabajo</option>
                         <?php
                         foreach ($tablaArtista_Producto->getEnum("trabajo") as $key => $value) {
@@ -212,10 +212,10 @@
                         ?>
                     </select>
                 </td>
-                <td><input name="coleccion" type="text"></td>
-                <td><input name="numero" type="number"></td>
+                <td><input name="coleccion" type="text" required></td>
+                <td><input name="numero" type="number" required></td>
                 <td>
-                    <select class="tipo" name="tipo" id="">
+                    <select class="tipo" name="tipo" id="" required>
                         <option value="" disabled selected>Seleccione Tipo</option>
                         <?php
                         foreach ($tablaProducto->getEnum("tipo") as $key => $value) {
@@ -225,7 +225,7 @@
                     </select>
                 </td>
                 <td>
-                    <select class="formato" name="formato" id="">
+                    <select class="formato" name="formato" id="" required>
                         <option value="" disabled selected>Seleccione Formato</option>
                         <?php
                         foreach ($tablaProducto->getEnum("formato") as $key => $value) {
@@ -236,9 +236,9 @@
                     </select>
                     <!-- <input name="formato" type="text"> -->
                 </td>
-                <td><input name="paginas" type="number"></td>
+                <td><input name="paginas" type="number" required></td>
                 <td>
-                    <select class="subtipo" name="subtipo">;
+                    <select class="subtipo" name="subtipo" required>;
                         <option value='' disabled selected>Seleccione Género</option>;
                         <?php
                         foreach ($tablaProducto->getEnum("subtipo") as $key => $valor) {
@@ -249,15 +249,15 @@
                         ?>
                     </select>
                 </td>
-                <td><input name="editorial" type="text"></td>
-                <td><input name="anio_publicacion" type="date"></td>
+                <td><input name="editorial" type="text" required></td>
+                <td><input name="anio_publicacion" type="date" required></td>
 
                 <td>
 
-                    <textarea name="sinopsis" id=""></textarea>
+                    <textarea name="sinopsis" id="" required></textarea>
                 </td>
-                <td><input name="precio" type="number" step="0.01"></td>
-                <td><input class="stock" name="stock" type="number"></td>
+                <td><input name="precio" type="number" step="0.01" required></td>
+                <td><input class="stock" name="stock" type="number" required></td>
                 <?php
 
                 ?>
@@ -293,7 +293,7 @@
     <script src="./assets/js/darkMode.js"></script>
     <script src="./assets/js/search.js"></script>
     <script src="./assets/js/hamburguer.js"></script>
-    <script src="./assets/js/cambioActionProducto.js"></script>
+    <script type="module" src="./assets/js/formularioProductoCRUD.js"></script>
 
 
 </body>
