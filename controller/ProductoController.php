@@ -90,36 +90,30 @@ class ProductoController
                 //Recorremos los valores del array $_POST["check"] y los mostramos
                 foreach ($_POST["check"] as $key => $value) {
                     //Comprobamos si el producto tiene alguna compra asociada
-                    if ($this->tablaDetalleCompra->existenComprasISBN($key)) {
-                        
-                        
+                    if (!$this->tablaDetalleCompra->existenComprasISBN($key)) {
                         //Eliminamos el dato de la base de datos
-                        echo "ISBN:" . $key . "<br>";
-                        echo "Autor:" . $_POST['autor_'][$key] . "<br>";
-                        // echo $_POST["isbn_13_"][$key] ."<br>";
-                        // borrar($artista_id, $isbn_13)
                         $this->tablaArtProd->borrar($_POST['autor_'][$key], $key);
                         $this->tabla->borrar($key);
                         $_SESSION['type'] = "exito";
                         $_SESSION['mensaje'] = "eliminado";
-                    }else{
+                    } else {
                         $_SESSION['type'] = "warning";
                         $_SESSION['mensaje'] = "comprasAsociadas";
                     }
                 }
-            } 
+            }
         } catch (\Throwable $th) {
             $_SESSION['type'] = "error";
             $_SESSION['mensaje'] = "noEliminado";
             throw $th;
         } finally {
-            // echo "<script>
-            //     localStorage.setItem('flash_msg', JSON.stringify({
-            //         type: '" . ($_SESSION['type']) . "',
-            //         message: '" . addslashes($_SESSION['mensaje']) . "'
-            //     }));
-            //     window.location.href = 'index.php?controller=Producto&action=view';
-            // </script>";
+            echo "<script>
+                localStorage.setItem('flash_msg', JSON.stringify({
+                    type: '" . ($_SESSION['type']) . "',
+                    message: '" . addslashes($_SESSION['mensaje']) . "'
+                }));
+                window.location.href = 'index.php?controller=Producto&action=view';
+            </script>";
         }
     }
 
@@ -127,8 +121,9 @@ class ProductoController
     {
         try {
             if (isset($_POST["check"])) {
-
                 foreach ($_POST["check"] as $key => $value) {
+                    // if (!$this->tablaDetalleCompra->existenComprasISBN($key)) {
+
                     $ProductoObjeto = new Producto();
                     $ProductoObjeto->__set("isbn_13", $_POST["isbn_13_"][$key]);
                     //Controlar que si no existe la imagen subida se inserte la foto ya guardada en la base de datos
@@ -162,10 +157,18 @@ class ProductoController
                     $productoArtistaObjeto->__set("artista_id", $_POST['autor_'][$key]);
                     $productoArtistaObjeto->__set("isbn_13", $_POST['isbn_13_'][$key]);
                     $productoArtistaObjeto->__set("trabajo", $_POST['trabajo_'][$key]);
-                    $this->tablaArtProd->actualizar($productoArtistaObjeto);
+                    if ("existe") {
+                        $this->tablaArtProd->actualizar($productoArtistaObjeto);
+                    }
+                    //Eliminamos el dato de la base de datos
+
+                    $_SESSION['type'] = "exito";
+                    $_SESSION['mensaje'] = "actualizado";
+                    // } else {
+                    //     $_SESSION['type'] = "warning";
+                    //     $_SESSION['mensaje'] = "comprasAsociadas";
+                    // }
                 }
-                $_SESSION['type'] = "exito";
-                $_SESSION['mensaje'] = "actualizado";
             }
         } catch (\Throwable $th) {
             $_SESSION['type'] = "error";

@@ -89,18 +89,19 @@
                     echo "</td>";
                     echo "<td>";
                     $nombreArtista = $tablaAutor->obtener($artista->artista_id)->nombre . " " . $tablaAutor->obtener($artista->artista_id)->apellido1 . " " . $tablaAutor->obtener($artista->artista_id)->apellido2;
-                    // echo "<input name='" . "autor_[" . $value->isbn_13 . "]' type='text' value='" . $nombreArtista . "' id='" . $artista->artista_id . " 'readonly>";
-                    echo "<select class='autor' name='" . "autor_[" . $value->isbn_13 . "]' id=''>";
-                    echo "<option value='' disabled selected>Seleccione Autor</option>";
+                    echo "<input type='hidden' class='autor' name='" . "autor_[" . $value->isbn_13 . "]' type='hidden' value='" . $artista->artista_id . "'>";
+                    echo "<span>" . $nombreArtista . "</span>";
+                    // echo "<select class='autor' name='" . "autor_[" . $value->isbn_13 . "]' id=''> ";
+                    // echo "<option value='' disabled selected>Seleccione Autor</option>";
 
-                    foreach ($tablaAutor->artistas as $key => $valor) {
+                    // foreach ($tablaAutor->artistas as $key => $valor) {
 
-                        echo "<option value='" . $valor->id . "'"
-                            . ($valor->id == $artista->artista_id ? 'selected' : '') .
-                            ">" . $valor->nombre . " " . $valor->apellido1 . " " . $valor->apellido2 . "</option>";
-                    }
+                    //     echo "<option value='" . $valor->id . "'"
+                    //         . ($valor->id == $artista->artista_id ? 'selected' : '') .
+                    //         ">" . $valor->nombre . " " . $valor->apellido1 . " " . $valor->apellido2 . "</option>";
+                    // }
 
-                    echo "  </select>";
+                    // echo "  </select>";
                     echo "</td>";
                     echo "<td>";
                     echo "<select class='trabajo' name='" . "trabajo_[" . $value->isbn_13 . "]' id=''>";
@@ -183,94 +184,97 @@
                     echo "</tr>";
                 }
                 ?>
+                <div>
+                    <input type="submit" value="Eliminar" class="btnTerciario" name="eliminarProducto">
+                    <input type="submit" value="Actualizar" class="btnPrimario" name="actualizarProducto">
+                </div>
+        </form>
+        <form action="index.php?controller=Producto&action=create" method="post" name="formProductoNuevo" id="formProductoNuevo" enctype="multipart/form-data">
 
-                <!-- Validar Formulario!!!!!!!!!!!!!!!!!!!!!!!! -->
-                <!-- Verifica tipo de dato de los imput -->
-                <td><input name="isbn_13" type="number" minlength="13" maxlength="13" required></td>
-                <td colspan="2">
-                    <!-- <input name="portada" type="text"> -->
-                    <input type="file" name="portadaFile" required>
-                </td>
-                <td><input name="nombre" type="text" required></td>
-                <td>
-                    <select class="autor" name="autor" id="" required>
-                        <option value="" disabled selected>Seleccione Artista</option>
-                        <?php
-                        foreach ($tablaAutor->artistas as $key => $value) {
-                            echo "<option value='" . $value->id . "'>" . $value->nombre . " " . $value->apellido1 . " " . $value->apellido2 . "</option>";
-                        }
-                        ?>
-                    </select>
-                </td>
-                <td>
-                    <select class="trabajo" name="trabajo" id="" required>
-                        <option value="" disabled selected>Trabajo</option>
-                        <?php
-                        foreach ($tablaArtista_Producto->getEnum("trabajo") as $key => $value) {
-                            echo "<option value='" . $value . "'>" . $value . "</option>";
-                        }
-                        ?>
-                    </select>
-                </td>
-                <td><input name="coleccion" type="text" required></td>
-                <td><input name="numero" type="number" required></td>
-                <td>
-                    <select class="tipo" name="tipo" id="" required>
-                        <option value="" disabled selected>Seleccione Tipo</option>
-                        <?php
-                        foreach ($tablaProducto->getEnum("tipo") as $key => $value) {
-                            echo "<option value='" . $value . "'>" . $value . "</option>";
-                        }
-                        ?>
-                    </select>
-                </td>
-                <td>
-                    <select class="formato" name="formato" id="" required>
-                        <option value="" disabled selected>Seleccione Formato</option>
-                        <?php
-                        foreach ($tablaProducto->getEnum("formato") as $key => $value) {
-                            echo "<option value='" . $value . "'>" . $value . "</option>";
-                        }
-                        ?>
 
-                    </select>
-                    <!-- <input name="formato" type="text"> -->
-                </td>
-                <td><input name="paginas" type="number" required></td>
-                <td>
-                    <select class="subtipo" name="subtipo" required>;
-                        <option value='' disabled selected>Seleccione Género</option>;
-                        <?php
-                        foreach ($tablaProducto->getEnum("subtipo") as $key => $valor) {
-                            echo "<option value='" . $valor . "'"
-                                . ($valor == $value->subtipo ? 'selected' : '') .
-                                ">" . $valor . "</option>";
-                        }
-                        ?>
-                    </select>
-                </td>
-                <td><input name="editorial" type="text" required></td>
-                <td><input name="anio_publicacion" type="date" required></td>
+            <!-- Validar Formulario!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- Verifica tipo de dato de los imput -->
+            <td><input name="isbn_13" type="number" minlength="13" maxlength="13" required></td>
+            <td colspan="2">
+                <!-- <input name="portada" type="text"> -->
+                <input type="file" name="portadaFile" required>
+            </td>
+            <td><input name="nombre" type="text" required></td>
+            <td>
+                <select class="autor" name="autor" id="" required>
+                    <option value="" disabled selected>Seleccione Artista</option>
+                    <?php
+                    foreach ($tablaAutor->artistas as $key => $value) {
+                        echo "<option value='" . $value->id . "'>" . $value->nombre . " " . $value->apellido1 . " " . $value->apellido2 . "</option>";
+                    }
+                    ?>
+                </select>
+            </td>
+            <td>
+                <select class="trabajo" name="trabajo" id="" required>
+                    <option value="" disabled selected>Trabajo</option>
+                    <?php
+                    foreach ($tablaArtista_Producto->getEnum("trabajo") as $key => $value) {
+                        echo "<option value='" . $value . "'>" . $value . "</option>";
+                    }
+                    ?>
+                </select>
+            </td>
+            <td><input name="coleccion" type="text" required></td>
+            <td><input name="numero" type="number" required></td>
+            <td>
+                <select class="tipo" name="tipo" id="" required>
+                    <option value="" disabled selected>Seleccione Tipo</option>
+                    <?php
+                    foreach ($tablaProducto->getEnum("tipo") as $key => $value) {
+                        echo "<option value='" . $value . "'>" . $value . "</option>";
+                    }
+                    ?>
+                </select>
+            </td>
+            <td>
+                <select class="formato" name="formato" id="" required>
+                    <option value="" disabled selected>Seleccione Formato</option>
+                    <?php
+                    foreach ($tablaProducto->getEnum("formato") as $key => $value) {
+                        echo "<option value='" . $value . "'>" . $value . "</option>";
+                    }
+                    ?>
 
-                <td>
+                </select>
+                <!-- <input name="formato" type="text"> -->
+            </td>
+            <td><input name="paginas" type="number" required></td>
+            <td>
+                <select class="subtipo" name="subtipo" required>;
+                    <option value='' disabled selected>Seleccione Género</option>;
+                    <?php
+                    foreach ($tablaProducto->getEnum("subtipo") as $key => $valor) {
+                        echo "<option value='" . $valor . "'"
+                            . ($valor == $value->subtipo ? 'selected' : '') .
+                            ">" . $valor . "</option>";
+                    }
+                    ?>
+                </select>
+            </td>
+            <td><input name="editorial" type="text" required></td>
+            <td><input name="anio_publicacion" type="date" required></td>
 
-                    <textarea name="sinopsis" id="" required></textarea>
-                </td>
-                <td><input name="precio" type="number" step="0.01" required></td>
-                <td><input class="stock" name="stock" type="number" required></td>
-                <?php
+            <td>
 
-                ?>
-                </select></td>
-                <td>
-                    <input type="submit" value="Nuevo" class="btnPrimario" name="nuevoProducto">
-                </td>
-                </tr>
+                <textarea name="sinopsis" id="" required></textarea>
+            </td>
+            <td><input name="precio" type="number" step="0.01" required></td>
+            <td><input class="stock" name="stock" type="number" required></td>
+            <?php
+
+            ?>
+            </select></td>
+            <td>
+                <input type="submit" value="Nuevo" class="btnPrimario" name="nuevoProducto">
+            </td>
+            </tr>
             </table>
-            <div>
-                <input type="submit" value="Eliminar" class="btnTerciario" name="eliminarProducto">
-                <input type="submit" value="Actualizar" class="btnPrimario" name="actualizarProducto">
-            </div>
         </form>
     </main>
 
