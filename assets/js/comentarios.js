@@ -41,8 +41,8 @@ let usuarioLogueadoId;
 let dataLang;
 document.addEventListener('click', async function (event) {
     let lang = localStorage.getItem("lang");
-    //Comprobamos que se encuentre dentro de un formulario
-    if (event.target.parentElement.tagName === "FORM") {
+    //Comprobamos que se encuentre dentro del formulario de nuevo comentario
+    if (event.target.parentElement.tagName === "FORM" && event.target.closest('#formNuevoComentario')) {
         event.preventDefault();
         let form = event.target.parentElement;
         //Si el elemento que se ha pulsado es el botón de nuevo comentario
@@ -64,19 +64,20 @@ document.addEventListener('click', async function (event) {
         form.setAttribute("id", `formComentario${idComentario}`);
         form.setAttribute("action", `index.php?controller=Comentarios&action=editarComentario`);
         form.setAttribute("method", 'POST');
-        form.innerHTML = `
+        form.innerHTML = /*html*/`
         <div class='Producto__comentarios__formulario__titulo'>
             <input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder='' value="${titulo}"></input>
         </div>
         <div>
             <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder=''>${texto}</textarea>
         </div>
-        <button type='submit' class='Producto__comentarios__formulario__boton btnPrimario lang' id='editComment' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
+        <button type='submit' class='Producto__comentarios__formulario__boton btnPrimario lang' id='editar' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
         <button type="button" class='Producto__comentarios__formulario__boton btnTerciario lang' id='backComment' data-lang='atrasComentario'>${dataLang[lang]['comentarios']['atrasComentario']}</button>
         <input type='hidden' name='isbn13' id='isbn13' value='${getISBN13()}'>
         <input type='hidden' name='idComentario' id='idComentario' value='${idComentario}'>
         `;
         console.log(comentario);
+        console.log(form);
 
         //ocultamos el comentario
         comentario.style.display = "none";
@@ -85,7 +86,8 @@ document.addEventListener('click', async function (event) {
         comentario.parentNode.appendChild(form);
 
     }
-    //Botón de atras
+    
+    //Botón de atrás
     if (event.target.getAttribute("id") === "backComment") {
         console.log("Boton atras");
         console.log(event.target.parentElement.parentElement);

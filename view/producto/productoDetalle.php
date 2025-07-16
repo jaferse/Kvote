@@ -61,7 +61,7 @@
 
             <?php
             if (isset($_SESSION['username'])) {
-                echo "<form method='post' class='Producto__comentarios__formulario'>";
+                echo "<form method='post' class='Producto__comentarios__formulario' id='formNuevoComentario'>";
                 echo "<div class='Producto__comentarios__formulario__titulo'>";
                 echo "<input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder='' required></input>";
                 echo "</div>";

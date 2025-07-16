@@ -41,22 +41,23 @@
 
         &__portadas {
             @include flex (row, space-evenly, flex-start, wrap);
+            width: 90%;
             .tarjetaProducto__enlace {
+                @include dimensiones(30%, auto, $border_radius);
+                aspect-ratio: 3 / 5;
                 text-decoration: none;
                 color: $negro_letra;
-                @include dimensiones(30%, 320px, $border_radius);
                 display: flex;
                 justify-content: center;
                 .tarjetaProducto {
                     cursor: pointer;
-                    @include dimensiones(30%, 320px, $border_radius);
-                    min-width: 150px;
+                    width: 100%;
                     border-radius: $border_radius;
                     @include flex(column, start, center);
 
                     &__portada {
                         @include dimensiones(90%, 75%, 0.5rem);
-                        margin: 0;
+                        margin: 0 auto;
 
                         img {
                             @include dimensiones(100%, 100%, 0.5rem);
