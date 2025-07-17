@@ -8,7 +8,6 @@
     justify-content: space-between;
 
     .productos {
-        // width: 100%;
         margin: 0.5rem;
 
         .productoCarrito {
@@ -16,12 +15,11 @@
             border-radius: 10px;
             padding: 1rem;
             margin: 1rem 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
             align-items: center;
+            column-gap: 10px;
             background-color: $blancoFondo;
-            background-image: red;
 
             img {
                 width: 8rem;
@@ -43,13 +41,17 @@
                 flex-direction: column;
                 align-items: center;
                 position: relative;
-                span, label{
+
+                span,
+                label {
                     font-weight: bold;
                 }
-                input{
+
+                input {
                     max-width: 3rem;
                 }
-                .error_stock{
+
+                .error_stock {
                     display: none;
                     color: red;
                     font-weight: lighter;
@@ -62,9 +64,14 @@
             .btnEliminar {
                 cursor: pointer;
                 padding: 1rem;
-                @include cargarImagen('./../img/delete.png');
+
+                img {
+                    width: 3rem;
+                    height: auto
+                }
             }
-            .btnEliminar:hover{
+
+            .btnEliminar:hover {
                 transform: scale(1.1);
 
             }
@@ -72,7 +79,7 @@
         }
     }
 
-    .cestaVacia{
+    .cestaVacia {
         display: flex;
         text-align: center;
         width: 70%;
@@ -82,11 +89,13 @@
         background-color: $blancoFondo;
         justify-content: space-evenly;
         align-items: center;
-        img{
+
+        img {
             width: 15rem;
             height: auto;
         }
-        p{
+
+        p {
             font-family: $fuente_general;
             font-size: 2rem;
             vertical-align: middle;
@@ -95,4 +104,29 @@
 
     }
 
+}
+
+@media screen and (max-width: 992px) {
+    .containerCesta {
+        .productos {
+            .productoCarrito {
+                grid-template-columns: 1fr;
+                grid-template-rows: 3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                justify-content: center;
+
+                h3 {
+                    text-align: center;
+                }
+
+                img {
+                    margin: 0 auto;
+                }
+
+                .btnEliminar {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
 }

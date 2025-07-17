@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             productos.forEach(producto => {
                 const contenedorProducto = document.createElement('div');
                 contenedorProducto.classList.add('producto');
-                contenedorProducto.innerHTML = `
-                        <a class="Producto__borrar__boton" href="index.php?controller=WishList&action=eliminarProducto&isbn=${producto.isbn_13}"></a>
+                contenedorProducto.innerHTML = /*html */`
+                        <a class="Producto__borrar__boton" href="index.php?controller=WishList&action=eliminarProducto&isbn=${producto.isbn_13}"><img src="assets/img/delete.png"></a>
                         <img src="data:image/jpeg;base64,${producto.portada}" alt="${producto.nombre}">
                         <h2 class="Producto__info__titulo">${producto.nombre}</h2>
                         <h3 class="Producto__info__autor">${producto.nombreArtista} ${producto.apellido1} ${producto.apellido2}</h3>

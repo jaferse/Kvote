@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             let divProducto = document.createElement('div');
             divProducto.classList.add('productoCarrito');
             divProducto.setAttribute('data-isbn', key);
-            divProducto.innerHTML = `
+            divProducto.innerHTML = /*html*/ `
                 <img src="data:image/jpeg;base64,${carrito[key].producto.portada}" alt="${carrito[key].producto.titulo}">
                 <h3>${carrito[key].producto.nombre}</h3>
                 <div class="contenido">
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <div class="contenido">
                 <span class="lang" data-lang="importe">${data[lang]['carrito']['importe']}</span> <span class="importeProducto">${(carrito[key].producto.precio * carrito[key].cantidad).toFixed(2)} €</span>
                 </div>
-                <a class="btnEliminar lang" data-isbn="${key}"></a>
+                <a class="btnEliminar lang" data-isbn="${key}"><img src="assets/img/delete.png"></a>
             `;
             document.querySelector('.productos').appendChild(divProducto);
 
