@@ -115,9 +115,11 @@ document.querySelector('.productos').addEventListener('change', function (e) {
 
 document.querySelector('.productos').addEventListener('click', function (e) {
     //Borrar producto de la cesta
-    if (e.target.matches('.btnEliminar')) {
-        if (carrito[e.target.getAttribute('data-isbn')]) {
-            delete carrito[e.target.getAttribute('data-isbn')];
+    if (e.target.closest('.btnEliminar')) {
+        let isbn = e.target.closest('.btnEliminar').getAttribute('data-isbn');
+        
+        if (carrito[isbn]) {
+            delete carrito[isbn];
             e.target.closest('.productoCarrito').remove();
             carritosUsuarios[usuarioLogueadoId] = carrito; // Actualizar el carrito del usuario logueado
 
