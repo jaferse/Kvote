@@ -219,6 +219,32 @@ class Daoproducto extends DB
         $param[":stock"] = $prod->__get("stock"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $this->consultaSimple($consulta, $param);
     }
+    public function actualizarVentasProducto($isbn_13, $ventas)
+    {
+        $consulta = " UPDATE producto SET ventas= :ventas WHERE isbn_13= :isbn_13";
+        $param = array();
+        $param[":isbn_13"] = $isbn_13;
+        $param[":ventas"] = $ventas;
+        $this->consultaSimple($consulta, $param);
+    }
+    public function consultarStock($isbn_13)
+    {
+        $consulta = "SELECT stock FROM producto WHERE isbn_13 = :isbn_13";
+        $param = array();
+        $param[":isbn_13"] = $isbn_13;
+        return $this->consultaSimple($consulta, $param);
+    }
+    public function actualizarStockProducto($isbn_13, $cantidad)
+    {
+        $stock = $this->consultarStock($isbn_13);
+        $stock = $stock - $cantidad;
+        echo "Stock actual: ".$stock."<br>";
+        $consulta = " UPDATE producto SET stock= :stock WHERE isbn_13= :isbn_13";
+        $param = array();
+        $param[":isbn_13"] = $isbn_13;
+        $param[":stock"] = $stock;
+        $this->consultaSimple($consulta, $param);
+    }
     /**
      * Borra una situacion en la base de datos
      * @param int El id de la situacion a borrar

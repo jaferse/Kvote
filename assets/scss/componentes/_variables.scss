@@ -3,7 +3,7 @@ $negro_letra: #000000;
 $blancoFondo: #ffffff;
 $rojo_primario: #B8001F;
 $rojo_primario--hover: #9c001a;
-$negroBorde:#000000;
+$negroBorde: #000000;
 $boton_hover: hsl(350, 100%, 46%);
 $boton_hoverPaginacion: hsl(350, 100%, 46%);
 $button_hover: #B81E88;
@@ -19,6 +19,7 @@ $grisLetra: #808080;
 $grisTooltip: #515151;
 $colorFooter--dark: #092337;
 $border_main: 3px solid $rojo_primario;
+$border_black: 3px solid $negroBorde;
 $border_main--dark: 3px solid #005c94;
 $border-radius: 8px;
 $box_shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
@@ -45,8 +46,8 @@ $warningTooltipBorder: #c67607;
 /* Botones Primarios*/
 $btnPrimario: #008000;
 $btnPrimarioHover: #0c500c;
-$buttonPrimario--dark:#820094;
-$buttonPrimarioHover--dark:#41004a;
+$buttonPrimario--dark: #820094;
+$buttonPrimarioHover--dark: #41004a;
 
 /* Botones Secundarios */
 $btnSecundario: #0c500c;
@@ -59,6 +60,9 @@ $btnTerciario: #B8001F;
 $btnTerciarioHover: #9c001a;
 $buttonTerciario--dark: #B8001F;
 $buttonTerciarioHover--dark: #9c001a;
+
+/*Botón desactivado*/
+$grayDisabled: #b9b9b9;
 
 @mixin cargarImagen($url, $size: cover) {
   background-image: url($url);

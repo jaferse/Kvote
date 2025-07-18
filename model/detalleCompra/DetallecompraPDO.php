@@ -134,4 +134,10 @@ class Daodetallecompra extends DB
         $this->consultaDatos($consulta, $param);
         return count($this->filas) > 0; //Devuelve true si hay filas, false si no hay
     }
+
+    public function ventasISBN(){
+        $consulta="SELECT count(*) as total, isbn13 FROM detallecompra GROUP BY isbn13 ORDER BY total DESC";
+        $this->consultaDatos($consulta);
+        return $this->filas;
+    }
 }

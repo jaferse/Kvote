@@ -99,6 +99,15 @@ window.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('.Producto__comentarios__formulario>#isbn13').value = producto.isbn_13;
     }
 
+    //Desabilitar botón comprar si no hay stock del producto
+    if (producto.stock <= 0) {
+        document.querySelector('.botonCesta').disabled = true;
+        document.querySelector('.botonCesta').classList.add('disabled');
+        let sinStock= document.createElement('p');
+        sinStock.classList.add('avisoSinStock');
+        sinStock.textContent = 'Sin stock';
+        document.querySelector('.Producto__info__precioComprar__tooltip').appendChild(sinStock);
+    }
 
     ContainerProducto.style.visibility = 'visible';
 
@@ -138,3 +147,11 @@ document.addEventListener('click', (e) => {
     }
 
 });
+
+// document.addEventListener('mouseover', (e) => {
+
+//     if (e.target.matches('.botonCesta.disabled')) {
+//         console.log("Boton desactivado");
+//         tooltip('Sin stock', 'warning', e.target);
+//     }
+// });

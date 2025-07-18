@@ -36,7 +36,6 @@
                     <div class="Producto__info__precioComprar__precio">
                         <span class="Producto__info__precioComprar__precio__actual"></span>
                         <span class="Producto__info__precioComprar__precio__descuento"></span>
-                        <!-- <button>Comprar</button> -->
                         <span class="Producto__info__precioComprar__precio__anterior"></span>
                     </div>
                     <div class="Producto__info__precioComprar__tooltip">

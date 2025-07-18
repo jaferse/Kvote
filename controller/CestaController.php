@@ -7,6 +7,7 @@ class CestaController
         session_start();
         require_once("model/compra/CompraPDO.php");
         require_once("model/detalleCompra/DetallecompraPDO.php");
+        require_once("model/producto/ProductoPDO.php");
     }
 
     function view()
@@ -40,9 +41,11 @@ class CestaController
                 $detalleCompra->__set("unidades", $producto["cantidad"]);
                 $detalleCompra->__set("precioUnitario", $producto["producto"]["precio"]);
                 $detalleCompraDAO->insertar($detalleCompra);
+                $this->actualizarStock($producto["producto"]["isbn_13"],$producto["cantidad"]);
             }
+            $this->actualizarVenta();
 
-            $respuesta =[
+            $respuesta = [
                 "status" => "success",
                 "mensaje" => "Compra realizada con éxito",
                 "idCompra" => $idCompra
@@ -58,9 +61,17 @@ class CestaController
     }
 
 
+    function actualizarStock($isbn_13, $cantidad){
+            $productoDAO = new Daoproducto(DDBB_NAME);
+            $productoDAO->actualizarStockProducto($isbn_13, $cantidad);
+    }
+    function actualizarVenta($isbn_13, $cantidad){
+            $productoDAO = new Daoproducto(DDBB_NAME);
+             $productoDAO->actualizarVentasProducto($isbn_13, $cantidad);
+    }
 
     /**
-     * Generates a UUID v4 according to RFC 4122
+     * Genera un UUID v4 de acuerdo con RFC 4122 para los idCompra
      *
      * @return string a UUID v4
      */

@@ -4,6 +4,7 @@
 /* Botones Primarios*/
 /* Botones Secundarios */
 /*Botones Terciarios*/
+/*Botón desactivado*/
 .header {
   width: 100% !important;
   height: 4rem !important;
@@ -353,6 +354,7 @@
 /* Botones Primarios*/
 /* Botones Secundarios */
 /*Botones Terciarios*/
+/*Botón desactivado*/
 .footer {
   background-color: rgb(40, 39, 39);
   color: #FCFAEE;
@@ -602,6 +604,7 @@
 /* Botones Primarios*/
 /* Botones Secundarios */
 /*Botones Terciarios*/
+/*Botón desactivado*/
 .main__sliderFrame {
   position: relative;
   grid-row: 1;
@@ -690,6 +693,7 @@
 /* Botones Primarios*/
 /* Botones Secundarios */
 /*Botones Terciarios*/
+/*Botón desactivado*/
 .main {
   display: grid;
   font-family: "Kotta One", serif;
@@ -2031,6 +2035,25 @@
   color: red;
   font-size: 1rem;
 }
+.ContainerProducto .Producto__info__precioComprar__tooltip {
+  position: relative;
+}
+.ContainerProducto .Producto__info__precioComprar__tooltip .avisoSinStock {
+  position: absolute;
+  top: 2.8rem;
+  left: 50%;
+  display: block;
+  border: 2px solid black;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  background-color: #B8001F;
+  color: #FCFAEE;
+  transform: translateX(-50%);
+  z-index: 1;
+  white-space: nowrap;
+  opacity: 0.95;
+}
 .ContainerProducto .Producto__info__precioComprar__boton {
   margin: auto;
   min-height: 45px;
@@ -2421,6 +2444,7 @@
 /* Botones Primarios*/
 /* Botones Secundarios */
 /*Botones Terciarios*/
+/*Botón desactivado*/
 .menu {
   position: absolute;
   top: 4.2rem;
@@ -3090,6 +3114,16 @@ p {
   transform: scale(1.05) !important;
   background-color: #41004a !important;
 }
+.btnPrimario:disabled {
+  background-color: gray !important;
+  cursor: not-allowed !important;
+  color: #000000 !important;
+  background: #b9b9b9 !important;
+  border: 3px solid #000000;
+}
+.btnPrimario:disabled:hover {
+  transform: none !important;
+}
 
 .btnSecundario {
   background-color: #0c500c !important;
@@ -3126,6 +3160,16 @@ p {
   transform: scale(1.05) !important;
   background-color: #002a4b !important;
 }
+.btnSecundario:disabled {
+  background-color: gray !important;
+  cursor: not-allowed !important;
+  color: #000000 !important;
+  background: #b9b9b9 !important;
+  border: 3px solid #000000;
+}
+.btnSecundario:disabled:hover {
+  transform: none !important;
+}
 
 .btnTerciario {
   background-color: #B8001F !important;
@@ -3161,6 +3205,16 @@ p {
 .btnTerciario.theme--dark:hover {
   transform: scale(1.05) !important;
   background-color: #9c001a !important;
+}
+.btnTerciario:disabled {
+  background-color: gray !important;
+  cursor: not-allowed !important;
+  color: #000000 !important;
+  background: #b9b9b9 !important;
+  border: 3px solid #000000;
+}
+.btnTerciario:disabled:hover {
+  transform: none !important;
 }
 
 .enlaceBoton {

@@ -77,6 +77,16 @@ p {
     &.theme--dark {
         @include button-style($buttonPrimario--dark, $buttonPrimarioHover--dark, white, 8rem, auto, 6px);
     }
+    &:disabled{
+        background-color: gray!important;
+        cursor: not-allowed!important;
+        color: $negro_letra!important;
+        background: $grayDisabled!important;
+        border: $border_black;
+        &:hover{
+            transform: none!important;
+        }
+    }
 }
 
 .btnSecundario {
@@ -88,6 +98,16 @@ p {
     vertical-align: middle;
      &.theme--dark {
         @include button-style($buttonSecundario--dark, $buttonSecundarioHover--dark, white, 8rem, auto, 6px);
+    }
+        &:disabled{
+        background-color: gray!important;
+        cursor: not-allowed!important;
+        color: $negro_letra!important;
+        background: $grayDisabled!important;
+        border: $border_black;
+        &:hover{
+            transform: none!important;
+        }
     }
 }
 
@@ -101,6 +121,16 @@ p {
 
     &.theme--dark {
         @include button-style($buttonTerciario--dark, $buttonTerciarioHover--dark, white, 8rem, auto, 6px);
+    }
+        &:disabled{
+        background-color: gray!important;
+        cursor: not-allowed!important;
+        color: $negro_letra!important;
+        background: $grayDisabled!important;
+        border: $border_black;
+        &:hover{
+            transform: none!important;
+        }
     }
 }
 
