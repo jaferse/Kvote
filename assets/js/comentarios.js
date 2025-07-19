@@ -71,8 +71,8 @@ document.addEventListener('click', async function (event) {
         <div>
             <textarea class='Producto__comentarios__formulario__texto lang' data-lang='escribeComentario' name='comentario' placeholder=''>${texto}</textarea>
         </div>
-        <button type='submit' class='Producto__comentarios__formulario__boton btnPrimario lang' id='editar' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
-        <button type="button" class='Producto__comentarios__formulario__boton btnTerciario lang' id='backComment' data-lang='atrasComentario'>${dataLang[lang]['comentarios']['atrasComentario']}</button>
+        <button type='submit' class='Producto__comentarios__formulario__boton btn btnPrimario lang' id='editar' data-lang='editarComentario'>${dataLang[lang]['comentarios']['editarComentario']}</button>
+        <button type="button" class='Producto__comentarios__formulario__boton btn btnTerciario lang' id='backComment' data-lang='atrasComentario'>${dataLang[lang]['comentarios']['atrasComentario']}</button>
         <input type='hidden' name='isbn13' id='isbn13' value='${getISBN13()}'>
         <input type='hidden' name='idComentario' id='idComentario' value='${idComentario}'>
         `;

@@ -58,7 +58,7 @@ function crearTarjeta(containerProductos, producto, json) {
 
     //creamos boton
     let botonVermas = document.createElement('button');
-    botonVermas.classList.add('verMas', 'lang', 'btnPrimario');
+    botonVermas.classList.add('verMas', 'lang', 'btn', 'btnPrimario');
     // botonVermas.classList.add();
     botonVermas.setAttribute('data-lang', 'verMas');
     // console.log(json);

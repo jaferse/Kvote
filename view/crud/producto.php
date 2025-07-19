@@ -185,8 +185,8 @@
                 }
                 ?>
                 <div>
-                    <input type="submit" value="Eliminar" class="btnTerciario" name="eliminarProducto">
-                    <input type="submit" value="Actualizar" class="btnPrimario" name="actualizarProducto">
+                    <input type="submit" value="Eliminar" class="btn btnTerciario" name="eliminarProducto">
+                    <input type="submit" value="Actualizar" class="btn btnPrimario" name="actualizarProducto">
                 </div>
         </form>
         <form action="index.php?controller=Producto&action=create" method="post" name="formProductoNuevo" id="formProductoNuevo" enctype="multipart/form-data">
@@ -271,7 +271,7 @@
             ?>
             </select></td>
             <td>
-                <input type="submit" value="Nuevo" class="btnPrimario" name="nuevoProducto">
+                <input type="submit" value="Nuevo" class="btn btnPrimario" name="nuevoProducto">
             </td>
             </tr>
             </table>

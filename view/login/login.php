@@ -42,7 +42,7 @@
                         <a href="index.php?controller=SingIn&action=view" class="lang" data-lang="tieneCuenta?"></a>
                     </div>
                     <div class="registro__formulario__group   lang" data-lang="entrar">
-                        <input type="submit" name="Entrar" value="Iniciar Sesión" id="botonRegistrar" class="btnPrimario">
+                        <input type="submit" name="Entrar" value="Iniciar Sesión" id="botonRegistrar" class="btn btnPrimario">
                     </div>
                     <?php
                     if (isset($_SESSION['logueado']) && $_SESSION['logueado'] == false) {

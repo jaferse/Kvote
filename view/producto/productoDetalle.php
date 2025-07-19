@@ -39,10 +39,10 @@
                         <span class="Producto__info__precioComprar__precio__anterior"></span>
                     </div>
                     <div class="Producto__info__precioComprar__tooltip">
-                        <button class="Producto__info__precioComprar__boton botonCesta btnPrimario">Añadir a la cesta</button>
+                        <button class="Producto__info__precioComprar__boton botonCesta btn  btnPrimario">Añadir a la cesta</button>
                     </div>
                     <div class="Producto__info__precioWishlist__tooltip">
-                        <button class="Producto__info__precioComprar__boton botonWishlist btnSecundario">Añadir a wishlist</button>
+                        <button class="Producto__info__precioComprar__boton botonWishlist btn btnSecundario">Añadir a wishlist</button>
                         <?php
                         if (isset($_SESSION['mensajeErrorWishlist'])) {
                             echo "<div class='tooltip warning'>" . $_SESSION['mensajeErrorWishlist'] . "</div>";
@@ -67,7 +67,7 @@
                 echo "<div>";
                 echo "    <textarea class='Producto__comentarios__formulario__texto lang nuevoComentario' data-lang='escribeComentario' name='comentario' placeholder='' required></textarea>";
                 echo "</div>";
-                echo "    <button type='submit' class='Producto__comentarios__formulario__boton lang btnPrimario' id='newComment' data-lang='enviarComentario'></button>";
+                echo "    <button type='submit' class='Producto__comentarios__formulario__boton lang btn btnPrimario' id='newComment' data-lang='enviarComentario'></button>";
                 echo "<input type='hidden' name='isbn13' id='isbn13' value=''>";
                 echo "</form>";
             } else {

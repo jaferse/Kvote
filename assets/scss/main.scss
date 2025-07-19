@@ -58,80 +58,49 @@ p {
 }
 
 .btn {
-    @include button-style(#00b83d, $btnPrimarioHover, white, 8rem, auto, 6px);
-    // margin: auto;
     text-decoration: none;
     min-height: 30px;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
+
+    &:disabled {
+        background-color: gray !important;
+        cursor: not-allowed !important;
+        color: $negro_letra !important;
+        background: $grayDisabled !important;
+        border: $border_black;
+
+        &:hover {
+            transform: none !important;
+        }
+    }
 }
 
 .btnPrimario {
     @include button-style($btnPrimario, $btnPrimarioHover, white, 8rem, auto, 6px);
-    text-decoration: none;
-    min-height: 30px;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
+
     &.theme--dark {
         @include button-style($buttonPrimario--dark, $buttonPrimarioHover--dark, white, 8rem, auto, 6px);
-    }
-    &:disabled{
-        background-color: gray!important;
-        cursor: not-allowed!important;
-        color: $negro_letra!important;
-        background: $grayDisabled!important;
-        border: $border_black;
-        &:hover{
-            transform: none!important;
-        }
     }
 }
 
 .btnSecundario {
     @include button-style($btnSecundario, $btnSecundarioHover, white, 8rem, auto, 6px);
-    text-decoration: none;
-    min-height: 30px;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-     &.theme--dark {
+
+    &.theme--dark {
         @include button-style($buttonSecundario--dark, $buttonSecundarioHover--dark, white, 8rem, auto, 6px);
     }
-        &:disabled{
-        background-color: gray!important;
-        cursor: not-allowed!important;
-        color: $negro_letra!important;
-        background: $grayDisabled!important;
-        border: $border_black;
-        &:hover{
-            transform: none!important;
-        }
-    }
+
 }
 
 .btnTerciario {
     @include button-style($btnTerciario, $btnTerciarioHover, white, 8rem, auto, 6px);
-    text-decoration: none;
-    min-height: 30px;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
 
     &.theme--dark {
         @include button-style($buttonTerciario--dark, $buttonTerciarioHover--dark, white, 8rem, auto, 6px);
     }
-        &:disabled{
-        background-color: gray!important;
-        cursor: not-allowed!important;
-        color: $negro_letra!important;
-        background: $grayDisabled!important;
-        border: $border_black;
-        &:hover{
-            transform: none!important;
-        }
-    }
+
 }
 
 .enlaceBoton {

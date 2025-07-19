@@ -116,7 +116,7 @@
                         <a href="index.php?controller=LogIn&action=view" class="lang " data-lang="yaTienesCuenta"></a>
                     </div>
                     <div class="registro__formulario__group  lang" data-lang="registrar">
-                        <input type="submit" name="enviar" value="Registrarse" id="botonRegistrar" class="btnPrimario">
+                        <input type="submit" name="enviar" value="Registrarse" id="botonRegistrar" class="btn btnPrimario">
                     </div>
                 </form>
                 <div class="progress-container">
