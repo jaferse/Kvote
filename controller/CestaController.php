@@ -41,9 +41,9 @@ class CestaController
                 $detalleCompra->__set("unidades", $producto["cantidad"]);
                 $detalleCompra->__set("precioUnitario", $producto["producto"]["precio"]);
                 $this->actualizarStock($producto["producto"]["isbn_13"], $producto["cantidad"]);
+                $this->actualizarVenta($producto["producto"]["isbn_13"],$producto["cantidad"]);
                 $detalleCompraDAO->insertar($detalleCompra);
 
-                // $this->actualizarVenta($producto["producto"]["isbn_13"],$producto["cantidad"]);
             }
 
             $respuesta = [
@@ -70,6 +70,10 @@ class CestaController
     function actualizarVenta($isbn_13, $cantidad)
     {
         $productoDAO = new Daoproducto(DDBB_NAME);
+        //Obtener la cantidad actual de ventas
+        $producto = $productoDAO->obtener($isbn_13);
+        $cantidad = $producto->ventas + $cantidad;
+        //Insertar la nueva cantidad de ventas
         $productoDAO->actualizarVentasProducto($isbn_13, $cantidad);
     }
 
