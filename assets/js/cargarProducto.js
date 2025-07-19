@@ -108,6 +108,12 @@ window.addEventListener('DOMContentLoaded', async () => {
         sinStock.textContent = 'Sin stock';
         document.querySelector('.Producto__info__precioComprar__tooltip').appendChild(sinStock);
     }
+    
+    if (localStorage.getItem("flash_msg")) {
+       let mensaje = JSON.parse(localStorage.getItem("flash_msg"));
+        tooltip(dataLang[lang]['wishList'][mensaje.message], mensaje.type, document.querySelector('.ContainerProducto'));
+        localStorage.removeItem("flash_msg");
+    }
 
     ContainerProducto.style.visibility = 'visible';
 
@@ -147,11 +153,3 @@ document.addEventListener('click', (e) => {
     }
 
 });
-
-// document.addEventListener('mouseover', (e) => {
-
-//     if (e.target.matches('.botonCesta.disabled')) {
-//         console.log("Boton desactivado");
-//         tooltip('Sin stock', 'warning', e.target);
-//     }
-// });

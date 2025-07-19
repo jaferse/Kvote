@@ -328,7 +328,9 @@
         "wishList": {
             "titulo": "Productos de ",
             "verProducto": "Ver Producto",
-            "sinProductos": "No existen productos en la lista de deseos"
+            "sinProductos": "No existen productos en la lista de deseos",
+            "agregado": "Agregado con exito",
+            "yaEstaEnWishList": "El producto ya estaba en la lista de deseos"
         },
         "carrito": {
             "titulo": "Carrito de Compras",
@@ -710,7 +712,9 @@
         "wishList": {
             "titulo": "Products by ",
             "verProducto": "View Product ",
-            "sinProductos": "There are no products in the wish list."
+            "sinProductos": "There are no products in the wish list.",
+            "agregado": "Successfully added",
+            "yaEstaEnWishList": "The product was already on the wishlist"
         },
         "carrito": {
             "titulo": "Shopping Cart",
@@ -1089,7 +1093,9 @@
         "wishList": {
             "titulo": "の製品 ",
             "verProducto": "製品を見る ",
-            "sinProductos": "ウィッシュリストに商品がありません。"
+            "sinProductos": "ウィッシュリストに商品がありません。",
+            "agregado": "正常に追加されました。",
+            "yaEstaEnWishList":"この商品は既にウィッシュリストに登録されています"
         },
         "carrito": {
             "titulo": "ショッピングカート",

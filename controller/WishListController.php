@@ -27,27 +27,22 @@ class WishListController
 
     public function agregarProducto()
     {
-        // session_start();
+        //Si está logeado
         if (
             isset($_SESSION['logueado'])
             && $_SESSION['logueado'] == true
             && isset($_SESSION['username'])
         ) {
-            // echo $_SESSION['username'];
-            // echo $_GET['isbn'];
             // Crear DAO de wishlist
-            //Sacar id del usuario
             $idUsuario = $this->obtenerIdUsuario($_SESSION['username']);
             $daoWishlist = new Daowishlist(DDBB_NAME);
 
             $whishList = $daoWishlist->obtener($idUsuario, $_GET['isbn']);
 
-            // var_dump($whishList);
             //Si el producto ya está en la wishlist, no lo agregues de nuevo
             if (!$whishList->__get("usuario_id") && !$whishList->__get("producto_isbn_13")) {
                 // sacar fecha agregado
                 $fechaAgregado = date("Y-m-d");
-                // echo  "<br>" . $fechaAgregado . "<br>";
                 // Crear objeto de wishlist
                 $whishList = new Wishlist();
                 // Asignar valores al objeto
@@ -56,14 +51,23 @@ class WishListController
                 $whishList->__set("fecha_agregado", $fechaAgregado);
                 // Insertar en la base de datos
                 $daoWishlist->insertar($whishList);
+                $mensaje = "agregado";
+                $type = "exito";
             } else {
                 // Si el producto ya está en la wishlist, no lo agrega de nuevo
-                $_SESSION['mensajeErrorWishlist'] = "El producto ya está en tu lista de deseos.";
-                // echo $_SESSION['mensajeError'];
+                $mensaje = "yaEstaEnWishList";
+                $type = "error";
             }
-            // Redirigir a la pagina del producto
-            header("Location: index.php?controller=ProductoDetalle&action=view&isbn=" . $_GET['isbn']);
-        } else {
+            echo "<script>
+                localStorage.setItem('flash_msg', JSON.stringify({
+                    type: '" . $type . "',
+                    message: '" . $mensaje . "'
+                }));
+                        window.location.href = 'index.php?controller=ProductoDetalle&action=view&isbn=" . $_GET['isbn'] . "';
+                    </script>";
+        }
+        //Si no está logeado
+        else {
             $_SESSION['logueado'] = false;
             header("Location: index.php?controller=LogIn&action=view");
         }
@@ -88,13 +92,13 @@ class WishListController
             //sacar los productos de la wishlist del usuario
             $daoWishlist = new Daowishlist(DDBB_NAME);
             $daoWishlist->getLista($idUsuario);
-            if (count($daoWishlist->wishlists)>0) {
-                $lista=$daoWishlist->wishlists;
-                
+            if (count($daoWishlist->wishlists) > 0) {
+                $lista = $daoWishlist->wishlists;
+
                 // //recorremos la lista de productos de la wishlist
                 $productos = productoArtista($lista);
-            }else{
-                $productos = [] ;
+            } else {
+                $productos = [];
             }
             // //devolver los datos en formato JSON
             header('Content-Type: application/json');
