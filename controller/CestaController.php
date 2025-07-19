@@ -40,10 +40,11 @@ class CestaController
                 $detalleCompra->__set("isbn13", $producto["producto"]["isbn_13"]);
                 $detalleCompra->__set("unidades", $producto["cantidad"]);
                 $detalleCompra->__set("precioUnitario", $producto["producto"]["precio"]);
+                $this->actualizarStock($producto["producto"]["isbn_13"], $producto["cantidad"]);
                 $detalleCompraDAO->insertar($detalleCompra);
-                $this->actualizarStock($producto["producto"]["isbn_13"],$producto["cantidad"]);
+
+                // $this->actualizarVenta($producto["producto"]["isbn_13"],$producto["cantidad"]);
             }
-            $this->actualizarVenta();
 
             $respuesta = [
                 "status" => "success",
@@ -61,13 +62,15 @@ class CestaController
     }
 
 
-    function actualizarStock($isbn_13, $cantidad){
-            $productoDAO = new Daoproducto(DDBB_NAME);
-            $productoDAO->actualizarStockProducto($isbn_13, $cantidad);
+    function actualizarStock($isbn_13, $cantidad)
+    {
+        $productoDAO = new Daoproducto(DDBB_NAME);
+        $productoDAO->actualizarStockProducto($isbn_13, $cantidad);
     }
-    function actualizarVenta($isbn_13, $cantidad){
-            $productoDAO = new Daoproducto(DDBB_NAME);
-             $productoDAO->actualizarVentasProducto($isbn_13, $cantidad);
+    function actualizarVenta($isbn_13, $cantidad)
+    {
+        $productoDAO = new Daoproducto(DDBB_NAME);
+        $productoDAO->actualizarVentasProducto($isbn_13, $cantidad);
     }
 
     /**

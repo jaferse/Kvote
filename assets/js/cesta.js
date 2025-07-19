@@ -157,13 +157,12 @@ async function comprar() {
                 body: JSON.stringify(carrito)
             });
             const data = await responseCompra.json();
-            // console.log('Respuesta del servidor:', data);
+            console.log('Respuesta del servidor:', data);
             if (data.status === 'success') {
                 // Si la compra fue exitosa, limpiar el carrito
                 localStorage.removeItem("carrito");
                 document.querySelector('.productos').innerHTML = ''; // Limpiar los productos mostrados
                 document.querySelector('.precioTotal').textContent = 'Precio total: 0.00 €'; // Reiniciar el precio total
-                // alert('Compra realizada con exito');
                 let datos = {};
                 datos['titulo'] = 'Compra realizada con exito';
                 datos['mensaje'] = 'Compra realizada con exito';

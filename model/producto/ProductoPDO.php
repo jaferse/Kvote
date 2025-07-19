@@ -232,18 +232,20 @@ class Daoproducto extends DB
         $consulta = "SELECT stock FROM producto WHERE isbn_13 = :isbn_13";
         $param = array();
         $param[":isbn_13"] = $isbn_13;
-        return $this->consultaSimple($consulta, $param);
+        $this->consultaDatos($consulta, $param);
+        return $this->filas[0]['stock'];
     }
     public function actualizarStockProducto($isbn_13, $cantidad)
     {
         $stock = $this->consultarStock($isbn_13);
-        $stock = $stock - $cantidad;
-        echo "Stock actual: ".$stock."<br>";
-        $consulta = " UPDATE producto SET stock= :stock WHERE isbn_13= :isbn_13";
-        $param = array();
-        $param[":isbn_13"] = $isbn_13;
-        $param[":stock"] = $stock;
-        $this->consultaSimple($consulta, $param);
+        if ($stock >= $cantidad) {
+            $stock = $stock - $cantidad;
+            $consulta = " UPDATE producto SET stock= :stock WHERE isbn_13= :isbn_13";
+            $param = array();
+            $param[":isbn_13"] = $isbn_13;
+            $param[":stock"] = $stock;
+            $this->consultaSimple($consulta, $param);
+        }
     }
     /**
      * Borra una situacion en la base de datos
@@ -270,13 +272,11 @@ class Daoproducto extends DB
         $param[":columna"] = $columna;
         $param[":schema"] = "kvote_db";
         $this->consultaDatos($consulta, $param);
-        // echo $this->filas[0]['COLUMN_TYPE'];
 
         $dato = str_replace("enum(", "", $this->filas[0]['COLUMN_TYPE']);
         $dato = str_replace(")", "", $dato);
         $dato = str_replace("'", "", $dato);
         $dato = explode(",", $dato);
-        // echo $dato;
         return $dato;
     }
 
@@ -284,10 +284,8 @@ class Daoproducto extends DB
     {
         $consulta = "SELECT * FROM `producto` WHERE `tipo` ";
         if ($type == "comic") {
-            // echo "comic". $type;
             $consulta .= "IN ('Americano', 'Manga', 'Manhwa', 'Europeo', 'Indi', 'Webcomic') ";
         } else {
-            // echo "libro". $type;
             $consulta .= "IN ('Novela', 'No Ficción', 'Antología', 'Otro') ";
         }
         $consulta .= " ORDER BY `Ventas` DESC LIMIT 3; ";
