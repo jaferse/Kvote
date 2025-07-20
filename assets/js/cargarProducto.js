@@ -72,7 +72,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     const responseProducto = await fetch(`index.php?controller=ProductoDetalle&action=getProducto&isbn=${getISBN13()}`);
     producto = await responseProducto.json();
-
+    console.log(producto);
+    
     let fecha = convertirFormatoFecha(producto.anio_publicacion);
     document.querySelector('.Producto__img > img').src = `data:image/jpeg;base64,${producto.portada}`;
     document.querySelector('.Producto__info__titulo').textContent = producto.nombre;
@@ -94,6 +95,17 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.Producto__info__precioComprar__precio__actual').textContent = (Math.ceil(producto.precio / 1.05));
     document.querySelector('.Producto__info__precioComprar__precio__anterior').textContent = producto.precio;
     document.querySelector('.Producto__info__precioComprar__precio__descuento').textContent = descuento + '%';
+
+    //Si el producto pertenece a una coleccion
+    if (producto.coleccion && producto.coleccion!=='Autoconclusivo') {
+        let coleccion=document.createElement('li');
+        coleccion.classList.add('Producto__info__caracteristicas__coleccion',lang);
+        coleccion.textContent = producto.coleccion+' '+producto.numero;
+
+        document.querySelector('.Producto__info__caracteristicas>ul').appendChild(coleccion);
+        console.log(producto.coleccion);
+        
+    }
     //Si existe le damos el valor del ISBN
     if (document.querySelector('.Producto__comentarios__formulario>#isbn13')) {
         document.querySelector('.Producto__comentarios__formulario>#isbn13').value = producto.isbn_13;

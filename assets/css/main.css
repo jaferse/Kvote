@@ -1986,6 +1986,32 @@
   background-repeat: no-repeat;
   margin: 0 auto;
 }
+.ContainerProducto .Producto__info__caracteristicas__coleccion.es::before {
+  content: "Colección ";
+}
+.ContainerProducto .Producto__info__caracteristicas__coleccion.en::before {
+  content: "Collection ";
+}
+.ContainerProducto .Producto__info__caracteristicas__coleccion.ja::before {
+  content: "コレクション ";
+}
+.ContainerProducto .Producto__info__caracteristicas__coleccion::before {
+  font-weight: 700;
+  text-align: center;
+}
+.ContainerProducto .Producto__info__caracteristicas__coleccion::after {
+  content: "";
+  display: block;
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 0px !important;
+  border: none !important;
+  background-image: url("./../img/bookIcon.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
 .ContainerProducto .Producto__info__precioComprar {
   display: flex;
   flex-direction: row;
@@ -2421,22 +2447,6 @@
 }
 .mainAdmin table img {
   margin: 0 auto;
-}
-.mainAdmin .btn {
-  background-color: #008000 !important;
-  color: 6.5rem !important;
-  font-weight: bold !important;
-  margin: 0.5rem auto 2rem !important;
-  width: 1.5rem !important;
-  height: 6px !important;
-  border-radius: 5px !important;
-  border: 2px solid gray !important;
-  cursor: pointer !important;
-  margin: 0;
-}
-.mainAdmin .btn:hover {
-  transform: scale(1.05) !important;
-  background-color: white !important;
 }
 
 /*Colores nav*/
@@ -3059,24 +3069,21 @@ p {
 }
 
 .btn {
-  background-color: #00b83d !important;
-  color: white !important;
-  font-weight: bold !important;
-  margin: 0.5rem auto 2rem !important;
-  width: 8rem !important;
-  height: auto !important;
-  border-radius: 6px !important;
-  border: 2px solid gray !important;
-  cursor: pointer !important;
   text-decoration: none;
   min-height: 30px;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
 }
-.btn:hover {
-  transform: scale(1.05) !important;
-  background-color: #0c500c !important;
+.btn:disabled {
+  background-color: gray !important;
+  cursor: not-allowed !important;
+  color: #000000 !important;
+  background: #b9b9b9 !important;
+  border: 3px solid #000000;
+}
+.btn:disabled:hover {
+  transform: none !important;
 }
 
 .btnPrimario {
@@ -3089,11 +3096,6 @@ p {
   border-radius: 6px !important;
   border: 2px solid gray !important;
   cursor: pointer !important;
-  text-decoration: none;
-  min-height: 30px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
 }
 .btnPrimario:hover {
   transform: scale(1.05) !important;
@@ -3114,16 +3116,6 @@ p {
   transform: scale(1.05) !important;
   background-color: #41004a !important;
 }
-.btnPrimario:disabled {
-  background-color: gray !important;
-  cursor: not-allowed !important;
-  color: #000000 !important;
-  background: #b9b9b9 !important;
-  border: 3px solid #000000;
-}
-.btnPrimario:disabled:hover {
-  transform: none !important;
-}
 
 .btnSecundario {
   background-color: #0c500c !important;
@@ -3135,11 +3127,6 @@ p {
   border-radius: 6px !important;
   border: 2px solid gray !important;
   cursor: pointer !important;
-  text-decoration: none;
-  min-height: 30px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
 }
 .btnSecundario:hover {
   transform: scale(1.05) !important;
@@ -3160,16 +3147,6 @@ p {
   transform: scale(1.05) !important;
   background-color: #002a4b !important;
 }
-.btnSecundario:disabled {
-  background-color: gray !important;
-  cursor: not-allowed !important;
-  color: #000000 !important;
-  background: #b9b9b9 !important;
-  border: 3px solid #000000;
-}
-.btnSecundario:disabled:hover {
-  transform: none !important;
-}
 
 .btnTerciario {
   background-color: #B8001F !important;
@@ -3181,11 +3158,6 @@ p {
   border-radius: 6px !important;
   border: 2px solid gray !important;
   cursor: pointer !important;
-  text-decoration: none;
-  min-height: 30px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
 }
 .btnTerciario:hover {
   transform: scale(1.05) !important;
@@ -3205,16 +3177,6 @@ p {
 .btnTerciario.theme--dark:hover {
   transform: scale(1.05) !important;
   background-color: #9c001a !important;
-}
-.btnTerciario:disabled {
-  background-color: gray !important;
-  cursor: not-allowed !important;
-  color: #000000 !important;
-  background: #b9b9b9 !important;
-  border: 3px solid #000000;
-}
-.btnTerciario:disabled:hover {
-  transform: none !important;
 }
 
 .enlaceBoton {

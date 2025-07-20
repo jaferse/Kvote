@@ -30,6 +30,7 @@
                         <li class="Producto__info__caracteristicas__subtipo lang"></li>
                         <li class="Producto__info__caracteristicas__formato lang"></li>
                         <li class="Producto__info__caracteristicas__editorial"></li>
+                        <!-- <li class="Producto__info__caracteristicas__coleccion"></li> -->
                     </ul>
                 </div>
                 <div class="Producto__info__precioComprar">

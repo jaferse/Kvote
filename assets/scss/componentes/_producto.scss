@@ -199,6 +199,26 @@
                         margin: 0 auto;
                     }
                 }
+
+                &__coleccion {
+                    @include localized-before((es: "Colección ",
+                            en: "Collection ",
+                            ja: "コレクション "
+                        ));
+
+                    &::before {
+                        font-weight: 700;
+                        text-align: center;
+                    }
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        @include dimensiones(2rem, 2rem);
+                        @include cargarImagen('./../img/bookIcon.png');
+                        margin: 0 auto;
+                    }
+                }
             }
 
             &__precioComprar {
