@@ -33,15 +33,16 @@
             padding: 1rem 0;
             margin: 0 0 1rem 0;
             color: $blanco_letra;
-        }
 
-        .title.theme--dark {
-            background-color: $fondoOscuro;
+            &.theme--dark {
+                background-color: $fondoOscuro;
+            }
         }
 
         &__portadas {
             @include flex (row, space-evenly, flex-start, wrap);
             width: 90%;
+
             .tarjetaProducto__enlace {
                 @include dimensiones(30%, auto, $border_radius);
                 aspect-ratio: 3 / 5;
@@ -49,6 +50,7 @@
                 color: $negro_letra;
                 display: flex;
                 justify-content: center;
+
                 .tarjetaProducto {
                     cursor: pointer;
                     width: 100%;
@@ -82,14 +84,9 @@
                 }
             }
         }
-    }
 
-    .bestSellers.theme--dark {
-        border: $border_main--dark;
-        background-color: #2babc8;
-
-        a {
-            color: #005c94;
+        &.theme--dark {
+            border: $border_main--dark;
         }
     }
 

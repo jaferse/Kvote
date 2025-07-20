@@ -30,7 +30,7 @@
                 list-style: none;
                 width: 100%;
                 padding: 1rem;
-                font-family: 'Montserrat';
+                font-family: $fuente_secundaria;
                 font-size: large;
                 font-weight: 700;
                 cursor: pointer;
@@ -72,7 +72,7 @@
         background-color: #fff;
         box-shadow: $box_shadow;
         border-radius: $border-radius;
-        font-family: 'Montserrat';
+        font-family: $fuente_secundaria;
 
         .container {
             position: relative;

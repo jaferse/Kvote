@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/*Letra*/
+/*VariosColores*/
+/*Bordes*/
+/*Sombras*/
+/*Colores dark*/
 /*Colores nav*/
 /*Colores tooltip*/
 /* Botones Primarios*/
@@ -349,6 +354,11 @@
     opacity: 0;
   }
 }
+/*Letra*/
+/*VariosColores*/
+/*Bordes*/
+/*Sombras*/
+/*Colores dark*/
 /*Colores nav*/
 /*Colores tooltip*/
 /* Botones Primarios*/
@@ -599,6 +609,11 @@
     margin: 0 1rem;
   }
 }
+/*Letra*/
+/*VariosColores*/
+/*Bordes*/
+/*Sombras*/
+/*Colores dark*/
 /*Colores nav*/
 /*Colores tooltip*/
 /* Botones Primarios*/
@@ -688,6 +703,11 @@
     min-height: 10rem;
   }
 }
+/*Letra*/
+/*VariosColores*/
+/*Bordes*/
+/*Sombras*/
+/*Colores dark*/
 /*Colores nav*/
 /*Colores tooltip*/
 /* Botones Primarios*/
@@ -732,7 +752,7 @@
   margin: 0 0 1rem 0;
   color: #FCFAEE;
 }
-.main__bestSellers .title.theme--dark {
+.main__bestSellers__title.theme--dark {
   background-color: #005c94;
 }
 .main__bestSellers__portadas {
@@ -791,12 +811,8 @@
   box-shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
   transform: scale(1.01);
 }
-.main .bestSellers.theme--dark {
+.main__bestSellers.theme--dark {
   border: 3px solid #005c94;
-  background-color: #2babc8;
-}
-.main .bestSellers.theme--dark a {
-  color: #005c94;
 }
 .main__bestSellers:nth-of-type(1) {
   grid-row: 2;
@@ -2459,6 +2475,11 @@
   margin: 0 auto;
 }
 
+/*Letra*/
+/*VariosColores*/
+/*Bordes*/
+/*Sombras*/
+/*Colores dark*/
 /*Colores nav*/
 /*Colores tooltip*/
 /* Botones Primarios*/
@@ -2904,7 +2925,7 @@
   list-style: none;
   width: 100%;
   padding: 1rem;
-  font-family: "Montserrat";
+  font-family: "Montserrat", serif;
   font-size: large;
   font-weight: 700;
   cursor: pointer;
@@ -2939,7 +2960,7 @@
   background-color: #fff;
   box-shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
   border-radius: 8px;
-  font-family: "Montserrat";
+  font-family: "Montserrat", serif;
 }
 .perfilContainer .containerContenido .container {
   position: relative;

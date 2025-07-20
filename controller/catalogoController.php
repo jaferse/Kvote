@@ -18,6 +18,15 @@ class CatalogoController
     {
         $this->view();
     }
+        public function libros()
+    {
+
+        $this->view();
+    }
+    public function novedades()
+    {
+        $this->view();
+    }
     public function getComic()
     {
         $this->tablaProductos->listarComic();
@@ -48,17 +57,12 @@ class CatalogoController
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }
-    public function nosotros()
-    {
-        $this->view();
-    }
-    public function libros()
-    {
 
-        $this->view();
-    }
-    public function novedades()
-    {
-        $this->view();
-    }
+    
+
+    // public function nosotros()
+    // {
+    //     $this->view();
+    // }
+
 }
