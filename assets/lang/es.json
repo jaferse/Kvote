@@ -284,6 +284,7 @@
                 "Sobrenatural": "Sobrenatural",
                 "Spokon": "Spokon",
                 "Steampunk": "Steampunk",
+                "Super Heroes": "Super Heroes",
                 "Suspense": "Suspense",
                 "Terror": "Terror",
                 "Thriller": "Thriller",
@@ -668,6 +669,7 @@
                 "Sobrenatural": "Supernatural",
                 "Spokon": "Spokon",
                 "Steampunk": "Steampunk",
+                "Super Heroes": "Super Heroes",
                 "Suspense": "Suspense",
                 "Terror": "Terror",
                 "Thriller": "Thriller",
@@ -1049,6 +1051,7 @@
                 "Sobrenatural": "超自然",
                 "Spokon": "スポ根",
                 "Steampunk": "スチームパンク",
+                "Super Heroes": "スーパーヒーロー",
                 "Suspense": "サスペンス",
                 "Terror": "恐怖",
                 "Thriller": "スリラー",
@@ -1095,7 +1098,7 @@
             "verProducto": "製品を見る ",
             "sinProductos": "ウィッシュリストに商品がありません。",
             "agregado": "正常に追加されました。",
-            "yaEstaEnWishList":"この商品は既にウィッシュリストに登録されています"
+            "yaEstaEnWishList": "この商品は既にウィッシュリストに登録されています"
         },
         "carrito": {
             "titulo": "ショッピングカート",
