@@ -284,7 +284,7 @@ class Daoproducto extends DB
     {
         $consulta = "SELECT * FROM `producto` WHERE `tipo` ";
         if ($type == "comic") {
-            $consulta .= "IN ('Americano', 'Manga', 'Manhwa', 'Europeo', 'Indi', 'Webcomic') ";
+            $consulta .= "IN ('Americano', 'Manga', 'Manhwa', 'Europeo', 'Indie', 'Webcomic') ";
         } else {
             $consulta .= "IN ('Novela', 'No Ficción', 'Antología', 'Otro') ";
         }
