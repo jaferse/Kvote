@@ -73,7 +73,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     const responseProducto = await fetch(`index.php?controller=ProductoDetalle&action=getProducto&isbn=${getISBN13()}`);
     producto = await responseProducto.json();
     console.log(producto);
-    
+
     let fecha = convertirFormatoFecha(producto.anio_publicacion);
     document.querySelector('.Producto__img > img').src = `data:image/jpeg;base64,${producto.portada}`;
     document.querySelector('.Producto__info__titulo').textContent = producto.nombre;
@@ -97,14 +97,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.Producto__info__precioComprar__precio__descuento').textContent = descuento + '%';
 
     //Si el producto pertenece a una coleccion
-    if (producto.coleccion && producto.coleccion!=='Autoconclusivo') {
-        let coleccion=document.createElement('li');
-        coleccion.classList.add('Producto__info__caracteristicas__coleccion',lang);
-        coleccion.textContent = producto.coleccion+' '+producto.numero;
+    if (producto.coleccion && producto.coleccion !== 'Autoconclusivo') {
+        let coleccion = document.createElement('li');
+        coleccion.classList.add('Producto__info__caracteristicas__coleccion', lang);
+        coleccion.textContent = producto.coleccion + ' ' + producto.numero;
 
         document.querySelector('.Producto__info__caracteristicas>ul').appendChild(coleccion);
         console.log(producto.coleccion);
-        
+
     }
     //Si existe le damos el valor del ISBN
     if (document.querySelector('.Producto__comentarios__formulario>#isbn13')) {
@@ -115,14 +115,23 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (producto.stock <= 0) {
         document.querySelector('.botonCesta').disabled = true;
         document.querySelector('.botonCesta').classList.add('disabled');
-        let sinStock= document.createElement('p');
-        sinStock.classList.add('avisoSinStock');
+        let sinStock = document.createElement('p');
+        sinStock.classList.add('avisoSinStock', 'tagInfo');
         sinStock.textContent = 'Sin stock';
         document.querySelector('.Producto__info__precioComprar__tooltip').appendChild(sinStock);
     }
-    
+
+    //Añadir cartel para indicar que el producto está en preventa
+    let anno = new Date(producto.anio_publicacion)
+    if (anno >= new Date()) {
+        let sinStock = document.createElement('p');
+        sinStock.classList.add('preventa', 'tagInfo');
+        sinStock.textContent = 'En preventa';
+        document.querySelector('.Producto__info__precioComprar__tooltip').appendChild(sinStock);
+    }
+
     if (localStorage.getItem("flash_msg")) {
-       let mensaje = JSON.parse(localStorage.getItem("flash_msg"));
+        let mensaje = JSON.parse(localStorage.getItem("flash_msg"));
         tooltip(dataLang[lang]['wishList'][mensaje.message], mensaje.type, document.querySelector('.ContainerProducto'));
         localStorage.removeItem("flash_msg");
     }
