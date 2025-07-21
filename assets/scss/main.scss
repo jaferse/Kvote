@@ -35,11 +35,15 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-image: url('./../img/textura.png');
+    background-image: url($fondoClaro);
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    &.theme--Dark {
+        background-image: none;
+        background-color: $fondoDark;
+    }
 }
 
 main {

@@ -17,23 +17,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             let lang;
             button.addEventListener("click", function (e) {
                 // console.log(e.target.classList);
-
-                if (e.target.parentElement.classList.contains("es")) {
+                //Alguna clase padre tiene la clase es
+                if (e.target.closest(".es")) {
+                    
                     lang = "es"; // Obtener el idioma del botón
                     this.classList.add("es");
                     this.classList.remove("en", "ja");
                 }
-                if (e.target.parentElement.classList.contains("en")) {
+                if (e.target.closest(".en")) {
                     lang = "en"; // Obtener el idioma del botón
                     this.classList.add("en");
                     this.classList.remove("es", "ja");
-
+                    
                 }
-                if (e.target.parentElement.classList.contains("ja")) {
+                if (e.target.closest(".ja")) {
                     lang = "ja"; // Obtener el idioma del botón
                     this.classList.add("ja");
                     this.classList.remove("es", "es");
-
+                    
                 }
                 localStorage.setItem("lang", lang);
                 lang = localStorage.getItem("lang");

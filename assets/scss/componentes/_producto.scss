@@ -21,7 +21,7 @@
             min-height: auto;
 
             img {
-                @include dimensiones(100%, auto);
+                @include dimensiones(100%, auto, $border-radius);
             }
         }
 
@@ -490,4 +490,25 @@
 
 .ContainerProducto.theme--dark {
     border-color: $fondoOscuro;
+    background-color: $fondoOscuro2;
+    color: $blanco_letra;
+
+    .Producto {
+
+        &__info__precioComprar__precio__anterior {
+            color: $blanco_letra;
+        }
+
+        &__comentarios__formulario {
+            border: $border_main--dark;
+
+            input, textarea {
+                    color: $blanco_letra;
+                    background-color: $fondoOscuro2;
+                &::placeholder {
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+    }
 }

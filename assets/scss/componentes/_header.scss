@@ -100,37 +100,43 @@
                 min-width: 7rem;
 
                 .carro {
-                    @include dimensiones(1.5rem, 1.5rem);
 
-                    @include cargarImagen('./../img/carro.svg');
+                    svg {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
 
                     &:hover {
                         transform: scale(1.1);
                     }
-                }
-
-                .carro.theme--dark {
-                    background-image: url(('./../img/carro--dark.svg'));
                 }
 
                 .login {
-                    @include dimensiones(2rem, 2rem, 50%);
-                    @include cargarImagen('./../img/batlogin1.png', contain);
+                    // @include dimensiones(2rem, 2rem, 50%);
+
+                    .iconSvg {
+                        @include dimensiones(2.5rem, 2.5rem);
+                    }
 
                     &:hover {
                         transform: scale(1.1);
-                        background-image: url(('./../img/batlogin2.png'));
+                    }
+
+                }
+                &.theme--dark {
+                    .iconSvg {
+                        filter: invert(1);
                     }
                 }
 
-                .logeado {
-                    @include dimensiones(2rem, 2rem, 50%);
-                    @include cargarImagen('./../img/batlogin2.png', contain);
-                    cursor: pointer;
 
+                .logeado {
+                    cursor: pointer;
+                    .iconSvg {
+                        @include dimensiones(2.5rem, 2.5rem);
+                    }
                     &:hover {
                         transform: scale(1.1);
-                        background-image: url(('./../img/batlogin2.png'));
                     }
                 }
 

@@ -87,6 +87,10 @@
 
         &.theme--dark {
             border: $border_main--dark;
+            background-color: $fondoOscuro2;
+            &  .tarjetaProducto__titulo{
+                color: $blanco_letra;
+            }
         }
     }
 

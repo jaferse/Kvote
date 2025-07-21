@@ -151,4 +151,14 @@ function cambiarModo() {
     if (document.querySelector('.ContainerProducto')) {
         document.querySelector('.ContainerProducto').classList.toggle('theme--dark');
     }
+
+    //Nosotros
+    if (document.querySelector('.nosotros')) {
+        document.querySelector('.nosotros').classList.toggle('theme--dark');
+    }
+
+    //Migas de pan
+    if (document.querySelector('.breadcrumb')) {
+        document.querySelector('.breadcrumb').classList.toggle('theme--dark');
+    }
 }

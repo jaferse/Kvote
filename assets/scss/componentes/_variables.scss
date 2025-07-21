@@ -1,3 +1,6 @@
+/*Fondos*/
+$fondoClaro: './../img/textura.png';
+$fondoDark: rgb(47, 47, 47);
 /*Letra*/
 $blanco_letra: #FCFAEE;
 $negro_letra: #000000;
@@ -21,7 +24,7 @@ $grisTooltip: #515151;
 $negroBorde: #000000;
 $border_main: 3px solid $rojo_primario;
 $border_black: 3px solid $negroBorde;
-$border_main--dark: 3px solid #005c94;
+$border_main--dark: 3px solid #000000;
 $border-radius: 8px;
 
 /*Sombras*/
@@ -29,11 +32,12 @@ $shadow_nav: rgb(0, 0, 0);
 $box_shadow: 0.313rem 0.313rem 0.625rem -0.313rem rgb(0, 0, 0);
 
 /*Colores dark*/
-$fondoOscuro: #005c94;
-$fondoOscuro2: #2babc83c;
+$fondoOscuro: #000000;
+$fondoOscuro2: #404040;
 $botonDark--hover: #00426a;
 $fondoOscuroElementos: #2babc8;
-$colorFooter--dark: #092337;
+$colorFooter--dark: #000000;
+$inputFondo: #404040;
 
 /*Colores nav*/
 $navColor: #B8001F;

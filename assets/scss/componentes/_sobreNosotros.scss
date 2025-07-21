@@ -1,5 +1,12 @@
 @use './variables' as *;
 
+.nosotros.theme--dark {
+    article {
+        background-color: $fondoOscuro2;
+        color: $blanco_letra;
+    }
+}
+
 .nosotros {
     max-width: 3840px;
     @include dimensiones(96vw, auto);

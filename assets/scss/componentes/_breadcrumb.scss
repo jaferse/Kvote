@@ -6,50 +6,99 @@
     justify-content: space-between;
     margin: 1rem auto;
     max-width: 3840px;
-}
 
-.breadcrumb {
 
-    a {
-        text-decoration: none;
-        @include dimensiones(2rem, 100%);
+    .breadcrumb {
+        height: 100%;
+        display: flex;
+
+        a {
+            text-decoration: none;
+            @include dimensiones(2rem, 2rem);
+            display: block;
+
+            img {
+                @include dimensiones(auto, 100%);
+                aspect-ratio: 1/1;
+            }
+
+            .iconSvg {
+                @include dimensiones(100%, 100%);
+                fill: $fondoOscuro;
+            }
+
+            /*Para el svg de Novedades*/
+            .iconSvg .letras {
+                fill: $blancoFondo !important;
+            }
+
+            .iconSvg .fondo {
+                fill: $fondoOscuro !important;
+            }
+        }
 
         img {
             @include dimensiones(auto, 100%);
             aspect-ratio: 1/1;
         }
-    }
 
-    img {
-        @include dimensiones(auto, 100%);
-        aspect-ratio: 1/1;
-    }
-}
+        &.theme--dark {
 
-.darkMode {
-    @include dimensiones(2rem, 2rem);
+            .iconSvg {
+                fill: $blancoFondo;
+            }
 
-    &__button {
-        display: block;
-        @include dimensiones(100%, 100%);
+            /*Para el svg de Novedades*/
+            .iconSvg .letras {
+                fill: $fondoOscuro !important;
+            }
 
-        .icon {
-            display: block;
-            @include dimensiones(100%, 100%);
-            cursor: pointer;
-
-            &:hover {
-                transform: scale(1.1);
+            .iconSvg .fondo {
+                fill: $blancoFondo !important;
             }
         }
+    }
 
-        .icon-moon {
-            @include cargarImagen('./../img/moon.png', contain);
+    .translate {
+        display: flex;
+        justify-content: space-between;
+        min-width: 176px;
+
+        li {
+
+            a {
+                cursor: pointer;
+                .iconSvg {
+                    @include dimensiones(100%, 100%);
+                }
+            }
         }
+    }
 
-        .icon-sun {
-            @include cargarImagen('./../img/sun.png', contain);
+    .darkMode {
+        @include dimensiones(2rem, 2rem);
 
+        &__button {
+            display: block;
+            @include dimensiones(100%, 100%);
+
+            .icon {
+                display: block;
+                @include dimensiones(100%, 100%);
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+
+            .icon-moon {
+                @include cargarImagen('./../img/moon.png', contain);
+            }
+
+            .icon-sun {
+                @include cargarImagen('./../img/sun.png', contain);
+            }
         }
     }
 }
@@ -80,14 +129,17 @@
             display: flex;
             justify-content: space-between;
             min-width: 176px;
+
             li {
-                height: 1.5rem;
+                height: 2rem;
 
                 a {
-                    width: 100%;
-                    img {
+                    width: 2rem;
 
-                        width: 100%;
+                    svg {
+
+                        width: 2rem !important;
+                        height: 2rem !important;
 
                     }
                 }
