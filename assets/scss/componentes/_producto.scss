@@ -71,6 +71,14 @@
                     }
                 }
 
+                .svgContainer {
+                    @include dimensiones(2rem, 2rem);
+                }
+
+                .info {
+                    margin: 0.5rem 0
+                }
+
                 &__publicacion {
 
                     @include localized-before((es: "Publicación ",
@@ -81,15 +89,6 @@
                     &::before {
                         font-weight: 700;
                         text-align: center;
-                    }
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        @include dimensiones(2rem, 2rem);
-                        @include cargarImagen('./../img/fechaIcon.svg');
-                        margin: 0 auto;
-
                     }
                 }
 
@@ -103,15 +102,6 @@
                         font-weight: 700;
                         text-align: center;
                     }
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        @include dimensiones(2rem, 2rem);
-                        @include cargarImagen('./../img/paginasIcon.svg');
-                        margin: 0 auto;
-
-                    }
                 }
 
                 &__tipo {
@@ -123,15 +113,6 @@
                     &::before {
                         font-weight: 700;
                         text-align: center;
-                    }
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        @include dimensiones(2rem, 2rem);
-                        @include cargarImagen('./../img/bookIcon.svg');
-                        margin: 0 auto;
-
                     }
                 }
 
@@ -149,14 +130,6 @@
 
                     }
 
-                    &::after {
-                        content: "";
-                        display: block;
-                        @include dimensiones(2rem, 2rem);
-                        @include cargarImagen('./../img/generoIcon.svg');
-                        margin: 0 auto;
-
-                    }
                 }
 
                 &__formato {
@@ -168,15 +141,6 @@
                     &::before {
                         font-weight: 700;
                         text-align: center;
-                    }
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        @include dimensiones(2rem, 2rem);
-                        @include cargarImagen('./../img/formatoIcon.svg');
-                        margin: 0 auto;
-
                     }
                 }
 
@@ -190,14 +154,6 @@
                         font-weight: 700;
                         text-align: center;
                     }
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        @include dimensiones(2rem, 2rem);
-                        @include cargarImagen('./../img/editorialIcon.svg');
-                        margin: 0 auto;
-                    }
                 }
 
                 &__coleccion {
@@ -209,14 +165,6 @@
                     &::before {
                         font-weight: 700;
                         text-align: center;
-                    }
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        @include dimensiones(2rem, 2rem);
-                        @include cargarImagen('./../img/bookIcon.png');
-                        margin: 0 auto;
                     }
                 }
             }
@@ -494,21 +442,41 @@
     color: $blanco_letra;
 
     .Producto {
-
-        &__info__precioComprar__precio__anterior {
-            color: $blanco_letra;
+        &__info__precioComprar__precio {
+            &__anterior, &__actual, &__actual::after {
+                color: $blanco_letra;
+            }
         }
 
         &__comentarios__formulario {
             border: $border_main--dark;
-
-            input, textarea {
-                    color: $blanco_letra;
-                    background-color: $fondoOscuro2;
+            input,
+            textarea {
+                color: $blanco_letra;
+                background-color: $fondoOscuro2;
                 &::placeholder {
                     color: rgb(255, 255, 255);
                 }
             }
+        }
+
+        .iconCalendar>.fondo {
+            stroke: $blanco_letra !important;
+        }
+        .iconPaginas>g {
+            stroke: $blanco_letra !important;
+        }
+        .iconTipo>path{
+            stroke: $blanco_letra !important;
+        }
+        .iconColeccion>g{
+            fill: $blanco_letra !important;
+        }
+        .iconFormato>path{
+            fill: $blanco_letra !important;
+        }
+        .iconSubtipo>g>path{
+            fill: $blanco_letra !important;
         }
     }
 }

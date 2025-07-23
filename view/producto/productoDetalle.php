@@ -24,12 +24,30 @@
                 <p class="Producto__info__sinopsis"></p>
                 <div class="Producto__info__caracteristicas">
                     <ul>
-                        <li class="Producto__info__caracteristicas__publicacion lang"></li>
-                        <li class="Producto__info__caracteristicas__paginas"></li>
-                        <li class="Producto__info__caracteristicas__tipo lang"></li>
-                        <li class="Producto__info__caracteristicas__subtipo lang"></li>
-                        <li class="Producto__info__caracteristicas__formato lang"></li>
-                        <li class="Producto__info__caracteristicas__editorial"></li>
+                        <li class="Producto__info__caracteristicas__publicacion lang">
+                        <p class="info"></p>    
+                        <div class="svgContainer"></div>
+                        </li>
+                        <li class="Producto__info__caracteristicas__paginas">
+                        <p class="info"></p>    
+                        <div class="svgContainer"></div>
+                        </li>
+                        <li class="Producto__info__caracteristicas__tipo lang">
+                        <p class="info"></p>    
+                        <div class="svgContainer"></div>
+                        </li>
+                        <li class="Producto__info__caracteristicas__subtipo lang">
+                        <p class="info"></p>    
+                        <div class="svgContainer"></div>
+                        </li>
+                        <li class="Producto__info__caracteristicas__formato lang">
+                        <p class="info"></p>    
+                        <div class="svgContainer"></div>
+                        </li>
+                        <li class="Producto__info__caracteristicas__editorial">
+                        <p class="info"></p>    
+                        <div class="svgContainer"></div>
+                        </li>
                         <!-- <li class="Producto__info__caracteristicas__coleccion"></li> -->
                     </ul>
                 </div>

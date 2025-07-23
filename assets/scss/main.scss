@@ -40,6 +40,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
     &.theme--Dark {
         background-image: none;
         background-color: $fondoDark;
@@ -51,7 +52,6 @@ main {
 }
 
 .body.theme--Dark {
-    // background-image: url('../img/texturaDark.png');
     background-image: none;
     background-color: $fondoOscuro2;
 }
@@ -119,10 +119,10 @@ p {
     cursor: pointer;
 
     &.theme--dark {
-        background-color: $fondoOscuro;
+        background-color: $buttonSecundario--dark;
 
         &:hover {
-            background-color: $botonDark--hover;
+            background-color: $buttonSecundarioHover--dark;
             transform: scale(1.01);
         }
     }

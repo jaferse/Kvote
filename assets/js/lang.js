@@ -162,10 +162,10 @@ function actualizarTexto(json, lang) {
      * Cambiar idioma de categoria productos
      */
     if (document.querySelector('.Producto__info__caracteristicas')) {
-        document.querySelectorAll('.Producto__info__caracteristicas .lang').forEach(element => {
+        document.querySelectorAll('.Producto__info__caracteristicas>p').forEach(element => {
 
             setTimeout(() => {
-                if (element.classList.contains("Producto__info__caracteristicas__publicacion")) {
+                if (element.classList.contains("Producto__info__caracteristicas__publicacion>p")) {
                     element.textContent = convertirFormatoFecha(element.getAttribute("data-fecha"));
 
                 } else {

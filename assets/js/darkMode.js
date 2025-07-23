@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector('.icon').classList.remove('icon-moon');
             }
             cambiarModo();
-
         });
     }
 });
@@ -119,9 +118,9 @@ function cambiarModo() {
         document.querySelector('.perfilContainer').classList.toggle('theme--dark');
     }
 
-    //Botones Rojos
-    if (document.querySelector('.btnTerciario')) {
-        document.querySelectorAll('.btnTerciario').forEach(btn => {
+    // btn
+    if (document.querySelector('.btn')) {
+        document.querySelectorAll('.btn').forEach(btn => {
             btn.classList.toggle('theme--dark');
         });
     }
@@ -129,20 +128,6 @@ function cambiarModo() {
     //botones enlace
     if (document.querySelector('.enlaceBoton')) {
         document.querySelectorAll('.enlaceBoton').forEach(btn => {
-            btn.classList.toggle('theme--dark');
-        });
-    }
-
-    //Botones primarios
-    if (document.querySelector('.btnPrimario')) {
-        document.querySelectorAll('.btnPrimario').forEach(btn => {
-            btn.classList.toggle('theme--dark');
-        });
-    }
-
-    //Botones secundarios
-    if (document.querySelector('.btnSecundario')) {
-        document.querySelectorAll('.btnSecundario').forEach(btn => {
             btn.classList.toggle('theme--dark');
         });
     }

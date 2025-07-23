@@ -4,6 +4,13 @@
     background-image: url('./../img/colage.jfif');
 }
 
+.theme--Dark {
+    .ContainerGlobal {
+        background-image: url('./../img/colage--dark.webp');
+    }
+
+}
+
 .registro {
 
     width: 80%;
@@ -51,6 +58,19 @@
 
         &.theme--dark {
             border: $border_main--dark !important;
+            background-color: $fondoOscuro2 !important;
+
+            label {
+                color: $blanco_letra;
+            }
+
+            input:not([type="submit"]) {
+                background-color: $inputFondo !important;
+
+                &::placeholder {
+                    color: $blanco_letra !important;
+                }
+            }
         }
     }
 

@@ -857,6 +857,10 @@
   background-image: url("./../img/colage.jfif");
 }
 
+.theme--Dark .ContainerGlobal {
+  background-image: url("./../img/colage--dark.webp");
+}
+
 .registro {
   width: 80%;
   margin: 2em auto;
@@ -905,6 +909,16 @@
 }
 .registro__contenedor.theme--dark {
   border: 3px solid #000000 !important;
+  background-color: #404040 !important;
+}
+.registro__contenedor.theme--dark label {
+  color: #FCFAEE;
+}
+.registro__contenedor.theme--dark input:not([type=submit]) {
+  background-color: #404040 !important;
+}
+.registro__contenedor.theme--dark input:not([type=submit])::placeholder {
+  color: #FCFAEE !important;
 }
 .registro__title {
   width: 100% !important;
@@ -1897,6 +1911,15 @@
   text-align: center;
   margin: 0.2rem 1rem;
 }
+.ContainerProducto .Producto__info__caracteristicas .svgContainer {
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 0px !important;
+  border: none !important;
+}
+.ContainerProducto .Producto__info__caracteristicas .info {
+  margin: 0.5rem 0;
+}
 .ContainerProducto .Producto__info__caracteristicas__publicacion.es::before {
   content: "Publicación ";
 }
@@ -1909,19 +1932,6 @@
 .ContainerProducto .Producto__info__caracteristicas__publicacion::before {
   font-weight: 700;
   text-align: center;
-}
-.ContainerProducto .Producto__info__caracteristicas__publicacion::after {
-  content: "";
-  display: block;
-  width: 2rem !important;
-  height: 2rem !important;
-  border-radius: 0px !important;
-  border: none !important;
-  background-image: url("./../img/fechaIcon.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
 }
 .ContainerProducto .Producto__info__caracteristicas__paginas.es::before {
   content: "Páginas ";
@@ -1936,19 +1946,6 @@
   font-weight: 700;
   text-align: center;
 }
-.ContainerProducto .Producto__info__caracteristicas__paginas::after {
-  content: "";
-  display: block;
-  width: 2rem !important;
-  height: 2rem !important;
-  border-radius: 0px !important;
-  border: none !important;
-  background-image: url("./../img/paginasIcon.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-}
 .ContainerProducto .Producto__info__caracteristicas__tipo.es::before {
   content: "Categoría ";
 }
@@ -1961,19 +1958,6 @@
 .ContainerProducto .Producto__info__caracteristicas__tipo::before {
   font-weight: 700;
   text-align: center;
-}
-.ContainerProducto .Producto__info__caracteristicas__tipo::after {
-  content: "";
-  display: block;
-  width: 2rem !important;
-  height: 2rem !important;
-  border-radius: 0px !important;
-  border: none !important;
-  background-image: url("./../img/bookIcon.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
 }
 .ContainerProducto .Producto__info__caracteristicas__subtipo.es::before {
   content: "Género ";
@@ -1989,19 +1973,6 @@
   font-weight: 700;
   text-align: center;
 }
-.ContainerProducto .Producto__info__caracteristicas__subtipo::after {
-  content: "";
-  display: block;
-  width: 2rem !important;
-  height: 2rem !important;
-  border-radius: 0px !important;
-  border: none !important;
-  background-image: url("./../img/generoIcon.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-}
 .ContainerProducto .Producto__info__caracteristicas__formato.es::before {
   content: "Formato ";
 }
@@ -2014,19 +1985,6 @@
 .ContainerProducto .Producto__info__caracteristicas__formato::before {
   font-weight: 700;
   text-align: center;
-}
-.ContainerProducto .Producto__info__caracteristicas__formato::after {
-  content: "";
-  display: block;
-  width: 2rem !important;
-  height: 2rem !important;
-  border-radius: 0px !important;
-  border: none !important;
-  background-image: url("./../img/formatoIcon.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
 }
 .ContainerProducto .Producto__info__caracteristicas__editorial.es::before {
   content: "Editorial ";
@@ -2041,19 +1999,6 @@
   font-weight: 700;
   text-align: center;
 }
-.ContainerProducto .Producto__info__caracteristicas__editorial::after {
-  content: "";
-  display: block;
-  width: 2rem !important;
-  height: 2rem !important;
-  border-radius: 0px !important;
-  border: none !important;
-  background-image: url("./../img/editorialIcon.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-}
 .ContainerProducto .Producto__info__caracteristicas__coleccion.es::before {
   content: "Colección ";
 }
@@ -2066,19 +2011,6 @@
 .ContainerProducto .Producto__info__caracteristicas__coleccion::before {
   font-weight: 700;
   text-align: center;
-}
-.ContainerProducto .Producto__info__caracteristicas__coleccion::after {
-  content: "";
-  display: block;
-  width: 2rem !important;
-  height: 2rem !important;
-  border-radius: 0px !important;
-  border: none !important;
-  background-image: url("./../img/bookIcon.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0 auto;
 }
 .ContainerProducto .Producto__info__precioComprar {
   display: flex;
@@ -2309,18 +2241,38 @@
   background-color: #404040;
   color: #FCFAEE;
 }
-.ContainerProducto.theme--dark .Producto__info__precioComprar__precio__anterior {
+.ContainerProducto.theme--dark .Producto__info__precioComprar__precio__anterior, .ContainerProducto.theme--dark .Producto__info__precioComprar__precio__actual, .ContainerProducto.theme--dark .Producto__info__precioComprar__precio__actual::after {
   color: #FCFAEE;
 }
 .ContainerProducto.theme--dark .Producto__comentarios__formulario {
   border: 3px solid #000000;
 }
-.ContainerProducto.theme--dark .Producto__comentarios__formulario input, .ContainerProducto.theme--dark .Producto__comentarios__formulario textarea {
+.ContainerProducto.theme--dark .Producto__comentarios__formulario input,
+.ContainerProducto.theme--dark .Producto__comentarios__formulario textarea {
   color: #FCFAEE;
   background-color: #404040;
 }
-.ContainerProducto.theme--dark .Producto__comentarios__formulario input::placeholder, .ContainerProducto.theme--dark .Producto__comentarios__formulario textarea::placeholder {
+.ContainerProducto.theme--dark .Producto__comentarios__formulario input::placeholder,
+.ContainerProducto.theme--dark .Producto__comentarios__formulario textarea::placeholder {
   color: rgb(255, 255, 255);
+}
+.ContainerProducto.theme--dark .Producto .iconCalendar > .fondo {
+  stroke: #FCFAEE !important;
+}
+.ContainerProducto.theme--dark .Producto .iconPaginas > g {
+  stroke: #FCFAEE !important;
+}
+.ContainerProducto.theme--dark .Producto .iconTipo > path {
+  stroke: #FCFAEE !important;
+}
+.ContainerProducto.theme--dark .Producto .iconColeccion > g {
+  fill: #FCFAEE !important;
+}
+.ContainerProducto.theme--dark .Producto .iconFormato > path {
+  fill: #FCFAEE !important;
+}
+.ContainerProducto.theme--dark .Producto .iconSubtipo > g > path {
+  fill: #FCFAEE !important;
 }
 
 .translate {
@@ -3294,10 +3246,10 @@ p {
   cursor: pointer;
 }
 .enlaceBoton.theme--dark {
-  background-color: #000000;
+  background-color: #00426a;
 }
 .enlaceBoton.theme--dark:hover {
-  background-color: #00426a;
+  background-color: #002a4b;
   transform: scale(1.01);
 }
 .enlaceBoton a {
