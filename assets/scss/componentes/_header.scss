@@ -1,5 +1,4 @@
-@import './variables';
-
+@use './variables' as *;
 .header {
     @include dimensiones(100%, 4rem);
     @include flex(row, space-between, stretch);
@@ -113,9 +112,11 @@
 
                 .login {
                     // @include dimensiones(2rem, 2rem, 50%);
-
                     .iconSvg {
                         @include dimensiones(2.5rem, 2.5rem);
+                        path{
+                            fill: $fondoOscuro;
+                        }
                     }
 
                     &:hover {
@@ -248,12 +249,12 @@
             &__menu {
 
                 @include flex(row, space-between, stretch);
+                flex-shrink: 0;
 
                 &__button {
                     padding: 0.3% 1.5%;
                 }
 
-                flex-shrink: 0;
             }
 
             &__login {

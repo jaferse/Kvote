@@ -54,6 +54,15 @@
                 font-size: 16px;
                 font-weight: bold;
             }
+
+            &.theme--dark{
+                .progress-text{
+                    color: $blanco_letra!important;
+                }
+                .circle-progress{
+                   stroke: $buttonPrimario--dark !important;
+                }
+            }
         }
 
         &.theme--dark {
@@ -66,7 +75,7 @@
 
             input:not([type="submit"]) {
                 background-color: $inputFondo !important;
-
+                color: $blanco_letra !important;
                 &::placeholder {
                     color: $blanco_letra !important;
                 }
@@ -142,7 +151,10 @@
                 color: black;
                 padding: 0.6rem 1rem;
             }
-
+            select.theme--dark{
+                background-color: $fondoOscuro2 !important;
+                color: $blanco_letra !important;
+            }
             input:focus {
                 border-color: $azulFocus;
                 border-radius: 6px;
@@ -160,16 +172,14 @@
             .toggle-password {
                 cursor: pointer;
 
-                .eye {
+                .iconSvg{
                     position: absolute;
                     right: 1rem;
                     width: 1.8rem;
-                    top: 1.5rem;
+                    top: 1.7rem;
                     right: 0.5rem;
                 }
             }
-
-            // }
         }
     }
 

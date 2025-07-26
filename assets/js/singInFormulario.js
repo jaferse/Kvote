@@ -116,8 +116,16 @@ formulario.addEventListener('submit', async (e) => {
 document.addEventListener('click', function (event) {
     if (event.target.closest('.toggle-password')) {
         let passwordInput = event.target.closest('.registro__formulario__group').querySelector('#password');
-        let spanEye = event.target.closest('.registro__formulario__group').querySelector('.eye');
         passwordInput.setAttribute('type', passwordInput.getAttribute('type') === 'password' ? 'text' : 'password'); // Cambia el atributo type = 'text' o 'pastword'
-        spanEye.setAttribute('src', spanEye.getAttribute('src') === './assets/img/eyeOpen.png' ? './assets/img/eye.png' : './assets/img/eyeOpen.png'); // Cambia el ojo 
+
+        let eyeClosed=document.querySelector('.eye-closed');
+        let eyeOpen=document.querySelector('.eye-open');
+
+        eyeClosed.style.display=eyeClosed.style.display=='none'?'inline':'none';
+        eyeOpen.style.display=eyeOpen.style.display=='none'?'inline':'none';
+
+        // let spanEye = event.target.closest('.registro__formulario__group').querySelector('.eye');
+        // spanEye.setAttribute('src', spanEye.getAttribute('src') === './assets/img/eyeOpen.png' ? './assets/img/eye.png' : './assets/img/eyeOpen.png'); // Cambia el ojo 
+        
     }
 })

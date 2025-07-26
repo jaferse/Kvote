@@ -195,9 +195,12 @@ document.addEventListener('click', (e) => {
     }
 
     if (e.target.closest('.toggle-password')) {
+        let ojos=e.target.closest('.toggle-password>.iconSvg');
         let passwordInput = e.target.closest('.registro__formulario__group').querySelector('#password') || e.target.closest('.registro__formulario__group').querySelector('#password2');
-        let spanEye = e.target.closest('.registro__formulario__group').querySelector('.eye');
         passwordInput.setAttribute('type', passwordInput.getAttribute('type') === 'password' ? 'text' : 'password'); // Cambia el atributo type = 'text';
-        spanEye.setAttribute('src', spanEye.getAttribute('src') === './assets/img/eyeOpen.png' ? './assets/img/eye.png' : './assets/img/eyeOpen.png'); // Cambia el ojo 
+        let eyeClosed = ojos.querySelector('.eye-closed');
+        let eyeOpen = ojos.querySelector('.eye-open');
+        eyeClosed.style.display = eyeClosed.style.display == 'none' ? 'inline' : 'none';
+        eyeOpen.style.display = eyeOpen.style.display == 'none' ? 'inline' : 'none';
     }
 })

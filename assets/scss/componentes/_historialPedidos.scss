@@ -71,14 +71,24 @@
         }
     }
 
-}
-
-.containerPedidos.theme--dark {
-     .titulo {
-        p {
-            background-color: $fondoOscuro;
+    &.theme--dark {
+        h1{
             color: $blanco_letra;
         }
-        
+         .titulo {
+            p {
+                background-color: $fondoOscuro;
+                color: $blanco_letra;
+            }
+            
+        }
+        .compra{
+            &>p {
+                background-color: $fondoOscuro;
+            }
+            p{
+               color: $blanco_letra;
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-@import './variables';
+@use './variables' as *;
 
 .footer {
     background-color: $fondo_footer;
@@ -6,7 +6,6 @@
     @include dimensiones(96vw, auto, 0.313rem);
     @include flex(row, space-between, center);
     padding: 0rem 3rem 0rem 3rem;
-
     margin: 1.875rem auto;
 
     h2 {

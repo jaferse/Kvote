@@ -2,6 +2,7 @@ import { convertirFormatoFecha } from './funcionesGenericas.js';
 document.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('index.php?controller=HistorialPedidos&action=listarPedidos');
     const pedidos = await response.json();
+    const darkMode = localStorage.getItem('darkMode');
     construirGridPedidos(pedidos);
 });
 
@@ -17,6 +18,7 @@ document.addEventListener('click', (e) => {
 
 async function construirGridPedidos(pedidos) {
     let containerPedidos = document.querySelector('.containerPedidos')
+    const darkMode = localStorage.getItem('darkMode');
 
     pedidos.forEach(pedido => {
         let compra = document.createElement('div');
@@ -27,7 +29,7 @@ async function construirGridPedidos(pedidos) {
             <p class="fecha lang" data-fecha="${pedido.compra.fechaCompra}">${formatoFecha}</p>
             <p class="idPedido">${pedido.compra.idCompra}</p>
             <p class="precioTotal">${pedido.compra.totalCompra}€</p>
-            <a class="detallePedido btn btnPrimario lang" data-lang="botonDetalle">Ver Detalle</a>
+            <a class="detallePedido btn btnPrimario lang theme--${darkMode}" data-lang="botonDetalle">Ver Detalle</a>
         `;
 
         let divDetalleCompra = document.createElement('div');

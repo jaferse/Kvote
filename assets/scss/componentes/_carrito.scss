@@ -65,12 +65,11 @@
                 cursor: pointer;
                 padding: 1rem;
 
-                img {
+                svg {
                     width: 3rem;
-                    height: auto
                 }
-            }
 
+            }
             .btnEliminar:hover {
                 transform: scale(1.1);
 
@@ -99,11 +98,38 @@
             font-family: $fuente_general;
             font-size: 2rem;
             vertical-align: middle;
-
         }
 
     }
 
+    &.theme--dark {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p,
+        span,
+        label {
+            color: $blanco_letra !important;
+        }
+
+        .productoCarrito {
+            background-color: $fondoOscuro;
+            color: $blanco_letra;
+
+            .btnEliminar>svg>g>g {
+                fill: $blanco_letra !important;
+                width: 2rem !important;
+            }
+        }
+
+        .cestaVacia {
+            background-color: $fondoOscuro;
+            color: $blanco_letra;
+        }
+    }
 }
 
 @media screen and (max-width: 992px) {

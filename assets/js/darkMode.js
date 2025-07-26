@@ -95,7 +95,6 @@ function cambiarModo() {
     if (document.querySelector('.registro__contenedor')) {
         document.querySelector('.registro__contenedor').classList.toggle('theme--dark');
         document.querySelector('.registro__title').classList.toggle('theme--dark');
-        document.querySelector('#botonRegistrar').classList.toggle('theme--dark');
     }
 
     //menu login
@@ -145,5 +144,41 @@ function cambiarModo() {
     //Migas de pan
     if (document.querySelector('.breadcrumb')) {
         document.querySelector('.breadcrumb').classList.toggle('theme--dark');
+    }
+
+    //Cesta
+    if(document.querySelector('.containerCesta')) {
+        document.querySelector('.containerCesta').classList.toggle('theme--dark');
+        ;
+    }
+
+    //whislist
+    if(document.querySelector('.containerProductosWishList')) {
+        document.querySelector('.containerProductosWishList').classList.toggle('theme--dark');
+    }
+
+    if(document.querySelector('.enlaceBotonSmall')) {
+        document.querySelectorAll('.enlaceBotonSmall').forEach(btn => {
+            btn.classList.toggle('theme--dark');
+        })
+    }
+
+    if(document.querySelector('select')){
+        document.querySelectorAll('select').forEach(select => {
+            select.classList.toggle('theme--dark');
+        })
+    }
+    if (document.querySelector('.progress-container')) {
+        document.querySelector('.progress-container').classList.toggle('theme--dark');
+        
+    }
+
+    if (document.querySelector('.perfilContainer .theme--dark')) {
+        document.querySelectorAll('.perfilContainer .formGroup').forEach(grupo => {
+            grupo.querySelectorAll('input:not([type="button"])').forEach(input => {
+                input.classList.toggle('theme--dark');
+            })
+        });
+        
     }
 }

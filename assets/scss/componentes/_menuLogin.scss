@@ -1,4 +1,4 @@
-@import './variables';
+@use './variables' as *;
 
 .menu {
     position: absolute;
@@ -32,7 +32,6 @@
             text-decoration: none;
             font-weight: bold;
         }
-
     }
 
     hr {

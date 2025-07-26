@@ -115,3 +115,71 @@
 </body>
 
 </html>
+
+<!-- SKELETON -->
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Skeleton Loader</title>
+  <style>
+    .skeleton {
+      background-color: #ddd;
+      border-radius: 4px;
+      width: 100%;
+      height: 20px;
+      margin: 10px 0;
+      animation: shimmer 1.5s infinite;
+    }
+
+    .skeleton.image {
+      height: 150px;
+      width: 100%;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    .skeleton {
+      background-image: linear-gradient(90deg, #ddd 25%, #e7e7e7 50%, #ddd 75%);
+      background-size: 1000px 100%;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 300px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<div id="content" class="card">
+  <!-- Skeleton placeholder -->
+  <div class="skeleton image"></div>
+  <div class="skeleton" style="width: 60%"></div>
+  <div class="skeleton" style="width: 90%"></div>
+  <div class="skeleton" style="width: 75%"></div>
+</div>
+
+<script>
+  // Simula carga de datos
+  setTimeout(() => {
+    document.getElementById('content').innerHTML = `
+      <img src="https://via.placeholder.com/300x150" style="width: 100%; border-radius: 4px;">
+      <h3>Título del contenido</h3>
+      <p>Este es un párrafo de ejemplo para mostrar contenido cargado.</p>
+      <p>Más texto cargado dinámicamente.</p>
+    `;
+  }, 3000); // 3 segundos de "carga"
+</script>
+
+</body>
+</html> -->
