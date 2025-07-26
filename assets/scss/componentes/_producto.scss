@@ -29,9 +29,12 @@
             padding: 0 1rem;
             width: 100%;
             flex-grow: 1;
-            a{
-                color: $negro_letra;
-            }
+
+            // a{
+            //     color: $negro_letra;
+            //     text-decoration: none;
+            // }
+
             &__titulo {
                 font-size: 2rem;
                 margin: 0;
@@ -445,17 +448,22 @@
 
     .Producto {
         &__info__precioComprar__precio {
-            &__anterior, &__actual, &__actual::after {
+
+            &__anterior,
+            &__actual,
+            &__actual::after {
                 color: $blanco_letra;
             }
         }
 
         &__comentarios__formulario {
             border: $border_main--dark;
+
             input,
             textarea {
                 color: $blanco_letra;
                 background-color: $fondoOscuro2;
+
                 &::placeholder {
                     color: rgb(255, 255, 255);
                 }
@@ -465,19 +473,24 @@
         .iconCalendar>.fondo {
             stroke: $blanco_letra !important;
         }
+
         .iconPaginas>g {
             stroke: $blanco_letra !important;
         }
-        .iconTipo>path{
+
+        .iconTipo>path {
             stroke: $blanco_letra !important;
         }
-        .iconColeccion>g{
+
+        .iconColeccion>g {
             fill: $blanco_letra !important;
         }
-        .iconFormato>path{
+
+        .iconFormato>path {
             fill: $blanco_letra !important;
         }
-        .iconSubtipo>g>path{
+
+        .iconSubtipo>g>path {
             fill: $blanco_letra !important;
         }
     }

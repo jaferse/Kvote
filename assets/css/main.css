@@ -1837,9 +1837,6 @@
   width: 100%;
   flex-grow: 1;
 }
-.ContainerProducto .Producto__info a {
-  color: #000000;
-}
 .ContainerProducto .Producto__info__titulo {
   font-size: 2rem;
   margin: 0;
@@ -3330,4 +3327,30 @@ p {
 .enlaceBotonSmall.theme--dark:hover {
   background-color: #002a4b;
   transform: scale(1.01);
+}
+
+.enlaceStyled {
+  color: #B8001F;
+  /* azul moderno, cambia según tu paleta */
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+.enlaceStyled::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s;
+}
+.enlaceStyled:hover {
+  color: #9c001a;
+  /* un tono más oscuro del mismo color */
+}
+.enlaceStyled:hover::after {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */
