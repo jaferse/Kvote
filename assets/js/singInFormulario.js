@@ -123,9 +123,6 @@ document.addEventListener('click', function (event) {
 
         eyeClosed.style.display=eyeClosed.style.display=='none'?'inline':'none';
         eyeOpen.style.display=eyeOpen.style.display=='none'?'inline':'none';
-
-        // let spanEye = event.target.closest('.registro__formulario__group').querySelector('.eye');
-        // spanEye.setAttribute('src', spanEye.getAttribute('src') === './assets/img/eyeOpen.png' ? './assets/img/eye.png' : './assets/img/eyeOpen.png'); // Cambia el ojo 
         
     }
 })

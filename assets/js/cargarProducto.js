@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     let fecha = convertirFormatoFecha(producto.anio_publicacion);
     document.querySelector('.Producto__img > img').src = `data:image/jpeg;base64,${producto.portada}`;
     document.querySelector('.Producto__info__titulo').textContent = producto.nombre;
-    document.querySelector('.Producto__info__autor').textContent = `${producto.nombreArtista} ${producto.apellido1} ${producto.apellido2}`;//falta el autor
+    document.querySelector('.Producto__info__autor').innerHTML = `<a href="index.php?controller=Catalogo&action=autor&parametro=${producto.nombreArtista}-${producto.apellido1}-${producto.apellido2}">${producto.nombreArtista} ${producto.apellido1} ${producto.apellido2}</a>`;
     document.querySelector('.Producto__info__sinopsis').textContent = producto.sinopsis;
 
     document.querySelector('.Producto__info__caracteristicas__publicacion>.info').textContent = fecha;
@@ -98,7 +98,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         </svg>`;
 
 
-    document.querySelector('.Producto__info__caracteristicas__tipo>.info').textContent = dataLang[lang]['producto']['Tipo'][producto.tipo];
+    document.querySelector('.Producto__info__caracteristicas__tipo>.info').innerHTML =  `<a href="index.php?controller=Catalogo&action=categoria&parametro=${producto.tipo}">${dataLang[lang]['producto']['Tipo'][producto.tipo]}</a>`;
     document.querySelector('.Producto__info__caracteristicas__tipo>.svgContainer').innerHTML = /*html*/
         `<svg class="iconSvg iconTipo" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11 3.99995C12.8839 2.91716 14.9355 2.15669 17.07 1.74995C17.551 1.63467 18.0523 1.63283 18.5341 1.74458C19.016 1.85632 19.4652 2.07852 19.8464 2.39375C20.2276 2.70897 20.5303 3.10856 20.7305 3.56086C20.9307 4.01316 21.0229 4.50585 21 4.99995V13.9999C20.9699 15.117 20.5666 16.1917 19.8542 17.0527C19.1419 17.9136 18.1617 18.5112 17.07 18.7499C14.9355 19.1567 12.8839 19.9172 11 20.9999" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

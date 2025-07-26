@@ -58,7 +58,7 @@ function crearTarjeta(containerProductos, producto, json) {
 
     //creamos boton
     let botonVermas = document.createElement('button');
-    botonVermas.classList.add('verMas', 'lang', 'btn', 'btnPrimario',(darkMode=='dark')?'theme--dark':'theme--light');
+    botonVermas.classList.add('verMas', 'lang', 'btn', 'btnPrimario', (darkMode == 'dark') ? 'theme--dark' : 'theme--light');
     // botonVermas.classList.add();
     botonVermas.setAttribute('data-lang', 'verMas');
     // console.log(json);
@@ -129,22 +129,33 @@ function contruirGridProductos(listaProductos, containerProductos, tipo, json) {
  * @param {number} page - numero de pagina que se va a obtener, por defecto es 1
  * @returns {object} objeto con la respuesta de la api
  */
-async function sacarProductos(seccion, page = 1) {
+async function sacarProductos(seccion, page = 1, parametro) {
     //Ponemos en el titulo la seccion en mayuscula la primera letra
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
-    const responseProductos = await fetch(`index.php?controller=Catalogo&action=get${seccionMayuscula}&page=${page}`);
+    let responseProductos
+    console.log("PArtametro: ", parametro);
+
+    if (parametro) {
+        responseProductos = await fetch(`index.php?controller=Catalogo&action=get${seccionMayuscula}&parametro=${parametro}&page=${page}`);
+    } else {
+        responseProductos = await fetch(`index.php?controller=Catalogo&action=get${seccionMayuscula}&page=${page}`);
+    }
     const productos = await responseProductos.json();
     return productos;
+
+    //Novedades http://localhost/index.php?controller=Catalogo&action=getNovedades&page=2
+    // Autor 1: http://localhost/index.php?controller=Catalogo&action=getAutor&parametro=Joe-Abercrombie-&page=1
+    // Autor 2: http://localhost/index.php?controller=Catalogo&action=getAutor&page=2
 }
 
 
 
-function construirPaginacion(productosRespuesta, seccion, paginaActual) {
+function construirPaginacion(productosRespuesta, seccion, paginaActual, parametro = false) {
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
     let listaPaginacion = document.createElement('div');
     (localStorage.getItem('darkMode') == 'dark') ?
         listaPaginacion.classList.add('paginacion', 'theme--dark')
-        :listaPaginacion.classList.add('paginacion');
+        : listaPaginacion.classList.add('paginacion');
 
     let paginas = Math.ceil(productosRespuesta['total'] / productosRespuesta['productoPaginas']);
     for (let i = 1; i <= paginas; i++) {
@@ -155,8 +166,13 @@ function construirPaginacion(productosRespuesta, seccion, paginaActual) {
         }
         a.classList.add('numeroPaginacion');
         a.setAttribute('data-page', i);
-        a.setAttribute('href', `index.php?controller=Catalogo&action=${seccionMayuscula}&page=${i}`);
+        console.log(seccionMayuscula);
+
+        // a.setAttribute('href', `index.php?controller=Catalogo&action=${seccionMayuscula}${((parametro)?'&parametro='parametro}:'')}&page=${i}`);
+        a.setAttribute('href', `index.php?controller=Catalogo&action=${seccionMayuscula}${(parametro ? `&parametro=${parametro}` : '')}&page=${i}`);
         listaPaginacion.appendChild(a);
+        // href="index.php?controller=Catalogo&action=Autor&parametro=Brandon-Sanderson-&page=2"
+        // href="index.php?controller=Catalogo&action=autor&parametro=Brandon-Sanderson-"
     }
     document.querySelector('.container').appendChild(listaPaginacion);
 }
@@ -167,6 +183,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     const containerProductos = document.querySelector('.containerProductos');
     let parametros = new URLSearchParams(window.location.search);
     let seccion = parametros.get("action");
+    let parametro;
+    if (parametros.get("parametro")) {
+        parametro = parametros.get("parametro");
+    }
     let paginaActual = 1;
 
     //Si no se ha recargado la pagina se mantiene la pagina actual
@@ -178,7 +198,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     // Nos traemos el json de los textos de traducción
     const json = await cargarIdioma();
 
-    let productosRespuesta = await sacarProductos(seccion, paginaActual);
+    let productosRespuesta = await sacarProductos(seccion, paginaActual, parametro);
     let productos = productosRespuesta['productos'];
     let totalProductos = productosRespuesta['total'];
 
@@ -186,7 +206,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     const verMas = document.querySelectorAll('.verMas');
 
-    construirPaginacion(productosRespuesta, seccion, paginaActual);
+    construirPaginacion(productosRespuesta, seccion, paginaActual, (parametro) ? parametro : false);
 
     //Controlar el mostrar info
     verMas.forEach(boton => {
@@ -220,12 +240,17 @@ window.addEventListener('DOMContentLoaded', async () => {
         if (e.target.classList.contains('numeroPaginacion')) {
             // console.log(e.target);
             e.preventDefault();
+            let parametro;
+            if (parametros.get("parametro")) {
+                parametro = parametros.get("parametro");
+            }
+            console.log(e.target.getAttribute('data-page'));
             sessionStorage.setItem("paginaActual", e.target.getAttribute('data-page'));
             e.target.parentNode.querySelectorAll('.active').forEach(element => {
                 element.classList.remove('active');
             })
             e.target.classList.add('active');
-            let productosRespuesta = await sacarProductos(seccion, e.target.getAttribute('data-page'));
+            let productosRespuesta = await sacarProductos(seccion, e.target.getAttribute('data-page'),parametro);
             let productos = productosRespuesta['productos'];
             let totalProductos = productosRespuesta['total'];
             containerProductos.innerHTML = '';
@@ -234,6 +259,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    
+
 
 });

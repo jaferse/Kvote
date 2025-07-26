@@ -22,6 +22,8 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
         $dato = $_GET['page'];
     } else if(isset($_GET['username'])){
         $dato = $_GET['username'];
+    }else if(isset($_GET['parametro'])){
+        $dato = $_GET['parametro'];
     }else {
         $dato = null;
     }
@@ -36,6 +38,5 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 
 //Cargamos el controlador
 $controllerObj = cargarControlador($controller);
-
 //Lanzamos la accion
 lanzarAccion($controllerObj, $action, $dato);

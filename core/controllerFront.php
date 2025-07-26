@@ -63,9 +63,10 @@ function cargarAccion($controllerObj, $action, $argumento = null)
 function lanzarAccion($controllerObj, $accion, $argumento = null)
 {
     // echo "<br>Accion: " . $accion;
-    // echo "<br>Accion: " . $argumento;
+    // echo "<br>argumento: " . $argumento;
     // echo "<br>:". method_exists($controllerObj, $accion);
     if (isset($_GET["action"]) && method_exists($controllerObj, $accion)) {
+        // echo "<br>argumento: " . $argumento;
         cargarAccion($controllerObj, $accion, $argumento);
     } else {
         cargarAccion($controllerObj, ACCION_DEFECTO);
