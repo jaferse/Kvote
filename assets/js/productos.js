@@ -133,7 +133,6 @@ async function sacarProductos(seccion, page = 1, parametro) {
     //Ponemos en el titulo la seccion en mayuscula la primera letra
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
     let responseProductos
-    console.log("PArtametro: ", parametro);
 
     if (parametro) {
         responseProductos = await fetch(`index.php?controller=Catalogo&action=get${seccionMayuscula}&parametro=${parametro}&page=${page}`);

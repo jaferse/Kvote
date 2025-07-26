@@ -108,7 +108,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.Producto__info__caracteristicas__tipo').setAttribute('data-lang', 'Tipo');
     document.querySelector('.Producto__info__caracteristicas__tipo').setAttribute('data-content', producto.tipo);
 
-    document.querySelector('.Producto__info__caracteristicas__subtipo>.info').textContent = dataLang[lang]['producto']['Subtipo'][producto.subtipo];
+    document.querySelector('.Producto__info__caracteristicas__subtipo>.info').innerHTML =  `<a href="index.php?controller=Catalogo&action=subtipo&parametro=${producto.subtipo}">${dataLang[lang]['producto']['Subtipo'][producto.subtipo]}</a>`;
     document.querySelector('.Producto__info__caracteristicas__subtipo').setAttribute('data-lang', 'Subtipo');
     document.querySelector('.Producto__info__caracteristicas__subtipo').setAttribute('data-content', producto.subtipo);
     document.querySelector('.Producto__info__caracteristicas__subtipo>.svgContainer').innerHTML = /*html*/ 
@@ -146,7 +146,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 </g>
 </svg>`;
 
-    document.querySelector('.Producto__info__caracteristicas__formato>.info').textContent = dataLang[lang]['producto']['Formato'][producto.formato];
+    // document.querySelector('.Producto__info__caracteristicas__formato>.info').textContent = dataLang[lang]['producto']['Formato'][producto.formato];
+    document.querySelector('.Producto__info__caracteristicas__formato>.info').innerHTML =  `<a href="index.php?controller=Catalogo&action=formato&parametro=${producto.formato}">${dataLang[lang]['producto']['Formato'][producto.formato]}</a>`;
     document.querySelector('.Producto__info__caracteristicas__formato').setAttribute('data-lang', 'Formato');
     document.querySelector('.Producto__info__caracteristicas__formato').setAttribute('data-content', producto.formato);
     document.querySelector('.Producto__info__caracteristicas__formato>.svgContainer').innerHTML = /* html */ 
@@ -170,7 +171,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 	c0,0.276-0.224,0.5-0.5,0.5h-5C8.224,25,8,24.776,8,24.5S8.224,24,8.5,24h5C13.776,24,14,24.224,14,24.5z"/>
 </svg>`;
 
-    document.querySelector('.Producto__info__caracteristicas__editorial>.info').textContent = producto.editorial;
+    document.querySelector('.Producto__info__caracteristicas__editorial>.info').innerHTML =  `<a href="index.php?controller=Catalogo&action=editorial&parametro=${producto.editorial}">${producto.editorial}</a>`;
+    // document.querySelector('.Producto__info__caracteristicas__editorial>.info').textContent = producto.editorial;
     document.querySelector('.Producto__info__caracteristicas__editorial>.svgContainer').innerHTML = /* html */
     `<svg class="iconSvg editorial" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
         viewBox="-3.84 -3.84 71.68 71.68" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="1.3439999999999999">
@@ -209,7 +211,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (producto.coleccion && producto.coleccion !== 'Autoconclusivo') {
         let coleccion = document.createElement('li');
         coleccion.classList.add('Producto__info__caracteristicas__coleccion', lang);
-        coleccion.innerHTML = `<p class="info">${producto.coleccion} ${producto.numero}</p>
+        // .innerHTML =  `<a href="index.php?controller=Catalogo&action=editorial&parametro=${producto.editorial}">${producto.editorial}</a>`;
+        coleccion.innerHTML = `<p class="info"><a href="index.php?controller=Catalogo&action=coleccion&parametro=${producto.coleccion}">${producto.coleccion} ${producto.numero}</a></p>
         <div class="svgContainer">
         <svg class="iconSvg iconColeccion" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
             <g fill="#000000">

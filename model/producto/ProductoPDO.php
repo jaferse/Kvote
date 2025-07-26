@@ -161,6 +161,37 @@ class Daoproducto extends DB
             $this->productos[] = $prod; //Guardamos ese objeto en el array de objetos prod
         }
     }
+
+    public function listarPorTipo($tipo, $parametro)
+    {
+        $_GET['page']; //Forzamos a que la paginación empiece desde la primera página
+        $consulta = 'SELECT * FROM producto 
+        WHERE '.$tipo.'= :parametro
+        ORDER BY anio_publicacion 
+        DESC LIMIT  ' . ($_GET['page'] - 1) * $this->productosPagina . ',' . $this->productosPagina;
+        $param = array();
+        $param[":parametro"] = $parametro;
+        $this->consultaDatos($consulta,$param);
+        foreach ($this->filas as $fila) {
+            $prod = new Producto(); //creamos un objeto de la entidad situacion
+            $prod->__set("isbn_13", $fila['isbn_13']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("portada", $fila['portada']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("coleccion", $fila['coleccion']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("numero", $fila['numero']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("tipo", $fila['tipo']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("formato", $fila['formato']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("paginas", $fila['paginas']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("subtipo", $fila['subtipo']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("editorial", $fila['editorial']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("anio_publicacion", $fila['anio_publicacion']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("sinopsis", $fila['sinopsis']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("precio", $fila['precio']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("stock", $fila['stock']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("ventas", $fila['ventas']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $this->productos[] = $prod; //Guardamos ese objeto en el array de objetos prod
+        }
+    }
     /**
      * Obtiene una situacion de la base de datos por su Id.
      *
@@ -362,7 +393,7 @@ class Daoproducto extends DB
     {
         $consulta = "SELECT COUNT(*) as total FROM producto WHERE 1 ";
         $param = array();
-        if ($campo = 'Autor') {
+        if ($campo == 'Autor') {
             $consulta .= " AND isbn_13 IN 
             (SELECT ISBN_13 FROM artista_producto WHERE artista_id IN 
                 (SELECT id FROM artista WHERE nombre = :nombre AND apellido1= :apellido1 AND apellido2= :apellido2)

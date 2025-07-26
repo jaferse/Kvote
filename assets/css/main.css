@@ -1837,6 +1837,9 @@
   width: 100%;
   flex-grow: 1;
 }
+.ContainerProducto .Producto__info a {
+  color: #000000;
+}
 .ContainerProducto .Producto__info__titulo {
   font-size: 2rem;
   margin: 0;

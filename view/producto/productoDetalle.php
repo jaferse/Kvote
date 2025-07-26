@@ -162,7 +162,7 @@
 <body>
 
 <div id="content" class="card">
-  <!-- Skeleton placeholder -->
+   Skeleton placeholder
   <div class="skeleton image"></div>
   <div class="skeleton" style="width: 60%"></div>
   <div class="skeleton" style="width: 90%"></div>

@@ -35,6 +35,22 @@ class CatalogoController
     {
         $this->view();
     }
+    public function subtipo()
+    {
+        $this->view();
+    }
+    public function formato()
+    {
+        $this->view();
+    }
+    public function editorial()
+    {
+        $this->view();
+    }
+    public function coleccion()
+    {
+        $this->view();
+    }
     public function getComic()
     {
         $this->tablaProductos->listarComic();
@@ -78,50 +94,55 @@ class CatalogoController
     }
     public function getCategoria()
     {
-        $this->tablaProductos->listarNovedades();
+        $tipo = 'tipo';
+        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
-        $productoArtista['total'] = $this->tablaProductos->numeroProductos();
+        $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
         $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }
-    public function getGenero()
+    public function getSubtipo()
     {
-        $this->tablaProductos->listarNovedades();
+        $tipo = 'subtipo';
+        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
-        $productoArtista['total'] = $this->tablaProductos->numeroProductos();
+        $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
         $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }
     public function getFormato()
     {
-        $this->tablaProductos->listarNovedades();
+        $tipo = 'formato';
+        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
-        $productoArtista['total'] = $this->tablaProductos->numeroProductos();
+        $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
         $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }
     public function getEditorial()
     {
-        $this->tablaProductos->listarNovedades();
+        $tipo = 'editorial';
+        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
-        $productoArtista['total'] = $this->tablaProductos->numeroProductos();
+        $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
         $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }
     public function getColeccion()
     {
-        $this->tablaProductos->listarNovedades();
+        $tipo = 'coleccion';
+        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
-        $productoArtista['total'] = $this->tablaProductos->numeroProductos();
+        $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
         $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
