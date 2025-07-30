@@ -2,7 +2,7 @@
 
 .subnavegador {
     display: flex;
-    @include dimensiones(94vw, 2rem);
+    @include dimensiones(94vw, auto);
     justify-content: space-between;
     margin: 1rem auto;
     max-width: 3840px;
@@ -11,57 +11,13 @@
     .breadcrumb {
         height: 100%;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+
 
         a {
             text-decoration: none;
-            @include dimensiones(2rem, 2rem);
             display: block;
-
-            img {
-                @include dimensiones(auto, 100%);
-                aspect-ratio: 1/1;
-            }
-
-            .iconSvg {
-                @include dimensiones(100%, 100%);
-                fill: $fondoOscuro;
-            }
-
-            /*Para el svg de Novedades*/
-            .iconSvg .letras {
-                fill: $blancoFondo !important;
-            }
-
-            .iconSvg .fondo {
-                fill: $fondoOscuro !important;
-            }
-        }
-
-        img {
-            @include dimensiones(auto, 100%);
-            aspect-ratio: 1/1;
-        }
-
-        &.theme--dark {
-
-            .iconSvg {
-                fill: $blancoFondo;
-            }
-
-            .contorno {
-                stroke: $blancoFondo !important;
-            }
-            .fondo{
-                fill: $blancoFondo !important;
-            }
-            /*Para el svg de Novedades*/
-            .iconSvg .letras {
-                fill: $fondoOscuro !important;
-            }
-
-            .iconSvg .fondo {
-                fill: $blancoFondo !important;
-            }
         }
     }
 
@@ -75,9 +31,9 @@
             a {
                 cursor: pointer;
 
-                .iconSvg {
-                    @include dimensiones(100%, 100%);
-                }
+                // .iconSvg {
+                //     @include dimensiones(100%, 100%);
+                // }
             }
         }
     }
@@ -124,13 +80,8 @@
             a {
                 display: inline-block;
                 height: 1.5rem;
-
             }
 
-            img {
-                height: 1.5rem;
-                width: 1.5rem;
-            }
         }
 
         .translate {

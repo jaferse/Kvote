@@ -83,7 +83,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.Producto__info__caracteristicas__publicacion>.info').textContent = fecha;
     document.querySelector('.Producto__info__caracteristicas__publicacion').setAttribute('data-fecha', producto.anio_publicacion);
     document.querySelector('.Producto__info__caracteristicas__publicacion>.svgContainer').innerHTML += /*html*/
-        `<svg class="iconSvg iconCalendar" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        `<svg class="iconCalendar" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="fondo" d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>`;
 
@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     document.querySelector('.Producto__info__caracteristicas__tipo>.info').innerHTML =  `<a class="enlaceStyled" href="index.php?controller=Catalogo&action=categoria&parametro=${producto.tipo}">${dataLang[lang]['producto']['Tipo'][producto.tipo]}</a>`;
     document.querySelector('.Producto__info__caracteristicas__tipo>.svgContainer').innerHTML = /*html*/
-        `<svg class="iconSvg iconTipo" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        `<svg class="iconTipo" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11 3.99995C12.8839 2.91716 14.9355 2.15669 17.07 1.74995C17.551 1.63467 18.0523 1.63283 18.5341 1.74458C19.016 1.85632 19.4652 2.07852 19.8464 2.39375C20.2276 2.70897 20.5303 3.10856 20.7305 3.56086C20.9307 4.01316 21.0229 4.50585 21 4.99995V13.9999C20.9699 15.117 20.5666 16.1917 19.8542 17.0527C19.1419 17.9136 18.1617 18.5112 17.07 18.7499C14.9355 19.1567 12.8839 19.9172 11 20.9999" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M10.9995 3.99995C9.1156 2.91716 7.06409 2.15669 4.92957 1.74995C4.44856 1.63467 3.94731 1.63283 3.46546 1.74458C2.98362 1.85632 2.53439 2.07852 2.15321 2.39375C1.77203 2.70897 1.46933 3.10856 1.26911 3.56086C1.0689 4.01316 0.976598 4.50585 0.999521 4.99995V13.9999C1.0296 15.117 1.433 16.1917 2.14533 17.0527C2.85767 17.9136 3.83793 18.5112 4.92957 18.7499C7.06409 19.1567 9.1156 19.9172 10.9995 20.9999" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M11 21V4" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

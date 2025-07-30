@@ -112,12 +112,12 @@
 
                 .login {
                     // @include dimensiones(2rem, 2rem, 50%);
-                    .iconSvg {
-                        @include dimensiones(2.5rem, 2.5rem);
-                        path{
-                            fill: $fondoOscuro;
-                        }
-                    }
+                    // .iconSvg {
+                    //     @include dimensiones(2.5rem, 2.5rem);
+                    //     path{
+                    //         fill: $fondoOscuro;
+                    //     }
+                    // }
 
                     &:hover {
                         transform: scale(1.1);
@@ -125,17 +125,17 @@
 
                 }
                 &.theme--dark {
-                    .iconSvg {
-                        filter: invert(1);
-                    }
+                    // .iconSvg {
+                    //     filter: invert(1);
+                    // }
                 }
 
 
                 .logeado {
                     cursor: pointer;
-                    .iconSvg {
-                        @include dimensiones(2.5rem, 2.5rem);
-                    }
+                    // .iconSvg {
+                    //     @include dimensiones(2.5rem, 2.5rem);
+                    // }
                     &:hover {
                         transform: scale(1.1);
                     }

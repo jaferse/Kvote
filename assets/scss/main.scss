@@ -196,12 +196,43 @@ p {
         background-color: currentColor;
         transition: width 0.3s;
     }
-    
+
     &:hover {
         color: $rojo_primario--hover;
     }
-    
+
     &:hover::after {
         width: 100%;
     }
+}
+
+
+.iconSvg {
+    @include dimensiones(2rem, 2rem);
+    fill: $fondoOscuro;
+
+    .contorno {
+        stroke: $fondoOscuro !important;
+        fill: $fondoOscuro !important;
+    }
+
+    .fondo {
+        fill: $blancoFondo !important;
+        stroke: $blancoFondo !important;
+    }
+
+    &.theme--dark {
+        fill: $blancoFondo;
+        .contorno {
+            fill: $blancoFondo !important;
+            stroke: $blancoFondo !important;
+        }
+    
+        .fondo {
+            stroke: $fondoOscuro !important;
+            fill: $fondoOscuro !important;
+        }
+    }
+
+
 }

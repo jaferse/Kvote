@@ -181,4 +181,9 @@ function cambiarModo() {
         });
         
     }
+    if (document.querySelector('.iconSvg')) {
+        document.querySelectorAll('.iconSvg').forEach(svg => {
+                svg.classList.toggle('theme--dark');
+        });
+    }
 }

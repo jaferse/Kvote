@@ -132,29 +132,11 @@
 .header .nav__login .login .carro:hover {
   transform: scale(1.1);
 }
-.header .nav__login .login .login .iconSvg {
-  width: 2.5rem !important;
-  height: 2.5rem !important;
-  border-radius: 0px !important;
-  border: none !important;
-}
-.header .nav__login .login .login .iconSvg path {
-  fill: #000000;
-}
 .header .nav__login .login .login:hover {
   transform: scale(1.1);
 }
-.header .nav__login .login.theme--dark .iconSvg {
-  filter: invert(1);
-}
 .header .nav__login .login .logeado {
   cursor: pointer;
-}
-.header .nav__login .login .logeado .iconSvg {
-  width: 2.5rem !important;
-  height: 2.5rem !important;
-  border-radius: 0px !important;
-  border: none !important;
 }
 .header .nav__login .login .logeado:hover {
   transform: scale(1.1);
@@ -1469,7 +1451,7 @@
 .subnavegador {
   display: flex;
   width: 94vw !important;
-  height: 2rem !important;
+  height: auto !important;
   border-radius: 0px !important;
   border: none !important;
   justify-content: space-between;
@@ -1479,60 +1461,12 @@
 .subnavegador .breadcrumb {
   height: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .subnavegador .breadcrumb a {
   text-decoration: none;
-  width: 2rem !important;
-  height: 2rem !important;
-  border-radius: 0px !important;
-  border: none !important;
   display: block;
-  /*Para el svg de Novedades*/
-}
-.subnavegador .breadcrumb a img {
-  width: auto !important;
-  height: 100% !important;
-  border-radius: 0px !important;
-  border: none !important;
-  aspect-ratio: 1/1;
-}
-.subnavegador .breadcrumb a .iconSvg {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 0px !important;
-  border: none !important;
-  fill: #000000;
-}
-.subnavegador .breadcrumb a .iconSvg .letras {
-  fill: #ffffff !important;
-}
-.subnavegador .breadcrumb a .iconSvg .fondo {
-  fill: #000000 !important;
-}
-.subnavegador .breadcrumb img {
-  width: auto !important;
-  height: 100% !important;
-  border-radius: 0px !important;
-  border: none !important;
-  aspect-ratio: 1/1;
-}
-.subnavegador .breadcrumb.theme--dark {
-  /*Para el svg de Novedades*/
-}
-.subnavegador .breadcrumb.theme--dark .iconSvg {
-  fill: #ffffff;
-}
-.subnavegador .breadcrumb.theme--dark .contorno {
-  stroke: #ffffff !important;
-}
-.subnavegador .breadcrumb.theme--dark .fondo {
-  fill: #ffffff !important;
-}
-.subnavegador .breadcrumb.theme--dark .iconSvg .letras {
-  fill: #000000 !important;
-}
-.subnavegador .breadcrumb.theme--dark .iconSvg .fondo {
-  fill: #ffffff !important;
 }
 .subnavegador .translate {
   display: flex;
@@ -1541,12 +1475,6 @@
 }
 .subnavegador .translate li a {
   cursor: pointer;
-}
-.subnavegador .translate li a .iconSvg {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 0px !important;
-  border: none !important;
 }
 .subnavegador .darkMode {
   width: 2rem !important;
@@ -1599,10 +1527,6 @@
   .subnavegador .breadcrumb a {
     display: inline-block;
     height: 1.5rem;
-  }
-  .subnavegador .breadcrumb img {
-    height: 1.5rem;
-    width: 1.5rem;
   }
   .subnavegador .translate {
     display: flex;
@@ -3357,4 +3281,31 @@ p {
 }
 .enlaceStyled:hover::after {
   width: 100%;
+}
+
+.iconSvg {
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 0px !important;
+  border: none !important;
+  fill: #000000;
+}
+.iconSvg .contorno {
+  stroke: #000000 !important;
+  fill: #000000 !important;
+}
+.iconSvg .fondo {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+.iconSvg.theme--dark {
+  fill: #ffffff;
+}
+.iconSvg.theme--dark .contorno {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+.iconSvg.theme--dark .fondo {
+  stroke: #000000 !important;
+  fill: #000000 !important;
 }/*# sourceMappingURL=main.css.map */
