@@ -47,22 +47,10 @@ function cambiarModo() {
         header.classList.toggle('theme--dark');
     }
 
-    //Login
-    if (document.querySelector('.login')) {
-        let login = document.querySelector('.login');
-        login.classList.toggle('theme--dark');
-    }
-
     //Buscador
     if (document.querySelector('.search')) {
         let searchdark = document.querySelector('.search');
         searchdark.classList.toggle('theme--dark');
-    }
-
-    //Carro
-    if (document.querySelector('.carro')) {
-        let carroDark = document.querySelector('.carro');
-        carroDark.classList.toggle('theme--dark');
     }
 
     //Fondo del titulo
