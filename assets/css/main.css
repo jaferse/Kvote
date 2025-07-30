@@ -1522,6 +1522,12 @@
 .subnavegador .breadcrumb.theme--dark .iconSvg {
   fill: #ffffff;
 }
+.subnavegador .breadcrumb.theme--dark .contorno {
+  stroke: #ffffff !important;
+}
+.subnavegador .breadcrumb.theme--dark .fondo {
+  fill: #ffffff !important;
+}
 .subnavegador .breadcrumb.theme--dark .iconSvg .letras {
   fill: #000000 !important;
 }
@@ -3139,7 +3145,7 @@ body {
 }
 body.theme--Dark {
   background-image: none;
-  background-color: #000000;
+  background-color: #2c2727;
 }
 
 main {
@@ -3331,7 +3337,6 @@ p {
 
 .enlaceStyled {
   color: #B8001F;
-  /* azul moderno, cambia según tu paleta */
   text-decoration: none;
   position: relative;
   transition: color 0.3s;
@@ -3349,7 +3354,6 @@ p {
 }
 .enlaceStyled:hover {
   color: #9c001a;
-  /* un tono más oscuro del mismo color */
 }
 .enlaceStyled:hover::after {
   width: 100%;

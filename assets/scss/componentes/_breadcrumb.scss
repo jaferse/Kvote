@@ -48,6 +48,12 @@
                 fill: $blancoFondo;
             }
 
+            .contorno {
+                stroke: $blancoFondo !important;
+            }
+            .fondo{
+                fill: $blancoFondo !important;
+            }
             /*Para el svg de Novedades*/
             .iconSvg .letras {
                 fill: $fondoOscuro !important;
@@ -68,6 +74,7 @@
 
             a {
                 cursor: pointer;
+
                 .iconSvg {
                     @include dimensiones(100%, 100%);
                 }
@@ -117,6 +124,7 @@
             a {
                 display: inline-block;
                 height: 1.5rem;
+
             }
 
             img {
@@ -137,7 +145,6 @@
                     width: 2rem;
 
                     svg {
-
                         width: 2rem !important;
                         height: 2rem !important;
 

@@ -43,7 +43,7 @@ body {
 
     &.theme--Dark {
         background-image: none;
-        background-color: $fondoOscuro;
+        background-color: $fondoOscuro3;
     }
 }
 
@@ -181,11 +181,11 @@ p {
 
 .enlaceStyled {
     color: $rojo_primario;
-    /* azul moderno, cambia según tu paleta */
     text-decoration: none;
     position: relative;
     transition: color 0.3s;
     font-weight: 500;
+
     &::after {
         content: "";
         position: absolute;
@@ -199,7 +199,6 @@ p {
     
     &:hover {
         color: $rojo_primario--hover;
-        /* un tono más oscuro del mismo color */
     }
     
     &:hover::after {
