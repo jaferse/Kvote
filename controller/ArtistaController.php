@@ -46,9 +46,17 @@ class ArtistaController
         header('Content-Type: application/json');
         echo json_encode($respuesta);
     }
+    
+    public function obtenerAutorPorId()
+    {
+        $id=$_GET['parametro'];
+        $respuesta=$this->tabla->obtener($id);
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
+
     public function obtenerNumeroElementos(){
         $respuesta= $this->tabla->numeroArtistas();
-        // $respuesta = $this->tabla->numeroArtistas;
         header('Content-Type: application/json');
         echo json_encode($respuesta);
     }

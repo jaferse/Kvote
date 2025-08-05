@@ -30,13 +30,14 @@ let artistas
 let respuestaPaises
 let respuestaArtistas
 document.addEventListener('DOMContentLoaded', async () => {
-    ((localStorage.getItem('seccion') === 'artistasCRUD') ? page = localStorage.getItem('page') || 1 : page = 1);
     if (localStorage.getItem('seccion') === 'artistasCRUD') {
         page = localStorage.getItem('page') || 1;
     } else {
         page = 1;
     }
+
     localStorage.setItem('seccion', 'artistasCRUD');
+    localStorage.setItem('page', page);
     seccion = 'artistasCRUD';
     respuestaPaises = await fetch(`index.php?controller=Pais&action=listarPaises`);
     paises = await respuestaPaises.json();
@@ -44,81 +45,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     //listar artistas
     respuestaArtistas = await fetch(`index.php?controller=Artista&action=obtenerArtistas&page=${page}`)
     artistas = await respuestaArtistas.json();
-    // console.log(artistas);
 
     construirTabla();
 
-    construirPaginacionTablas(page,{controller:'Artista'});
+    construirPaginacionTablas(page, { controller: 'Artista', container: '#formArtista' });
 
 })
 
 function construirTabla() {
     let formularioCrudArtista = document.querySelector('#formArtista>table>.artistaCrud');
-    // console.log(formularioCrudArtista);
-    
-    // formularioCrudArtista.innerHTML += `
 
-    //                 <tr>
-    //                 <th>ID</th>
-    //                 <th>Nombre</th>
-    //                 <th>Primer Apellido</th>
-    //                 <th>Segundo Apellido</th>
-    //                 <th>Pais</th>
-    //                 <th>Fecha de Nacimiento</th>
-    //                 <th>Acción</th>
-    //             </tr>`;
-    // artistas.forEach(artista => {
-    //     // console.log(artista);
-    //     //Listar pais del artista
-    //     console.log("Foreach Artista: " +artista.id);
-    //     fetch(`index.php?controller=Pais&action=obtenerPais&parametro=${artista.pais}`)
-    //         .then(response => response.json())
-    //         .then(paisArtista => {
-    //             // console.log('paisArtista');
-    //             // console.log(paisArtista);
-    //             console.log("Foreach pais: " +artista.id);
-    //             //obtenemos los paises
-    //             formularioCrudArtista.innerHTML += `
-    //             <tr>
-    //                  <td>
-    //                  <input name='id_[${artista.id}]' type='text' value='${artista.id}' readonly>
-    //                  </td>
-
-    //                  <td>
-    //                  <input name='nombre_[${artista.id}]' type='text' value='${artista.nombre}'>
-    //                  </td>
-
-    //                  <td>
-    //                  <input name='apellido1_[${artista.id}]' type='text' value='${artista.apellido1}'>
-    //                  </td>
-
-    //                  <td>
-    //                  <input name='apellido2_[${artista.id}]' type='text' value='${artista.apellido2}'>
-    //                  </td>
-
-    //                  <td>
-    //                     <select name='pais_[${artista.id}]'>
-    //                         <option value='' disabled>Seleccione País</option>
-    //                         ${
-    //                         paises.map(pais=>
-    //                             `
-    //                             <option value='${pais.codigo_iso}'${((pais.codigo_iso == paisArtista.codigo_iso)? 'selected' :'')} >${pais.nombre}</option>
-    //                             `).join('')
-    //                         }
-    //                     </select>
-    //                  </td>
-
-    //                  <td>
-    //                  <input name='fecha_nacimiento_[${artista.id}]' type='date' value='${artista.fecha_nacimiento}'>
-    //                  </td>
-
-    //                  <td>
-    //                  <input type='checkbox' name='check[${artista.id}]'>
-    //                  </td>
-    //             </tr>
-    //            `
-    //         });
-    // })
     const filaPromises = artistas.map(artista => {
         return fetch(`index.php?controller=Pais&action=obtenerPais&parametro=${artista.pais}`)
             .then(response => response.json())
@@ -154,12 +90,12 @@ function construirTabla() {
 }
 async function construirPaginacionTablas(paginaActual, seccion) {
     // console.log("Pagina actual: "+paginaActual);
-    
+
     let listaPaginacion = document.createElement('div');
     (localStorage.getItem('darkMode') == 'dark') ?
         listaPaginacion.classList.add('paginacion', 'theme--dark')
         : listaPaginacion.classList.add('paginacion');
-// console.log(seccion.controller);
+    // console.log(seccion.controller);
 
     const respuestaArtistasPaginacion = await fetch(`index.php?controller=${seccion.controller}&action=obtenerNumeroElementos`);
     const numeroArtistas = await respuestaArtistasPaginacion.json();
@@ -168,7 +104,7 @@ async function construirPaginacionTablas(paginaActual, seccion) {
 
     let paginas = Math.ceil(numeroArtistas / artistasPorPagina);
     // console.log("Paginas: "+paginas);
-    
+
     for (let i = 1; i <= paginas; i++) {
         let a = document.createElement('a');
         a.textContent = i;
@@ -183,20 +119,19 @@ async function construirPaginacionTablas(paginaActual, seccion) {
     if (document.querySelector('.paginacion')) {
         document.querySelector('.paginacion').remove();
     }
-    document.querySelector('.mainAdmin').appendChild(listaPaginacion);
+    document.querySelector(seccion.container).appendChild(listaPaginacion);
 }
 
 document.addEventListener('click', async (e) => {
-    
-    if (e.target.tagName==='A') {
+
+    if (e.target.tagName === 'A') {
         // console.log(e.target.getAttribute('data-page'));
-        let numeroPagina=e.target.getAttribute('data-page');
+        let numeroPagina = e.target.getAttribute('data-page');
         localStorage.setItem('page', numeroPagina);
         respuestaArtistas = await fetch(`index.php?controller=Artista&action=obtenerArtistas&page=${numeroPagina}`);
         artistas = await respuestaArtistas.json();
         construirTabla();
-        construirPaginacionTablas(numeroPagina,{controller:'Artista'});
+        construirPaginacionTablas(numeroPagina, { controller: 'Artista', container: '#formArtista' });
     }
-
 
 });

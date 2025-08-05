@@ -2333,75 +2333,79 @@
   display: flex;
   flex-direction: column;
 }
+.mainAdmin.producto table {
+  min-width: 200rem;
+}
+.mainAdmin.artista table {
+  min-width: 100rem;
+}
 .mainAdmin table {
   border-collapse: collapse;
+  /* Estilo general para los inputs, selects y textareas */
+  /* Al enfocar */
+  /* Botón subir estilo */
+  /* Checkbox alineado al centro */
+  /* Alinear verticalmente el contenido */
+  /* Estilo para la imagen de portada */
+}
+.mainAdmin table input[type=text],
+.mainAdmin table input[type=number],
+.mainAdmin table input[type=date],
+.mainAdmin table input[type=file],
+.mainAdmin table textarea,
+.mainAdmin table select {
+  width: 100%;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #fdfdfd;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.mainAdmin table input:focus,
+.mainAdmin table select:focus,
+.mainAdmin table textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+.mainAdmin table .fileInputLabel {
+  display: inline-block;
+  background-color: #B8001F;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+.mainAdmin table .fileInputLabel:hover {
+  background-color: #9c001a;
+}
+.mainAdmin table input[type=checkbox] {
+  display: block;
+  margin: 0 auto;
+  transform: scale(1.2);
+}
+.mainAdmin table td {
+  vertical-align: middle;
+  padding: 8px;
+  border: 2px solid #000000;
+  text-align: center;
+}
+.mainAdmin table img {
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 .mainAdmin table th {
   border: 2px solid black;
   margin: auto 0;
 }
-.mainAdmin table td {
-  border: 2px solid #000000;
-  text-align: center;
-}
-.mainAdmin table td input {
-  width: 100%;
-  height: 100%;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: none;
-  background-color: #ffffff;
-  color: #000000;
-  font-size: 1.2rem;
-}
-.mainAdmin table td .fileInput {
+.mainAdmin table .fileInput {
   display: none;
-}
-.mainAdmin table td .fileInputLabel {
-  background-color: #B8001F !important;
-  color: #ffffff !important;
-  font-weight: bold !important;
-  margin: 0.5rem auto 2rem !important;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 5px !important;
-  border: 2px solid gray !important;
-  cursor: pointer !important;
-}
-.mainAdmin table td .fileInputLabel:hover {
-  transform: scale(1.05) !important;
-  background-color: hsl(350, 100%, 46%) !important;
-}
-.mainAdmin table .isbn {
-  width: 9rem;
-}
-.mainAdmin table .nombre,
-.mainAdmin table .colleccion {
-  width: 20rem;
-}
-.mainAdmin table .autor,
-.mainAdmin table .editorial {
-  width: 10rem;
-}
-.mainAdmin table .trabajo {
-  width: 5.5rem;
-}
-.mainAdmin table .numero,
-.mainAdmin table .paginas,
-.mainAdmin table .stock {
-  width: 3.8rem;
-}
-.mainAdmin table .tipo {
-  width: 6rem;
-}
-.mainAdmin table .formato {
-  width: 6rem;
-}
-.mainAdmin table .precio {
-  width: 5rem;
-}
-.mainAdmin table img {
-  margin: 0 auto;
 }
 
 .menu {

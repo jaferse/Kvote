@@ -11,76 +11,139 @@
         flex-direction: column;
     }
 
+    &.producto {
+        table {
+            min-width: 200rem;
+        }
+    }
+
+    &.artista {
+        table {
+            min-width: 100rem;
+        }
+    }
+
     table {
         border-collapse: collapse;
+
+        /* Estilo general para los inputs, selects y textareas */
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 6px 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            background-color: #fdfdfd;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        /* Al enfocar */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+            outline: none;
+        }
+
+        /* Botón subir estilo */
+        .fileInputLabel {
+            display: inline-block;
+            background-color: $rojo_primario;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .fileInputLabel:hover {
+            background-color: $rojo_primario--hover;
+        }
+
+        /* Checkbox alineado al centro */
+        input[type="checkbox"] {
+            display: block;
+            margin: 0 auto;
+            transform: scale(1.2);
+        }
+
+        /* Alinear verticalmente el contenido */
+        td {
+            vertical-align: middle;
+            padding: 8px;
+            border: 2px solid $negro_letra;
+            text-align: center;
+        }
+
+        /* Estilo para la imagen de portada */
+        img {
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
         th {
             border: 2px solid black;
             margin: auto 0;
         }
 
-        td {
-            border: 2px solid $negro_letra;
-            text-align: center;
-
-            input {
-                width: 100%;
-                height: 100%;
-                padding: 0.5rem;
-                border-radius: 5px;
-                border: none;
-                background-color: $blancoFondo;
-                color: $negro_letra;
-                font-size: 1.2rem;
-            }
-
-            .fileInput {
-                display: none;
-            }
-
-            .fileInputLabel {
-                // background-color: $rojo_primario;
-                @include button-style($rojo_primario, $boton_hover, $blancoFondo, $width: 100%, $height: 100%, $border-radius: 5px);
-            }
+        .fileInput {
+            display: none;
         }
 
-        .isbn {
-            width: 9rem;
-        }
 
-        .nombre,
-        .colleccion {
-            width: 20rem;
-        }
 
-        .autor,
-        .editorial {
-            width: 10rem;
-        }
+        // .isbn {
+        //     width: 15rem;
+        // }
 
-        .trabajo {
-            width: 5.5rem;
-        }
+        // .nombre,
+        // .colleccion {
+        //     width: 20rem;
+        // }
 
-        .numero,
-        .paginas,
-        .stock {
-            width: 3.8rem;
-        }
+        // .autor,
+        // .editorial {
+        //     width: 10rem;
+        // }
 
-        .tipo {
-            width: 6rem;
-        }
+        // .trabajo {
+        //     width: 5.5rem;
+        // }
 
-        .formato {
-            width: 6rem;
-        }
+        // .numero,
+        // .paginas,
+        // .stock {
+        //     width: 3.8rem;
+        // }
 
-        .precio {
-            width: 5rem;
-        }
+        // .tipo {
+        //     width: 6rem;
+        // }
 
-        img {
-            margin: 0 auto;
-        }
+        // .formato {
+        //     width: 6rem;
+        // }
+
+        // .precio {
+        //     width: 5rem;
+        // }
+
+        // img {
+        //     margin: 0 auto;
+        // }
+
+        // .portadaFile {
+        //     width: 11.5rem;
+        // }
     }
 }

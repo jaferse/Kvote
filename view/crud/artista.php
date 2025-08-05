@@ -34,7 +34,7 @@
             ?>
         </div>
     </nav>
-    <main class="mainAdmin">
+    <main class="mainAdmin artista">
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="formArtista" id="formArtista">
             <h1 class="titulo">Artista</h1>
             <table>

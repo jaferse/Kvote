@@ -39,6 +39,32 @@ class Daoproducto extends DB
             $this->productos[] = $prod; //Guardamos ese objeto en el array de objetos prod
         }
     }
+
+
+    public function listarPaginacion($paginaActual, $productosPagina)
+    {
+        $consulta = 'SELECT * FROM producto ORDER BY nombre ASC LIMIT  ' . ($paginaActual - 1) * $productosPagina . ',' . $productosPagina;
+        $this->consultaDatos($consulta);
+        foreach ($this->filas as $fila) {
+            $prod = new Producto(); //creamos un objeto de la entidad situacion
+            $prod->__set("isbn_13", $fila['isbn_13']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("portada", $fila['portada']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("coleccion", $fila['coleccion']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("numero", $fila['numero']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("tipo", $fila['tipo']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("formato", $fila['formato']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("paginas", $fila['paginas']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("subtipo", $fila['subtipo']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("editorial", $fila['editorial']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("anio_publicacion", $fila['anio_publicacion']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("sinopsis", $fila['sinopsis']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("precio", $fila['precio']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("stock", $fila['stock']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("ventas", $fila['ventas']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $this->productos[] = $prod; //Guardamos ese objeto en el array de objetos prod
+        }
+    }
     public function listarComic()
     {
         $consulta = 'SELECT * FROM producto WHERE 

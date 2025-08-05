@@ -7,6 +7,7 @@ class ProductoController
     private $tabla;
     private $tablaArtProd;
     private $tablaDetalleCompra;
+    public $productosPagina = 10;
     public function __construct()
     {
         $this->tabla = new Daoproducto(DDBB_NAME);
@@ -81,6 +82,15 @@ class ProductoController
     {
         $this->tabla->listar();
         return $this->tabla->productos;
+    }
+    public function obtenerProductosPaginado()
+    {
+        // $this->tabla->listar();
+        $this->tabla->listarPaginacion($_GET['page'], $this->productosPagina);
+        $respuesta = $this->tabla->productos;
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+        // return $this->tabla->productos;
     }
 
     public function eliminar()
@@ -161,13 +171,8 @@ class ProductoController
                         $this->tablaArtProd->actualizar($productoArtistaObjeto);
                     }
                     //Eliminamos el dato de la base de datos
-
                     $_SESSION['type'] = "exito";
                     $_SESSION['mensaje'] = "actualizado";
-                    // } else {
-                    //     $_SESSION['type'] = "warning";
-                    //     $_SESSION['mensaje'] = "comprasAsociadas";
-                    // }
                 }
             }
         } catch (\Throwable $th) {
@@ -185,11 +190,55 @@ class ProductoController
         }
     }
 
+    public function getArtista()
+    {
+        $isbn_13 = $_GET['parametro'];
+        $respuesta = $this->tablaArtProd->obtenerArtista_Producto($isbn_13);
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
     public function getBestSellers($tipo)
     {
-
         $this->tabla->getBestSellers($tipo);
         $productos = $this->tabla->productos;
         echo json_encode($productos);
+    }
+    public function obtenerNumeroElementos()
+    {
+        $respuesta = $this->tabla->numeroProductos();
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
+
+    public function elementosPorPagina()
+    {
+        header('Content-Type: application/json');
+        echo json_encode($this->productosPagina);
+    }
+
+    public function obtenerTrabajos()
+    {
+        $respuesta = $this->tablaArtProd->getEnum("trabajo");
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
+
+    public function listarTipos()
+    {
+        $respuesta = $this->tabla->getEnum("tipo");
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
+    public function listarFormatos()
+    {
+        $respuesta = $this->tabla->getEnum("formato");
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
+    public function listarGeneros()
+    {
+        $respuesta = $this->tabla->getEnum("subtipo");
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
     }
 }
