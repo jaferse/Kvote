@@ -1,51 +1,7 @@
 @use './variables' as *;
 
 .container {
-    .paginacion {
-        min-width: 46vw;
-        max-width: 96vw;
-        margin: 2rem auto;
-        gap: 1rem;
-        text-align: center;
-        background-color: $blancoFondo;
-        border-radius: 8px;
-        box-shadow: $box_shadow;
-        padding: 1rem;
 
-        a {
-            margin: auto 1rem;
-            text-decoration: none;
-            font-size: 1.5rem;
-            color: $negro_letra;
-            border-radius: 9px;
-            padding: 0.5rem;
-
-            &:hover {
-                color: $blanco_letra;
-                background-color: $boton_hoverPaginacion;
-            }
-        }
-
-        .active {
-            background-color: $rojo_primario;
-            color: $blanco_letra;
-        }
-        &.theme--dark {
-            background-color: $fondoOscuro;
-            color: $blanco_letra;
-    
-            a {
-                color: $blanco_letra;
-                &:hover {
-                    background-color: $buttonPrimarioHover--dark;
-                }
-            }
-    
-            .active {
-                background-color: $buttonPrimario--dark;
-            }
-        }
-    }
 
 
     .containerProductos {
@@ -70,6 +26,7 @@
             &__img {
                 margin-top: 1rem;
                 width: 80%;
+
                 img {
                     border-radius: $border-radius;
                     aspect-ratio: 3/4;
@@ -179,7 +136,8 @@
                 border: $border_main--dark;
                 background-color: $fondoOscuro2;
                 color: $blanco_letra;
-                .containerProductos__producto__info__autor{
+
+                .containerProductos__producto__info__autor {
                     color: $blanco_letra;
                 }
             }
@@ -208,4 +166,52 @@
         grid-template-columns: 1fr !important;
     }
 
+}
+
+.paginacion {
+    min-width: 46vw;
+    max-width: 96vw;
+    margin: 2rem auto;
+    gap: 1rem;
+    text-align: center;
+    background-color: $blancoFondo;
+    border-radius: 8px;
+    box-shadow: $box_shadow;
+    padding: 1rem;
+
+    a {
+        margin: auto 1rem;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: $negro_letra;
+        border-radius: 9px;
+        padding: 0.5rem;
+        cursor: pointer;
+        &:hover {
+            color: $blanco_letra;
+            background-color: $boton_hoverPaginacion;
+        }
+    }
+
+    .active {
+        background-color: $rojo_primario;
+        color: $blanco_letra;
+    }
+
+    &.theme--dark {
+        background-color: $fondoOscuro;
+        color: $blanco_letra;
+
+        a {
+            color: $blanco_letra;
+
+            &:hover {
+                background-color: $buttonPrimarioHover--dark;
+            }
+        }
+
+        .active {
+            background-color: $buttonPrimario--dark;
+        }
+    }
 }

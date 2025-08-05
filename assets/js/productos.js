@@ -141,10 +141,6 @@ async function sacarProductos(seccion, page = 1, parametro) {
     }
     const productos = await responseProductos.json();
     return productos;
-
-    //Novedades http://localhost/index.php?controller=Catalogo&action=getNovedades&page=2
-    // Autor 1: http://localhost/index.php?controller=Catalogo&action=getAutor&parametro=Joe-Abercrombie-&page=1
-    // Autor 2: http://localhost/index.php?controller=Catalogo&action=getAutor&page=2
 }
 
 
@@ -165,13 +161,8 @@ function construirPaginacion(productosRespuesta, seccion, paginaActual, parametr
         }
         a.classList.add('numeroPaginacion');
         a.setAttribute('data-page', i);
-        console.log(seccionMayuscula);
-
-        // a.setAttribute('href', `index.php?controller=Catalogo&action=${seccionMayuscula}${((parametro)?'&parametro='parametro}:'')}&page=${i}`);
         a.setAttribute('href', `index.php?controller=Catalogo&action=${seccionMayuscula}${(parametro ? `&parametro=${parametro}` : '')}&page=${i}`);
         listaPaginacion.appendChild(a);
-        // href="index.php?controller=Catalogo&action=Autor&parametro=Brandon-Sanderson-&page=2"
-        // href="index.php?controller=Catalogo&action=autor&parametro=Brandon-Sanderson-"
     }
     document.querySelector('.container').appendChild(listaPaginacion);
 }
@@ -189,10 +180,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     let paginaActual = 1;
 
     //Si no se ha recargado la pagina se mantiene la pagina actual
-    if (sessionStorage.getItem("seccion") === seccion) {
-        paginaActual = sessionStorage.getItem("paginaActual") || 1;
+    if (localStorage.getItem("seccion") === seccion) {
+        paginaActual = localStorage.getItem("paginaActual") || 1;
     }
-    sessionStorage.setItem("seccion", seccion);
+    localStorage.setItem("paginaActual", paginaActual);
+    localStorage.setItem("seccion", seccion);
 
     // Nos traemos el json de los textos de traducción
     const json = await cargarIdioma();
@@ -244,7 +236,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 parametro = parametros.get("parametro");
             }
             console.log(e.target.getAttribute('data-page'));
-            sessionStorage.setItem("paginaActual", e.target.getAttribute('data-page'));
+            localStorage.setItem("paginaActual", e.target.getAttribute('data-page'));
             e.target.parentNode.querySelectorAll('.active').forEach(element => {
                 element.classList.remove('active');
             })

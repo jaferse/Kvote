@@ -1,6 +1,6 @@
 <?php
 //class Artista
-class Artista
+class Artista implements JsonSerializable
 {
     private $id;
     private $nombre;
@@ -15,5 +15,17 @@ class Artista
     function __set($propiedad, $valor)
     {
         $this->$propiedad = $valor;
+    }
+
+     public function jsonSerialize(): mixed
+    {
+        return [
+            'id' => $this->id,
+            'nombre' => $this->nombre,
+            'apellido1' => $this->apellido1,
+            'apellido2' => $this->apellido2,
+            'pais' => $this->pais,
+            'fecha_nacimiento' => $this->fecha_nacimiento
+        ];
     }
 }

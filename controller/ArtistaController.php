@@ -3,6 +3,7 @@ require_once("./model/artista/ArtistaPDO.php");
 class ArtistaController
 {
     private $tabla;
+    public $artistasPagina=10;
     public function __construct()
     {
         $this->tabla = new Daoartista(DDBB_NAME);
@@ -38,11 +39,26 @@ class ArtistaController
         return $this->tabla->artistas;
     }
 
+    public function obtenerArtistas()
+    {
+        $this->tabla->listarPaginado($_GET['page'], $this->artistasPagina);
+        $respuesta = $this->tabla->artistas;
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
+    public function obtenerNumeroElementos(){
+        $respuesta= $this->tabla->numeroArtistas();
+        // $respuesta = $this->tabla->numeroArtistas;
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
+
     public function eliminar()
     {
         if (isset($_POST["check"])) {
             //Recorremos los valores del array $_POST["check"] y los mostramos
             foreach ($_POST["check"] as $key => $value) {
+                echo $key . "<br>";
                 //Eliminamos el dato de la base de datos
                 $this->tabla->borrar($key);
             }
@@ -75,4 +91,10 @@ class ArtistaController
             header("Location: index.php?controller=Artista&action=view&estado=0");
         }
     }
+
+    public function elementosPorPagina(){
+        header('Content-Type: application/json');
+        echo json_encode($this->artistasPagina);
+    }
+
 }

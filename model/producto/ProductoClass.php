@@ -25,24 +25,25 @@ class Producto implements JsonSerializable
     {
         $this->$propiedad = $valor;
     }
- // Método requerido por JsonSerializable
- public function jsonSerialize(): mixed {
-    return [
-        'isbn_13' => $this->isbn_13,
-        'portada' => $this->portada,
-        'nombre' => $this->nombre,
-        'coleccion' => $this->coleccion,
-        'numero' => $this->numero,
-        'tipo' => $this->tipo,
-        'formato' => $this->formato,
-        'paginas' => $this->paginas,
-        'subtipo' => $this->subtipo,
-        'editorial' => $this->editorial,
-        'anio_publicacion' => $this->anio_publicacion,
-        'sinopsis' => $this->sinopsis,
-        'precio' => $this->precio,
-        'stock' => $this->stock,
-        'ventas' => $this->ventas,
-    ];
-}
+    // Método requerido por JsonSerializable
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'isbn_13' => $this->isbn_13,
+            'portada' => $this->portada,
+            'nombre' => $this->nombre,
+            'coleccion' => $this->coleccion,
+            'numero' => $this->numero,
+            'tipo' => $this->tipo,
+            'formato' => $this->formato,
+            'paginas' => $this->paginas,
+            'subtipo' => $this->subtipo,
+            'editorial' => $this->editorial,
+            'anio_publicacion' => $this->anio_publicacion,
+            'sinopsis' => $this->sinopsis,
+            'precio' => $this->precio,
+            'stock' => $this->stock,
+            'ventas' => $this->ventas,
+        ];
+    }
 }

@@ -46,7 +46,7 @@ function cargarAccion($controllerObj, $action, $argumento = null)
 {
     $accion = $action;
     // echo "<br>Accion: " . $accion;
-    // echo "<br>Accion: " . $argumento;
+    // echo "<br>Argumento: " . $argumento;
     $controllerObj->$accion($argumento);
 }
 

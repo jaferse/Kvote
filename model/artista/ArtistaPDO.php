@@ -28,6 +28,29 @@ class Daoartista extends DB
             $this->artistas[] = $arti; //Guardamos ese objeto en el array de objetos arti
         }
     }
+
+        public function numeroArtistas()
+    {
+        $consulta = 'SELECT count(*) as total FROM artista';
+        $this->consultaDatos($consulta);
+        return $this->filas[0]['total'];
+    }
+
+    public function listarPaginado($paginaActual, $productosPagina)
+    {
+        $consulta = 'SELECT * FROM artista ORDER BY id ASC LIMIT  ' . ($paginaActual - 1) * $productosPagina . ',' . $productosPagina;
+        $this->consultaDatos($consulta);
+        foreach ($this->filas as $fila) {
+            $arti = new Artista(); //creamos un objeto de la entidad situacion
+            $arti->__set("id", $fila['id']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $arti->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $arti->__set("apellido1", $fila['apellido1']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $arti->__set("apellido2", $fila['apellido2']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $arti->__set("pais", $fila['pais']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $arti->__set("fecha_nacimiento", $fila['fecha_nacimiento']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $this->artistas[] = $arti; //Guardamos ese objeto en el array de objetos arti
+        }
+    }
     /**
      * Obtiene una situacion de la base de datos por su Id.
      *
@@ -111,6 +134,6 @@ class Daoartista extends DB
         $consulta = " SELECT `AUTO_INCREMENT` as idActual FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'kvote_db' AND TABLE_NAME = 'artista'";
         $this->consultaDatos($consulta);
 
-        return ($this->filas[0]['idActual']) + 1; //Devolvemos el id del artista
+        return ($this->filas[0]['idActual']); //Devolvemos el id del artista siguiente a asignar
     }
 }
