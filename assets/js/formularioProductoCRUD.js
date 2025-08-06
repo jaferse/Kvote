@@ -17,10 +17,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (localStorage.getItem("flash_msg")) {
         let jsonIdiomas = await cargarIdioma();
         let lang = localStorage.getItem("lang") || 'es';
-        let mensaje = JSON.parse(localStorage.getItem("flash_msg"));
-
-        await tooltip(jsonIdiomas[lang]['crudProducto'][mensaje.message], mensaje.type, document.querySelector('.mainAdmin'));
-        localStorage.removeItem("flash_msg");
+        if (JSON.parse(localStorage.getItem("flash_msg")) && JSON.parse(localStorage.getItem("flash_msg")).type !== '' && JSON.parse(localStorage.getItem("flash_msg")).message !== '') {
+            let mensaje = JSON.parse(localStorage.getItem("flash_msg"));
+            await tooltip(jsonIdiomas[lang]['crudProducto'][mensaje.message], mensaje.type, document.querySelector('.mainAdmin'));
+            localStorage.removeItem("flash_msg");
+        }
     }
 
     if (localStorage.getItem('seccion') === 'productoCRUD') {
@@ -169,8 +170,8 @@ function construirTabla() {
                      <img src='data:image/jpeg;base64,${producto.portada}' width='120px'>
                      </td>
                      <td>
-                     <input type='file' name='portadaFile_[${producto.isbn_13}]' class='fileInput' id='fileInput'>
-                     <label for='fileInput' class='fileInputLabel'>Subir</label>
+                     <input type='file' name='portadaFile_[${producto.isbn_13}]' class='fileInput' id='fileInput_${producto.isbn_13}'>
+                     <label for='fileInput_${producto.isbn_13}' class='fileInputLabel'>Subir</label>
                      </td>
                      <td>
                      <input class='nombre' name='nombre_[${producto.isbn_13}]' type='text' value='${producto.nombre}'>
