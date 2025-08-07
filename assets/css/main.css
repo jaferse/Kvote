@@ -2407,6 +2407,23 @@
 .mainAdmin table .fileInput {
   display: none;
 }
+.mainAdmin.theme--dark {
+  color: #FCFAEE;
+  border-color: #ffffff;
+}
+.mainAdmin.theme--dark td, .mainAdmin.theme--dark th {
+  border: 2px solid #ffffff;
+}
+.mainAdmin.theme--dark input[type=text],
+.mainAdmin.theme--dark input[type=number],
+.mainAdmin.theme--dark input[type=date],
+.mainAdmin.theme--dark input[type=file],
+.mainAdmin.theme--dark textarea,
+.mainAdmin.theme--dark select {
+  background-color: #404040;
+  color: #FCFAEE;
+  border: 1px solid #ffffff;
+}
 
 .menu {
   position: absolute;
@@ -3294,24 +3311,36 @@ p {
   height: 2rem !important;
   border-radius: 0px !important;
   border: none !important;
-  fill: #000000;
 }
-.iconSvg .contorno {
+
+.contorno--stroke {
   stroke: #000000 !important;
+}
+
+.contorno--fill {
   fill: #000000 !important;
 }
-.iconSvg .fondo {
+
+.fondo--fill {
   fill: #ffffff !important;
+}
+
+.fondo--stroke {
   stroke: #ffffff !important;
 }
-.iconSvg.theme--dark {
+
+.theme--dark {
   fill: #ffffff;
 }
-.iconSvg.theme--dark .contorno {
-  fill: #ffffff !important;
+.theme--dark .contorno--stroke {
   stroke: #ffffff !important;
 }
-.iconSvg.theme--dark .fondo {
+.theme--dark .contorno--fill {
+  fill: #ffffff !important;
+}
+.theme--dark .fondo--stroke {
   stroke: #000000 !important;
+}
+.theme--dark .fondo--fill {
   fill: #000000 !important;
 }/*# sourceMappingURL=main.css.map */

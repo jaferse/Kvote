@@ -99,51 +99,23 @@
         .fileInput {
             display: none;
         }
+    }
 
-
-
-        // .isbn {
-        //     width: 15rem;
-        // }
-
-        // .nombre,
-        // .colleccion {
-        //     width: 20rem;
-        // }
-
-        // .autor,
-        // .editorial {
-        //     width: 10rem;
-        // }
-
-        // .trabajo {
-        //     width: 5.5rem;
-        // }
-
-        // .numero,
-        // .paginas,
-        // .stock {
-        //     width: 3.8rem;
-        // }
-
-        // .tipo {
-        //     width: 6rem;
-        // }
-
-        // .formato {
-        //     width: 6rem;
-        // }
-
-        // .precio {
-        //     width: 5rem;
-        // }
-
-        // img {
-        //     margin: 0 auto;
-        // }
-
-        // .portadaFile {
-        //     width: 11.5rem;
-        // }
+    &.theme--dark {
+        color: $blanco_letra;
+        border-color: $blancoFondo;
+        td,th {
+            border: 2px solid $blancoFondo;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="file"],
+        textarea,
+        select {
+            background-color: $inputFondo;
+            color: $blanco_letra;
+            border: 1px solid $blancoFondo;
+        }
     }
 }

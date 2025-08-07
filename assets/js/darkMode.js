@@ -174,4 +174,7 @@ function cambiarModo() {
                 svg.classList.toggle('theme--dark');
         });
     }
+    if (document.querySelector('.mainAdmin')) {
+        document.querySelector('.mainAdmin').classList.toggle('theme--dark');
+    }
 }

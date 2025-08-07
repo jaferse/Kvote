@@ -15,6 +15,7 @@ let respuestaProductos
 let productos;
 let lang;
 let jsonIdiomas;
+let themeDark = localStorage.getItem('darkMode') || 'light';
 
 document.addEventListener('DOMContentLoaded', async () => {
     if (localStorage.getItem("flash_msg")) {
@@ -275,8 +276,8 @@ function construirTabla() {
     </tbody>
     </table>
         <div>
-            <input type="submit" value="${jsonIdiomas[lang]['mainAdmin']['botones']['eliminar']}" class="btn btnTerciario lang" name="eliminarProducto" data-lang="eliminar">
-            <input type="submit" value="${jsonIdiomas[lang]['mainAdmin']['botones']['actualizar']}" class="btn btnPrimario lang" name="actualizarProducto" data-lang="actualizar">
+            <input type="submit" value="${jsonIdiomas[lang]['mainAdmin']['botones']['eliminar']}" class="btn btnTerciario lang theme--${themeDark}" name="eliminarProducto" data-lang="eliminar">
+            <input type="submit" value="${jsonIdiomas[lang]['mainAdmin']['botones']['actualizar']}" class="btn btnPrimario lang theme--${themeDark}" name="actualizarProducto" data-lang="actualizar">
         </div>
     `;
 

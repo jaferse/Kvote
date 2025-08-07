@@ -209,30 +209,39 @@ p {
 
 .iconSvg {
     @include dimensiones(2rem, 2rem);
-    fill: $fondoOscuro;
+}
+.contorno--stroke {
+    stroke: $fondoOscuro !important;
+}
 
-    .contorno {
-        stroke: $fondoOscuro !important;
-        fill: $fondoOscuro !important;
-    }
+.contorno--fill {
+    fill: $fondoOscuro !important;
+}
 
-    .fondo {
-        fill: $blancoFondo !important;
+.fondo--fill {
+    fill: $blancoFondo !important;
+}
+
+.fondo--stroke {
+    stroke: $blancoFondo !important;
+}
+
+.theme--dark {
+    fill: $blancoFondo;
+
+    .contorno--stroke {
         stroke: $blancoFondo !important;
     }
 
-    &.theme--dark {
-        fill: $blancoFondo;
-        .contorno {
-            fill: $blancoFondo !important;
-            stroke: $blancoFondo !important;
-        }
-    
-        .fondo {
-            stroke: $fondoOscuro !important;
-            fill: $fondoOscuro !important;
-        }
+    .contorno--fill {
+        fill: $blancoFondo !important;
     }
 
+    .fondo--stroke {
+        stroke: $fondoOscuro !important;
+    }
 
+    .fondo--fill {
+        fill: $fondoOscuro !important;
+    }
 }
