@@ -68,14 +68,14 @@ p {
     text-align: center;
     vertical-align: middle;
 
-    &:disabled {
-        background-color: gray !important;
+    &:disabled, &.disabled.theme--dark {
         cursor: not-allowed !important;
         color: $negro_letra !important;
         background: $grayDisabled !important;
         border: $border_black;
 
         &:hover {
+            background-color: $grayDisabled !important;
             transform: none !important;
         }
     }
@@ -180,7 +180,7 @@ p {
 }
 
 .enlaceStyled {
-    color: $rojo_primario;
+    color: $enlaceColor;
     text-decoration: none;
     position: relative;
     transition: color 0.3s;
@@ -198,11 +198,15 @@ p {
     }
 
     &:hover {
-        color: $rojo_primario--hover;
+        color: $enlaceColorHover;
     }
 
     &:hover::after {
         width: 100%;
+    }
+
+    &.theme--dark {
+        color: $enlaceColor--dark;
     }
 }
 

@@ -75,6 +75,12 @@ $buttonTerciarioHover--dark: #9c001a;
 /*Botón desactivado*/
 $grayDisabled: #b9b9b9;
 
+/*Enlaces colores*/
+$enlaceColor: $rojo_primario;
+$enlaceColorHover: $rojo_primario--hover;
+$enlaceColor--dark: #ff617b;
+$enlaceColorHover--dark: #9c001a;
+
 @mixin cargarImagen($url, $size: cover) {
   background-image: url($url);
   background-position: center;

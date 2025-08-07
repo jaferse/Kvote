@@ -135,30 +135,30 @@ function cambiarModo() {
     }
 
     //Cesta
-    if(document.querySelector('.containerCesta')) {
+    if (document.querySelector('.containerCesta')) {
         document.querySelector('.containerCesta').classList.toggle('theme--dark');
         ;
     }
 
     //whislist
-    if(document.querySelector('.containerProductosWishList')) {
+    if (document.querySelector('.containerProductosWishList')) {
         document.querySelector('.containerProductosWishList').classList.toggle('theme--dark');
     }
 
-    if(document.querySelector('.enlaceBotonSmall')) {
+    if (document.querySelector('.enlaceBotonSmall')) {
         document.querySelectorAll('.enlaceBotonSmall').forEach(btn => {
             btn.classList.toggle('theme--dark');
         })
     }
 
-    if(document.querySelector('select')){
+    if (document.querySelector('select')) {
         document.querySelectorAll('select').forEach(select => {
             select.classList.toggle('theme--dark');
         })
     }
     if (document.querySelector('.progress-container')) {
         document.querySelector('.progress-container').classList.toggle('theme--dark');
-        
+
     }
 
     if (document.querySelector('.perfilContainer .theme--dark')) {
@@ -167,14 +167,20 @@ function cambiarModo() {
                 input.classList.toggle('theme--dark');
             })
         });
-        
+
     }
     if (document.querySelector('.iconSvg')) {
         document.querySelectorAll('.iconSvg').forEach(svg => {
-                svg.classList.toggle('theme--dark');
+            svg.classList.toggle('theme--dark');
         });
     }
     if (document.querySelector('.mainAdmin')) {
         document.querySelector('.mainAdmin').classList.toggle('theme--dark');
+    }
+
+    if (document.querySelector('.enlaceStyled')) {
+        document.querySelectorAll('.enlaceStyled').forEach(enlace => {
+            enlace.classList.toggle('theme--dark');
+        });
     }
 }

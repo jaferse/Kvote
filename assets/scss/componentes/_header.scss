@@ -122,40 +122,32 @@
                     &:hover {
                         transform: scale(1.1);
                     }
+                }                
+            }
+            .search {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                label {
+                    display: inline-block;
+                    @include dimensiones(1.5rem, 1.5rem);
+                    cursor: pointer;
+                    margin-right: 0.9rem;
                 }
 
 
-                .search {
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
+                input {
+                    background-color: white;
+                    border-radius: 0.438rem;
 
-                    label {
-                        display: inline-block;
-                        @include dimensiones(1.5rem, 1.5rem);
-                        cursor: pointer;
-                        @include cargarImagen("./../img/lupa.svg");
+                    &::placeholder {
+                        color: black;
                     }
 
-
-                    input {
-                        background-color: white;
-                        border-radius: 0.438rem;
-
-                        &::placeholder {
-                            color: black;
-                        }
-
-                        &:focus {
-                            background-color: $blanco_letra;
-                        }
-                    }
-                }
-
-                .search.theme--dark {
-                    label {
-                        background-image: url("./../img/lupa--dark.svg");
+                    &:focus {
+                        background-color: $blanco_letra;
                     }
                 }
             }
