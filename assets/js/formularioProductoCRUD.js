@@ -13,6 +13,9 @@ let respuestaSubtipos;
 let subtipos;
 let respuestaProductos
 let productos;
+let lang;
+let jsonIdiomas;
+
 document.addEventListener('DOMContentLoaded', async () => {
     if (localStorage.getItem("flash_msg")) {
         let jsonIdiomas = await cargarIdioma();
@@ -23,13 +26,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             localStorage.removeItem("flash_msg");
         }
     }
-
-    if (localStorage.getItem('seccion') === 'productoCRUD') {
-        page = localStorage.getItem('page') || 1;
-    } else {
-        page = 1;
+    if (localStorage.getItem('lang') === 'es' || localStorage.getItem('lang') === 'en' || localStorage.getItem('lang') === 'ja') {
+        lang = localStorage.getItem('lang');
+        // actualizarTexto(await cargarIdioma(), lang);
     }
-    console.log('Pagina: '+page);
+    jsonIdiomas = await cargarIdioma();
+
+    page = 1;
+    if (localStorage.getItem('seccion') === 'productoCRUD') {
+        const p = parseInt(localStorage.getItem('page'), 10);
+        if (Number.isInteger(p) && p > 0) page = p;
+    }
+    console.log('Pagina: ' + page);
     localStorage.setItem('seccion', 'productoCRUD');
     localStorage.setItem('page', page);
     seccion = 'productoCRUD';
@@ -129,24 +137,24 @@ function construirTabla() {
         <table>
                 <thead>
                     <tr>
-                        <th scope="col">ISBN_13</th>
-                        <th scope="col">Portada </th>
-                        <th scope="col">Nueva Portada</th>
-                        <th scope="col">Nombre </th>
-                        <th scope="col">Autor </th>
-                        <th scope="col">Trabajo</th>
-                        <th scope="col">Coleccion </th>
-                        <th scope="col">Numero</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Formato</th>
-                        <th scope="col">Páginas</th>
-                        <th scope="col">Género</th>
-                        <th scope="col">Editorial</th>
-                        <th scope="col">Año Publicación</th>
-                        <th scope="col">Sinopsis</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Acción</th>
+                        <th class="lang" data-lang="ISBN_13" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['ISBN_13']}</th>
+                        <th class="lang" data-lang="Portada" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Portada']}</th>
+                        <th class="lang" data-lang="Nueva Portada" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Nueva Portada']}</th>
+                        <th class="lang" data-lang="Nombre" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Nombre']}</th>
+                        <th class="lang" data-lang="Autor" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Autor']}</th>
+                        <th class="lang" data-lang="Trabajo" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Trabajo']}</th>
+                        <th class="lang" data-lang="Coleccion" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Coleccion']}</th>
+                        <th class="lang" data-lang="Numero" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Numero']}</th>
+                        <th class="lang" data-lang="Tipo" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Tipo']}</th>
+                        <th class="lang" data-lang="Formato" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Formato']}</th>
+                        <th class="lang" data-lang="Páginas" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Páginas']}</th>
+                        <th class="lang" data-lang="Género" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Género']}</th>
+                        <th class="lang" data-lang="Editorial" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Editorial']}</th>
+                        <th class="lang" data-lang="Año Publicación" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Año Publicación']}</th>
+                        <th class="lang" data-lang="Sinopsis" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Sinopsis']}</th>
+                        <th class="lang" data-lang="Precio" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Precio']}</th>
+                        <th class="lang" data-lang="Stock" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Stock']}</th>
+                        <th class="lang" data-lang="Acción" scope="col">${jsonIdiomas[lang]['mainAdmin']['producto']['th']['Acción']}</th>
                     </tr>
                 </thead>
                 
@@ -171,7 +179,7 @@ function construirTabla() {
                      </td>
                      <td>
                      <input type='file' name='portadaFile_[${producto.isbn_13}]' class='fileInput' id='fileInput_${producto.isbn_13}'>
-                     <label for='fileInput_${producto.isbn_13}' class='fileInputLabel'>Subir</label>
+                     <label for='fileInput_${producto.isbn_13}' class='fileInputLabel' class='lang' data-lang='subir'>${jsonIdiomas[lang]['mainAdmin']['botones']['subir']}</label>
                      </td>
                      <td>
                      <input class='nombre' name='nombre_[${producto.isbn_13}]' type='text' value='${producto.nombre}'>
@@ -182,10 +190,10 @@ function construirTabla() {
                      </td>
                      <td>
                      <select class='trabajo' name='trabajo_[${producto.isbn_13}]' id=''>
-                     <option value='' disabled selected>Seleccione Trabajo</option>
+                     <option value='' disabled selected class='lang' data-lang='seleccione'>${jsonIdiomas[lang]['mainAdmin']['producto']['trabajos']['seleccione']}</option>
                      ${trabajos.map(trabajo => {
                             return `
-                         <option value='${trabajo}' ${((trabajo == artistaProducto.trabajo) ? 'selected' : '')}>${trabajo}</option>
+                         <option  class='lang' data-lang='${trabajo}' value='${trabajo}' ${((trabajo == artistaProducto.trabajo) ? 'selected' : '')}>${jsonIdiomas[lang]['mainAdmin']['producto']['trabajos'][trabajo]}</option>
                          `
                         })}
                        </select>
@@ -198,11 +206,11 @@ function construirTabla() {
                      </td>
                      <td>
                      <select class='tipo' name='tipo_[${producto.isbn_13}]' id=''>
-                     <option value='' disabled selected>Seleccione Formato</option>
+                     <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Tipo']['seleccione']}</option>
 
                     ${tipos.map(tipo => {
                             return `
-                         <option value='${tipo}' ${((tipo == producto.tipo) ? 'selected' : '')}>${tipo}</option>
+                         <option class='lang' data-lang='${tipo}' value='${tipo}' ${((tipo == producto.tipo) ? 'selected' : '')}>${jsonIdiomas[lang]['producto']['Tipo'][tipo]}</option>
                          `
                         })}
 
@@ -210,11 +218,11 @@ function construirTabla() {
                      </td>
                      <td>
                      <select class='formato' name='formato_[${producto.isbn_13}]' id=''>
-                     <option value='' disabled selected>Seleccione Formato</option>
+                     <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Formato']['seleccione']}</option>
 
                     ${formatos.map(formato => {
                             return `
-                         <option value='${formato}' ${((formato == producto.formato) ? 'selected' : '')}>${formato}</option>
+                         <option data-lang='${formato}' class='lang' value='${formato}' ${((formato == producto.formato) ? 'selected' : '')}>${jsonIdiomas[lang]['producto']['Formato'][formato]}</option>
                          `
                         })}
 
@@ -225,11 +233,11 @@ function construirTabla() {
                      </td>
                      <td>
                      <select class='subtipo' name='subtipo_[${producto.isbn_13}]' id=''>
-                     <option value='' disabled selected>Seleccione Género</option>
+                     <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Subtipo']['seleccione']}</option>
 
                     ${subtipos.map(subtipo => {
                             return `
-                         <option value='${subtipo}' ${((subtipo == producto.subtipo) ? 'selected' : '')}>${subtipo}</option>
+                         <option data-lang='${subtipo}' class='lang' value='${subtipo}' ${((subtipo == producto.subtipo) ? 'selected' : '')}>${jsonIdiomas[lang]['producto']['Subtipo'][subtipo]}</option>
                          `
                         })}
 
@@ -267,8 +275,8 @@ function construirTabla() {
     </tbody>
     </table>
         <div>
-            <input type="submit" value="Eliminar" class="btn btnTerciario" name="eliminarProducto">
-            <input type="submit" value="Actualizar" class="btn btnPrimario" name="actualizarProducto">
+            <input type="submit" value="${jsonIdiomas[lang]['mainAdmin']['botones']['eliminar']}" class="btn btnTerciario lang" name="eliminarProducto" data-lang="eliminar">
+            <input type="submit" value="${jsonIdiomas[lang]['mainAdmin']['botones']['actualizar']}" class="btn btnPrimario lang" name="actualizarProducto" data-lang="actualizar">
         </div>
     `;
 

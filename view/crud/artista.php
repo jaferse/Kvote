@@ -36,17 +36,17 @@
     </nav>
     <main class="mainAdmin artista">
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="formArtista" id="formArtista">
-            <h1 class="titulo">Artista</h1>
+            <h1 class="titulo" class="lang" data-lang="title">Artista</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Primer Apellido</th>
-                        <th>Segundo Apellido</th>
-                        <th>Pais</th>
-                        <th>Fecha de Nacimiento</th>
-                        <th>Acción</th>
+                        <th class="lang" data-lang="id">ID</th>
+                        <th class="lang" data-lang="nombre">Nombre</th>
+                        <th class="lang" data-lang="apellido1">Primer Apellido</th>
+                        <th class="lang" data-lang="apellido2">Segundo Apellido</th>
+                        <th class="lang" data-lang="pais">Pais</th>
+                        <th class="lang" data-lang="nacimientoFecha">Fecha de Nacimiento</th>
+                        <th class="lang" data-lang="accion">Acción</th>
                     </tr>
                 </thead>
                 <tbody class="artistaCrud">
@@ -72,7 +72,7 @@
                         <td><input name="apellido1" type="text"></td>
                         <td><input name="apellido2" type="text"></td>
                         <td><select name="pais" id="">
-                                <option value="" disabled selected>Seleccione País</option>
+                                <option class="lang" data-lang="Seleccione" value="" disabled selected>Seleccione País</option>
                                 <?php
                                 foreach ($tablaPais->paiss as $key => $value) {
                                     echo "<option value='" . $value->__get("codigo_iso") . "'>" . $value->__get("nombre") . "</option>";
@@ -81,14 +81,14 @@
                             </select></td>
                         <td><input name="fecha_nacimiento" type="date"></td>
                         <td>
-                            <input type="submit" value="Nuevo" class="btn btnPrimario" name="nuevoArtista">
+                            <input type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoArtista" data-lang="nuevo">
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div>
-                <input type="submit" value="Eliminar" class="btn btnTerciario" name="eliminarArtista">
-                <input type="submit" value="Actualizar" class="btn btnPrimario" name="actualizarArtista">
+                <input type="submit" value="Eliminar" class="btn btnTerciario lang" name="eliminarArtista" data-lang="eliminar">
+                <input type="submit" value="Actualizar" class="btn btnPrimario lang" name="actualizarArtista" data-lang="actualizar">
             </div>
         </form>
     </main>
@@ -114,7 +114,7 @@
     <script src="./assets/js/darkMode.js"></script>
     <script src="./assets/js/search.js"></script>
     <script src="./assets/js/hamburguer.js"></script>
-    <script src="./assets/js/cambioActionArtista.js"></script>
+    <script type="module" src="./assets/js/cambioActionArtista.js"></script>
 
 </body>
 

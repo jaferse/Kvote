@@ -186,23 +186,23 @@
             <table class="tab">
                 <thead>
                     <tr>
-                        <th scope="col">ISBN_13</th>
-                        <th scope="col" colspan="2">Portada </th>
-                        <th scope="col">Nombre </th>
-                        <th scope="col">Autor </th>
-                        <th scope="col">Trabajo</th>
-                        <th scope="col">Coleccion </th>
-                        <th scope="col">Numero</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Formato</th>
-                        <th scope="col">Páginas</th>
-                        <th scope="col">Género</th>
-                        <th scope="col">Editorial</th>
-                        <th scope="col">Año Publicación</th>
-                        <th scope="col">Sinopsis</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Acción</th>
+                        <th scope="col" class="lang" data-lang="ISBN_13">ISBN_13</th>
+                        <th scope="col" class="lang" data-lang="Portada" colspan="2">Portada</th>
+                        <th scope="col" class="lang" data-lang="Nombre">Nombre</th>
+                        <th scope="col" class="lang" data-lang="Autor">Autor</th>
+                        <th scope="col" class="lang" data-lang="Trabajo">Trabajo</th>
+                        <th scope="col" class="lang" data-lang="Coleccion">Coleccion</th>
+                        <th scope="col" class="lang" data-lang="Numero">Numero</th>
+                        <th scope="col" class="lang" data-lang="Tipo">Tipo</th>
+                        <th scope="col" class="lang" data-lang="Formato">Formato</th>
+                        <th scope="col" class="lang" data-lang="Páginas">Páginas</th>
+                        <th scope="col" class="lang" data-lang="Género">Género</th>
+                        <th scope="col" class="lang" data-lang="Editorial">Editorial</th>
+                        <th scope="col" class="lang" data-lang="Año Publicación">Año Publicación</th>
+                        <th scope="col" class="lang" data-lang="Sinopsis">Sinopsis</th>
+                        <th scope="col" class="lang" data-lang="Precio">Precio</th>
+                        <th scope="col" class="lang" data-lang="Stock">Stock</th>
+                        <th scope="col" class="lang" data-lang="Acción">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -228,10 +228,10 @@
                     </td>
                     <td>
                         <select class="trabajo" name="trabajo" id="" required class="trabajo">
-                            <option value="" disabled selected>Trabajo</option>
+                            <option class="lang" value="" disabled selected class='lang' data-lang='seleccione'>Trabajo</option>
                             <?php
                             foreach ($tablaArtista_Producto->getEnum("trabajo") as $key => $value) {
-                                echo "<option value='" . $value . "'>" . $value . "</option>";
+                                echo "<option class='lang' data-lang='".$value."' value='" . $value . "'>" . $value . "</option>";
                             }
                             ?>
                         </select>
@@ -240,32 +240,31 @@
                     <td><input name="numero" type="number" required class="numero"></td>
                     <td>
                         <select class="tipo" name="tipo" id="" required class="tipo">
-                            <option value="" disabled selected>Seleccione Tipo</option>
+                            <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Tipo</option>
                             <?php
                             foreach ($tablaProducto->getEnum("tipo") as $key => $value) {
-                                echo "<option value='" . $value . "'>" . $value . "</option>";
+                                echo "<option class='lang' data-lang='".$value."' value='" . $value . "'>" . $value . "</option>";
                             }
                             ?>
                         </select>
                     </td>
                     <td>
                         <select class="formato" name="formato" id="" required class="formato">
-                            <option value="" disabled selected>Seleccione Formato</option>
+                            <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Formato</option>
                             <?php
                             foreach ($tablaProducto->getEnum("formato") as $key => $value) {
-                                echo "<option value='" . $value . "'>" . $value . "</option>";
+                                echo "<option class='lang' data-lang='".$value."' value='" . $value . "'>" . $value . "</option>";
                             }
                             ?>
                         </select>
-                        <!-- <input name="formato" type="text"> -->
                     </td>
                     <td><input name="paginas" type="number" required class="paginas"></td>
                     <td>
                         <select class="subtipo" name="subtipo" required class="subtipo">;
-                            <option value='' disabled selected>Seleccione Género</option>;
+                            <option class="lang" data-lang="seleccione" value='' disabled selected>Seleccione Género</option>;
                             <?php
                             foreach ($tablaProducto->getEnum("subtipo") as $key => $valor) {
-                                echo "<option value='" . $valor . "'"
+                                echo "<option class='lang' data-lang='".$valor."' value='" . $valor . "'"
                                     . ($valor == $value->subtipo ? 'selected' : '') .
                                     ">" . $valor . "</option>";
                             }
@@ -281,7 +280,7 @@
                     <td><input class="stock" name="stock" type="number" required class="stock"></td>
                     </select></td>
                     <td>
-                        <input type="submit" value="Nuevo" class="btn btnPrimario" name="nuevoProducto">
+                        <input type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoProducto" data-lang="nuevo">
                     </td>
                     </tr>
                 </tbody>

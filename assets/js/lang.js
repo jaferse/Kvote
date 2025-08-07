@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!localStorage.getItem("lang")) {
             localStorage.setItem("lang", "es");
         }
-        // console.log(lang);
         //Si hay local storage le asignamos el idioma que haya
         let lang = localStorage.getItem("lang");
         actualizarTexto(json, lang);
@@ -16,10 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelectorAll(".translate").forEach(button => {
             let lang;
             button.addEventListener("click", function (e) {
-                // console.log(e.target.classList);
                 //Alguna clase padre tiene la clase es
                 if (e.target.closest(".es")) {
-                    
+
                     lang = "es"; // Obtener el idioma del botón
                     this.classList.add("es");
                     this.classList.remove("en", "ja");
@@ -28,13 +26,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                     lang = "en"; // Obtener el idioma del botón
                     this.classList.add("en");
                     this.classList.remove("es", "ja");
-                    
+
                 }
                 if (e.target.closest(".ja")) {
                     lang = "ja"; // Obtener el idioma del botón
                     this.classList.add("ja");
                     this.classList.remove("es", "es");
-                    
+
                 }
                 localStorage.setItem("lang", lang);
                 lang = localStorage.getItem("lang");
@@ -100,7 +98,6 @@ function actualizarTexto(json, lang) {
      */
 
     if (document.querySelector('.containerProductosWishList')) {
-        // console.log( document.querySelector('.containerProductosWishList .lang').textContent);
         let nombre = document.querySelector('.containerProductosWishList span');
         document.querySelector('.containerProductosWishList .lang').textContent = json[lang]["wishList"]["titulo"];
         document.querySelector('.containerProductosWishList .lang').appendChild(nombre);
@@ -117,9 +114,7 @@ function actualizarTexto(json, lang) {
      */
     if (document.querySelector('.containerCesta')) {
         document.querySelectorAll('.containerCesta .lang').forEach(element => {
-            // console.log(element);
             let data_lang = element.getAttribute('data-lang');
-            // console.log(data_lang);
             element.textContent = json[lang]["carrito"][data_lang];
         });
     }
@@ -194,7 +189,6 @@ function actualizarTexto(json, lang) {
      */
 
     document.querySelectorAll('.containerProductos__producto>.containerProductos__producto__info').forEach(element => {
-        console.log(element);
         let botonVermas = element.querySelector('.verMas')
 
         botonVermas.textContent = (botonVermas.classList.contains('active')) ? json[lang]["producto"]["ocultar"] : json[lang]["producto"]["verMas"];
@@ -380,6 +374,72 @@ function actualizarTexto(json, lang) {
         }
     });
 
+    if (document.querySelector('.subnavegador')) {
+        document.querySelectorAll('.subnavegador .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["subnavegador"][data_lang];
+        })
+    }
+
+    if (document.querySelector('.mainAdmin.artista')) {
+        document.querySelectorAll('.mainAdmin.artista th.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["mainAdmin"]["artista"][data_lang];
+        })
+        document.querySelectorAll('.mainAdmin.artista option.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["paises"][data_lang];
+        });
+    }
+
+    //Botones de los CRUD
+    if (document.querySelector('.mainAdmin .btn.lang')) {
+        document.querySelectorAll('.mainAdmin .btn.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.value = json[lang]["mainAdmin"]["botones"][data_lang];
+        })
+    }
+    //Botón de subir del CRUD de producto
+    if (document.querySelector('.mainAdmin.producto .fileInputLabel')) {
+        document.querySelectorAll('.mainAdmin.producto .fileInputLabel').forEach(element => {
+            element.textContent = json[lang]["mainAdmin"]["botones"]["subir"];
+        });
+    }
+
+    //Trabajos en CRUD productos
+    if (document.querySelector('.mainAdmin.producto .trabajo')) {
+        document.querySelectorAll('.mainAdmin.producto .trabajo .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]['mainAdmin']['producto']['trabajos'][data_lang];
+        })
+    }
+
+    //opciones de crud de productos
+    if (document.querySelector('.mainAdmin.producto option')) {
+        document.querySelector('.mainAdmin.producto .autor>option').textContent = json[lang]['mainAdmin']['producto']['selectArtista'];
+        
+        document.querySelectorAll('.mainAdmin.producto .tipo>option').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]['producto']['Tipo'][data_lang];
+        });
+        document.querySelectorAll('.mainAdmin.producto .formato>option').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]['producto']['Formato'][data_lang];
+        });
+        document.querySelectorAll('.mainAdmin.producto .subtipo>option').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]['producto']['Subtipo'][data_lang];
+        });
+        document.querySelectorAll('.mainAdmin.producto table>thead>tr>th').forEach(element => {
+            console.log(element);
+            
+            let data_lang = element.getAttribute('data-lang');
+            console.log(data_lang);
+            
+            element.textContent = json[lang]['mainAdmin']['producto']['th'][data_lang];
+        });
+    }
+
 
     //Cambiar idioma de darse de baja
     darseBajaTraduccir(json, lang);
@@ -397,7 +457,7 @@ export function cambiarPasswordTraduccir(json, lang) {
         let container = document.querySelector('.containerPassWord');
         container.querySelectorAll('.lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
-            
+
             if (element.getAttribute('type') == 'button') {
                 element.value = json[lang]["cambiarPassword"][data_lang];
             }

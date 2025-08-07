@@ -1,4 +1,5 @@
 // Este script se encarga de cambiar la acción del formulario dependiendo del botón que se presione
+import { cargarIdioma } from './funcionesGenericas.js';
 
 let formArtista = document.getElementById('formArtista');
 
@@ -29,13 +30,19 @@ let paises
 let artistas
 let respuestaPaises
 let respuestaArtistas
+let lang;
+let jsonIdiomas;
 document.addEventListener('DOMContentLoaded', async () => {
+    page = 1;
     if (localStorage.getItem('seccion') === 'artistasCRUD') {
-        page = localStorage.getItem('page') || 1;
-    } else {
-        page = 1;
+        const p = parseInt(localStorage.getItem('page'), 10);
+        if (Number.isInteger(p) && p > 0) page = p;
     }
-
+    if (localStorage.getItem('lang') === 'es' || localStorage.getItem('lang') === 'en' || localStorage.getItem('lang') === 'ja') {
+        lang = localStorage.getItem('lang');
+        // actualizarTexto(await cargarIdioma(), lang);
+    }
+    jsonIdiomas = await cargarIdioma();
     localStorage.setItem('seccion', 'artistasCRUD');
     localStorage.setItem('page', page);
     seccion = 'artistasCRUD';
@@ -67,10 +74,10 @@ function construirTabla() {
                     <td><input name='apellido2_[${artista.id}]' type='text' value='${artista.apellido2}'></td>
                     <td>
                         <select name='pais_[${artista.id}]'>
-                            <option value='' disabled>Seleccione País</option>
+                            <option class="lang" data-lang="Seleccione" value='' disabled>${jsonIdiomas[lang]['paises']['Seleccione']}</option>
                             ${paises.map(pais => `
-                                    <option value='${pais.codigo_iso}' ${pais.codigo_iso === paisArtista.codigo_iso ? 'selected' : ''}>
-                                        ${pais.nombre}
+                                    <option class='lang' data-lang='${pais.nombre}' value='${pais.codigo_iso}' ${pais.codigo_iso === paisArtista.codigo_iso ? 'selected' : ''}>
+                                         ${jsonIdiomas[lang]['paises'][pais.nombre]}
                                     </option>
                                 `).join('')
                     }
