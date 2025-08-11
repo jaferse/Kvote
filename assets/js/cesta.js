@@ -1,11 +1,11 @@
-import { cargarIdioma, crearDialogo } from "./funcionesGenericas.js";
+import { cargarIdioma, crearDialogo, ocultarSkeleton } from "./funcionesGenericas.js";
 let carritosUsuarios = {};
 let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
 let carrito;
 
 document.addEventListener('DOMContentLoaded', async function () {
     //obtenemos el json de idioma
-    
+
     const data = await cargarIdioma();
 
     //obtenermos el login del usuario
@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <p class='lang' data-lang='sinProductos'>${data[lang]['carrito']['sinProductos']}</p>
             </div>`
     }
+    ocultarSkeleton();
 });
 
 
@@ -131,7 +132,7 @@ document.querySelector('.productos').addEventListener('click', function (e) {
     //Borrar producto de la cesta
     if (e.target.closest('.btnEliminar')) {
         let isbn = e.target.closest('.btnEliminar').getAttribute('data-isbn');
-        
+
         if (carrito[isbn]) {
             delete carrito[isbn];
             e.target.closest('.productoCarrito').remove();
@@ -156,7 +157,7 @@ document.querySelector('.comprar').addEventListener('click', async function (e) 
  * Si falla la compra, muestra un mensaje de error en la consola.
  */
 async function comprar() {
-  let carritoUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
+    let carritoUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
     carrito = carritoUsuarios[usuarioLogueadoId] || {};
     console.log(carrito);
 
@@ -189,7 +190,7 @@ async function comprar() {
                             location.reload();
                         },
                         () => {
-                             window.location.href = "index.php?controller=HistorialPedidos&action=view";
+                            window.location.href = "index.php?controller=HistorialPedidos&action=view";
                         });
             } else {
                 alert('Error en la compra: ' + (data.message || 'Respuesta inesperada'));

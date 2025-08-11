@@ -1,4 +1,4 @@
-import { convertirFormatoFecha, getISBN13, cargarIdioma, tooltip } from './funcionesGenericas.js';
+import { convertirFormatoFecha, getISBN13, cargarIdioma, tooltip, ocultarSkeleton } from './funcionesGenericas.js';
 
 let carritosUsuarios;
 
@@ -99,7 +99,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         </svg>`;
 
 
-    document.querySelector('.Producto__info__caracteristicas__tipo>.info').innerHTML =  `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=categoria&parametro=${producto.tipo}">${dataLang[lang]['producto']['Tipo'][producto.tipo]}</a>`;
+    document.querySelector('.Producto__info__caracteristicas__tipo>.info').innerHTML = `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=categoria&parametro=${producto.tipo}">${dataLang[lang]['producto']['Tipo'][producto.tipo]}</a>`;
     document.querySelector('.Producto__info__caracteristicas__tipo>.svgContainer').innerHTML = /*html*/
         `<svg class="iconTipo" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11 3.99995C12.8839 2.91716 14.9355 2.15669 17.07 1.74995C17.551 1.63467 18.0523 1.63283 18.5341 1.74458C19.016 1.85632 19.4652 2.07852 19.8464 2.39375C20.2276 2.70897 20.5303 3.10856 20.7305 3.56086C20.9307 4.01316 21.0229 4.50585 21 4.99995V13.9999C20.9699 15.117 20.5666 16.1917 19.8542 17.0527C19.1419 17.9136 18.1617 18.5112 17.07 18.7499C14.9355 19.1567 12.8839 19.9172 11 20.9999" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -109,11 +109,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.Producto__info__caracteristicas__tipo').setAttribute('data-lang', 'Tipo');
     document.querySelector('.Producto__info__caracteristicas__tipo').setAttribute('data-content', producto.tipo);
 
-    document.querySelector('.Producto__info__caracteristicas__subtipo>.info').innerHTML =  `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=subtipo&parametro=${producto.subtipo}">${dataLang[lang]['producto']['Subtipo'][producto.subtipo]}</a>`;
+    document.querySelector('.Producto__info__caracteristicas__subtipo>.info').innerHTML = `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=subtipo&parametro=${producto.subtipo}">${dataLang[lang]['producto']['Subtipo'][producto.subtipo]}</a>`;
     document.querySelector('.Producto__info__caracteristicas__subtipo').setAttribute('data-lang', 'Subtipo');
     document.querySelector('.Producto__info__caracteristicas__subtipo').setAttribute('data-content', producto.subtipo);
-    document.querySelector('.Producto__info__caracteristicas__subtipo>.svgContainer').innerHTML = /*html*/ 
-    `<svg class="iconSvg iconSubtipo" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    document.querySelector('.Producto__info__caracteristicas__subtipo>.svgContainer').innerHTML = /*html*/
+        `<svg class="iconSvg iconSubtipo" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 viewBox="0 0 512 512"  xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#000000;}
@@ -148,11 +148,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 </svg>`;
 
     // document.querySelector('.Producto__info__caracteristicas__formato>.info').textContent = dataLang[lang]['producto']['Formato'][producto.formato];
-    document.querySelector('.Producto__info__caracteristicas__formato>.info').innerHTML =  `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=formato&parametro=${producto.formato}">${dataLang[lang]['producto']['Formato'][producto.formato]}</a>`;
+    document.querySelector('.Producto__info__caracteristicas__formato>.info').innerHTML = `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=formato&parametro=${producto.formato}">${dataLang[lang]['producto']['Formato'][producto.formato]}</a>`;
     document.querySelector('.Producto__info__caracteristicas__formato').setAttribute('data-lang', 'Formato');
     document.querySelector('.Producto__info__caracteristicas__formato').setAttribute('data-content', producto.formato);
-    document.querySelector('.Producto__info__caracteristicas__formato>.svgContainer').innerHTML = /* html */ 
-    `<svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    document.querySelector('.Producto__info__caracteristicas__formato>.svgContainer').innerHTML = /* html */
+        `<svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 class="iconSvg iconFormato" viewBox="0 0 32 32" xml:space="preserve">
 <style type="text/css">
 	.feather_een{fill:#0B1719;}
@@ -172,10 +172,10 @@ window.addEventListener('DOMContentLoaded', async () => {
 	c0,0.276-0.224,0.5-0.5,0.5h-5C8.224,25,8,24.776,8,24.5S8.224,24,8.5,24h5C13.776,24,14,24.224,14,24.5z"/>
 </svg>`;
 
-    document.querySelector('.Producto__info__caracteristicas__editorial>.info').innerHTML =  `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=editorial&parametro=${producto.editorial}">${producto.editorial}</a>`;
+    document.querySelector('.Producto__info__caracteristicas__editorial>.info').innerHTML = `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=editorial&parametro=${producto.editorial}">${producto.editorial}</a>`;
     // document.querySelector('.Producto__info__caracteristicas__editorial>.info').textContent = producto.editorial;
     document.querySelector('.Producto__info__caracteristicas__editorial>.svgContainer').innerHTML = /* html */
-    `<svg class="iconSvg editorial" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+        `<svg class="iconSvg editorial" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
         viewBox="-3.84 -3.84 71.68 71.68" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="1.3439999999999999">
         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
@@ -258,6 +258,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     ContainerProducto.style.visibility = 'visible';
 
+    ocultarSkeleton('block');
 });
 
 // Añadir un evento de clic a los botones de añadir a la cesta y wishlist

@@ -471,3 +471,22 @@ export function tooltip(mensaje, style, contenedor, time = 2000) {
     }, time);
     return tooltip;
 }
+
+
+export function ocultarSkeleton(display='flex') {
+    
+    // Ocultamos el skeleton
+    const skeleton = document.querySelector('.cardSkeleton');
+    skeleton.style.display = 'none';
+    const main = document.querySelector('main');
+    main.style.display = display;
+}
+
+export function mostrarSkeleton(display='flex') {
+    
+    // Ocultamos el skeleton
+    const skeleton = document.querySelector('.cardSkeleton');
+    skeleton.style.display = display;
+    const main = document.querySelector('main');
+    main.style.display = 'none';
+}

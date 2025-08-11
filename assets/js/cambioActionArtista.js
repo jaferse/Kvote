@@ -1,5 +1,5 @@
 // Este script se encarga de cambiar la acción del formulario dependiendo del botón que se presione
-import { cargarIdioma } from './funcionesGenericas.js';
+import { cargarIdioma, ocultarSkeleton, mostrarSkeleton } from './funcionesGenericas.js';
 
 let formArtista = document.getElementById('formArtista');
 
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     construirPaginacionTablas(page, { controller: 'Artista', container: '#formArtista' });
 
+    ocultarSkeleton('block');
 })
 
 function construirTabla() {
@@ -132,6 +133,7 @@ async function construirPaginacionTablas(paginaActual, seccion) {
 document.addEventListener('click', async (e) => {
 
     if (e.target.tagName === 'A') {
+        mostrarSkeleton('block');
         // console.log(e.target.getAttribute('data-page'));
         let numeroPagina = e.target.getAttribute('data-page');
         localStorage.setItem('page', numeroPagina);
@@ -139,6 +141,8 @@ document.addEventListener('click', async (e) => {
         artistas = await respuestaArtistas.json();
         construirTabla();
         construirPaginacionTablas(numeroPagina, { controller: 'Artista', container: '#formArtista' });
+        ocultarSkeleton('block');
+
     }
 
 });

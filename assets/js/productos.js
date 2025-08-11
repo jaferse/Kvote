@@ -1,4 +1,4 @@
-import { cargarIdioma } from './funcionesGenericas.js';
+import { cargarIdioma, ocultarSkeleton } from './funcionesGenericas.js';
 
 /**
  * Crea una tarjeta de un producto
@@ -241,7 +241,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 element.classList.remove('active');
             })
             e.target.classList.add('active');
-            let productosRespuesta = await sacarProductos(seccion, e.target.getAttribute('data-page'),parametro);
+            let productosRespuesta = await sacarProductos(seccion, e.target.getAttribute('data-page'), parametro);
             let productos = productosRespuesta['productos'];
             let totalProductos = productosRespuesta['total'];
             containerProductos.innerHTML = '';
@@ -251,5 +251,5 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
 
 
-
+    ocultarSkeleton('block');
 });

@@ -1,5 +1,5 @@
 
-import { aplicarValidaciones, cargarIdioma, crearDialogo } from './funcionesGenericas.js';
+import { aplicarValidaciones, cargarIdioma, crearDialogo, ocultarSkeleton } from './funcionesGenericas.js';
 
 /**
  * Actualiza el circulo de progreso y el texto adyacente en la pantalla
@@ -100,6 +100,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     //     // formulario.submit();
     // })
     ;
+    ocultarSkeleton('block');
+
 });
 
 formulario.addEventListener('submit', (e) => {
@@ -196,7 +198,7 @@ document.addEventListener('click', (e) => {
     }
 
     if (e.target.closest('.toggle-password')) {
-        let ojos=e.target.closest('.toggle-password>.iconSvg');
+        let ojos = e.target.closest('.toggle-password>.iconSvg');
         let passwordInput = e.target.closest('.registro__formulario__group').querySelector('#password') || e.target.closest('.registro__formulario__group').querySelector('#password2');
         passwordInput.setAttribute('type', passwordInput.getAttribute('type') === 'password' ? 'text' : 'password'); // Cambia el atributo type = 'text';
         let eyeClosed = ojos.querySelector('.eye-closed');

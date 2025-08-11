@@ -1,5 +1,5 @@
 // Este script se encarga de cambiar la acción del formulario dependiendo del botón que se presione
-import { tooltip, cargarIdioma } from "./funcionesGenericas.js";
+import { tooltip, cargarIdioma, ocultarSkeleton, mostrarSkeleton } from "./funcionesGenericas.js";
 let formProducto = document.getElementById('formProducto');
 let page;
 let seccion;
@@ -63,8 +63,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     respuestaProductos = await fetch(`index.php?controller=Producto&action=obtenerProductosPaginado&page=${page}`)
     productos = await respuestaProductos.json();
 
-    construirTabla();
-    construirPaginacionTablas(page, { controller: 'Producto', container: '.mainAdmin' });
+    await construirTabla();
+    await construirPaginacionTablas(page, { controller: 'Producto', container: '.mainAdmin' });
+    ocultarSkeleton('block');
 });
 
 formProducto.addEventListener('submit', function (event) {
@@ -89,12 +90,14 @@ formProducto.addEventListener('submit', function (event) {
 document.addEventListener('click', async (e) => {
 
     if (e.target.tagName === 'A') {
+        mostrarSkeleton('block');
         let numeroPagina = e.target.getAttribute('data-page');
         localStorage.setItem('page', numeroPagina);
         respuestaProductos = await fetch(`index.php?controller=Producto&action=obtenerProductosPaginado&page=${numeroPagina}`);
         productos = await respuestaProductos.json();
-        construirTabla();
-        construirPaginacionTablas(numeroPagina, { controller: 'Producto', container: '.mainAdmin' });
+        await construirTabla();
+        await construirPaginacionTablas(numeroPagina, { controller: 'Producto', container: '.mainAdmin' });
+        ocultarSkeleton('block');
     }
 
 });

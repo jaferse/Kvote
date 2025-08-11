@@ -1,4 +1,4 @@
-import { convertirFormatoFecha } from './funcionesGenericas.js';
+import { convertirFormatoFecha, ocultarSkeleton } from './funcionesGenericas.js';
 document.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('index.php?controller=HistorialPedidos&action=listarPedidos');
     const pedidos = await response.json();
@@ -24,7 +24,7 @@ async function construirGridPedidos(pedidos) {
         let compra = document.createElement('div');
 
         compra.classList.add('compra');
-        let formatoFecha = convertirFormatoFecha(pedido.compra.fechaCompra,true);
+        let formatoFecha = convertirFormatoFecha(pedido.compra.fechaCompra, true);
         compra.innerHTML = `
             <p class="fecha lang" data-fecha="${pedido.compra.fechaCompra}">${formatoFecha}</p>
             <p class="idPedido">${pedido.compra.idCompra}</p>
@@ -69,5 +69,5 @@ async function construirGridPedidos(pedidos) {
         containerPedidos.appendChild(compra);
     });
 
-
+    ocultarSkeleton('block');
 }

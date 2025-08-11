@@ -1,4 +1,4 @@
-import { cargarIdioma } from './funcionesGenericas.js';
+import { cargarIdioma, ocultarSkeleton } from './funcionesGenericas.js';
 document.addEventListener('DOMContentLoaded', async () => {
     const darkMode=localStorage.getItem('darkMode');
     const json = await cargarIdioma();
@@ -58,4 +58,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         //cada botón te debe de llevar a la página de detalle del producto
 
     }
+    ocultarSkeleton('block');
 });

@@ -46,9 +46,15 @@ body {
         background-color: $fondoOscuro3;
     }
 }
-
+.containerMain{
+    display: flex;
+    width: 96vw;
+    flex: 1;
+    margin: 0 auto;
+}
 main {
     flex: 1;
+    display: none;
 }
 
 .body.theme--Dark {
@@ -68,7 +74,8 @@ p {
     text-align: center;
     vertical-align: middle;
 
-    &:disabled, &.disabled.theme--dark {
+    &:disabled,
+    &.disabled.theme--dark {
         cursor: not-allowed !important;
         color: $negro_letra !important;
         background: $grayDisabled !important;
@@ -214,6 +221,7 @@ p {
 .iconSvg {
     @include dimensiones(2rem, 2rem);
 }
+
 .contorno--stroke {
     stroke: $fondoOscuro !important;
 }
@@ -248,4 +256,47 @@ p {
     .fondo--fill {
         fill: $fondoOscuro !important;
     }
+}
+
+
+/*skeleton*/
+
+.skeleton {
+    background-color: #ddd;
+    border-radius: 4px;
+    width: 100%;
+    height: 20px;
+    margin: 10px 0;
+    animation: shimmer 1.5s infinite;
+}
+
+// .skeleton.image {
+//     height: 150px;
+//     width: 100%;
+// }
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skeleton {
+    background-image: linear-gradient(90deg, #ddd 25%, #e7e7e7 50%, #ddd 75%);
+    background-size: 1000px 100%;
+}
+
+.cardSkeleton {
+    box-sizing: border-box;
+    padding: 15px;
+    width: 96vw;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
 }

@@ -21,59 +21,62 @@
     require_once("view/components/header.php");
     require_once("view/components/subMenu.php");
     ?>
+    <div class="containerMain">
+        <main class="main" style="display: none;">
+            <article class="main__sliderFrame">
+                <ul>
+                    <li>
+                        <img src="./assets/img/carruselProvidence.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./assets/img/carruselTheWalkingDead.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./assets/img/carruselSpiderman.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./assets/img/carruselbatman.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./assets/img/carruselWonderWoman.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./assets/img/carrruselKilling.png" alt="">
+                    </li>
+                </ul>
+            </article>
 
-    <main class="main">
-        <article class="main__sliderFrame">
-            <ul>
-                <li>
-                    <img src="./assets/img/carruselProvidence.jpg" alt="">
-                </li>
-                <li>
-                    <img src="./assets/img/carruselTheWalkingDead.jpg" alt="">
-                </li>
-                <li>
-                    <img src="./assets/img/carruselSpiderman.jpg" alt="">
-                </li>
-                <li>
-                    <img src="./assets/img/carruselbatman.jpg" alt="">
-                </li>
-                <li>
-                    <img src="./assets/img/carruselWonderWoman.jpg" alt="">
-                </li>
-                <li>
-                    <img src="./assets/img/carrruselKilling.png" alt="">
-                </li>
-            </ul>
-        </article>
+            <article class="main__bestSellers">
+                <h2 class="main__bestSellers__title lang" data-lang="comicMonth">Comic de Febrero</h2>
 
-        <article class="main__bestSellers">
-            <h2 class="main__bestSellers__title lang" data-lang="comicMonth">Comic de Febrero</h2>
+                <section class="main__bestSellers__portadas">
+                    <!-- Se renderiza los comic más vendidos -->
+                </section>
+            </article>
+            <article class="main__bestSellers">
+                <h2 class="main__bestSellers__title lang" data-lang="bookMonth">Libros de Febrero</h2>
 
-            <section class="main__bestSellers__portadas">
-                <!-- Se renderiza los comic más vendidos -->
-            </section>
-        </article>
-        <article class="main__bestSellers">
-            <h2 class="main__bestSellers__title lang" data-lang="bookMonth">Libros de Febrero</h2>
-            
-            <section class="main__bestSellers__portadas">
-                <!-- Se renderiza los libros más vendidos -->
-            </section>
-        </article>
-
-    </main>
-
+                <section class="main__bestSellers__portadas">
+                    <!-- Se renderiza los libros más vendidos -->
+                </section>
+            </article>
+        </main>
+        <div id="content" class="cardSkeleton" style="height: 50rem;">
+            <div class="skeleton image" style="width: 100%; height: 60%;"></div>
+            <div class="skeleton" style="flex: 1; height: 40%;"></div>
+            <div class="skeleton" style="flex: 1; height: 40%;"></div>
+        </div>
+    </div>
     <?php
     require_once("view/components/footer.php");
     ?>
 
     <script type="module" src="./assets/js/lang.js"></script>
     <script src="./assets/js/darkMode.js"></script>
-    <!-- <script src="./assets/js/animacionLogo.js"></script> -->
     <script src="./assets/js/search.js"></script>
     <script src="./assets/js/hamburguer.js"></script>
     <script src="./assets/js/carrusel.js"></script>
-    <script src="./assets/js/masVendidos.js"></script>
+    <script type="module" src="./assets/js/masVendidos.js"></script>
 
 </body>
 

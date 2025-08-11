@@ -1,4 +1,4 @@
-import { cargarIdioma, crearDialogo, tooltip } from "./funcionesGenericas.js";
+import { cargarIdioma, crearDialogo, tooltip, ocultarSkeleton } from "./funcionesGenericas.js";
 import { darseBajaTraduccir } from "./lang.js";
 
 const justValidate = new JustValidate('#formularioPass');
@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     validacionReglas(justValidate, idiomasJson, lang);
+
+    ocultarSkeleton('flex');
 });
 
 function ocultarContenedores() {

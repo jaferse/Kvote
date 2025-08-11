@@ -1,7 +1,6 @@
-import { cargarIdioma } from './funcionesGenericas.js';
+import { cargarIdioma, ocultarSkeleton } from './funcionesGenericas.js';
 const justValidate = new JustValidate('.registro__formulario');
 const formulario = document.querySelector('.registro__formulario');
-// console.log(formulario);
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -82,6 +81,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             successMessage: dataLand[lang]['formulario']['validateSingIn']['password']['successMessage'],
         }
     )
+    ocultarSkeleton('block');
 });
 
 formulario.addEventListener('submit', async (e) => {

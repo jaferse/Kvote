@@ -14,7 +14,6 @@ $transiciones: 100 / $numero-imagenes;
     margin: 0rem auto;
     overflow: hidden;
 
-    // min-height: 35.438rem;
     .next {
         @include cargarImagen("./../img/next.png", contain);
         position: absolute;

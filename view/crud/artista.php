@@ -34,69 +34,74 @@
             ?>
         </div>
     </nav>
-    <main class="mainAdmin artista">
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="formArtista" id="formArtista">
-            <h1 class="titulo" class="lang" data-lang="title">Artista</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="lang" data-lang="id">ID</th>
-                        <th class="lang" data-lang="nombre">Nombre</th>
-                        <th class="lang" data-lang="apellido1">Primer Apellido</th>
-                        <th class="lang" data-lang="apellido2">Segundo Apellido</th>
-                        <th class="lang" data-lang="pais">Pais</th>
-                        <th class="lang" data-lang="nacimientoFecha">Fecha de Nacimiento</th>
-                        <th class="lang" data-lang="accion">Acción</th>
-                    </tr>
-                </thead>
-                <tbody class="artistaCrud">
+    <div class="containerMain">
+        <main class="mainAdmin artista">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="formArtista" id="formArtista">
+                <h1 class="titulo" class="lang" data-lang="title">Artista</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="lang" data-lang="id">ID</th>
+                            <th class="lang" data-lang="nombre">Nombre</th>
+                            <th class="lang" data-lang="apellido1">Primer Apellido</th>
+                            <th class="lang" data-lang="apellido2">Segundo Apellido</th>
+                            <th class="lang" data-lang="pais">Pais</th>
+                            <th class="lang" data-lang="nacimientoFecha">Fecha de Nacimiento</th>
+                            <th class="lang" data-lang="accion">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody class="artistaCrud">
 
-                </tbody>
-                <tbody class="artistaInsert">
+                    </tbody>
+                    <tbody class="artistaInsert">
 
-                    <!-- Insertar nuevo artista -->
-                    <tr>
-                        <!-- Validar Formulario!!!!!!!!!!!!!!!!!!!!!!!! -->
+                        <!-- Insertar nuevo artista -->
+                        <tr>
+                            <!-- Validar Formulario!!!!!!!!!!!!!!!!!!!!!!!! -->
 
-                        <td>
-                            <?php
-                            echo  "<input name='id' type='text' readonly value='";
-
-
-                            $tablaArtistas->obtenerId();
-                            echo $tablaArtistas->obtenerId();
-                            echo "'>";
-                            ?>
-                        </td>
-                        <td><input name="nombre" type="text"></td>
-                        <td><input name="apellido1" type="text"></td>
-                        <td><input name="apellido2" type="text"></td>
-                        <td><select name="pais" id="">
-                                <option class="lang" data-lang="Seleccione" value="" disabled selected>Seleccione País</option>
+                            <td>
                                 <?php
-                                foreach ($tablaPais->paiss as $key => $value) {
-                                    echo "<option value='" . $value->__get("codigo_iso") . "'>" . $value->__get("nombre") . "</option>";
-                                }
+                                echo  "<input name='id' type='text' readonly value='";
+
+
+                                $tablaArtistas->obtenerId();
+                                echo $tablaArtistas->obtenerId();
+                                echo "'>";
                                 ?>
-                            </select></td>
-                        <td><input name="fecha_nacimiento" type="date"></td>
-                        <td>
-                            <input type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoArtista" data-lang="nuevo">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                <input type="submit" value="Eliminar" class="btn btnTerciario lang" name="eliminarArtista" data-lang="eliminar">
-                <input type="submit" value="Actualizar" class="btn btnPrimario lang" name="actualizarArtista" data-lang="actualizar">
-            </div>
-        </form>
-    </main>
+                            </td>
+                            <td><input name="nombre" type="text"></td>
+                            <td><input name="apellido1" type="text"></td>
+                            <td><input name="apellido2" type="text"></td>
+                            <td><select name="pais" id="">
+                                    <option class="lang" data-lang="Seleccione" value="" disabled selected>Seleccione País</option>
+                                    <?php
+                                    foreach ($tablaPais->paiss as $key => $value) {
+                                        echo "<option value='" . $value->__get("codigo_iso") . "'>" . $value->__get("nombre") . "</option>";
+                                    }
+                                    ?>
+                                </select></td>
+                            <td><input name="fecha_nacimiento" type="date"></td>
+                            <td>
+                                <input type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoArtista" data-lang="nuevo">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <input type="submit" value="Eliminar" class="btn btnTerciario lang" name="eliminarArtista" data-lang="eliminar">
+                    <input type="submit" value="Actualizar" class="btn btnPrimario lang" name="actualizarArtista" data-lang="actualizar">
+                </div>
+            </form>
+        </main>
+        <div id="content" class="cardSkeleton" style="height: 70rem;">
+            <div class="skeleton image" style="width: 100%; height: 100%; margin: 0 auto; border-radius: 18px;"></div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <?php
     require_once("view/components/footer.php");
     ?>
-    <!-- <script src="./assets/js/animacionLogo.js"></script> -->
 
     <!-- Se da info sobre si se pudo insertar o no  -->
     <?php

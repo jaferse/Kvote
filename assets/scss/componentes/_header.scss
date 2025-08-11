@@ -2,7 +2,6 @@
 .header {
     @include dimensiones(100%, 4rem);
     @include flex(row, space-between, stretch);
-    margin: auto;
     text-decoration: none;
     background-color: $rojo_primario;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.75);

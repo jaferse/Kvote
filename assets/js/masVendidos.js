@@ -1,7 +1,6 @@
 
+import { ocultarSkeleton } from './funcionesGenericas.js';
 window.addEventListener('DOMContentLoaded', async () => {
-    //Cogemos el contenedor de los productos
-    containerProductos = document.querySelectorAll('.main__bestSellers__portadas');
 
     //Recogemos los productos mas vendidos de comic y novela
     const responseComic = await fetch(`index.php?controller=Producto&action=getBestSellers&tipo=comic`);
@@ -10,17 +9,20 @@ window.addEventListener('DOMContentLoaded', async () => {
     const responseLibro = await fetch(`index.php?controller=Producto&action=getBestSellers&tipo=libro`)
     const libros = await responseLibro.json();
     let productos = [comic, libros]
+    // Ocultamos el skeleton
+    ocultarSkeleton('grid');
+    //Cogemos el contenedor de los productos
+    let containerProductos = document.querySelectorAll('.main__bestSellers__portadas');
     //Recorremos los contenedores y los llenamos con los libros
     containerProductos.forEach((contenedor, index) => {
         construirBestSeller(contenedor, productos[index]);
     });
     document.addEventListener('click', (e) => {
-        // console.log(e.target.closest('.tarjetaProducto__enlace'));
         if (e.target.closest('.tarjetaProducto__enlace')) {
             e.preventDefault();
-            console.log(e.target); 
+            console.log(e.target);
             window.location.href = e.target.closest('.tarjetaProducto__enlace').getAttribute('href');
-        } 
+        }
     });
 });
 
@@ -38,7 +40,7 @@ function construirBestSeller(contenedor, productos) {
         const tarjetaProducto = document.createElement('div');
         tarjetaProducto.classList.add('tarjetaProducto');
         tarjetaProducto.innerHTML = /*html */
-        `<div class="tarjetaProducto__portada">
+            `<div class="tarjetaProducto__portada">
                     <img src="data:image/jpeg;base64,${producto.portada}" alt="Imagen de portada de ${producto.nombre}">
                 </div>
                     <h3 class="tarjetaProducto__titulo">${producto.nombre}</h3>`;
