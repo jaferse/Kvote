@@ -1,6 +1,7 @@
 // Este script se encarga de cambiar la acción del formulario dependiendo del botón que se presione
 import { tooltip, cargarIdioma, ocultarSkeleton, mostrarSkeleton } from "./funcionesGenericas.js";
 let formProducto = document.getElementById('formProducto');
+let formProductoNuevo = document.getElementById('formProductoNuevo');
 let page;
 let seccion;
 let respuestaTrabajo;
@@ -38,7 +39,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const p = parseInt(localStorage.getItem('page'), 10);
         if (Number.isInteger(p) && p > 0) page = p;
     }
-    console.log('Pagina: ' + page);
     localStorage.setItem('seccion', 'productoCRUD');
     localStorage.setItem('page', page);
     seccion = 'productoCRUD';
@@ -66,7 +66,48 @@ document.addEventListener('DOMContentLoaded', async () => {
     await construirTabla();
     await construirPaginacionTablas(page, { controller: 'Producto', container: '.mainAdmin' });
     ocultarSkeleton('block');
+    fileEventChange();
 });
+
+/**
+ * Agrega un evento a los elementos con la clase "fileInput" para verificar si
+ * el archivo seleccionado es de tipo imagen y mostrar un mensaje en caso de
+ * que no lo sea.
+ */
+function fileEventChange() {
+
+    document.querySelectorAll('.fileInput').forEach(input => {
+
+        input.addEventListener('change', function () {
+
+            const file = this.files[0];
+            comprobarExtensionImagen(file, input);
+
+        });
+    });
+}
+function comprobarExtensionImagen(file, input) {
+    if (!file) return;
+
+    const tiposPermitidos = [
+        "image/png",
+        "image/jpeg",
+        "image/webp",
+        "image/gif",
+        "image/bmp",
+        "image/svg+xml",
+        "image/x-icon"
+    ];
+
+    if (!tiposPermitidos.includes(file.type)) {
+        tooltip(jsonIdiomas[lang]['frontMessage']['1000'], 'error', document.querySelector('.mainAdmin'), 5000);
+        input.value = ""; // resetea el input
+    } else {
+        tooltip(jsonIdiomas[lang]['frontMessage']['2000'], 'exito', document.querySelector('.mainAdmin'), 5000);
+    }
+
+}
+
 
 formProducto.addEventListener('submit', function (event) {
     event.preventDefault(); // Evita el envío del formulario por defecto
@@ -84,9 +125,27 @@ formProducto.addEventListener('submit', function (event) {
             formProducto.action = "index.php?controller=Producto&action=eliminar";
             break;
     }
+    formProducto.querySelectorAll('input[type="text"]').forEach(text => {
+        text.value = text.value.trim(); // Elimina espacios en blanco al inicio y al final
+    });
     formProducto.submit(); // Envía el formulario con la nueva acción
 });
 
+formProductoNuevo.addEventListener('submit', function (event) {
+    event.preventDefault();
+    console.log(event.target[1].value);
+    console.log(formProductoNuevo.value);
+    formProductoNuevo.querySelectorAll('input[type="text"]').forEach(text => {
+        text.value = text.value.trim(); // Elimina espacios en blanco al inicio y al final
+    });
+
+    if (!event.target[1].value) {
+        event.target.reportValidity();
+        tooltip(jsonIdiomas[lang]['frontMessage']['1009'], 'error', document.querySelector('.mainAdmin'), 5000);
+    } else {
+        formProductoNuevo.submit();
+    }
+});
 document.addEventListener('click', async (e) => {
 
     if (e.target.tagName === 'A') {
@@ -99,7 +158,95 @@ document.addEventListener('click', async (e) => {
         await construirPaginacionTablas(numeroPagina, { controller: 'Producto', container: '.mainAdmin' });
         ocultarSkeleton('block');
     }
+});
 
+document.addEventListener('input', async (e) => {
+    const tipo = e.target.type;
+    let value = e.target.value;
+
+    //Si es la isbn 13, solo permitimos números y limitamos a 13 caracteres
+    if (e.target.classList.contains('isbn')) {
+        let newValue;
+        newValue = value.replace(/[^0-9]/g, '');
+        if (newValue.length > 13) {
+            tooltip(jsonIdiomas[lang]['frontMessage']['1003'], 'error', document.querySelector('.mainAdmin'), 5000);
+            newValue = newValue.slice(0, 13); // Limita a 13 caracteres
+        }
+        e.target.value = newValue; // Asigna el valor modificado al input
+
+        // Si la longitud es menor a 13, mostramos un mensaje de error
+        if (e.target.value.length !== 13) {
+            e.target.setCustomValidity(jsonIdiomas[lang]['frontMessage']['1003']);
+            e.target.reportValidity();
+        } else {
+            e.target.setCustomValidity('');
+        }
+    }
+
+    if (e.target.classList.contains('fileInput')) {
+        console.log(e.target);
+
+        comprobarExtensionImagen(e.target.files[0], e.target)
+        //Si hay más de una archivo se borra el input y se muestra un tooltip de error
+        if (e.target.files.length > 1) {
+            e.target.value = "";
+            tooltip(jsonIdiomas[lang]['frontMessage']['1001'], 'error', document.querySelector('.mainAdmin'), 5000);
+        }
+
+        //Si el archivo es mayor de 16MB se borra el input y se muestra un tooltip de error
+        if (e.target.value && e.target.files[0].size > 16777215) {
+            e.target.value = "";
+            tooltip(jsonIdiomas[lang]['frontMessage']['1002'], 'error', document.querySelector('.mainAdmin'), 5000);
+        }
+
+    }
+
+    if (e.target.classList.contains('numero') || e.target.classList.contains('paginas')) {
+        // Si el valor es mayor que 99999, lo limitamos a 5 dígitos
+        if (value > 99999) {
+            e.target.value = e.target.value.slice(0, 5); // Limita a 5 caracteres
+            tooltip(jsonIdiomas[lang]['frontMessage'][((e.target.classList.contains('numero')) ? '1004' : '1005')], 'error', document.querySelector('.mainAdmin'), 5000);
+        }
+    }
+
+    if (e.target.classList.contains('anio_publicacion')) {
+        let hoy = new Date();
+        let max = hoy.toISOString().split('T')[0];
+        if (e.target.value >= max) {
+            tooltip(jsonIdiomas[lang]['frontMessage']['1006'], 'error', document.querySelector('.mainAdmin'), 5000);
+            e.target.value = '';
+        }
+    }
+
+    if (e.target.classList.contains('precio')) {
+        if (e.target.value > 999999999.99) {
+            e.target.value = e.target.value.slice(0, 12); // Limita a 12 caracteres (999999999.99)
+            tooltip(jsonIdiomas[lang]['frontMessage']['1007'], 'error', document.querySelector('.mainAdmin'), 5000);
+        }
+
+        if (e.target.value.toString().split(".")[1] && e.target.value.toString().split(".")[1].length > 2) {
+            // Redondea a dos decimales
+            e.target.value = Math.trunc(e.target.value * 100) / 100; // Redondea a dos decimales
+        }
+    }
+
+    if (e.target.classList.contains('stock')) {
+        if (e.target.value.length > 10) {
+            e.target.value = e.target.value.slice(0, 10); // Limita a 5 caracteres
+            tooltip(jsonIdiomas[lang]['frontMessage']['1008'], 'error', document.querySelector('.mainAdmin'), 5000);
+        }
+    }
+
+    if (tipo == 'number') {
+        if (e.target.value < 0) {
+            e.target.value *= -1; // Evita números negativos
+        }
+    }
+
+    // // Trim a los inputs de tipo texto y textarea
+    // if (tipo == 'text' || tipo === 'TEXTAREA') {
+    //     e.target.value = e.target.value.trim(); // Elimina espacios en blanco al inicio y al final
+    // }
 });
 
 async function construirPaginacionTablas(paginaActual, seccion) {
@@ -273,7 +420,6 @@ function construirTabla() {
 
     Promise.all(filaPromises).then(filas => {
         formularioCrudProducto.querySelector('table>tbody').innerHTML += filas.join('');
-        // formularioCrudProducto.innerHTML += filas.join('');
     });
     formularioCrudProducto.innerHTML += `
     </tbody>

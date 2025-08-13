@@ -690,6 +690,27 @@
             "Sudáfrica": "Sudáfrica",
             "Zambia": "Zambia",
             "Zimbabue": "Zimbabue"
+        },
+        "backMessage": {
+            "1000": "Error 1000: No se han recibido los datos correctamente",
+            "1001": "Error 1001: La fecha es superior a la actual",
+            "1002": "Error 1002: No se ha seleccionado un artista",
+            "2000": "Artista insertado correctamente",
+            "2001": "Artista eliminado correctamente",
+            "2002": "Artista actualizado correctamente"
+        },
+        "frontMessage": {
+            "1000": "Solo se permiten imágenes en formato PNG, JPEG, WebP, GIF, BMP, SVG o ICO.",
+            "1001": "Solo se permite un archivo de imagen.",
+            "1002": "Los archivos de imagen superan el peso permitido. (16 MB máximo)",
+            "1003": "El ISBN_13 solo puede tener máximo 13 dígitos",
+            "1004": "El numero solo puede ser como máximo 5 dígitos",
+            "1005": "Las páginas solo puede ser como máximo 5 dígitos",
+            "1006": "La fecha no es valida",
+            "1007": "El precio no puede ser superior a 999999999.99€.",
+            "1008": "El stock no puede ser superior a 10 dígitos.",
+            "1009": "Debes subir una imagen de portada.",
+            "2000": "Portada seleccionada correctamente"
         }
     },
     "en": {
@@ -1380,6 +1401,10 @@
             "Sudáfrica": "South Africa",
             "Zambia": "Zambia",
             "Zimbabue": "Zimbabwe"
+        },
+        "backMessage": {
+            "1000": "Error 1000: No se han recibido los datos correctamente",
+            "2000": "Artista insertado correctamente"
         }
     },
     "ja": {
@@ -2070,6 +2095,10 @@
             "Sudáfrica": "南アフリカ",
             "Zambia": "ザンビア",
             "Zimbabue": "ジンバブエ"
+        },
+        "backMessage": {
+            "1000": "Error 1000: No se han recibido los datos correctamente",
+            "2000": "Artista insertado correctamente"
         }
     }
 }

@@ -431,10 +431,8 @@ function actualizarTexto(json, lang) {
             element.textContent = json[lang]['producto']['Subtipo'][data_lang];
         });
         document.querySelectorAll('.mainAdmin.producto table>thead>tr>th').forEach(element => {
-            console.log(element);
             
             let data_lang = element.getAttribute('data-lang');
-            console.log(data_lang);
             
             element.textContent = json[lang]['mainAdmin']['producto']['th'][data_lang];
         });

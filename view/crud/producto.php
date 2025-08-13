@@ -24,6 +24,7 @@
     $tablaArtista_Producto = new Daoartista_producto("kvote_db");
 
     $tablaProducto->listar();
+    $hoy = date("Y-m-d");
     ?>
     <nav class="subMenuContainer">
         <div class="submenu">
@@ -68,14 +69,12 @@
                     <tbody>
                         <!-- Validar Formulario!!!!!!!!!!!!!!!!!!!!!!!! -->
                         <!-- Verifica tipo de dato de los imput -->
-                        <td><input name="isbn_13" type="number" minlength="13" maxlength="13" required class="isbn"></td>
+                        <td><input name="isbn_13" type="text" minlength="13" required class="isbn"></td>
                         <td colspan="2">
-                            <!-- <input name="portada" type="text"> -->
-                            <input type="file" name="portadaFile" required class="portadaFile fileInput" id="fileInputInsert">
+                            <input type="file" name="portadaFile" class="portadaFile fileInput" id="fileInputInsert" accept="image/png, image/jpeg, image/webp, image/gif, image/bmp, image/svg+xml, image/x-icon">
                             <label for='fileInputInsert' class='fileInputLabel'>Subir</label>
-
                         </td>
-                        <td><input name="nombre" type="text" required class="nombre"></td>
+                        <td><input name="nombre" type="text" required class="nombre" minlength="1" maxlength="50"></td>
                         <td>
                             <select class="autor" name="autor" id="" required class="autor">
                                 <option value="" disabled selected>Seleccione Artista</option>
@@ -96,8 +95,8 @@
                                 ?>
                             </select>
                         </td>
-                        <td><input name="coleccion" type="text" required class="colleccion"></td>
-                        <td><input name="numero" type="number" required class="numero"></td>
+                        <td><input name="coleccion" type="text" required class="colleccion" maxlength="45"></td>
+                        <td><input name="numero" type="number" required class="numero" max="99999"></td>
                         <td>
                             <select class="tipo" name="tipo" id="" required class="tipo">
                                 <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Tipo</option>
@@ -118,7 +117,7 @@
                                 ?>
                             </select>
                         </td>
-                        <td><input name="paginas" type="number" required class="paginas"></td>
+                        <td><input name="paginas" type="number" required class="paginas" max="99999"></td>
                         <td>
                             <select class="subtipo" name="subtipo" required class="subtipo">;
                                 <option class="lang" data-lang="seleccione" value='' disabled selected>Seleccione Género</option>;
@@ -131,10 +130,10 @@
                                 ?>
                             </select>
                         </td>
-                        <td><input name="editorial" type="text" required class="editorial"></td>
-                        <td><input name="anio_publicacion" type="date" required class="anio_publicacion"></td>
+                        <td><input name="editorial" type="text" required class="editorial" maxlength="45"></td>
+                        <td><input name="anio_publicacion" type="date" required class="anio_publicacion" max='<?php echo $hoy; ?>'></td>
                         <td>
-                            <textarea name="sinopsis" id="" required></textarea>
+                            <textarea name="sinopsis" id="" required maxlength="16000"></textarea>
                         </td>
                         <td><input name="precio" type="number" step="0.01" required class="precio"></td>
                         <td><input class="stock" name="stock" type="number" required class="stock"></td>
