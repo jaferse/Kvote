@@ -462,6 +462,9 @@ export function crearDialogo(datos, onAceptar, onCancelar) {
  * @returns {HTMLElement} El elemento del tooltip
  */
 export function tooltip(mensaje, style, contenedor, time = 2000) {
+    if (!mensaje) {
+        mensaje = "Error inesperado";
+    }
     const tooltip = document.createElement('div');
     tooltip.classList.add('tooltip', style);
     tooltip.innerHTML = mensaje;

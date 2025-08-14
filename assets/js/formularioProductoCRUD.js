@@ -210,14 +210,14 @@ document.addEventListener('input', async (e) => {
         }
     }
 
-    if (e.target.classList.contains('anio_publicacion')) {
-        let hoy = new Date();
-        let max = hoy.toISOString().split('T')[0];
-        if (e.target.value >= max) {
-            tooltip(jsonIdiomas[lang]['frontMessage']['1006'], 'error', document.querySelector('.mainAdmin'), 5000);
-            e.target.value = '';
-        }
-    }
+    // if (e.target.classList.contains('anio_publicacion')) {
+    //     let hoy = new Date();
+    //     let max = hoy.toISOString().split('T')[0];
+    //     if (e.target.value >= max) {
+    //         tooltip(jsonIdiomas[lang]['frontMessage']['1006'], 'error', document.querySelector('.mainAdmin'), 5000);
+    //         e.target.value = '';
+    //     }
+    // }
 
     if (e.target.classList.contains('precio')) {
         if (e.target.value > 999999999.99) {

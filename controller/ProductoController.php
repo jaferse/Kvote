@@ -39,7 +39,7 @@ class ProductoController
     public function create()
     {
         try {
-            $hoy = date("Y-m-d");
+            // $hoy = date("Y-m-d");
             if (
                 isset($_POST["isbn_13"]) &&
                 isset($_FILES["portadaFile"]) &&
@@ -68,7 +68,7 @@ class ProductoController
                     $this->maxLenght($_POST["paginas"], 5) &&
                     $this->maxLenght($_POST["editorial"], 45) &&
                     $this->maxLenght($_POST["stock"], 10) &&
-                    $_POST["anio_publicacion"] <= $hoy &&
+                    // $_POST["anio_publicacion"] <= $hoy &&
                     $this->esDecimalPositivoEnRango($_POST["precio"])
                 ) {
                     // Validar los datos del formulario 
@@ -294,90 +294,74 @@ class ProductoController
 
     public function actualizar()
     {
-        $hoy = date("Y-m-d");
+        // $hoy = date("Y-m-d");
         try {
             if (isset($_POST["check"])) {
 
                 foreach ($_POST["check"] as $key => $value) {
+
+                    //sustituimos las comas por puntos en el precio
+                    $_POST["precio_"][$key] = str_replace(',', '.', $_POST["precio_"][$key]);
+                    $ProductoObjeto = new Producto();
+
+                    if ($_FILES["portadaFile_"]['tmp_name'][$key]) {
+                        //Convertir el archivo temporal en un BLOD
+                        $imagenContenido = file_get_contents($_FILES["portadaFile_"]['tmp_name'][$key]);
+                        $imagenContenido = base64_encode($imagenContenido);
+                        $ProductoObjeto->__set("portada", $imagenContenido);
+                    } else {
+                        $producto = $this->tabla->obtener($_POST["isbn_13_"][$key]);
+                        $ProductoObjeto->__set("portada", $producto->__get("portada"));
+                    }
                     if (
-                        isset($_POST["isbn_13_"][$key]) &&
-                        isset($_FILES["portadaFile_"][$key]) &&
-                        isset($_POST["nombre_"][$key]) &&
-                        isset($_POST["coleccion_"][$key]) &&
-                        isset($_POST["numero_"][$key]) &&
-                        isset($_POST["tipo_"][$key]) &&
-                        isset($_POST["subtipo_"][$key]) &&
-                        isset($_POST["formato_"][$key]) &&
-                        isset($_POST["paginas_"][$key]) &&
-                        isset($_POST["editorial_"][$key]) &&
-                        isset($_POST["anio_publicacion_"][$key]) &&
-                        isset($_POST["sinopsis_"][$key]) &&
-                        isset($_POST["precio_"][$key]) &&
-                        isset($_POST["stock_"][$key])
+                        $this->isbnCorrecto($_POST["isbn_13_"][$key]) &&
+                        // (isset($_FILES["portadaFile"][$key]) && $this->extensionCorrecta($_FILES["portadaFile"]['type'][$key]) &&
+                        //     $this->tamannoCorrectoImg($_FILES["portadaFile"]['size'][$key]))  &&
+                        $this->maxLenght($_POST["nombre_"][$key], 50) &&
+                        $this->maxLenght($_POST["coleccion_"][$key], 45) &&
+                        $this->maxLenght($_POST["editorial_"][$key], 45) &&
+                        $this->maxLenght($_POST["numero_"][$key], 5) &&
+                        $this->maxLenght($_POST["paginas_"][$key], 5) &&
+                        $this->maxLenght($_POST["editorial_"][$key], 45) &&
+                        $this->maxLenght($_POST["stock_"][$key], 10) &&
+                        // $_POST["anio_publicacion_"][$key] <= $hoy &&
+                        $this->esDecimalPositivoEnRango($_POST["precio_"][$key])
                     ) {
-                        //sustituimos las comas por puntos en el precio
-                        $_POST["precio_"][$key] = str_replace(',', '.', $_POST["precio_"][$key]);
-                        ///If para comprobar que los datos del formulario son correctos
-                        // -------------------------------------
-                        // ------------------------------------
+                        $ProductoObjeto->__set("isbn_13", $_POST["isbn_13_"][$key]);
+                        //Controlar que si no existe la imagen subida se inserte la foto ya guardada en la base de datos
 
 
-                        if (
-                            $this->isbnCorrecto($_POST["isbn_13_"][$key]) &&
-                            $this->extensionCorrecta($_FILES["portadaFile"]['type'][$key]) &&
-                            $this->tamannoCorrectoImg($_FILES["portadaFile"]['size'][$key]) &&
-                            $this->maxLenght($_POST["nombre_"][$key], 50) &&
-                            $this->maxLenght($_POST["coleccion_"][$key], 45) &&
-                            $this->maxLenght($_POST["editorial_"][$key], 45) &&
-                            $this->maxLenght($_POST["numero_"][$key], 5) &&
-                            $this->maxLenght($_POST["paginas_"][$key], 5) &&
-                            $this->maxLenght($_POST["editorial_"][$key], 45) &&
-                            $this->maxLenght($_POST["stock_"][$key], 10) &&
-                            $_POST["anio_publicacion_"][$key] <= $hoy &&
-                            $this->esDecimalPositivoEnRango($_POST["precio_"][$key])
-                        ) {
-                            $ProductoObjeto = new Producto();
-                            $ProductoObjeto->__set("isbn_13", $_POST["isbn_13_"][$key]);
-                            //Controlar que si no existe la imagen subida se inserte la foto ya guardada en la base de datos
+                        $ProductoObjeto->__set("nombre", $_POST["nombre_"][$key]);
+                        $ProductoObjeto->__set("coleccion", $_POST["coleccion_"][$key]);
+                        $ProductoObjeto->__set("numero", $_POST["numero_"][$key]);
+                        $ProductoObjeto->__set("tipo", $_POST["tipo_"][$key]);
+                        $ProductoObjeto->__set("subtipo", $_POST["subtipo_"][$key]);
+                        $ProductoObjeto->__set("formato", $_POST["formato_"][$key]);
+                        $ProductoObjeto->__set("paginas", $_POST["paginas_"][$key]);
+                        $ProductoObjeto->__set("editorial", $_POST["editorial_"][$key]);
+                        $ProductoObjeto->__set("anio_publicacion", $_POST["anio_publicacion_"][$key]);
+                        $ProductoObjeto->__set("sinopsis", $_POST["sinopsis_"][$key]);
+                        $ProductoObjeto->__set("precio", $_POST["precio_"][$key]);
+                        $ProductoObjeto->__set("stock", $_POST["stock_"][$key]);
+                        $this->tabla->actualizar($ProductoObjeto);
 
-                            if ($_FILES["portadaFile_"]['tmp_name'][$key]) {
-                                //Convertir el archivo temporal en un BLOD
-                                $imagenContenido = file_get_contents($_FILES["portadaFile_"]['tmp_name'][$key]);
-                                $imagenContenido = base64_encode($imagenContenido);
-                                $ProductoObjeto->__set("portada", $imagenContenido);
-                                // echo "Se ha subido la imagen";
-                            } else {
-                                $producto = $this->tabla->obtener($_POST["isbn_13_"][$key]);
-                                $ProductoObjeto->__set("portada", $producto->__get("portada"));
-                                // echo "No se ha subido la imagen";
-                            }
-                            $ProductoObjeto->__set("nombre", $_POST["nombre_"][$key]);
-                            $ProductoObjeto->__set("coleccion", $_POST["coleccion_"][$key]);
-                            $ProductoObjeto->__set("numero", $_POST["numero_"][$key]);
-                            $ProductoObjeto->__set("tipo", $_POST["tipo_"][$key]);
-                            $ProductoObjeto->__set("subtipo", $_POST["subtipo_"][$key]);
-                            $ProductoObjeto->__set("formato", $_POST["formato_"][$key]);
-                            $ProductoObjeto->__set("paginas", $_POST["paginas_"][$key]);
-                            $ProductoObjeto->__set("editorial", $_POST["editorial_"][$key]);
-                            $ProductoObjeto->__set("anio_publicacion", $_POST["anio_publicacion_"][$key]);
-                            $ProductoObjeto->__set("sinopsis", $_POST["sinopsis_"][$key]);
-                            $ProductoObjeto->__set("precio", $_POST["precio_"][$key]);
-                            $ProductoObjeto->__set("stock", $_POST["stock_"][$key]);
-                            $this->tabla->actualizar($ProductoObjeto);
-
-                            $productoArtistaObjeto = new Artista_producto();
-                            $productoArtistaObjeto->__set("artista_id", $_POST['autor_'][$key]);
-                            $productoArtistaObjeto->__set("isbn_13", $_POST['isbn_13_'][$key]);
-                            $productoArtistaObjeto->__set("trabajo", $_POST['trabajo_'][$key]);
-                            if ("existe") {
-                                $this->tablaArtProd->actualizar($productoArtistaObjeto);
-                            }
-                            //Eliminamos el dato de la base de datos
-                            $_SESSION['type'] = "exito";
-                            $_SESSION['mensaje'] = "actualizado";
+                        $productoArtistaObjeto = new Artista_producto();
+                        $productoArtistaObjeto->__set("artista_id", $_POST['autor_'][$key]);
+                        $productoArtistaObjeto->__set("isbn_13", $_POST['isbn_13_'][$key]);
+                        $productoArtistaObjeto->__set("trabajo", $_POST['trabajo_'][$key]);
+                        if ("existe") {
+                            $this->tablaArtProd->actualizar($productoArtistaObjeto);
                         }
+                        $_SESSION['type'] = "exito";
+                        $_SESSION['mensaje'] = "actualizado";
+                    } else {
+                        $_SESSION['type'] = "error";
+                        $_SESSION['mensaje'] = "noActualizado";
                     }
                 }
+            } else {
+                $_SESSION['type'] = "error";
+                $_SESSION['mensaje'] = "noActualizado";
             }
         } catch (\Throwable $th) {
             $_SESSION['type'] = "error";

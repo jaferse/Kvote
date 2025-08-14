@@ -169,6 +169,9 @@
 }
 
 .paginacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     min-width: 46vw;
     max-width: 96vw;
     margin: 2rem auto;
@@ -187,6 +190,7 @@
         border-radius: 9px;
         padding: 0.5rem;
         cursor: pointer;
+
         &:hover {
             color: $blanco_letra;
             background-color: $boton_hoverPaginacion;

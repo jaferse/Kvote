@@ -24,7 +24,6 @@
     $tablaArtista_Producto = new Daoartista_producto("kvote_db");
 
     $tablaProducto->listar();
-    $hoy = date("Y-m-d");
     ?>
     <nav class="subMenuContainer">
         <div class="submenu">
@@ -131,7 +130,7 @@
                             </select>
                         </td>
                         <td><input name="editorial" type="text" required class="editorial" maxlength="45"></td>
-                        <td><input name="anio_publicacion" type="date" required class="anio_publicacion" max='<?php echo $hoy; ?>'></td>
+                        <td><input name="anio_publicacion" type="date" required class="anio_publicacion"></td>
                         <td>
                             <textarea name="sinopsis" id="" required maxlength="16000"></textarea>
                         </td>

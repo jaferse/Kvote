@@ -1688,6 +1688,9 @@
   }
 }
 .paginacion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   min-width: 46vw;
   max-width: 96vw;
   margin: 2rem auto;
