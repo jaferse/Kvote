@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     if (localStorage.getItem('lang') === 'es' || localStorage.getItem('lang') === 'en' || localStorage.getItem('lang') === 'ja') {
         lang = localStorage.getItem('lang');
-        // actualizarTexto(await cargarIdioma(), lang);
     }
     jsonIdiomas = await cargarIdioma();
 
@@ -147,7 +146,9 @@ formProductoNuevo.addEventListener('submit', function (event) {
     }
 });
 document.addEventListener('click', async (e) => {
-
+    if (e.target.closest('.translate')) {
+        lang = localStorage.getItem('lang');
+    }
     if (e.target.tagName === 'A') {
         mostrarSkeleton('block');
         let numeroPagina = e.target.getAttribute('data-page');
@@ -243,10 +244,6 @@ document.addEventListener('input', async (e) => {
         }
     }
 
-    // // Trim a los inputs de tipo texto y textarea
-    // if (tipo == 'text' || tipo === 'TEXTAREA') {
-    //     e.target.value = e.target.value.trim(); // Elimina espacios en blanco al inicio y al final
-    // }
 });
 
 async function construirPaginacionTablas(paginaActual, seccion) {

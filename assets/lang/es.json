@@ -695,6 +695,9 @@
             "1000": "Error 1000: No se han recibido los datos correctamente",
             "1001": "Error 1001: La fecha es superior a la actual",
             "1002": "Error 1002: No se ha seleccionado un artista",
+            "1003": "Error 1003: El ISBN no tiene 13 digitos",
+            "1004": "Solo se permiten imágenes en formato PNG, JPEG, WebP, GIF, BMP, SVG o ICO.",
+            "1005": "Los archivos de imagen superan el peso permitido. (16 MB máximo)",
             "2000": "Artista insertado correctamente",
             "2001": "Artista eliminado correctamente",
             "2002": "Artista actualizado correctamente"
@@ -1403,8 +1406,28 @@
             "Zimbabue": "Zimbabwe"
         },
         "backMessage": {
-            "1000": "Error 1000: No se han recibido los datos correctamente",
-            "2000": "Artista insertado correctamente"
+            "1000": "Error 1000: Data was not received correctly",
+            "1001": "Error 1001: The date is later than the current one",
+            "1002": "Error 1002: No artist has been selected",
+            "1003": "Error 1003: The ISBN does not have 13 digits",
+            "1004": "Only images in PNG, JPEG, WebP, GIF, BMP, SVG, or ICO format are allowed.",
+            "1005": "The image files exceed the allowed size. (16 MB maximum)",
+            "2000": "Artist inserted successfully",
+            "2001": "Artist deleted successfully",
+            "2002": "Artist updated successfully"
+        },
+        "frontMessage": {
+            "1000": "Only images in PNG, JPEG, WebP, GIF, BMP, SVG, or ICO format are allowed.",
+            "1001": "Only one image file is allowed.",
+            "1002": "The image files exceed the allowed size. (16 MB maximum)",
+            "1003": "ISBN_13 can have a maximum of 13 digits",
+            "1004": "The number can be a maximum of 5 digits",
+            "1005": "Pages can be a maximum of 5 digits",
+            "1006": "The date is not valid",
+            "1007": "The price cannot be higher than 999999999.99€.",
+            "1008": "Stock cannot exceed 10 digits.",
+            "1009": "You must upload a cover image.",
+            "2000": "Cover image selected successfully"
         }
     },
     "ja": {
@@ -2097,8 +2120,28 @@
             "Zimbabue": "ジンバブエ"
         },
         "backMessage": {
-            "1000": "Error 1000: No se han recibido los datos correctamente",
-            "2000": "Artista insertado correctamente"
+            "1000": "エラー1000: データが正しく受信されませんでした",
+            "1001": "エラー1001: 日付が現在より未来です",
+            "1002": "エラー1002: アーティストが選択されていません",
+            "1003": "エラー1003: ISBNは13桁ではあり",
+            "1004": "PNG、JPEG、WebP、GIF、BMP、SVG、ICO形式の画像のみ使用できます。",
+            "1005": "画像ファイルのサイズが許可上限を超えています。（最大16MB）",
+            "2000": "アーティストが正常に追加されました",
+            "2001": "アーティストが正常に削除されました",
+            "2002": "アーティストが正常に更新されました"
+        },
+        "frontMessage": {
+            "1000": "PNG、JPEG、WebP、GIF、BMP、SVG、ICO形式の画像のみ使用できます。",
+            "1001": "画像ファイルは1つだけアップロードできます。",
+            "1002": "画像ファイルのサイズが許可上限を超えています。（最大16MB）",
+            "1003": "ISBN_13は最大13桁までです",
+            "1004": "数字は最大5桁までです",
+            "1005": "ページ数は最大5桁までです",
+            "1006": "日付が無効です",
+            "1007": "価格は999999999.99€を超えることはできません。",
+            "1008": "在庫数は最大10桁までです。",
+            "1009": "表紙画像をアップロードする必要があります。",
+            "2000": "表紙画像が正常に選択されました"
         }
     }
 }
