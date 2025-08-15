@@ -99,16 +99,15 @@ class PerfilController
             if ($passWordOld !== $passWordNew) {
                 $datosUser->__set("password", password_hash($passWordNew, PASSWORD_ARGON2ID));
                 $loginDatosDao->actualizar($datosUser);
-                $_SESSION['mensaje'] = "tooltipSuccess";
+                $_SESSION['mensaje'] = "2004";
                 $_SESSION['type'] = "exito";
             } else {
-                $_SESSION['mensaje'] = "tooltipWarning";
+                $_SESSION['mensaje'] = "3000";
                 $_SESSION['type'] = "warning";
             }
-        }else{
-            $_SESSION['mensaje'] = "tooltipError";
+        } else {
+            $_SESSION['mensaje'] = "1007";
             $_SESSION['type'] = "error";
-
         }
         echo "<script>
                 localStorage.setItem('flash_msg', JSON.stringify({
@@ -119,5 +118,52 @@ class PerfilController
             </script>";
 
         exit;
+    }
+    public function obtenerDatosUsuario()
+    {
+        $usuarioDao = new Daousuario(DDBB_NAME);
+        $response =  $usuarioDao->obtener($_SESSION['usernameId']);
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
+    
+    public function cambiarDatosUsuario()
+    {
+        if (
+            isset($_POST['idUsuario']) &&
+            isset($_POST['nombre']) &&
+            isset($_POST['Apellido1']) &&
+            isset($_POST['Apellido2']) &&
+            !empty($_POST['idUsuario']) &&
+            !empty($_POST['nombre']) &&
+            !empty($_POST['Apellido1']) &&
+            !empty($_POST['Apellido2']) &&
+            $_POST['idUsuario'] == $_SESSION['usernameId'] &&
+            strlen($_POST['nombre']) <= 50 &&
+            strlen($_POST['Apellido1']) <= 45 &&
+            strlen($_POST['Apellido2']) <= 45
+        ) {
+            $usuarioDao = new Daousuario(DDBB_NAME);
+
+            $datoUsuario =  $usuarioDao->obtener($_POST['idUsuario']);
+            $datoUsuario->__set("nombre", $_POST['nombre']);
+            $datoUsuario->__set("apellido1", $_POST['Apellido1']);
+            $datoUsuario->__set("apellido2", $_POST['Apellido2']);
+
+            $usuarioDao->actualizar($datoUsuario);
+
+            $_SESSION['mensaje'] = "2003";
+            $_SESSION['type'] = "exito";
+        } else {
+            $_SESSION['mensaje'] = "1006";
+            $_SESSION['type'] = "error";
+        }
+        echo "<script>
+                localStorage.setItem('flash_msg', JSON.stringify({
+                    type: '" . ($_SESSION['type']) . "',
+                    message: '" . addslashes($_SESSION['mensaje']) . "'
+                }));
+                window.location.href = 'index.php?controller=Perfil&action=view';
+            </script>";
     }
 }

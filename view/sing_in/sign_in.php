@@ -90,18 +90,6 @@
                             <label for="CVV">CVV</label>
                             <input type="text" id="CVV" maxlength="3" placeholder="xxx" name="CVV">
                         </div>
-                        <div class="registro__formulario__group lang" data-lang="genero">
-                            <label for="generoFavorito">Género Favorito: </label>
-                            <select name="generoFavorito" id="generoFavorito">
-                                <option value="" data-lang="opcion1">Seleccione un género</option>
-                                <option value="Americano" data-lang="opcion2">Americano</option>
-                                <option value="Europeo" data-lang="opcion3">Europeo</option>
-                                <option value="Manga" data-lang="opcion4">Manga</option>
-                                <option value="Indie" data-lang="opcion5">Indie</option>
-                                <option value="Novela" data-lang="opcion6">Novela</option>
-                                <option value="Otro" data-lang="opcion7">Otros</option>
-                            </select>
-                        </div>
                         <div class="registro__formulario__group lang" data-lang="tipo_tarjeta">
                             <label for="tipo_tarjeta">Tipo de Tarjeta</label>
                             <select name="tipo_tarjeta" id="tipo_tarjeta">
@@ -126,6 +114,19 @@
                                 ?>
                             </select>
                         </div>
+                        <div class="registro__formulario__group lang" data-lang="genero">
+                            <label for="generoFavorito">Género Favorito: </label>
+                            <select name="generoFavorito" id="generoFavorito">
+                                <option value="" data-lang="opcion1">Seleccione un género</option>
+                                <option value="Americano" data-lang="opcion2">Americano</option>
+                                <option value="Europeo" data-lang="opcion3">Europeo</option>
+                                <option value="Manga" data-lang="opcion4">Manga</option>
+                                <option value="Indie" data-lang="opcion5">Indie</option>
+                                <option value="Novela" data-lang="opcion6">Novela</option>
+                                <option value="Otro" data-lang="opcion7">Otros</option>
+                            </select>
+                        </div>
+
                         <div class="enlaceBoton">
                             <a href="index.php?controller=LogIn&action=view" class="lang " data-lang="yaTienesCuenta"></a>
                         </div>
@@ -159,7 +160,7 @@
         <script src="https://cdn.jsdelivr.net/npm/just-validate@latest/dist/just-validate.production.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.19/jquery.inputmask.min.js"></script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.19/jquery.inputmask.min.js"></script>
         <script type="module" src="./assets/js/validacionFormulario.js"></script>
 
 

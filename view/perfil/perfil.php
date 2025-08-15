@@ -96,8 +96,29 @@
 
                 <!-- CONTENEDOR DATOS PERSONALES -->
                 <div class="container containerDatosPersonales">
-                    <h2
-                        class="lang title" data-lang="title">Datos personales</h2>
+                    <h2 class="lang title" data-lang="title">Datos personales</h2>
+
+                    <div class="formulario">
+                        <form id="formularioDataUser" action="index.php?controller=Perfil&action=cambiarDatosUsuario" method="post">
+                            <input type="hidden" name="idUsuario" value="<?php echo $_SESSION['usernameId']; ?>">
+
+                            <div class="formGroup">
+                                <label for="nombre" class="lang" data-lang="Nombre">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" value="" required maxlength="50">
+                            </div>
+                            <div class="formGroup">
+                                <label for="Apellido1" class="lang" data-lang="Apellido1">Primer apellido:</label>
+                                <input type="text" id="Apellido1" name="Apellido1" value="" required maxlength="45">
+                            </div>
+                            <div class="formGroup">
+                                <label for="Apellido2" class="lang" data-lang="Apellido2">Segundo apellido:</label>
+                                <input type="text" id="Apellido2" name="Apellido2" value="" required maxlength="45">
+                            </div>
+                            <div class="formGroup">
+                                <input type="button" class="lang btn btnTerciario btnCambiarData" data-lang="cambiarData" value="">
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <!-- CONTENEDOR DIRECCIONES -->
                 <div class="container containerDirecciones">

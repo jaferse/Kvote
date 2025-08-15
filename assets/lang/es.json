@@ -372,10 +372,7 @@
             "passWordOld": "Contraseña antigua",
             "passWordNew": "Contraseña nueva",
             "passWordNew2": "Confirmar contraseña nueva",
-            "cambiarPass": "Cambiar contraseña",
-            "tooltipError": "La contraseña actual no es correcta.",
-            "tooltipWarning": "La nueva contraseña no puede ser la misma que la actual.",
-            "tooltipSuccess": "Contraseña cambiada correctamente."
+            "cambiarPass": "Cambiar contraseña"
         },
         "crudProducto": {
             "insertado": "Producto insertado correctamente",
@@ -698,9 +695,14 @@
             "1003": "Error 1003: El ISBN no tiene 13 digitos",
             "1004": "Solo se permiten imágenes en formato PNG, JPEG, WebP, GIF, BMP, SVG o ICO.",
             "1005": "Los archivos de imagen superan el peso permitido. (16 MB máximo)",
+            "1006": "Error 1006: El formato de los datos no es correcto",
+            "1007": "La contraseña actual no es correcta.",
             "2000": "Artista insertado correctamente",
             "2001": "Artista eliminado correctamente",
-            "2002": "Artista actualizado correctamente"
+            "2002": "Artista actualizado correctamente",
+            "2003": "Actualización de datos del usuario correcta",
+            "2004": "Contraseña cambiada correctamente.",
+            "3000": "La nueva contraseña no puede ser la misma que la actual."
         },
         "frontMessage": {
             "1000": "Solo se permiten imágenes en formato PNG, JPEG, WebP, GIF, BMP, SVG o ICO.",
@@ -713,6 +715,7 @@
             "1007": "El precio no puede ser superior a 999999999.99€.",
             "1008": "El stock no puede ser superior a 10 dígitos.",
             "1009": "Debes subir una imagen de portada.",
+            "1010": "Los datos no son validos",
             "2000": "Portada seleccionada correctamente"
         }
     },
@@ -1086,10 +1089,7 @@
             "passWordOld": "Current Password",
             "passWordNew": "New Password",
             "passWordNew2": "Confirm New Password",
-            "cambiarPass": "Change Password",
-            "tooltipError": "The current password is incorrect.",
-            "tooltipWarning": "The new password cannot be the same as the current one.",
-            "tooltipSuccess": "Password changed successfully."
+            "cambiarPass": "Change Password"
         },
         "crudProducto": {
             "insertado": "Product inserted successfully",
@@ -1412,9 +1412,14 @@
             "1003": "Error 1003: The ISBN does not have 13 digits",
             "1004": "Only images in PNG, JPEG, WebP, GIF, BMP, SVG, or ICO format are allowed.",
             "1005": "The image files exceed the allowed size. (16 MB maximum)",
+            "1006": "Error 1006: The data format is incorrect.",
+            "1007": "The current password is incorrect.",
             "2000": "Artist inserted successfully",
             "2001": "Artist deleted successfully",
-            "2002": "Artist updated successfully"
+            "2002": "Artist updated successfully",
+            "2003": "User data update successful.",
+            "2004": "Password changed successfully.",
+            "3000": "The new password cannot be the same as the current one."
         },
         "frontMessage": {
             "1000": "Only images in PNG, JPEG, WebP, GIF, BMP, SVG, or ICO format are allowed.",
@@ -1800,10 +1805,7 @@
             "passWordOld": "現在のパスワード",
             "passWordNew": "新しいパスワード",
             "passWordNew2": "新しいパスワードを確認",
-            "cambiarPass": "パスワードを変更する",
-            "tooltipError": "現在のパスワードが正しくありません。",
-            "tooltipWarning": "新しいパスワードは現在のパスワードと同じにできません。",
-            "tooltipSuccess": "パスワードが正常に変更されました。"
+            "cambiarPass": "パスワードを変更する"
         },
         "crudProducto": {
             "insertado": "商品が正常に追加されました",
@@ -2126,9 +2128,14 @@
             "1003": "エラー1003: ISBNは13桁ではあり",
             "1004": "PNG、JPEG、WebP、GIF、BMP、SVG、ICO形式の画像のみ使用できます。",
             "1005": "画像ファイルのサイズが許可上限を超えています。（最大16MB）",
+            "1006": "エラー 1006: データ形式が正しくありません。",
+            "1007": "現在のパスワードが正しくありません。",
             "2000": "アーティストが正常に追加されました",
             "2001": "アーティストが正常に削除されました",
-            "2002": "アーティストが正常に更新されました"
+            "2002": "アーティストが正常に更新されました",
+            "2003": "ユーザーデータの更新に成功しました。",
+            "2004": "パスワードが正常に変更されました。",
+            "3000": "新しいパスワードは現在のパスワードと同じにできません。"
         },
         "frontMessage": {
             "1000": "PNG、JPEG、WebP、GIF、BMP、SVG、ICO形式の画像のみ使用できます。",

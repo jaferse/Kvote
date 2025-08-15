@@ -6,7 +6,10 @@ let lang = 'es';
 let idiomasJson;
 const formularioPass = document.querySelector('#formularioPass');
 let seccionPerfil;
+let dataPerfil
 document.addEventListener('DOMContentLoaded', async () => {
+    const ResponseDataPerfil = await fetch(`index.php?controller=Perfil&action=obtenerDatosUsuario`);
+    dataPerfil = await ResponseDataPerfil.json();
     seccionPerfil = localStorage.getItem('seccionPerfil') ?? 'datosPersonales';
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
     const user = await responseUser.json();
@@ -15,11 +18,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     let mensaje = JSON.parse(localStorage.getItem('flash_msg', user.idioma));
     darseBajaTraduccir(idiomasJson, lang);
 
+    cambiarValorInputFormActualizarDatos();
+
     let classContainer = `.container${seccionPerfil.charAt(0).toUpperCase() + seccionPerfil.slice(1)}`;
     document.querySelector(classContainer).style.display = 'flex';
-
     if (mensaje) {
-        tooltip(idiomasJson[lang]['cambiarPassword'][mensaje.message], mensaje.type, document.querySelector('.containerPassWord'));
+        tooltip(idiomasJson[lang]['backMessage'][mensaje.message], mensaje.type, document.querySelector('.containerMain'));
         localStorage.removeItem('flash_msg');
     }
     document.querySelector('.usuario').textContent = user.username;
@@ -84,6 +88,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     ocultarSkeleton('flex');
 });
 
+function cambiarValorInputFormActualizarDatos() {
+    document.querySelector('#formularioDataUser #nombre').value = dataPerfil.nombre;
+    document.querySelector('#formularioDataUser #Apellido1').value = dataPerfil.apellido1;
+    document.querySelector('#formularioDataUser #Apellido2').value = dataPerfil.apellido2;
+}
 function ocultarContenedores() {
     document.querySelectorAll('.container').forEach(container => {
         container.style.display = 'none';
@@ -180,4 +189,24 @@ btnCambiarPass.addEventListener('click', (e) => {
     }).catch((error) => {
         console.error("Error al validar el formulario:", error);
     });
+});
+
+const btnCambiarData = document.querySelector('.btnCambiarData');
+btnCambiarData.addEventListener('click', (e) => {
+    e.preventDefault();
+    const formularioDataUser = document.querySelector('#formularioDataUser');
+    let datos = new FormData(formularioDataUser);
+    if (
+        datos.get('nombre').length > 2 &&
+        datos.get('Apellido1').length > 2 &&
+        datos.get('Apellido2').length > 2 &&
+        datos.get('nombre').length < 50 &&
+        datos.get('Apellido1').length < 45 &&
+        datos.get('Apellido2').length < 45
+    ) {
+        formularioDataUser.submit();
+    } else {
+        tooltip(idiomasJson[lang]['frontMessage']['1010'], 'error', document.querySelector('.containerMain'));
+    }
+
 });

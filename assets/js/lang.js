@@ -431,11 +431,19 @@ function actualizarTexto(json, lang) {
             element.textContent = json[lang]['producto']['Subtipo'][data_lang];
         });
         document.querySelectorAll('.mainAdmin.producto table>thead>tr>th').forEach(element => {
-            
             let data_lang = element.getAttribute('data-lang');
             
             element.textContent = json[lang]['mainAdmin']['producto']['th'][data_lang];
         });
+    }
+
+    //Cambiar idioma de formulario de datos de usuario
+    if (document.querySelector('#formularioDataUser label.lang')) {        
+        document.querySelectorAll('#formularioDataUser label.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["formulario"][data_lang];
+        });
+        document.querySelector('#formularioDataUser input[type="button"]').value = json[lang]["mainAdmin"]["botones"]["actualizar"];
     }
 
 
