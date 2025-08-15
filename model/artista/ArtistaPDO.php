@@ -15,7 +15,7 @@ class Daoartista extends DB
     }
     public function listar()
     {
-        $consulta = 'SELECT * FROM artista';
+        $consulta = 'SELECT * FROM artista ORDER by nombre';
         $this->consultaDatos($consulta);
         foreach ($this->filas as $fila) {
             $arti = new Artista(); //creamos un objeto de la entidad situacion

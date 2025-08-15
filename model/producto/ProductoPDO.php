@@ -192,7 +192,7 @@ class Daoproducto extends DB
     {
         $_GET['page']; //Forzamos a que la paginación empiece desde la primera página
         $consulta = 'SELECT * FROM producto 
-        WHERE '.$tipo.'= :parametro
+        WHERE LOWER(' . $tipo . ') = LOWER(:parametro)
         ORDER BY anio_publicacion 
         DESC LIMIT  ' . ($_GET['page'] - 1) * $this->productosPagina . ',' . $this->productosPagina;
         $param = array();
