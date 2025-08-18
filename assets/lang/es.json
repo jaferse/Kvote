@@ -688,6 +688,19 @@
             "Zambia": "Zambia",
             "Zimbabue": "Zimbabue"
         },
+        "direciones": {
+            "title": "Direcciones",
+            "add": "Anadir",
+            "pais": "País:",
+            "comunidad": "Comunidad:",
+            "localidad": "Localidad:",
+            "cPostal": "Cod. Postal:",
+            "Calle": "Calle:",
+            "Numero": "Número:",
+            "Piso": "Piso:",
+            "Puerta": "Puerta:",
+            "addDireccion": "Añadir"
+        },
         "backMessage": {
             "1000": "Error 1000: No se han recibido los datos correctamente",
             "1001": "Error 1001: La fecha es superior a la actual",
@@ -697,11 +710,13 @@
             "1005": "Los archivos de imagen superan el peso permitido. (16 MB máximo)",
             "1006": "Error 1006: El formato de los datos no es correcto",
             "1007": "La contraseña actual no es correcta.",
+            "1008": "Faltan datos en el formulario.",
             "2000": "Artista insertado correctamente",
             "2001": "Artista eliminado correctamente",
             "2002": "Artista actualizado correctamente",
             "2003": "Actualización de datos del usuario correcta",
             "2004": "Contraseña cambiada correctamente.",
+            "2005": "Dirección insertada correctamente",
             "3000": "La nueva contraseña no puede ser la misma que la actual."
         },
         "frontMessage": {
@@ -716,6 +731,8 @@
             "1008": "El stock no puede ser superior a 10 dígitos.",
             "1009": "Debes subir una imagen de portada.",
             "1010": "Los datos no son validos",
+            "1011": "Hay datos vacios en el formulario.",
+            "1012": "El código postal no es valido",
             "2000": "Portada seleccionada correctamente"
         }
     },
@@ -1405,6 +1422,19 @@
             "Zambia": "Zambia",
             "Zimbabue": "Zimbabwe"
         },
+        "direciones": {
+            "title": "Addresses",
+            "add": "Add",
+            "pais": "Country:",
+            "comunidad": "Region:",
+            "localidad": "City:",
+            "cPostal": "Postal Code:",
+            "Calle": "Street:",
+            "Numero": "Number:",
+            "Piso": "Floor:",
+            "Puerta": "Door:",
+            "addDireccion": "Add Address"
+        },
         "backMessage": {
             "1000": "Error 1000: Data was not received correctly",
             "1001": "Error 1001: The date is later than the current one",
@@ -1414,11 +1444,13 @@
             "1005": "The image files exceed the allowed size. (16 MB maximum)",
             "1006": "Error 1006: The data format is incorrect.",
             "1007": "The current password is incorrect.",
+            "1008": "Missing data in the form.",
             "2000": "Artist inserted successfully",
             "2001": "Artist deleted successfully",
             "2002": "Artist updated successfully",
             "2003": "User data update successful.",
             "2004": "Password changed successfully.",
+            "2005": "Address entered correctly.",
             "3000": "The new password cannot be the same as the current one."
         },
         "frontMessage": {
@@ -1432,6 +1464,8 @@
             "1007": "The price cannot be higher than 999999999.99€.",
             "1008": "Stock cannot exceed 10 digits.",
             "1009": "You must upload a cover image.",
+            "1011": "There is empty data in the form.",
+            "1012": "The postal code is not valid.",
             "2000": "Cover image selected successfully"
         }
     },
@@ -2121,6 +2155,19 @@
             "Zambia": "ザンビア",
             "Zimbabue": "ジンバブエ"
         },
+        "direciones": {
+            "title": "住所",
+            "add": "追加",
+            "pais": "国:",
+            "comunidad": "地域:",
+            "localidad": "市区町村:",
+            "cPostal": "郵便番号:",
+            "Calle": "通り:",
+            "Numero": "番号:",
+            "Piso": "階:",
+            "Puerta": "部屋番号:",
+            "addDireccion": "住所を追加"
+        },
         "backMessage": {
             "1000": "エラー1000: データが正しく受信されませんでした",
             "1001": "エラー1001: 日付が現在より未来です",
@@ -2130,11 +2177,13 @@
             "1005": "画像ファイルのサイズが許可上限を超えています。（最大16MB）",
             "1006": "エラー 1006: データ形式が正しくありません。",
             "1007": "現在のパスワードが正しくありません。",
+            "1008": "フォームにデータが不足しています。",
             "2000": "アーティストが正常に追加されました",
             "2001": "アーティストが正常に削除されました",
             "2002": "アーティストが正常に更新されました",
             "2003": "ユーザーデータの更新に成功しました。",
             "2004": "パスワードが正常に変更されました。",
+            "2005": "住所は正しく入力されています。",
             "3000": "新しいパスワードは現在のパスワードと同じにできません。"
         },
         "frontMessage": {
@@ -2148,6 +2197,8 @@
             "1007": "価格は999999999.99€を超えることはできません。",
             "1008": "在庫数は最大10桁までです。",
             "1009": "表紙画像をアップロードする必要があります。",
+            "1011": "フォームに空のデータがあります。",
+            "1012": "郵便番号が無効です。",
             "2000": "表紙画像が正常に選択されました"
         }
     }

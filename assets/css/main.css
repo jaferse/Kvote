@@ -2975,13 +2975,13 @@
   flex: 1;
   display: flex;
 }
-.perfilContainer .containerContenido .formulario #formularioPass, .perfilContainer .containerContenido .formulario #formularioDataUser {
+.perfilContainer .containerContenido .formulario #formularioPass, .perfilContainer .containerContenido .formulario #formularioDataUser, .perfilContainer .containerContenido .formulario #formularioDireccion {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.perfilContainer .containerContenido .formulario #formularioPass .formGroup, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup {
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -2991,33 +2991,33 @@
   Mensajes de validación
   */
 }
-.perfilContainer .containerContenido .formulario #formularioPass .formGroup label, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup label {
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup label, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup label, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup label {
   font-weight: 700;
   margin-bottom: 0.5rem;
   margin-right: 1rem;
   width: 170px;
 }
-.perfilContainer .containerContenido .formulario #formularioPass .formGroup input, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup input {
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup input, .perfilContainer .containerContenido .formulario #formularioPass .formGroup select, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup input, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup select, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup input, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup select {
   padding: 0.5rem;
   border-radius: 8px;
   border: 1px solid #000000;
   font-size: 1rem;
   height: 36px;
 }
-.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-success-field, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .just-validate-success-field {
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-success-field, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .just-validate-success-field, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup .just-validate-success-field {
   border-color: #1fb800;
 }
-.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-error-field, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .just-validate-error-field {
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-error-field, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .just-validate-error-field, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup .just-validate-error-field {
   border-color: #B8001F;
 }
-.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-error-label, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .just-validate-error-label {
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-error-label, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .just-validate-error-label, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup .just-validate-error-label {
   width: 100%;
 }
-.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-success-label, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .just-validate-success-label {
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .just-validate-success-label, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .just-validate-success-label, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup .just-validate-success-label {
   width: 100%;
   color: green;
 }
-.perfilContainer .containerContenido .formulario #formularioPass .formGroup .btn, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .btn {
+.perfilContainer .containerContenido .formulario #formularioPass .formGroup .btn, .perfilContainer .containerContenido .formulario #formularioDataUser .formGroup .btn, .perfilContainer .containerContenido .formulario #formularioDireccion .formGroup .btn {
   width: auto !important;
 }
 .perfilContainer.theme--dark .menuLateral {

@@ -123,7 +123,46 @@
                 <!-- CONTENEDOR DIRECCIONES -->
                 <div class="container containerDirecciones">
                     <h2 class="lang title" data-lang="title">Direcciones</h2>
-
+                    <div class="formulario">
+                        <form id="formularioDireccion" action="index.php?controller=Perfil&action=agregarDireccion" method="post">
+                            <div class="formGroup">
+                                <label for="pais" class="lang" data-lang="pais">País:</label>
+                                <select name="pais" id="pais" required>
+                                    <option class="lang" data-lang="Seleccione" value="">Seleccione un país</option>
+                                    <option class="lang" data-lang="España" value="ES">España</option>
+                                    <option class="lang" data-lang="Francia" value="FR">Francia</option>
+                                    <option class="lang" data-lang="Portugal" value="PT">Portugal</option>
+                                </select>
+                            </div>
+                            <div class="formGroup comunidad">
+                            </div>
+                            <div class="formGroup localidad">
+                            </div>
+                            <div class="formGroup">
+                                <label for="codPostal" class="lang" data-lang="cPostal">Cod. Postal:</label>
+                                <input type="text" id="codPostal" name="codPostal" required title="Debe ser un código postal de 7 dígitos" maxlength="7">
+                            </div>
+                            <div class="formGroup">
+                                <label for="calle" class="lang" data-lang="Calle">Calle:</label>
+                                <input type="text" id="calle" name="calle" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="numero" class="lang" data-lang="Numero">Numero:</label>
+                                <input type="number" id="numero" name="numero" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="piso" class="lang" data-lang="Piso">Piso:</label>
+                                <input type="text" id="piso" name="piso" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="puerta" class="lang" data-lang="Puerta">Puerta:</label>
+                                <input type="text" id="puerta" name="puerta" required>
+                            </div>
+                            <div>
+                                <input type="submit" class="lang btn btnTerciario btnAddDireccion" data-lang="addDireccion" value="Añadir">
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- CONTENEDOR TARJETA CREDITO -->

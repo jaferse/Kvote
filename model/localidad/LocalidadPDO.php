@@ -1,5 +1,4 @@
 <?php
-//Revisar la situación del path
 require_once("./core/DBClass.php");
 require_once("LocalidadClass.php");
 class Daolocalidad extends DB
@@ -22,8 +21,26 @@ class Daolocalidad extends DB
             $loca->__set("codigo", $fila['codigo']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $loca->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $loca->__set("codigo_provincia", $fila['codigo_provincia']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $loca->__set("codigo_pais", $fila['codigo_pais']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $this->localidads[] = $loca; //Guardamos ese objeto en el array de objetos loca
         }
+    }
+    public function listarPorPaisYProvincia($pais, $provincia)
+    {
+        $consulta = 'SELECT * FROM localidad WHERE codigo_pais= :codigo_pais AND codigo_provincia= :codigo_provincia';
+        $param = array();
+        $param[":codigo_pais"] = $pais;
+        $param[":codigo_provincia"] = $provincia;
+        $this->consultaDatos($consulta, $param);
+        foreach ($this->filas as $fila) {
+            $loca = new Localidad(); //creamos un objeto de la entidad situacion
+            $loca->__set("codigo", $fila['codigo']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $loca->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $loca->__set("codigo_provincia", $fila['codigo_provincia']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $loca->__set("codigo_pais", $fila['codigo_pais']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $this->localidads[] = $loca; //Guardamos ese objeto en el array de objetos loca
+        }
+        return $this->localidads;
     }
     /**
      * Obtiene una situacion de la base de datos por su Id.
@@ -32,11 +49,13 @@ class Daolocalidad extends DB
      * @return Situacion El objeto Situacion correspondiente al Id proporcionado
      * Si no se encuentra, se devuelve un objeto Situacion vacío.
      */
-    public function obtener($codigo)
+    public function obtener($codigo, $codigo_provincia, $codigo_pais)
     {
-        $consulta = "SELECT * FROM localidad WHERE codigo= :codigo ";
+        $consulta = "SELECT * FROM localidad WHERE codigo= :codigo AND codigo_provincia= :codigo_provincia AND codigo_pais= :codigo_pais ";
         $param = array();
         $param[":codigo"] = $codigo;
+        $param[":codigo_provincia"] = $codigo_provincia;
+        $param[":codigo_pais"] = $codigo_pais;
         $this->consultaDatos($consulta, $param);
         $loca = new Localidad(); //creamos un objeto de la entidad Localidad
         if (count($this->filas) == 1) {
@@ -44,6 +63,7 @@ class Daolocalidad extends DB
             $loca->__set("codigo", $fila['codigo']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $loca->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $loca->__set("codigo_provincia", $fila['codigo_provincia']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $loca->__set("codigo_pais", $fila['codigo_pais']); //Le asignamos a las propiedades del objetos los campos de esa fila
         }
         return $loca;
     }
@@ -54,11 +74,12 @@ class Daolocalidad extends DB
      */
     public function insertar($loca)
     { //Se introduce un objeto por parametro que se insertará
-        $consulta = "INSERT INTO localidad VALUES (:codigo, :nombre, :codigo_provincia ) ";
+        $consulta = "INSERT INTO localidad VALUES (:codigo, :nombre, :codigo_provincia, :codigo_pais ) ";
         $param = array();
         $param[":codigo"] = $loca->__get("codigo"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":nombre"] = $loca->__get("nombre"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":codigo_provincia"] = $loca->__get("codigo_provincia"); //Le asignamos a las propiedades del objetos los campos de esa fila
+        $param[":codigo_pais"] = $loca->__get("codigo_pais"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $this->consultaSimple($consulta, $param);
     }
     /**;
@@ -68,11 +89,12 @@ class Daolocalidad extends DB
      */
     public function actualizar($loca)
     { //Se introduce un objeto por parametro que se insertará
-        $consulta = " UPDATE localidad SET nombre= :nombre, codigo_provincia= :codigo_provincia WHERE codigo= :codigo";
+        $consulta = " UPDATE localidad SET nombre= :nombre, WHERE codigo= :codigo AND codigo_provincia= :codigo_provincia AND codigo_pais= :codigo_pais";
         $param = array();
         $param[":codigo"] = $loca->__get("codigo"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":nombre"] = $loca->__get("nombre"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":codigo_provincia"] = $loca->__get("codigo_provincia"); //Le asignamos a las propiedades del objetos los campos de esa fila
+        $param[":codigo_pais"] = $loca->__get("codigo_pais"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $this->consultaSimple($consulta, $param);
     }
     /**
@@ -80,11 +102,13 @@ class Daolocalidad extends DB
      * @param int El id de la situacion a borrar
      * @return void
      */
-    public function borrar($codigo)
+    public function borrar($codigo, $codigo_provincia, $codigo_pais)
     { //Se introduce un objeto por parametro que se insertará
-        $consulta = " DELETE FROM localidad WHERE codigo= :codigo";
+        $consulta = " DELETE FROM localidad WHERE codigo= :codigo AND codigo_provincia= :codigo_provincia AND codigo_pais= :codigo_pais";
         $param = array();
         $param[":codigo"] = $codigo;
+        $param[":codigo_provincia"] = $codigo_provincia;
+        $param[":codigo_pais"] = $codigo_pais;
         $this->consultaSimple($consulta, $param);
     }
 }

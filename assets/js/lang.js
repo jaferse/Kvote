@@ -446,6 +446,18 @@ function actualizarTexto(json, lang) {
         document.querySelector('#formularioDataUser input[type="button"]').value = json[lang]["mainAdmin"]["botones"]["actualizar"];
     }
 
+    if (document.querySelector('.containerDirecciones #formularioDireccion .lang')) {
+        document.querySelectorAll('#formularioDireccion #pais .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["paises"][data_lang];
+        });
+        document.querySelectorAll('#formularioDireccion label.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["direciones"][data_lang];  
+        })
+        document.querySelector('.containerDirecciones .title').textContent = json[lang]["direciones"]["title"];
+    }
+
 
     //Cambiar idioma de darse de baja
     darseBajaTraduccir(json, lang);

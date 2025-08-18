@@ -120,7 +120,7 @@
             flex: 1;
             display: flex;
 
-            #formularioPass, #formularioDataUser {
+            #formularioPass, #formularioDataUser, #formularioDireccion {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
@@ -140,13 +140,12 @@
                         width: 170px;
                     }
 
-                    input {
+                    input, select {
                         padding: 0.5rem;
                         border-radius: $border-radius;
                         border: 1px solid $negroBorde;
                         font-size: 1rem;
                         height: 36px;
-                        // width: 100%;
                     }
 
                     .just-validate-success-field {

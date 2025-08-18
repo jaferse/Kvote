@@ -9,10 +9,13 @@ class PerfilController
         require_once("model/usuario/UsuarioPDO.php");
         require_once("model/tarjeta/TarjetaPDO.php");
         require_once("model/direccion/DireccionPDO.php");
+        require_once("model/direccion/DireccionClass.php");
         require_once("model/comentario/ComentarioPDO.php");
         require_once("model/compra/CompraPDO.php");
         require_once("model/detalleCompra/DetallecompraPDO.php");
         require_once("controller/LogInController.php");
+        require_once("model/provincia/ProvinciaPDO.php");
+        require_once("model/localidad/LocalidadPDO.php");
         if (!isset($_SESSION['logueado']) || $_SESSION['logueado'] != true) {
             header("Location: index.php?controller=Index&action=view");
             header("Location: index.php?controller=LogIn&action=view");
@@ -126,7 +129,7 @@ class PerfilController
         header('Content-Type: application/json');
         echo json_encode($response);
     }
-    
+
     public function cambiarDatosUsuario()
     {
         if (
@@ -165,5 +168,99 @@ class PerfilController
                 }));
                 window.location.href = 'index.php?controller=Perfil&action=view';
             </script>";
+    }
+    public function obtenerComunidades()
+    {
+        // echo $_GET['parametro'];
+        $provinciaDao = new Daoprovincia(DDBB_NAME);
+        $comunidades = $provinciaDao->listarPorPais($_GET['parametro']);
+        header('Content-Type: application/json');
+        echo json_encode($comunidades);
+    }
+    public function obtenerLocalidades()
+    {
+        // echo $_GET['parametro'];
+        $codPais = explode("-", $_GET['parametro'])[0];
+        $codProvincia = explode("-", $_GET['parametro'])[1];
+        // echo "CodPais: $codPais, CodProvincia: $codProvincia";
+        $localidadDao = new Daolocalidad(DDBB_NAME);
+        $localidades = $localidadDao->listarPorPaisYProvincia($codPais, $codProvincia);
+        header('Content-Type: application/json');
+        echo json_encode($localidades);
+    }
+
+    public function agregarDireccion()
+    {
+        //Si existen los campos de la direccion y el id del usuario.
+        if (
+            isset($_POST['pais']) &&
+            isset($_POST['comunidad']) &&
+            isset($_POST['codPostal']) &&
+            isset($_POST['localidad']) &&
+            isset($_POST['calle']) &&
+            isset($_POST['numero']) &&
+            isset($_SESSION['usernameId']) &&
+            !empty($_POST['pais']) &&
+            !empty($_POST['comunidad']) &&
+            !empty($_POST['codPostal']) &&
+            !empty($_POST['localidad']) &&
+            !empty($_POST['calle']) &&
+            !empty($_POST['numero'])
+        ) {
+            // var_dump($_POST)."<br>";
+            // echo "<br>";
+            // echo strlen($_POST['pais']) == 2;
+            // echo "<br>";
+            // echo   strlen($_POST['comunidad']) < 16;
+            // echo "<br>";
+            // echo ((($_POST['pais'] == 'ES' || $_POST['pais'] == 'FR') && strlen($_POST['codPostal']) == 5) ||
+            //         ($_POST['pais'] == 'PT' && strlen($_POST['codPostal']) == 7));
+            // echo "<br>";
+            // echo  strlen($_POST['localidad']) <= 100;
+            // echo "<br>";
+            // echo  strlen($_POST['calle']) <= 70;
+            // echo "<br>";
+            // echo strlen($_POST['numero']) <= 11;
+            // echo "<br>";
+            if (
+                strlen($_POST['pais']) == 2 &&
+                strlen($_POST['comunidad']) < 16 &&
+                ((($_POST['pais'] == 'ES' || $_POST['pais'] == 'FR') && strlen($_POST['codPostal']) == 5) ||
+                    ($_POST['pais'] == 'PT' && strlen($_POST['codPostal']) == 7)) &&
+                strlen($_POST['localidad']) <= 100 &&
+                strlen($_POST['calle']) <= 70 &&
+                strlen($_POST['numero']) <= 11
+            ) {
+                $direccionDao = new Daodireccion(DDBB_NAME);
+                $direccion = new Direccion();
+                $direccion->__set("paisISO", $_POST['pais']);
+                $direccion->__set("provinciaMatricula", $_POST['comunidad']);
+                $direccion->__set("codigo_postal", $_POST['codPostal']);
+                $direccion->__set("localidad", $_POST['localidad']);
+                $direccion->__set("calle", $_POST['calle']);
+                $direccion->__set("numero", $_POST['numero']);
+                $direccion->__set("piso", $_POST['piso']);
+                $direccion->__set("puerta", $_POST['puerta']);
+                $direccion->__set("usuario_id", $_SESSION['usernameId']);
+
+                $direccionDao->insertar($direccion);
+                $_SESSION['mensaje'] = "2005";
+                $_SESSION['type'] = "exito";
+            } else {
+                $_SESSION['mensaje'] = "1006";
+                $_SESSION['type'] = "error";
+            }
+        } else {
+            $_SESSION['mensaje'] = "1008";
+            $_SESSION['type'] = "error";
+        }
+        // echo $_SESSION['mensaje'];
+        echo "<script>
+                localStorage.setItem('flash_msg', JSON.stringify({
+                    type: '" . ($_SESSION['type']) . "',
+                    message: '" . addslashes($_SESSION['mensaje']) . "'
+                }));
+                window.location.href = 'index.php?controller=Perfil&action=view';
+                </script>";
     }
 }
