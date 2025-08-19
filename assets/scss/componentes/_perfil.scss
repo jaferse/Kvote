@@ -3,7 +3,7 @@
 .perfilContainer {
     // display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     width: 96vw;
     margin: 1rem auto;
@@ -82,12 +82,15 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+
             .tarjetaDireccion {
                 width: 80%;
-                .direccion{
-                    .titleDireccion{
+
+                .direccion {
+                    .titleDireccion {
                         font-weight: 800;
                     }
+
                     border: 2px solid #ccc;
                     border-radius: 10px;
                     padding: 1rem;
@@ -267,6 +270,39 @@
     }
 }
 
+
+@media screen and (max-width: 1250px) {
+    .containerDirecciones {
+        .direcciones {
+            .tarjetaDireccion {
+                .direccion {
+                    border: 2px solid #ccc;
+                    border-radius: 10px;
+                    padding: 1rem;
+                    margin: 1rem 0;
+                    display: grid;
+                    grid-template-columns: repeat(1, 1fr) !important;
+                    // grid-template-rows: repeat(2, 1fr) !important;
+                    align-items: center;
+                    column-gap: 10px;
+                    row-gap: 5px;
+                    background-color: #ff0000;
+                    width: 100%;
+                    .columna{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        p{
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 700px) {
     .perfilContainer {

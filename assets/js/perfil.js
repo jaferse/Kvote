@@ -341,23 +341,40 @@ function crearTarjetasDirecciones(direcciones) {
         tarjetaDireccion.innerHTML = `
         <h2 class="lang" data-lang="direccion">Dirección ${i + 1}</h2>
         <div class="direccion card theme--${darkMode}">
+        <div class='columna'>
             <p class="titleDireccion lang" data-lang="pais" >${idiomasJson[lang]['direciones']['pais']}</p>
-            <p class="titleDireccion lang" data-lang="comunidad" >${idiomasJson[lang]['direciones']['comunidad']}</p>
-            <p class="titleDireccion lang" data-lang="localidad" >${idiomasJson[lang]['direciones']['localidad']}</p>
-            <p class="titleDireccion lang" data-lang="cPostal" >${idiomasJson[lang]['direciones']['cPostal']}</p>
-            <p class="titleDireccion lang" data-lang="Calle" >${idiomasJson[lang]['direciones']['Calle']}</p>
-            <p class="titleDireccion lang" data-lang="Numero" >${idiomasJson[lang]['direciones']['Numero']}</p>
-            <p class="titleDireccion lang" data-lang="Piso" >${idiomasJson[lang]['direciones']['Piso']}</p>
-            <p class="titleDireccion lang" data-lang="Puerta" >${idiomasJson[lang]['direciones']['Puerta']}</p>
-            <p class="titleDireccion lang" data-lang="deleteDireccion" >${idiomasJson[lang]['direciones']['deleteDireccion']}</p>
             <p class="pais">${direccion.paisISO}</p>
+        </div>
+        <div class='columna'>
+            <p class="titleDireccion lang" data-lang="comunidad" >${idiomasJson[lang]['direciones']['comunidad']}</p>
             <p class="comunidad">${direccion.provinciaMatricula}</p>
+        </div>
+        <div class='columna'>
+            <p class="titleDireccion lang" data-lang="localidad" >${idiomasJson[lang]['direciones']['localidad']}</p>
             <p class="localidad">${direccion.localidad}</p>
+        </div>
+        <div class='columna'>
+            <p class="titleDireccion lang" data-lang="cPostal" >${idiomasJson[lang]['direciones']['cPostal']}</p>
             <p class="cPostal">${direccion.codigo_postal}</p>
+        </div>
+        <div class='columna'>
+            <p class="titleDireccion lang" data-lang="Calle" >${idiomasJson[lang]['direciones']['Calle']}</p>
             <p class="calle">${direccion.calle}</p>
+            </div>
+        <div class='columna'>
+            <p class="titleDireccion lang" data-lang="Numero" >${idiomasJson[lang]['direciones']['Numero']}</p>
             <p class="numero">${direccion.numero}</p>
+        </div>
+        <div class='columna'>
+            <p class="titleDireccion lang" data-lang="Piso" >${idiomasJson[lang]['direciones']['Piso']}</p>
             <p class="piso">${direccion.piso}</p>
+        </div>
+        <div class='columna'>
+            <p class="titleDireccion lang" data-lang="Puerta" >${idiomasJson[lang]['direciones']['Puerta']}</p>
             <p class="puerta">${direccion.puerta}</p>
+        </div>
+        <div class='columna'>
+            <p class="titleDireccion lang" data-lang="deleteDireccion" >${idiomasJson[lang]['direciones']['deleteDireccion']}</p>
             <a class="btnBorrarDireccion" data-iddireccion="${direccion.id}">                           
             <svg class="iconSvg" viewBox="-3 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                                 <title>trash</title>
@@ -371,6 +388,8 @@ function crearTarjetasDirecciones(direcciones) {
                                     </g>
                                 </g>
                             </svg></a>
+        </div>
+
         </div>`;
         containerDirecciones.appendChild(tarjetaDireccion);
     });
