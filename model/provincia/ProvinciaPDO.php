@@ -63,6 +63,22 @@ class Daoprovincia extends DB
         }
         return $prov;
     }
+    public function obtenerNombre($codigo_matricula, $codigo_pais)
+    {
+        $consulta = "SELECT nombre FROM provincia WHERE codigo_matricula= :codigo_matricula AND codigo_pais= :codigo_pais ";
+        $param = array();
+        $param[":codigo_matricula"] = $codigo_matricula;
+        $param[":codigo_pais"] = $codigo_pais;
+        $this->consultaDatos($consulta, $param);
+        $prov = new Provincia(); //creamos un objeto de la entidad Provincia
+        if (count($this->filas) == 1) {
+            $fila = $this->filas[0];
+            // $prov->__set("codigo_matricula", $fila['codigo_matricula']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            // $prov->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            // $prov->__set("codigo_pais", $fila['codigo_pais']); //Le asignamos a las propiedades del objetos los campos de esa fila
+        }
+        return $fila['nombre'];
+    }
     /**
      * Inserta una situacion en la base de datos
      * @param Situacion $prov El objeto a insertar

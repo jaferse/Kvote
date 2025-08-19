@@ -15,6 +15,7 @@ class PerfilController
         require_once("model/detalleCompra/DetallecompraPDO.php");
         require_once("controller/LogInController.php");
         require_once("model/provincia/ProvinciaPDO.php");
+        require_once("model/pais/PaisPDO.php");
         require_once("model/localidad/LocalidadPDO.php");
         if (!isset($_SESSION['logueado']) || $_SESSION['logueado'] != true) {
             header("Location: index.php?controller=Index&action=view");
@@ -271,5 +272,21 @@ class PerfilController
             "type" => $_SESSION['type'],
             "message" => $_SESSION['mensaje']
         ]);
+    }
+
+    public function obtenerNombrePais(){
+        $isoPais=$_GET['parametro'];
+        $paisDao = new Daopais(DDBB_NAME);
+        $pais = $paisDao->obtenerNombre($isoPais);
+        header('Content-Type: application/json');
+        echo json_encode($pais);
+    }
+    public function obtenerNombreProvincia(){
+        $isoPais=explode(":", $_GET['parametro'])[0];
+        $matriculaProvincia=explode(":", $_GET['parametro'])[1];
+        $provinciaDao = new Daoprovincia(DDBB_NAME);
+        $provincia = $provinciaDao->obtenerNombre($matriculaProvincia,$isoPais);
+        header('Content-Type: application/json');
+        echo json_encode($provincia);
     }
 }

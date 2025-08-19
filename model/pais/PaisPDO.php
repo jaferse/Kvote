@@ -45,6 +45,20 @@ class Daopais extends DB
         }
         return $pais;
     }
+    public function obtenerNombre($codigo_iso)
+    {
+        $consulta = "SELECT nombre FROM pais WHERE codigo_iso= :codigo_iso ";
+        $param = array();
+        $param[":codigo_iso"] = $codigo_iso;
+        $this->consultaDatos($consulta, $param);
+        $pais = new Pais(); //creamos un objeto de la entidad Pais
+        if (count($this->filas) == 1) {
+            $fila = $this->filas[0];
+            // $pais->__set("codigo_iso", $fila['codigo_iso']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            // $pais->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
+        }
+        return $fila['nombre'];
+    }
     /**
      * Inserta una situacion en la base de datos
      * @param Situacion $pais El objeto a insertar

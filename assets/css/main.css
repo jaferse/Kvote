@@ -3137,6 +3137,7 @@
 @media screen and (max-width: 700px) {
   .perfilContainer {
     flex-direction: column;
+    align-items: center;
   }
 }
 @media screen and (max-width: 450px) {
@@ -3147,7 +3148,7 @@
     flex-direction: column;
   }
   .container .formGroup input {
-    width: 163px;
+    width: 100%;
   }
 }
 * {

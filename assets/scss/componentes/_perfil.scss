@@ -307,6 +307,7 @@
 @media screen and (max-width: 700px) {
     .perfilContainer {
         flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -316,9 +317,8 @@
 
         .formGroup {
             flex-direction: column;
-
             input {
-                width: 163px;
+                width: 100%;
             }
         }
     }
