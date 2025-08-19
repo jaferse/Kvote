@@ -133,7 +133,10 @@ async function sacarProductos(seccion, page = 1, parametro) {
     //Ponemos en el titulo la seccion en mayuscula la primera letra
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
     let responseProductos
-
+    console.log(parametro);
+    console.log(seccion);
+    console.log(page);
+    
     if (parametro) {
         responseProductos = await fetch(`index.php?controller=Catalogo&action=get${seccionMayuscula}&parametro=${parametro}&page=${page}`);
     } else {
@@ -168,20 +171,24 @@ function construirPaginacion(productosRespuesta, seccion, paginaActual, parametr
 }
 
 
+let parametro;
 window.addEventListener('DOMContentLoaded', async () => {
     let container = document.querySelector('.container');
     const containerProductos = document.querySelector('.containerProductos');
     let parametros = new URLSearchParams(window.location.search);
     let seccion = parametros.get("action");
-    let parametro;
+
+    let paginaActual = 1;
+    
+    //Si no se ha recargado la pagina se mantiene la pagina actual
+    if (localStorage.getItem("seccion") === seccion ) {
+        paginaActual = localStorage.getItem("paginaActual") || 1;
+    }
+    if (parametro!=parametros.get("parametro")) {
+        paginaActual = 1;
+    }
     if (parametros.get("parametro")) {
         parametro = parametros.get("parametro");
-    }
-    let paginaActual = 1;
-
-    //Si no se ha recargado la pagina se mantiene la pagina actual
-    if (localStorage.getItem("seccion") === seccion) {
-        paginaActual = localStorage.getItem("paginaActual") || 1;
     }
     localStorage.setItem("paginaActual", paginaActual);
     localStorage.setItem("seccion", seccion);

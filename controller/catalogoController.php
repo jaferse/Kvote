@@ -20,7 +20,6 @@ class CatalogoController
     }
     public function libros()
     {
-
         $this->view();
     }
     public function novedades()
@@ -49,6 +48,11 @@ class CatalogoController
     }
     public function coleccion()
     {
+        $this->view();
+    }
+    public function buscar()
+    {
+        $_SESSION['busqueda'] = $_GET['parametro'];
         $this->view();
     }
     public function getComic()
@@ -95,7 +99,7 @@ class CatalogoController
     public function getCategoria()
     {
         $tipo = 'tipo';
-        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
+        $this->tablaProductos->listarPorTipo($tipo, $_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
         $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
@@ -106,7 +110,7 @@ class CatalogoController
     public function getSubtipo()
     {
         $tipo = 'subtipo';
-        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
+        $this->tablaProductos->listarPorTipo($tipo, $_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
         $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
@@ -117,7 +121,7 @@ class CatalogoController
     public function getFormato()
     {
         $tipo = 'formato';
-        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
+        $this->tablaProductos->listarPorTipo($tipo, $_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
         $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
@@ -128,7 +132,7 @@ class CatalogoController
     public function getEditorial()
     {
         $tipo = 'editorial';
-        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
+        $this->tablaProductos->listarPorTipo($tipo, $_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
         $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
@@ -139,10 +143,21 @@ class CatalogoController
     public function getColeccion()
     {
         $tipo = 'coleccion';
-        $this->tablaProductos->listarPorTipo($tipo,$_GET['parametro']);
+        $this->tablaProductos->listarPorTipo($tipo, $_GET['parametro']);
         $productos = $this->tablaProductos->productos;
         $productoArtista['productos'] = productoArtista($productos);
         $productoArtista['total'] = $this->tablaProductos->numeroProductosFiltro($tipo, $_GET['parametro']);
+        $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
+        header('Content-Type: application/json');
+        echo json_encode($productoArtista);
+    }
+
+    public function getBuscar()
+    {
+        $this->tablaProductos->buscar($_GET['parametro']);
+        $productos = $this->tablaProductos->productos;
+        $productoArtista['productos'] = productoArtista($productos);
+        $productoArtista['total'] = $this->tablaProductos->numeroProductosBusqueda($_GET['parametro']);
         $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
         header('Content-Type: application/json');
         echo json_encode($productoArtista);

@@ -152,6 +152,40 @@ class Daoproducto extends DB
 
         }
     }
+
+    public function buscar($parametro)
+    {
+        $_GET['page']; //Forzamos a que la paginación empiece desde la primera página
+        // $consulta = 'SELECT * FROM producto WHERE nombre LIKE "%' . $parametro . '%" OR coleccion LIKE "%' . $parametro . '%" OR editorial LIKE "%' . $parametro . '%"';
+        $consulta = 'SELECT * FROM producto 
+        WHERE nombre LIKE :busqueda 
+        OR coleccion LIKE :busqueda 
+        OR editorial LIKE :busqueda 
+        ORDER BY anio_publicacion 
+        DESC LIMIT  ' . ($_GET['page'] - 1) * $this->productosPagina . ',' . $this->productosPagina;
+        $param = array();
+        $param[":busqueda"] = '%' . $parametro . '%';
+        $this->consultaDatos($consulta, $param);
+        foreach ($this->filas as $fila) {
+            $prod = new Producto(); //creamos un objeto de la entidad situacion
+            $prod->__set("isbn_13", $fila['isbn_13']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("portada", $fila['portada']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("nombre", $fila['nombre']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("coleccion", $fila['coleccion']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("numero", $fila['numero']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("tipo", $fila['tipo']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("formato", $fila['formato']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("paginas", $fila['paginas']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("subtipo", $fila['subtipo']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("editorial", $fila['editorial']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("anio_publicacion", $fila['anio_publicacion']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("sinopsis", $fila['sinopsis']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("precio", $fila['precio']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("stock", $fila['stock']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $prod->__set("ventas", $fila['ventas']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $this->productos[] = $prod; //Guardamos ese objeto en el array de objetos prod
+        }
+    }
     public function listarPorAutor($nombre_autor)
     {
         $_GET['page']; //Forzamos a que la paginación empiece desde la primera página
@@ -197,7 +231,7 @@ class Daoproducto extends DB
         DESC LIMIT  ' . ($_GET['page'] - 1) * $this->productosPagina . ',' . $this->productosPagina;
         $param = array();
         $param[":parametro"] = $parametro;
-        $this->consultaDatos($consulta,$param);
+        $this->consultaDatos($consulta, $param);
         foreach ($this->filas as $fila) {
             $prod = new Producto(); //creamos un objeto de la entidad situacion
             $prod->__set("isbn_13", $fila['isbn_13']); //Le asignamos a las propiedades del objetos los campos de esa fila
@@ -436,6 +470,19 @@ class Daoproducto extends DB
         $this->consultaDatos($consulta, $param);
         return $this->filas[0]['total'];
     }
+
+    public function numeroProductosBusqueda($valor)
+    {
+        $consulta = "SELECT COUNT(*) as total FROM producto WHERE nombre LIKE :busqueda 
+        OR coleccion LIKE :busqueda 
+        OR editorial LIKE :busqueda ";
+        $param = array();
+        $param[":busqueda"] = '%' . $valor . '%';
+        // echo $consulta;
+        $this->consultaDatos($consulta, $param);
+        return $this->filas[0]['total'];
+    }
+
     public function getProductoPaginas()
     {
         return $this->productosPagina;
