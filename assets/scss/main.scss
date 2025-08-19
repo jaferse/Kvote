@@ -257,8 +257,15 @@ p {
         fill: $fondoOscuro !important;
     }
 }
-
-
+select.theme--dark{
+    background-color: $fondoOscuro2;
+    color: $blanco_letra;
+}
+.card.theme--dark {
+    background-color: $fondoOscuro2!important;
+    color: $blanco_letra!important;
+    
+}
 /*skeleton*/
 
 .skeleton {

@@ -52,7 +52,8 @@
                     width: 2.8rem;
                     height: 2.8rem;
                     margin-right: 0.5rem;
-                    path{
+
+                    path {
                         fill: $fondoOscuro;
                     }
                 }
@@ -63,6 +64,48 @@
             width: 95%;
             margin: 0rem;
             border: 1px solid $negroBorde;
+        }
+    }
+
+    .containerDirecciones {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .direcciones {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            .tarjetaDireccion {
+                width: 80%;
+                .direccion{
+                    .titleDireccion{
+                        font-weight: 800;
+                    }
+                    border: 2px solid #ccc;
+                    border-radius: 10px;
+                    padding: 1rem;
+                    margin: 1rem 0;
+                    display: grid;
+                    grid-template-columns: repeat(9, 1fr);
+                    align-items: center;
+                    column-gap: 10px;
+                    background-color: #ffffff;
+                    width: 100%;
+                }
+            }
+        }
+
+        .formulario {
+            width: 100%;
+            display: flex;
+
         }
     }
 
@@ -120,7 +163,9 @@
             flex: 1;
             display: flex;
 
-            #formularioPass, #formularioDataUser, #formularioDireccion {
+            #formularioPass,
+            #formularioDataUser,
+            #formularioDireccion {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
@@ -140,7 +185,8 @@
                         width: 170px;
                     }
 
-                    input, select {
+                    input,
+                    select {
                         padding: 0.5rem;
                         border-radius: $border-radius;
                         border: 1px solid $negroBorde;
@@ -186,8 +232,9 @@
                 .top {
                     background-color: $fondoOscuro;
                     color: $blanco_letra;
-                    .iconSvg{
-                        path{
+
+                    .iconSvg {
+                        path {
                             fill: $blancoFondo;
                         }
                     }
@@ -203,13 +250,16 @@
                 }
             }
         }
-        .containerContenido{
+
+        .containerContenido {
             background-color: $fondoOscuro2;
             color: $blanco_letra;
-            input:not([type="button"]){
+
+            input:not([type="button"]) {
                 background-color: $fondoOscuro2;
                 color: $blanco_letra;
-                &::placeholder{
+
+                &::placeholder {
                     color: $blanco_letra;
                 }
             }

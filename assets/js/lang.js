@@ -417,7 +417,7 @@ function actualizarTexto(json, lang) {
     //opciones de crud de productos
     if (document.querySelector('.mainAdmin.producto option')) {
         document.querySelector('.mainAdmin.producto .autor>option').textContent = json[lang]['mainAdmin']['producto']['selectArtista'];
-        
+
         document.querySelectorAll('.mainAdmin.producto .tipo>option').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
             element.textContent = json[lang]['producto']['Tipo'][data_lang];
@@ -432,13 +432,13 @@ function actualizarTexto(json, lang) {
         });
         document.querySelectorAll('.mainAdmin.producto table>thead>tr>th').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
-            
+
             element.textContent = json[lang]['mainAdmin']['producto']['th'][data_lang];
         });
     }
 
     //Cambiar idioma de formulario de datos de usuario
-    if (document.querySelector('#formularioDataUser label.lang')) {        
+    if (document.querySelector('#formularioDataUser label.lang')) {
         document.querySelectorAll('#formularioDataUser label.lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
             element.textContent = json[lang]["formulario"][data_lang];
@@ -453,11 +453,26 @@ function actualizarTexto(json, lang) {
         });
         document.querySelectorAll('#formularioDireccion label.lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
-            element.textContent = json[lang]["direciones"][data_lang];  
+            element.textContent = json[lang]["direciones"][data_lang];
         })
         document.querySelector('.containerDirecciones .title').textContent = json[lang]["direciones"]["title"];
+        document.querySelector('.containerDirecciones .newDireccion').textContent = json[lang]["direciones"]["newDireccion"];
+        document.querySelectorAll('#localidad option.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["direciones"][data_lang];
+        })
+        document.querySelectorAll('#comunidad option.lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["direciones"][data_lang];
+        })
     }
 
+    if (document.querySelector('.tarjetaDireccion .lang')) {
+        document.querySelectorAll('.tarjetaDireccion .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["direciones"][data_lang];
+        });
+    }
 
     //Cambiar idioma de darse de baja
     darseBajaTraduccir(json, lang);

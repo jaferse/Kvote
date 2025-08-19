@@ -32,6 +32,26 @@ class Daodireccion extends DB
             $this->direccions[] = $dire; //Guardamos ese objeto en el array de objetos dire
         }
     }
+    public function listarPorUsuario_id($idUsuario)
+    {
+        $consulta = 'SELECT * FROM direccion WHERE usuario_id=' . $idUsuario;
+        $this->consultaDatos($consulta);
+        foreach ($this->filas as $fila) {
+            $dire = new Direccion(); //creamos un objeto de la entidad situacion
+            $dire->__set("id", $fila['id']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("paisISO", $fila['paisISO']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("provinciaMatricula", $fila['provinciaMatricula']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("codigo_postal", $fila['codigo_postal']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("localidad", $fila['localidad']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("calle", $fila['calle']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("numero", $fila['numero']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("piso", $fila['piso']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("puerta", $fila['puerta']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $dire->__set("usuario_id", $fila['usuario_id']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $this->direccions[] = $dire; //Guardamos ese objeto en el array de objetos dire
+        }
+        return $this->direccions;
+    }
     /**
      * Obtiene una situacion de la base de datos por su Id.
      *

@@ -156,6 +156,11 @@ function cambiarModo() {
             select.classList.toggle('theme--dark');
         })
     }
+    if (document.querySelector('.card')) {
+        document.querySelectorAll('.card').forEach(card => {
+            card.classList.toggle('theme--dark');
+        })
+    }
     if (document.querySelector('.progress-container')) {
         document.querySelector('.progress-container').classList.toggle('theme--dark');
 

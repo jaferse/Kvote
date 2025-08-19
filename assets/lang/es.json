@@ -699,7 +699,12 @@
             "Numero": "Número:",
             "Piso": "Piso:",
             "Puerta": "Puerta:",
-            "addDireccion": "Añadir"
+            "addDireccion": "Añadir",
+            "direccion": "Dirección",
+            "deleteDireccion": "Borrar",
+            "newDireccion": "Nueva Dirección",
+            "selectComunidad": "Seleccione una comunidad",
+            "selectLocalidad": "Seleccione una localidad"
         },
         "backMessage": {
             "1000": "Error 1000: No se han recibido los datos correctamente",
@@ -717,6 +722,7 @@
             "2003": "Actualización de datos del usuario correcta",
             "2004": "Contraseña cambiada correctamente.",
             "2005": "Dirección insertada correctamente",
+            "2006": "Dirección borrada correctamente",
             "3000": "La nueva contraseña no puede ser la misma que la actual."
         },
         "frontMessage": {
@@ -1433,7 +1439,12 @@
             "Numero": "Number:",
             "Piso": "Floor:",
             "Puerta": "Door:",
-            "addDireccion": "Add Address"
+            "addDireccion": "Add Address",
+            "direccion": "Address",
+            "deleteDireccion": "Delete",
+            "newDireccion": "New Address",
+            "selectComunidad": "Select a region",
+            "selectLocalidad": "Select a city"
         },
         "backMessage": {
             "1000": "Error 1000: Data was not received correctly",
@@ -2166,7 +2177,12 @@
             "Numero": "番号:",
             "Piso": "階:",
             "Puerta": "部屋番号:",
-            "addDireccion": "住所を追加"
+            "addDireccion": "住所を追加",
+            "direccion": "住所",
+            "deleteDireccion": "削除",
+            "newDireccion": "新しい住所",
+            "selectComunidad": "コミュニティを選択してください",
+            "selectLocalidad": "場所を選択してください"
         },
         "backMessage": {
             "1000": "エラー1000: データが正しく受信されませんでした",

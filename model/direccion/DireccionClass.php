@@ -1,5 +1,5 @@
 <?php
-class Direccion
+class Direccion implements JsonSerializable
 {
     private $id;
     private $paisISO;
@@ -18,5 +18,9 @@ class Direccion
     function __set($propiedad, $valor)
     {
         $this->$propiedad = $valor;
+    }
+    public function jsonSerialize(): mixed
+    {
+        return get_object_vars($this);
     }
 }

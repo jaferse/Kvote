@@ -188,6 +188,13 @@ class PerfilController
         header('Content-Type: application/json');
         echo json_encode($localidades);
     }
+    public function obtenerDirecciones()
+    {
+        $direccionDao = new Daodireccion(DDBB_NAME);
+        $direcciones = $direccionDao->listarPorUsuario_id($_SESSION['usernameId']);
+        header('Content-Type: application/json');
+        echo json_encode($direcciones);
+    }
 
     public function agregarDireccion()
     {
@@ -207,21 +214,6 @@ class PerfilController
             !empty($_POST['calle']) &&
             !empty($_POST['numero'])
         ) {
-            // var_dump($_POST)."<br>";
-            // echo "<br>";
-            // echo strlen($_POST['pais']) == 2;
-            // echo "<br>";
-            // echo   strlen($_POST['comunidad']) < 16;
-            // echo "<br>";
-            // echo ((($_POST['pais'] == 'ES' || $_POST['pais'] == 'FR') && strlen($_POST['codPostal']) == 5) ||
-            //         ($_POST['pais'] == 'PT' && strlen($_POST['codPostal']) == 7));
-            // echo "<br>";
-            // echo  strlen($_POST['localidad']) <= 100;
-            // echo "<br>";
-            // echo  strlen($_POST['calle']) <= 70;
-            // echo "<br>";
-            // echo strlen($_POST['numero']) <= 11;
-            // echo "<br>";
             if (
                 strlen($_POST['pais']) == 2 &&
                 strlen($_POST['comunidad']) < 16 &&
@@ -254,7 +246,6 @@ class PerfilController
             $_SESSION['mensaje'] = "1008";
             $_SESSION['type'] = "error";
         }
-        // echo $_SESSION['mensaje'];
         echo "<script>
                 localStorage.setItem('flash_msg', JSON.stringify({
                     type: '" . ($_SESSION['type']) . "',
@@ -262,5 +253,23 @@ class PerfilController
                 }));
                 window.location.href = 'index.php?controller=Perfil&action=view';
                 </script>";
+    }
+
+    public function borrarDireccion()
+    {
+        if (isset($_GET['parametro']) && !empty($_GET['parametro'])) {
+            $idDireccion = $_GET['parametro'];
+            $direccionDao = new Daodireccion(DDBB_NAME);
+            $direccionDao->borrar($idDireccion);
+            $_SESSION['mensaje'] = "2006";
+            $_SESSION['type'] = "exito";
+        } else {
+            $_SESSION['mensaje'] = "1000";
+            $_SESSION['type'] = "error";
+        }
+        echo json_encode([
+            "type" => $_SESSION['type'],
+            "message" => $_SESSION['mensaje']
+        ]);
     }
 }

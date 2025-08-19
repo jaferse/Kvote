@@ -123,6 +123,8 @@
                 <!-- CONTENEDOR DIRECCIONES -->
                 <div class="container containerDirecciones">
                     <h2 class="lang title" data-lang="title">Direcciones</h2>
+                    <div class="direcciones"></div>
+                    <h2 class="lang newDireccion" data-lang="newDireccion"></h2>
                     <div class="formulario">
                         <form id="formularioDireccion" action="index.php?controller=Perfil&action=agregarDireccion" method="post">
                             <div class="formGroup">
