@@ -55,6 +55,23 @@ class Daotarjeta extends DB
         }
         return $tarj;
     }
+
+    public function existeTarjeta($tarjeta)
+    {
+        $consulta = "SELECT EXISTS(
+                                        SELECT 1 
+                                        FROM tarjeta 
+                                        WHERE numero_tarjeta = :numero_tarjeta
+                                    ) AS existe";
+        $param = array();
+        $param[":numero_tarjeta"] = $tarjeta;
+        $this->consultaDatos($consulta, $param);
+        $tarj = new Tarjeta(); //creamos un objeto de la entidad Tarjeta
+        if (count($this->filas) == 1) {
+            $fila = $this->filas[0];
+        }
+        return $fila['existe'];
+    }
     /**
      * Inserta una situacion en la base de datos
      * @param Situacion $tarj El objeto a insertar
@@ -103,8 +120,9 @@ class Daotarjeta extends DB
         $param[":numero_tarjeta"] = $numero_tarjeta;
         $this->consultaSimple($consulta, $param);
     }
-    
-    public function borrarPorId($id){
+
+    public function borrarPorId($id)
+    {
         $consulta = " DELETE FROM tarjeta WHERE usuario_id= :usuario_id";
         $param = array();
         $param[":usuario_id"] = $id;
@@ -117,7 +135,7 @@ class Daotarjeta extends DB
      *
      * @return array El enum de la columna en cuestión
      */
-        public function getEnum($columna)
+    public function getEnum($columna)
     {
         $consulta = "SELECT COLUMN_TYPE
                     FROM INFORMATION_SCHEMA.COLUMNS

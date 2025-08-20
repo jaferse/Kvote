@@ -15,6 +15,7 @@ let codComunidad = '';
 let formularioDireccion;
 let direcciones;
 let darkMode = localStorage.getItem("darkMode") || "light";
+let enumsTarjetaCredito;
 formularioDireccion = document.querySelector('#formularioDireccion');
 document.addEventListener('DOMContentLoaded', async () => {
     const ResponseDataPerfil = await fetch(`index.php?controller=Perfil&action=obtenerDatosUsuario`);
@@ -27,6 +28,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     direcciones = await responseDireccionesUsuario.json();
     //Crear tarjetas para mostrar las direcciones 
     crearTarjetasDirecciones(direcciones);
+
+    //Traer datos de los select de la tarjeta de credito
+    enumsTarjetaCredito = await traerEnumTarjetaCredito();
+    insertarDatosSelectCredito(enumsTarjetaCredito);
 
     lang = localStorage.getItem('lang', user.idioma);
     let mensaje = JSON.parse(localStorage.getItem('flash_msg', user.idioma));
@@ -180,7 +185,37 @@ formularioDireccion.addEventListener('submit', async (event) => {
     ) {
         formularioDireccion.submit();
     }
-})
+});
+
+async function traerEnumTarjetaCredito() {
+    const responseEmisor = await fetch(`index.php?controller=Perfil&action=emisoresTarjeta`);
+    const emisores = await responseEmisor.json();
+    const responseTipo = await fetch(`index.php?controller=Perfil&action=tiposTarjeta`);
+    const tipos = await responseTipo.json();
+    return {
+        emisores: emisores,
+        tipos: tipos
+    }
+}
+
+function insertarDatosSelectCredito(enumsTarjetaCredito){    
+    let selectEmisor = document.querySelector('.formulario #formularioTarjeta #emisor_tarjeta');
+    enumsTarjetaCredito.emisores.forEach((emisor, index) => {        
+        let option = document.createElement('option');
+        option.value = emisor;
+        option.textContent = emisor;
+        selectEmisor.appendChild(option);
+    })
+    let selectTipo = document.querySelector('.formulario #formularioTarjeta #tipo_tarjeta');
+    enumsTarjetaCredito.tipos.forEach((tipo, index) => {        
+        let option = document.createElement('option');
+        option.value = tipo;
+        option.classList.add('lang');
+        option.setAttribute('data-lang', `tipoTarjeta${index+1}`);
+        option.textContent = idiomasJson[lang]['formulario']['tipo_tarjeta'][option.getAttribute('data-lang')];
+        selectTipo.appendChild(option);
+    })
+}
 
 function validarFormularioDireccion(datos) {
 

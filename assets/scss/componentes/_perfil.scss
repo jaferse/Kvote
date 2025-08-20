@@ -168,7 +168,8 @@
 
             #formularioPass,
             #formularioDataUser,
-            #formularioDireccion {
+            #formularioDireccion,
+            #formularioTarjeta {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
@@ -288,13 +289,15 @@
                     row-gap: 5px;
                     background-color: #ff0000;
                     width: 100%;
-                    .columna{
+
+                    .columna {
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
                         flex-wrap: wrap;
-                        p{
+
+                        p {
                             text-align: center;
                         }
                     }
@@ -317,6 +320,7 @@
 
         .formGroup {
             flex-direction: column;
+
             input {
                 width: 100%;
             }

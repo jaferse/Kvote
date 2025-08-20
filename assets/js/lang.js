@@ -468,10 +468,26 @@ function actualizarTexto(json, lang) {
     }
 
     if (document.querySelector('.tarjetaDireccion .lang')) {
-        document.querySelectorAll('.tarjetaDireccion .lang').forEach(element => {
+        document.querySelectorAll('.tarjetaDireccion title.lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
             element.textContent = json[lang]["direciones"][data_lang];
         });
+    }
+
+    if (document.querySelector('.formulario #formularioTarjeta')) {
+        document.querySelectorAll('.containerTarjetaCredito .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["formularioTarjetaNew"][data_lang];
+        })
+        document.querySelectorAll('.formulario #formularioTarjeta .lang:not([type="submit"])').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["formularioTarjetaNew"][data_lang];
+        });
+        document.querySelector('.formulario #formularioTarjeta input[type="submit"]').value = json[lang]["mainAdmin"]["botones"]["nuevo"];
+        document.querySelectorAll('.formulario #formularioTarjeta #tipo_tarjeta option:not(:first-of-type).lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["formulario"]['tipo_tarjeta'][data_lang];
+        })
     }
 
     //Cambiar idioma de darse de baja

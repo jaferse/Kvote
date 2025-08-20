@@ -169,8 +169,44 @@
 
                 <!-- CONTENEDOR TARJETA CREDITO -->
                 <div class="container containerTarjetaCredito">
-                    <h2 class="lang title" data-lang="title">Tarjeta credito</h2>
-
+                    <h2 class="lang title" data-lang="title1">Tarjeta de crédito</h2>
+                    <div class="tarjetasCredito"></div>
+                    <h2 class="lang title" data-lang="title2"></h2>
+                    <div class="formulario">
+                        <form id="formularioTarjeta" action="index.php?controller=Perfil&action=addCreditCard" method="post">
+                            <div class="formGroup">
+                                <label class="labelNumeroTarjeta lang" for="numeroTarjeta" data-lang="tarjeta"></label>
+                                <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="nombre_titular" class="lang" data-lang="nombreTitular"></label>
+                                <input type="text" id="nombre_titular" name="nombre_titular" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="emisor_tarjeta" class="lang" data-lang="emisorTarjeta"></label>
+                                <select name="emisor_tarjeta" id="emisor_tarjeta" required>
+                                    <option class="lang" data-lang="SeleccioneEmisor" value=""></option>
+                                </select>
+                            </div>
+                            <div class="formGroup">
+                                <label for="cvv_cvc" class="lang" data-lang="cvv"></label>
+                                <input type="number" id="cvv_cvc" name="cvv_cvc" required maxlength="3">
+                            </div>
+                            <div class="formGroup">
+                                <label for="tipo_tarjeta" class="lang" data-lang="tipoTarjeta"></label>
+                                <select name="tipo_tarjeta" id="tipo_tarjeta" required>
+                                    <option class="lang" value="" data-lang="SeleccioneTipo"></option>
+                                </select>
+                            </div>
+                            <div class="formGroup">
+                                <label for="fecha_caducidad" class="lang" data-lang="caducidad"></label>
+                                <input type="date" id="fecha_caducidad" name="fecha_caducidad" required>
+                            </div>
+                            <div>
+                                <input type="submit" class="lang btn btnTerciario btnAddDireccion" data-lang="guardar" value="Añadir">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
 

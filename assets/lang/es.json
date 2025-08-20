@@ -225,6 +225,18 @@
             "tieneCuenta?": "¿No tienes cuenta?",
             "entrar": "Iniciar Sesión"
         },
+        "formularioTarjetaNew": {
+            "title1": "Tarjetas de credito guardadas",
+            "title2": "Nueva Tarjeta",
+            "tarjeta": "Número de tarjeta",
+            "nombreTitular": "Nombre del titular",
+            "emisorTarjeta": "Emisor de tarjeta",
+            "SeleccioneEmisor": "Seleccione Emisor",
+            "cvv": "CVV",
+            "tipoTarjeta": "Tipo de tarjeta",
+            "SeleccioneTipo": "Seleccione un tipo de tarjeta",
+            "caducidad": "Caducidad"
+        },
         "menuLogin": {
             "pedidos": "Pedidos",
             "perfil": "Perfil",
@@ -716,6 +728,7 @@
             "1006": "Error 1006: El formato de los datos no es correcto",
             "1007": "La contraseña actual no es correcta.",
             "1008": "Faltan datos en el formulario.",
+            "1009": "La tarjeta de credito ya está registrada",
             "2000": "Artista insertado correctamente",
             "2001": "Artista eliminado correctamente",
             "2002": "Artista actualizado correctamente",
@@ -723,6 +736,7 @@
             "2004": "Contraseña cambiada correctamente.",
             "2005": "Dirección insertada correctamente",
             "2006": "Dirección borrada correctamente",
+            "2007": "Targeta guardada correctamente",
             "3000": "La nueva contraseña no puede ser la misma que la actual."
         },
         "frontMessage": {
@@ -967,6 +981,18 @@
             "password1": "Password",
             "entrar": "Log In",
             "tieneCuenta?": "Don't have an account?"
+        },
+        "formularioTarjetaNew": {
+            "title1": "Saved Credit Cards",
+            "title2": "New Card",
+            "tarjeta": "Card Number",
+            "nombreTitular": "Cardholder Name",
+            "emisorTarjeta": "Card Issuer",
+            "SeleccioneEmisor": "Select Issuer",
+            "cvv": "CVV",
+            "tipoTarjeta": "Card Type",
+            "SeleccioneTipo": "Select a Card Type",
+            "caducidad": "Expiration Date"
         },
         "menuLogin": {
             "pedidos": "Orders",
@@ -1705,6 +1731,19 @@
             "password1": "パスワード",
             "entrar": "ログイン",
             "tieneCuenta?": "アカウントをお持ちではありませんか？"
+        },
+        "formularioTarjetaNew": {
+            "title1": "保存されたクレジットカード",
+            "title2": "新しいカード",
+            "title": "新しいカード",
+            "tarjeta": "カード番号",
+            "nombreTitular": "カード名義人",
+            "emisorTarjeta": "カード発行会社",
+            "SeleccioneEmisor": "発行会社を選択",
+            "cvv": "CVV",
+            "tipoTarjeta": "カード種類",
+            "SeleccioneTipo": "カード種類を選択",
+            "caducidad": "有効期限"
         },
         "menuLogin": {
             "pedidos": "注文履歴",

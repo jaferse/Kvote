@@ -17,6 +17,8 @@ class PerfilController
         require_once("model/provincia/ProvinciaPDO.php");
         require_once("model/pais/PaisPDO.php");
         require_once("model/localidad/LocalidadPDO.php");
+        require_once("model/tarjeta/TarjetaPDO.php");
+        require_once("model/tarjeta/TarjetaClass.php");
         if (!isset($_SESSION['logueado']) || $_SESSION['logueado'] != true) {
             header("Location: index.php?controller=Index&action=view");
             header("Location: index.php?controller=LogIn&action=view");
@@ -274,19 +276,101 @@ class PerfilController
         ]);
     }
 
-    public function obtenerNombrePais(){
-        $isoPais=$_GET['parametro'];
+    public function obtenerNombrePais()
+    {
+        $isoPais = $_GET['parametro'];
         $paisDao = new Daopais(DDBB_NAME);
         $pais = $paisDao->obtenerNombre($isoPais);
         header('Content-Type: application/json');
         echo json_encode($pais);
     }
-    public function obtenerNombreProvincia(){
-        $isoPais=explode(":", $_GET['parametro'])[0];
-        $matriculaProvincia=explode(":", $_GET['parametro'])[1];
+    public function obtenerNombreProvincia()
+    {
+        $isoPais = explode(":", $_GET['parametro'])[0];
+        $matriculaProvincia = explode(":", $_GET['parametro'])[1];
         $provinciaDao = new Daoprovincia(DDBB_NAME);
-        $provincia = $provinciaDao->obtenerNombre($matriculaProvincia,$isoPais);
+        $provincia = $provinciaDao->obtenerNombre($matriculaProvincia, $isoPais);
         header('Content-Type: application/json');
         echo json_encode($provincia);
+    }
+
+    public function addCreditCard()
+    {
+        //Trim de todo
+        $numeroTarjeta = trim($_POST['numeroTarjeta']);
+        $nombre_titular = trim($_POST['nombre_titular']);
+        $emisor_tarjeta = trim($_POST['emisor_tarjeta']);
+        $cvv_cvc = trim($_POST['cvv_cvc']);
+        $tipo_tarjeta = trim($_POST['tipo_tarjeta']);
+        $fecha_caducidad = trim($_POST['fecha_caducidad']);
+        //Eliminar del numero de tarjeta espacios y guiones
+        $numeroTarjeta = str_replace(" ", "", $numeroTarjeta);
+        $numeroTarjeta = str_replace("-", "", $numeroTarjeta);
+        //Verificar que los datos sean correctos
+        if (
+            ctype_digit($numeroTarjeta) &&
+            strlen($numeroTarjeta) == 16 &&
+            strlen($nombre_titular) <= 200 &&
+            $fecha_caducidad > date("Y-m-d") &&
+            (strlen($cvv_cvc) == 3 || strlen($cvv_cvc) == 4) &&
+            ctype_digit($cvv_cvc) &&
+            !empty($nombre_titular) &&
+            !empty($emisor_tarjeta) &&
+            !empty($cvv_cvc) &&
+            !empty($tipo_tarjeta) &&
+            !empty($fecha_caducidad)
+        ) {
+
+            //Validar que no existe ese numero de tarjeta
+            if (!$this->existeTarjeta($numeroTarjeta)) {
+                $daoTarjeta = new Daotarjeta(DDBB_NAME);
+                $tarjeta = new Tarjeta();
+                $tarjeta->__set("numero_tarjeta", $numeroTarjeta);
+                $tarjeta->__set("nombre_titular", $nombre_titular);
+                $tarjeta->__set("emisor_tarjeta", $emisor_tarjeta);
+                $tarjeta->__set("cvv_cvc", $cvv_cvc);
+                $tarjeta->__set("tipo_tarjeta", $tipo_tarjeta);
+                $tarjeta->__set("fecha_caducidad", $fecha_caducidad);
+                $tarjeta->__set("usuario_id", $_SESSION['usernameId']);
+
+                $daoTarjeta->insertar($tarjeta);
+                $_SESSION['mensaje'] = "2007";
+                $_SESSION['type'] = "exito";
+            } else {
+                $_SESSION['mensaje'] = "1009";
+                $_SESSION['type'] = "error";
+            }
+        } else {
+            $_SESSION['mensaje'] = "1006";
+            $_SESSION['type'] = "error";
+        }
+        echo "<script>
+                localStorage.setItem('flash_msg', JSON.stringify({
+                    type: '" . ($_SESSION['type']) . "',
+                    message: '" . addslashes($_SESSION['mensaje']) . "'
+                }));
+                window.location.href = 'index.php?controller=Perfil&action=view';
+            </script>";
+    }
+
+    public function emisoresTarjeta()
+    {
+        $daoTarjeta = new Daotarjeta(DDBB_NAME);
+        $response = $daoTarjeta->getEnum('emisor_tarjeta');
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
+    public function tiposTarjeta()
+    {
+        $daoTarjeta = new Daotarjeta(DDBB_NAME);
+        $response = $daoTarjeta->getEnum('tipo_tarjeta');
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
+
+    public function existeTarjeta($numeroTarjeta)
+    {
+        $daoTarjeta = new Daotarjeta(DDBB_NAME);
+        return $daoTarjeta->existeTarjeta($numeroTarjeta);
     }
 }

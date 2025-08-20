@@ -1,6 +1,6 @@
 <?php
 //class Tarjeta
-class Tarjeta
+class Tarjeta implements JsonSerializable
 {
     private $numero_tarjeta;
     private $nombre_titular;
@@ -16,5 +16,9 @@ class Tarjeta
     function __set($propiedad, $valor)
     {
         $this->$propiedad = $valor;
+    }
+    public function jsonSerialize(): mixed
+    {
+        return get_object_vars($this);
     }
 }
