@@ -490,6 +490,18 @@ function actualizarTexto(json, lang) {
         })
     }
 
+    if(document.querySelector('.tarjetaCredito .lang')) {
+        
+        document.querySelectorAll('.tarjetaCredito h2.lang.subtitulo').forEach((element, i) => {
+            element.textContent = json[lang]['formularioTarjetaNew']['subtitulo']+' '+ (i+1);
+        })
+
+        document.querySelectorAll('.tarjetaCredito .columna p.lang').forEach(element => {            
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["formularioTarjetaNew"][data_lang];
+        })
+    }
+
     //Cambiar idioma de darse de baja
     darseBajaTraduccir(json, lang);
 

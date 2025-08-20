@@ -373,4 +373,18 @@ class PerfilController
         $daoTarjeta = new Daotarjeta(DDBB_NAME);
         return $daoTarjeta->existeTarjeta($numeroTarjeta);
     }
+
+    public function borrarTarjeta($numeroTarjeta)
+    {
+        $daoTarjeta = new Daotarjeta(DDBB_NAME);
+        $daoTarjeta->borrar($numeroTarjeta);
+    }
+
+    public function ObtenerTarjetas()
+    {
+        $daoTarjeta = new Daotarjeta(DDBB_NAME);
+        $tarjetas = $daoTarjeta->obtenerTarjetas($_SESSION['usernameId']);
+        header('Content-Type: application/json');
+        echo json_encode($tarjetas);
+    }
 }

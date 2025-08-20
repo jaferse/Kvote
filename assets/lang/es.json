@@ -235,7 +235,9 @@
             "cvv": "CVV",
             "tipoTarjeta": "Tipo de tarjeta",
             "SeleccioneTipo": "Seleccione un tipo de tarjeta",
-            "caducidad": "Caducidad"
+            "caducidad": "Caducidad",
+            "subtitulo": "Tarjeta de credito ",
+            "deleteTarjeta": "Eliminar tarjeta"
         },
         "menuLogin": {
             "pedidos": "Pedidos",
@@ -753,6 +755,10 @@
             "1010": "Los datos no son validos",
             "1011": "Hay datos vacios en el formulario.",
             "1012": "El código postal no es valido",
+            "1013": "El formato de la tarjeta debe de ser xxxx-xxxx-xxxx-xxxx",
+            "1014": "El nombre del titular debe de tener entre 3 y 200 caracteres",
+            "1015": "El CVV debe tener 3 o 4 dígitos",
+            "1016": "No puedes guardar una tarjeta caducada",
             "2000": "Portada seleccionada correctamente"
         }
     },
@@ -992,7 +998,10 @@
             "cvv": "CVV",
             "tipoTarjeta": "Card Type",
             "SeleccioneTipo": "Select a Card Type",
-            "caducidad": "Expiration Date"
+            "caducidad": "Expiration Date",
+            "subtitulo": "Credit Card ",
+            "deleteTarjeta": "Delete card"
+
         },
         "menuLogin": {
             "pedidos": "Orders",
@@ -1503,6 +1512,10 @@
             "1009": "You must upload a cover image.",
             "1011": "There is empty data in the form.",
             "1012": "The postal code is not valid.",
+            "1013": "The card format must be xxxx-xxxx-xxxx-xxxx",
+            "1014": "The cardholder name must be between 3 and 200 characters",
+            "1015": "The CVV must be 3 or 4 digits",
+            "1016": "You cannot save an expired card",
             "2000": "Cover image selected successfully"
         }
     },
@@ -1743,7 +1756,11 @@
             "cvv": "CVV",
             "tipoTarjeta": "カード種類",
             "SeleccioneTipo": "カード種類を選択",
-            "caducidad": "有効期限"
+            "caducidad": "有効期限",
+            "subtitulo": "クレジットカード ",
+            "deleteTarjeta": "カードを削除"
+
+
         },
         "menuLogin": {
             "pedidos": "注文履歴",
@@ -1869,12 +1886,12 @@
         },
         "darseBaja": {
             "title": "退会する",
-            "bajaTexto1": "「退会を確定する」ボタンを押すと、アカウントは完全に削除されます。",
+            "bajaTexto1": "退会を確定するボタンを押すと、アカウントは完全に削除されます。",
             "bajaTexto2": "これは以下を意味します：",
             "bajaTexto3": "ユーザーアカウントの削除。",
             "bajaTexto4": "すべての個人情報およびアクティビティ履歴の削除。",
             "bajaTexto5": "今後アカウントや関連コンテンツを復元することはできません。",
-            "bajaTexto6": "退会手続きを進めることに同意される場合は、以下の「退会を確定する」ボタンをクリックしてください。",
+            "bajaTexto6": "退会手続きを進めることに同意される場合は、以下の退会を確定するボタンをクリックしてください。",
             "btnBaja": "退会を確定する"
         },
         "menuLateralPerfil": {
@@ -2254,6 +2271,10 @@
             "1009": "表紙画像をアップロードする必要があります。",
             "1011": "フォームに空のデータがあります。",
             "1012": "郵便番号が無効です。",
+            "1013": "カードの形式は xxxx-xxxx-xxxx-xxxx である必要があります",
+            "1014": "カード名義人は 3～200 文字である必要があります",
+            "1015": "CVV は 3 桁または 4 桁である必要があります",
+            "1016": "有効期限切れのカードは保存できません",
             "2000": "表紙画像が正常に選択されました"
         }
     }

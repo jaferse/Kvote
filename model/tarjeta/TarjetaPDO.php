@@ -128,6 +128,16 @@ class Daotarjeta extends DB
         $param[":usuario_id"] = $id;
         $this->consultaSimple($consulta, $param);
     }
+
+
+    public function obtenerTarjetas($id){
+        $consulta = "SELECT * FROM tarjeta WHERE usuario_id= :id";
+        $param = array();
+        $param[":id"] = $id;
+        $this->consultaDatos($consulta, $param);
+        return $this->filas;
+    }
+
     /**
      * Obtiene el enum de una columna de la tabla tarjeta
      *
