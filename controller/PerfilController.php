@@ -374,10 +374,22 @@ class PerfilController
         return $daoTarjeta->existeTarjeta($numeroTarjeta);
     }
 
-    public function borrarTarjeta($numeroTarjeta)
+    public function borrarTarjeta()
     {
-        $daoTarjeta = new Daotarjeta(DDBB_NAME);
-        $daoTarjeta->borrar($numeroTarjeta);
+        if (isset($_GET['parametro']) && !empty($_GET['parametro'])) {
+            $numeroTarjeta = $_GET['parametro'];
+            $daoTarjeta = new Daotarjeta(DDBB_NAME);
+            $daoTarjeta->borrar($numeroTarjeta);
+            $_SESSION['mensaje'] = "2008";
+            $_SESSION['type'] = "exito";
+        } else {
+            $_SESSION['mensaje'] = "1000";
+            $_SESSION['type'] = "error";
+        }
+        echo json_encode([
+            "type" => $_SESSION['type'],
+            "message" => $_SESSION['mensaje']
+        ]);
     }
 
     public function ObtenerTarjetas()

@@ -739,6 +739,7 @@
             "2005": "Dirección insertada correctamente",
             "2006": "Dirección borrada correctamente",
             "2007": "Targeta guardada correctamente",
+            "2008": "Tarjeta borrada correctamente",
             "3000": "La nueva contraseña no puede ser la misma que la actual."
         },
         "frontMessage": {
