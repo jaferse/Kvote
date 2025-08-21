@@ -15,17 +15,48 @@
     ?>
     <div class="containerMain">
         <main class="containerCesta">
-            <h1 class="lang" data-lang="titulo"></h1>
-            <div class="productos"></div>
-            <div class="resumen">
-                <h2 class="titulo lang" data-lang="resCesta">Resumen cesta</h2>
-                <div class="resumen__total">
-                    <p class="precioTotal"><span></span></p>
-                    <div class="enlaceBotonSmall">
-                        <a class="comprar lang" data-lang="finalizarCompra" href=""></a>
+            <section class="containerSeccion">
+                <h1 class="lang tituloCesta" data-lang="titulo"></h1>
+                <div class="productos"></div>
+                <div class="resumen">
+                    <h2 class="titulo lang" data-lang="resCesta">Resumen cesta</h2>
+                    <div class="resumen__total">
+                        <p class="precioTotal"><span></span></p>
+                        <div class="enlaceBotonSmall siguiente">
+                            <!-- <a class="comprar lang" data-lang="finalizarCompra" href=""></a> -->
+                            <a class="lang" data-lang="siguiente"></a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <section class="containerSeccion">
+                <h1 class="lang titleDireccion" data-lang="title"></h1>
+                <div class="direcciones">
+                    <div class="direcciones__contenedor"></div>
+                    <div class="buttons">
+                        <div class="enlaceBotonSmall anterior">
+                            <a class="lang" data-lang="anterior"></a>
+                        </div>
+                        <div class="enlaceBotonSmall siguiente">
+                            <a class="lang" data-lang="siguiente"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="containerSeccion">
+                <!-- <h1 class="">Direcciones</h1> -->
+                <div class="tarjetas">
+                    <div class="tarjetas__contenedor"></div>
+                    <div class="buttons">
+                        <div class="enlaceBotonSmall anterior">
+                            <a class="lang" data-lang="anterior"></a>
+                        </div>
+                        <div class="enlaceBotonSmall finalizarCompra">
+                            <a class="lang" data-lang="comprar"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <div id="content" class="cardSkeleton" style="height: 70rem;">
             <div class="skeleton image" style="width: 100%; height: 20%;"></div>

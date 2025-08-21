@@ -6,6 +6,11 @@
     flex-direction: column;
     justify-content: space-between;
     display: none;
+
+    .containerSeccion:not(:first-of-type) {
+        display: none;
+    }
+
     .productos {
         margin: 0.5rem;
 
@@ -69,6 +74,7 @@
                 }
 
             }
+
             .btnEliminar:hover {
                 transform: scale(1.1);
 
@@ -102,6 +108,7 @@
 
     }
 
+
     &.theme--dark {
 
         h1,
@@ -130,7 +137,47 @@
             color: $blanco_letra;
         }
     }
+
+    .direccion {
+        .titleDireccion {
+            font-weight: 800;
+        }
+
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        align-items: center;
+        column-gap: 10px;
+        background-color: #ffffff;
+        width: 100%;
+    }
+
+    .tarjeta {
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        align-items: center;
+        column-gap: 10px;
+        background-color: #ffffff;
+        width: 100%;
+
+        .titleColumna {
+            font-weight: 800;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        gap: 1rem;
+    }
 }
+
 
 @media screen and (max-width: 992px) {
     .containerCesta {

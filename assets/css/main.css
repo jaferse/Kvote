@@ -2601,6 +2601,9 @@
   justify-content: space-between;
   display: none;
 }
+.containerCesta .containerSeccion:not(:first-of-type) {
+  display: none;
+}
 .containerCesta .productos {
   margin: 0.5rem;
 }
@@ -2700,6 +2703,40 @@
 .containerCesta.theme--dark .cestaVacia {
   background-color: #000000;
   color: #FCFAEE;
+}
+.containerCesta .direccion {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  align-items: center;
+  column-gap: 10px;
+  background-color: #ffffff;
+  width: 100%;
+}
+.containerCesta .direccion .titleDireccion {
+  font-weight: 800;
+}
+.containerCesta .tarjeta {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  column-gap: 10px;
+  background-color: #ffffff;
+  width: 100%;
+}
+.containerCesta .tarjeta .titleColumna {
+  font-weight: 800;
+}
+.containerCesta .buttons {
+  display: flex;
+  gap: 1rem;
 }
 
 @media screen and (max-width: 992px) {

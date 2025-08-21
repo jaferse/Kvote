@@ -2,11 +2,15 @@ import { cargarIdioma, crearDialogo, ocultarSkeleton } from "./funcionesGenerica
 let carritosUsuarios = {};
 let usuarioLogueadoId = -1; // Variable para almacenar el ID del usuario logueado
 let carrito;
-
+let page = 0;
+let direcciones;
+let tarjetas;
+let lang;
+let darkMode = localStorage.getItem('darkMode') || 'light';
+let data;
 document.addEventListener('DOMContentLoaded', async function () {
     //obtenemos el json de idioma
-
-    const data = await cargarIdioma();
+    data = await cargarIdioma();
 
     //obtenermos el login del usuario
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
@@ -14,20 +18,20 @@ document.addEventListener('DOMContentLoaded', async function () {
     usuarioLogueadoId = user.usernameId;
 
     //cargamos el json de idioma del navegador
-    const lang = localStorage.getItem('lang');
+    lang = localStorage.getItem('lang');
     // let carrito = JSON.parse(localStorage.getItem("carrito")) || {};
     carritosUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
     carrito = carritosUsuarios[usuarioLogueadoId] || {};
 
-    document.querySelector('.containerCesta>h1').innerHTML = `${data[lang]['carrito']['titulo']}`;
-    document.querySelector('.comprar').textContent = data[lang]['carrito']['finalizarCompra'];
-
+    document.querySelector('.containerCesta h1.lang.tituloCesta').innerHTML = `${data[lang]['carrito']['titulo']}`;
+    if (document.querySelector('.comprar')) {
+        document.querySelector('.comprar').textContent = data[lang]['carrito']['finalizarCompra'];
+    }
     //Si el carrito tiene productos, los mostramos
     if (Object.keys(carrito).length > 0) {
         let precio = 0;
         // Recorremos el carrito y mostramos los productos
         for (const key in carrito) {
-            console.log(carrito[key]);
 
             let divProducto = document.createElement('div');
             divProducto.classList.add('productoCarrito');
@@ -70,6 +74,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             precio += carrito[key].producto.precio * carrito[key].cantidad;
             document.querySelector('.precioTotal').innerHTML = `<span class="lang" data-lang="subtotal">${data[lang]['carrito']['subtotal']}:</span> ${precio.toFixed(2)} €`;
         }
+        document.querySelector('.resumen .siguiente').style.display = 'flex';
+        await cargarDirecciones();
+        await cargarTarjetas();
 
     }
     // Si el carrito está vacío, mostramos un mensaje
@@ -83,10 +90,125 @@ document.addEventListener('DOMContentLoaded', async function () {
             </div>`
     }
     ocultarSkeleton();
+
+
 });
 
+async function cargarDirecciones() {
+    const responseDireccionesUsuario = await fetch(`index.php?controller=Perfil&action=obtenerDirecciones`);
+    direcciones = await responseDireccionesUsuario.json();
+    //Crear tarjetas para mostrar las direcciones 
+    crearTarjetasDirecciones(direcciones);
+}
+async function cargarTarjetas() {
+    const responseTarjetas = await fetch(`index.php?controller=Perfil&action=obtenerTarjetas`);
+    tarjetas = await responseTarjetas.json();
+    construirCardTarjeta(tarjetas);
+}
 
+function crearTarjetasDirecciones(direcciones) {
+    lang = localStorage.getItem('lang');
+    let containerDirecciones = document.querySelector('.direcciones__contenedor');
+    direcciones.forEach((direccion, i) => {
+        fetch(`index.php?controller=Perfil&action=obtenerNombrePais&parametro=${direccion.paisISO}`)
+            .then(response => response.json())
+            .then(responsePais => {
+                fetch(`index.php?controller=Perfil&action=obtenerNombreProvincia&parametro=${direccion.paisISO}:${direccion.provinciaMatricula}`)
+                    .then(response => response.json())
+                    .then(responseComunidad => {
 
+                        let tarjetaDireccion = document.createElement('div');
+                        tarjetaDireccion.classList.add('tarjetaDireccion');
+                        tarjetaDireccion.innerHTML = `
+                    <h2 class="lang" data-lang="direccion">Dirección ${i + 1}</h2>
+                    <div class="direccion card theme--${darkMode}">
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="pais" >${data[lang]['direciones']['pais']}</p>
+                        <p class="pais">${responsePais}</p>
+                    </div>
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="comunidad" >${data[lang]['direciones']['comunidad']}</p>
+                        <p class="comunidad">${responseComunidad}</p>
+                    </div>
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="localidad" >${data[lang]['direciones']['localidad']}</p>
+                        <p class="localidad">${direccion.localidad}</p>
+                    </div>
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="cPostal" >${data[lang]['direciones']['cPostal']}</p>
+                        <p class="cPostal">${direccion.codigo_postal}</p>
+                    </div>
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="Calle" >${data[lang]['direciones']['Calle']}</p>
+                        <p class="calle">${direccion.calle}</p>
+                        </div>
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="Numero" >${data[lang]['direciones']['Numero']}</p>
+                        <p class="numero">${direccion.numero}</p>
+                    </div>
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="Piso" >${data[lang]['direciones']['Piso']}</p>
+                        <p class="piso">${direccion.piso}</p>
+                    </div>
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="Puerta" >${data[lang]['direciones']['Puerta']}</p>
+                        <p class="puerta">${direccion.puerta}</p>
+                    </div>
+                    <div class='columna'>
+                        <p class="titleDireccion lang" data-lang="selecionar" >${data[lang]['direciones']['selecionar']}</p>
+                        <input type="radio" name="direccion" value="${direccion.id}" ${((i == 0) ? 'checked' : '')}>
+                    </div>
+                        
+                        </div>`;
+                        containerDirecciones.appendChild(tarjetaDireccion);
+                    });
+            });
+    });
+
+}
+
+function construirCardTarjeta(tarjetas) {
+    lang = localStorage.getItem('lang');
+    let tarjetasCredito = document.querySelector('.tarjetas__contenedor');
+    tarjetas.forEach((tarjeta, i) => {
+        let tarjetaCredito = document.createElement('div');
+        tarjetaCredito.classList.add(`tarjetaCredito`);
+        tarjetaCredito.innerHTML = /*html*/ `
+        <h2 class="lang subtitulo" data-lang="subtitulo">${data[lang]['formularioTarjetaNew']['subtitulo']} ${i + 1}</h2>
+
+        <div class="tarjeta card theme--${darkMode}">
+            <div class="columna">
+            <p class="lang titleColumna" data-lang="nombreTitular">${data[lang]['formularioTarjetaNew']['nombreTitular']}</p>
+            <p>${tarjeta.nombre_titular}</p>
+            </div>
+            <div class="columna">
+            <p class="lang titleColumna" data-lang="tarjeta">${data[lang]['formularioTarjetaNew']['tarjeta']}</p>
+            <p>${tarjeta.numero_tarjeta}</p>
+            </div>
+            <div class="columna">
+            <p class="lang titleColumna" data-lang="tipoTarjeta">${data[lang]['formularioTarjetaNew']['tipoTarjeta']}</p>
+            <p>${tarjeta.tipo_tarjeta}</p>
+            </div>
+            <div class="columna">
+            <p class="lang titleColumna" data-lang="emisorTarjeta">${data[lang]['formularioTarjetaNew']['emisorTarjeta']}</p>
+            <p>${tarjeta.emisor_tarjeta}</p>
+            </div>
+            <div class="columna">
+            <p class="lang titleColumna" data-lang="cvv">${data[lang]['formularioTarjetaNew']['cvv']}</p>
+            <p>${tarjeta.cvv_cvc}</p>
+            </div>
+            <div class="columna">
+            <p class="lang titleColumna" data-lang="caducidad">${data[lang]['formularioTarjetaNew']['caducidad']}</p>
+            <p>${tarjeta.fecha_caducidad}</p>
+            </div>
+            <div class="columna">
+                <p class="titleTarjeta titleColumna lang" data-lang="seleccionar" >${data[lang]['formularioTarjetaNew']['seleccionar']}</p>
+                        <input type="radio" name="tarjeta" value="${tarjeta.numero_tarjeta}" ${((i == 0) ? 'checked' : '')}>
+            </div>
+        </div>`
+        tarjetasCredito.appendChild(tarjetaCredito);
+    });
+}
 document.querySelector('.productos').addEventListener('change', function (e) {
     //Modificar la cantidad del producto
     if (e.target.matches('[id^="cantidad"]')) {
@@ -143,12 +265,31 @@ document.querySelector('.productos').addEventListener('click', function (e) {
         }
     }
 })
+document.addEventListener('click', function (e) {
 
-document.querySelector('.comprar').addEventListener('click', async function (e) {
-    e.preventDefault();
-    await comprar();
-});
+    if (e.target.closest('.siguiente')) {
+        cambiarPagina(true);
+    }
+    if (e.target.closest('.anterior')) {
+        cambiarPagina(false);
+    }
 
+})
+
+if (document.querySelector('.finalizarCompra')) {
+    document.querySelector('.finalizarCompra').addEventListener('click', async function (e) {
+        e.preventDefault();
+        await comprar();
+    });
+}
+
+function cambiarPagina(subir) {
+    console.log(page);
+    ((subir)) ? page++ : page--;
+    document.querySelectorAll('.containerSeccion').forEach((seccion, i) => {
+        ((i) != page) ? seccion.style.display = 'none' : seccion.style.display = 'block';
+    });
+}
 
 /**
  * Realiza la compra de los productos en el carrito.
@@ -160,49 +301,49 @@ async function comprar() {
     let carritoUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
     carrito = carritoUsuarios[usuarioLogueadoId] || {};
     console.log(carrito);
+    //Obtener los datos de la tarjeta y de la direccion antes de realizar la compra
+    // if (Object.keys(carrito).length > 0) {
+    //     try {
+    //         // Redirigir a la página de compra
+    //         const responseCompra = await fetch('index.php?controller=Cesta&action=comprar', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(carrito)
+    //         });
+    //         const data = await responseCompra.json();
+    //         console.log('Respuesta del servidor:', data);
+    //         if (data.status === 'success') {
+    //             // Si la compra fue exitosa, limpiar el carrito
+    //             localStorage.removeItem("carrito");
+    //             document.querySelector('.productos').innerHTML = ''; // Limpiar los productos mostrados
+    //             document.querySelector('.precioTotal').textContent = 'Precio total: 0.00 €'; // Reiniciar el precio total
+    //             let datos = {};
+    //             datos['titulo'] = 'Compra realizada con exito';
+    //             datos['mensaje'] = 'Compra realizada con exito';
+    //             datos['mensajeAceptar'] = 'Aceptar';
+    //             datos['mensajeCancelar'] = 'Ver Pedidos';
+    //             datos['data'] = data;
+    //             crearDialogo
+    //                 (datos,
+    //                     () => {
+    //                         location.reload();
+    //                     },
+    //                     () => {
+    //                         window.location.href = "index.php?controller=HistorialPedidos&action=view";
+    //                     });
+    //         } else {
+    //             alert('Error en la compra: ' + (data.message || 'Respuesta inesperada'));
+    //         }
+    //     } catch (error) {
+    //         console.error('Error al enviar el carrito:', error);
+    //         alert('Ha ocurrido un error al realizar la compra. Intenta más tarde.');
+    //     }
 
-    if (Object.keys(carrito).length > 0) {
-        try {
-            // Redirigir a la página de compra
-            const responseCompra = await fetch('index.php?controller=Cesta&action=comprar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(carrito)
-            });
-            const data = await responseCompra.json();
-            console.log('Respuesta del servidor:', data);
-            if (data.status === 'success') {
-                // Si la compra fue exitosa, limpiar el carrito
-                localStorage.removeItem("carrito");
-                document.querySelector('.productos').innerHTML = ''; // Limpiar los productos mostrados
-                document.querySelector('.precioTotal').textContent = 'Precio total: 0.00 €'; // Reiniciar el precio total
-                let datos = {};
-                datos['titulo'] = 'Compra realizada con exito';
-                datos['mensaje'] = 'Compra realizada con exito';
-                datos['mensajeAceptar'] = 'Aceptar';
-                datos['mensajeCancelar'] = 'Ver Pedidos';
-                datos['data'] = data;
-                crearDialogo
-                    (datos,
-                        () => {
-                            location.reload();
-                        },
-                        () => {
-                            window.location.href = "index.php?controller=HistorialPedidos&action=view";
-                        });
-            } else {
-                alert('Error en la compra: ' + (data.message || 'Respuesta inesperada'));
-            }
-        } catch (error) {
-            console.error('Error al enviar el carrito:', error);
-            alert('Ha ocurrido un error al realizar la compra. Intenta más tarde.');
-        }
-
-    } else {
-        alert("No hay productos en la cesta para comprar.");
-    }
+    // } else {
+    //     alert("No hay productos en la cesta para comprar.");
+    // }
 
 }
 

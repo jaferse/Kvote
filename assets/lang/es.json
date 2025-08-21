@@ -237,7 +237,8 @@
             "SeleccioneTipo": "Seleccione un tipo de tarjeta",
             "caducidad": "Caducidad",
             "subtitulo": "Tarjeta de credito ",
-            "deleteTarjeta": "Eliminar tarjeta"
+            "deleteTarjeta": "Eliminar tarjeta",
+            "seleccionar": "Seleccionar"
         },
         "menuLogin": {
             "pedidos": "Pedidos",
@@ -415,7 +416,10 @@
                 "nuevo": "Nuevo",
                 "eliminar": "Eliminar",
                 "actualizar": "Actualizar",
-                "subir": "Subir"
+                "subir": "Subir",
+                "siguiente": "Siguiente",
+                "anterior": "Anterior",
+                "comprar": "Comprar"
             },
             "producto": {
                 "th": {
@@ -716,6 +720,7 @@
             "addDireccion": "Añadir",
             "direccion": "Dirección",
             "deleteDireccion": "Borrar",
+            "selecionar": "Seleccionar",
             "newDireccion": "Nueva Dirección",
             "selectComunidad": "Seleccione una comunidad",
             "selectLocalidad": "Seleccione una localidad"
@@ -1001,7 +1006,8 @@
             "SeleccioneTipo": "Select a Card Type",
             "caducidad": "Expiration Date",
             "subtitulo": "Credit Card ",
-            "deleteTarjeta": "Delete card"
+            "deleteTarjeta": "Delete card",
+            "seleccionar": "select"
 
         },
         "menuLogin": {
@@ -1177,7 +1183,11 @@
                 "nuevo": "New",
                 "eliminar": "Eliminate",
                 "actualizar": "Update",
-                "subir": "upload"
+                "subir": "upload",
+                "siguiente": "Next",
+                "anterior": "Back",
+                "comprar": "Buy"
+
             },
             "producto": {
                 "th": {
@@ -1478,6 +1488,7 @@
             "addDireccion": "Add Address",
             "direccion": "Address",
             "deleteDireccion": "Delete",
+            "selecionar": "Select",
             "newDireccion": "New Address",
             "selectComunidad": "Select a region",
             "selectLocalidad": "Select a city"
@@ -1759,9 +1770,8 @@
             "SeleccioneTipo": "カード種類を選択",
             "caducidad": "有効期限",
             "subtitulo": "クレジットカード ",
-            "deleteTarjeta": "カードを削除"
-
-
+            "deleteTarjeta": "カードを削除",
+            "seleccionar": "選択"
         },
         "menuLogin": {
             "pedidos": "注文履歴",
@@ -1936,7 +1946,11 @@
                 "nuevo": "新しい",
                 "eliminar": "なくす",
                 "actualizar": "アップデート",
-                "subir": "アップロード"
+                "subir": "アップロード",
+                "siguiente": "続く",
+                "anterior": "戻る",
+                "comprar": "購入"
+
             },
             "producto": {
                 "th": {
@@ -2237,6 +2251,7 @@
             "addDireccion": "住所を追加",
             "direccion": "住所",
             "deleteDireccion": "削除",
+            "selecionar": "選択",
             "newDireccion": "新しい住所",
             "selectComunidad": "コミュニティを選択してください",
             "selectLocalidad": "場所を選択してください"

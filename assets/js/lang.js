@@ -184,6 +184,7 @@ function actualizarTexto(json, lang) {
         document.querySelector('.Producto__info__precioComprar__precio__anterior').classList.add(lang);
     }
 
+
     /**
      * Cambiar idioma tarjeta productos
      */
@@ -467,6 +468,14 @@ function actualizarTexto(json, lang) {
         })
     }
 
+    if (document.querySelector('.direcciones .tarjetaDireccion .lang')) {
+        // document.querySelector('.titleDireccion').textContent = json[lang]["direciones"]["title"];
+        document.querySelectorAll('.direcciones .tarjetaDireccion .lang').forEach((element, i) => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["direciones"][data_lang] + (data_lang == "direccion") ? ` ${i + 1}` : "";
+        })
+    }
+
     if (document.querySelector('.tarjetaDireccion .lang')) {
         document.querySelectorAll('.tarjetaDireccion title.lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
@@ -490,15 +499,33 @@ function actualizarTexto(json, lang) {
         })
     }
 
-    if(document.querySelector('.tarjetaCredito .lang')) {
-        
+    if (document.querySelector('.tarjetaCredito .lang')) {
+
         document.querySelectorAll('.tarjetaCredito h2.lang.subtitulo').forEach((element, i) => {
-            element.textContent = json[lang]['formularioTarjetaNew']['subtitulo']+' '+ (i+1);
+            element.textContent = json[lang]['formularioTarjetaNew']['subtitulo'] + ' ' + (i + 1);
         })
 
-        document.querySelectorAll('.tarjetaCredito .columna p.lang').forEach(element => {            
+        document.querySelectorAll('.tarjetaCredito .columna p.lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
             element.textContent = json[lang]["formularioTarjetaNew"][data_lang];
+        })
+    }
+    if (document.querySelector('.siguiente .lang')) {
+        document.querySelectorAll('.siguiente .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["mainAdmin"]['botones'][data_lang];
+        })
+    }
+    if (document.querySelector('.anterior .lang')) {
+        document.querySelectorAll('.anterior .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["mainAdmin"]['botones'][data_lang];
+        })
+    }
+    if (document.querySelector('.finalizarCompra .lang')) {
+        document.querySelectorAll('.finalizarCompra .lang').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["mainAdmin"]['botones'][data_lang];
         })
     }
 
