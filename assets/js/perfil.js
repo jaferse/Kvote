@@ -171,9 +171,7 @@ document.addEventListener('click', async (event) => {
         fetch(`index.php?controller=Perfil&action=borrarDireccion&parametro=${enlaceBorrar.getAttribute('data-iddireccion')}`)
             .then(response => response.text())
             .then(data => {
-                console.log(data);
                 let mensaje = JSON.parse(data);
-                console.log(mensaje);
                 tooltip(idiomasJson[lang]['backMessage'][mensaje.message], mensaje.type, document.querySelector('.containerMain'));
                 setInterval(() => {
                     window.location.reload();
@@ -186,9 +184,7 @@ document.addEventListener('click', async (event) => {
         fetch(`index.php?controller=Perfil&action=borrarTarjeta&parametro=${enlaceBorrar.getAttribute('data-tarjeta')}`)
             .then(response => response.text())
             .then(data => {
-                console.log(data);
                 let mensaje = JSON.parse(data);
-                console.log(mensaje);
                 tooltip(idiomasJson[lang]['backMessage'][mensaje.message], mensaje.type, document.querySelector('.containerMain'));
                 setInterval(() => {
                     window.location.reload();
@@ -219,12 +215,6 @@ formularioTarjeta.addEventListener('submit', async (event) => {
 });
 
 function validarFormularioTarjeta(datos) {
-    console.log(datos.get('numeroTarjeta').trim());
-    console.log(datos.get('nombre_titular').trim());
-    console.log(datos.get('emisor_tarjeta').trim());
-    console.log(datos.get('cvv_cvc').trim());
-    console.log(datos.get('tipo_tarjeta').trim());
-    console.log(datos.get('fecha_caducidad').trim());
     let numeroTarjeta = datos.get('numeroTarjeta').trim();
     let nombre_titular = datos.get('nombre_titular').trim();
     let emisor_tarjeta = datos.get('emisor_tarjeta').trim();
@@ -318,7 +308,6 @@ function validarFormularioDireccion(datos) {
         (datos.get('pais') == 'FR' && datos.get('codPostal').length != 5)
     ) {
         tooltip(idiomasJson[lang]['frontMessage']['1012'], 'error', document.querySelector('.containerMain'));
-        console.log('El codigo postal no es correcto');
         return false;
     }
     return true;
@@ -523,12 +512,10 @@ function construirCardTarjeta(tarjetas) {
     lang = localStorage.getItem('lang');
     let tarjetasCredito = document.querySelector('.tarjetasCredito');
     tarjetas.forEach((tarjeta, i) => {
-        console.log(tarjeta);
-
         let tarjetaCredito = document.createElement('div');
         tarjetaCredito.classList.add(`tarjetaCredito`);
         tarjetaCredito.innerHTML = /*html*/ `
-        <h2 class="lang subtitulo" data-lang="title">Tarjeta de credito ${i + 1}</h2>
+        <h2 class="lang subtitulo" data-lang="subtitulo">${idiomasJson[lang]['formularioTarjetaNew']['subtitulo']} ${i + 1}</h2>
 
         <div class="tarjeta card theme--${darkMode}">
             <div class="columna">
