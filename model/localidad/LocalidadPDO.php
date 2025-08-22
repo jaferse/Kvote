@@ -67,6 +67,24 @@ class Daolocalidad extends DB
         }
         return $loca;
     }
+
+    public function obtenerNombre($localidadDao, $matriculaProvincia, $isoPais)
+    {
+        $consulta = "SELECT * FROM localidad WHERE codigo= :codigo AND codigo_provincia= :codigo_provincia AND codigo_pais= :codigo_pais ";
+        $param = array();
+        $param[":codigo"] = $localidadDao;
+        $param[":codigo_provincia"] = $matriculaProvincia;
+        $param[":codigo_pais"] = $isoPais;
+        $this->consultaDatos($consulta, $param);
+        $loca = new Localidad(); //creamos un objeto de la entidad Localidad
+        if (count($this->filas) == 1) {
+            $fila = $this->filas[0];
+        } else {
+            $fila = $localidadDao;
+        }
+        // echo $fila; 
+        return $fila;
+    }
     /**
      * Inserta una situacion en la base de datos
      * @param Situacion $loca El objeto a insertar

@@ -335,6 +335,8 @@
             "titulo": "Historial de Pedidos",
             "fecha": "Fecha",
             "idPedido": "Número de pedido",
+            "nTarjeta": "Número de tarjeta",
+            "direccion": "Dirección",
             "precioTotal": "Precio Total",
             "detallePedido": "Detalle Pedido",
             "tituloProducto": "Titulo",
@@ -1008,7 +1010,6 @@
             "subtitulo": "Credit Card ",
             "deleteTarjeta": "Delete card",
             "seleccionar": "select"
-
         },
         "menuLogin": {
             "pedidos": "Orders",
@@ -1105,6 +1106,8 @@
             "titulo": "Order History",
             "fecha": "Date",
             "idPedido": "Order Number",
+            "nTarjeta": "Card Number",
+            "direccion": "Address",
             "precioTotal": "Total Price",
             "detallePedido": "Order Details",
             "tituloProducto": "Title",
@@ -1187,7 +1190,6 @@
                 "siguiente": "Next",
                 "anterior": "Back",
                 "comprar": "Buy"
-
             },
             "producto": {
                 "th": {
@@ -1868,6 +1870,8 @@
             "titulo": "注文履歴",
             "fecha": "日付",
             "idPedido": "注文番号",
+            "nTarjeta": "カード番号",
+            "direccion": "住所",
             "precioTotal": "合計金額",
             "detallePedido": "注文の詳細",
             "tituloProducto": "タイトル",
@@ -1950,7 +1954,6 @@
                 "siguiente": "続く",
                 "anterior": "戻る",
                 "comprar": "購入"
-
             },
             "producto": {
                 "th": {

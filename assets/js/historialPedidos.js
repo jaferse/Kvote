@@ -22,12 +22,15 @@ async function construirGridPedidos(pedidos) {
 
     pedidos.forEach(pedido => {
         let compra = document.createElement('div');
-
+        console.log(pedido);
+        
         compra.classList.add('compra');
         let formatoFecha = convertirFormatoFecha(pedido.compra.fechaCompra, true);
         compra.innerHTML = `
             <p class="fecha lang" data-fecha="${pedido.compra.fechaCompra}">${formatoFecha}</p>
             <p class="idPedido">${pedido.compra.idCompra}</p>
+            <p class="nTarjeta">*${pedido.compra.nTarjeta.slice(-4)}</p>
+            <p class="direccion">${pedido.compra.idDireccion}</p>
             <p class="precioTotal">${pedido.compra.totalCompra}€</p>
             <a class="detallePedido btn btnPrimario lang theme--${darkMode}" data-lang="botonDetalle">Ver Detalle</a>
         `;

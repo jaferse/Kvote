@@ -20,9 +20,14 @@ class CestaController
 
         $compraDAO = new Daocompra(DDBB_NAME);
         $detalleCompraDAO = new Daodetallecompra(DDBB_NAME);
-        $data = json_decode(file_get_contents("php://input"), true);
-        if ($data) {
-
+        $body = json_decode(file_get_contents("php://input"), true);
+        // var_dump($body);
+        if ($body) {
+            $data = $body["carrito"];
+            $idDireccion = $body["idDireccion"];
+            $nTarjeta = $body["nTarjeta"];
+            // echo $idDireccion;
+            // echo $nTarjeta;
             $idCompra = $this->generateUUIDv4();
             $compra = new Compra();
             $compra->__set("idCompra", $idCompra);
@@ -32,7 +37,9 @@ class CestaController
                 $totalCompra = $totalCompra + ($producto["cantidad"] * $producto["producto"]["precio"]);
             }
             $compra->__set("totalCompra", $totalCompra);
-
+            $compra->__set("nTarjeta", $nTarjeta);
+            $compra->__set("idDireccion", $idDireccion);
+            // var_dump($compra);
             $compraDAO->insertar($compra);
             foreach ($data as $key => $producto) {
                 $detalleCompra = new Detallecompra();
@@ -44,8 +51,9 @@ class CestaController
                 $this->actualizarVenta($producto["producto"]["isbn_13"],$producto["cantidad"]);
                 $detalleCompraDAO->insertar($detalleCompra);
 
+                // var_dump($detalleCompra);
+                // echo "<br>";
             }
-
             $respuesta = [
                 "status" => "success",
                 "mensaje" => "Compra realizada con éxito",

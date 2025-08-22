@@ -293,6 +293,16 @@ class PerfilController
         header('Content-Type: application/json');
         echo json_encode($provincia);
     }
+    public function obtenerNombreLocalidad()
+    {
+        $isoPais = explode(":", $_GET['parametro'])[0];
+        $matriculaProvincia = explode(":", $_GET['parametro'])[1];
+        $codigoLocalidad = explode(":", $_GET['parametro'])[2];
+        $localidadDao = new Daolocalidad(DDBB_NAME);
+        $localidad = $localidadDao->obtenerNombre($codigoLocalidad, $matriculaProvincia, $isoPais);
+        header('Content-Type: application/json');
+        echo json_encode($localidad);
+    }
 
     public function addCreditCard()
     {

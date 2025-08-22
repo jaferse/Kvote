@@ -19,6 +19,8 @@
             <div class="titulo">
                 <p class="lang" data-lang="fecha">Fecha</p>
                 <p class="lang" data-lang="idPedido">Id pedido</p>
+                <p class="lang" data-lang="nTarjeta">Tarjeta</p>
+                <p class="lang" data-lang="direccion">Direccion</p>
                 <p class="lang" data-lang="precioTotal">Precio Total</p>
                 <p class="lang" data-lang="detallePedido">Detalle Pedido</p>
             </div>

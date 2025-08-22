@@ -11,6 +11,7 @@ class HistorialPedidosController
         } else {
             require_once("model/compra/CompraPDO.php");
             require_once("model/detalleCompra/DetallecompraPDO.php");
+            // require_once(");
             $compraDAO = new Daocompra(DDBB_NAME);
             $detalleCompraDAO = new Daodetallecompra(DDBB_NAME);
         }
@@ -31,7 +32,7 @@ class HistorialPedidosController
         $compraDAO->obtenerPedidosUsuario($_SESSION['usernameId']);
         $historialPedidos=[];
         foreach ($compraDAO->compras as $key => $compra) {
-            // var_dump($compra);
+            // var_dump($compra->__get('idDireccion'));
             $idCompra=$compra->__get('idCompra');
             $historialPedidos[$key]['compra'] = $compra;
             //Obtener detalle de la compra
@@ -44,5 +45,9 @@ class HistorialPedidosController
         // var_dump($historialPedidos);
         header('Content-Type: application/json');
         echo json_encode($historialPedidos);
+    }
+
+    public function obtenerDireccion(){
+
     }
 }

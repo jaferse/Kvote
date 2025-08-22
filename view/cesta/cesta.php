@@ -42,6 +42,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="enlaceBoton newDireccion">
+                    <a data-lang="newDireccion">Añadir nuevas direcciones en el perfil</a>
+                </div>
             </section>
             <section class="containerSeccion">
                 <!-- <h1 class="">Direcciones</h1> -->
@@ -55,6 +58,9 @@
                             <a class="lang" data-lang="comprar"></a>
                         </div>
                     </div>
+                </div>
+                <div class="enlaceBoton newTarjeta">
+                    <a data-lang="newTarjeta" >Añadir nuevas tarjetas en el perfil</a>
                 </div>
             </section>
         </main>

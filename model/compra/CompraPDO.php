@@ -23,6 +23,8 @@ class Daocompra extends DB
             $comp->__set("idUsuario", $fila['idUsuario']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $comp->__set("fechaCompra", $fila['fechaCompra']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $comp->__set("totalCompra", $fila['totalCompra']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $comp->__set("idDireccion", $fila['idDireccion']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $comp->__set("nTarjeta", $fila['nTarjeta']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $this->compras[] = $comp; //Guardamos ese objeto en el array de objetos comp
         }
     }
@@ -56,10 +58,12 @@ class Daocompra extends DB
      */
     public function insertar($comp)
     { //Se introduce un objeto por parametro que se insertará
-        $consulta = "INSERT INTO compra (idCompra, idUsuario, totalCompra) VALUES (:idCompra, :idUsuario,  :totalCompra ) ";
+        $consulta = "INSERT INTO compra (idCompra, idUsuario, totalCompra, nTarjeta, idDireccion) VALUES (:idCompra, :idUsuario,  :totalCompra, :nTarjeta, :idDireccion ) ";
         $param = array();
         $param[":idCompra"] = $comp->__get("idCompra"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":idUsuario"] = $comp->__get("idUsuario"); //Le asignamos a las propiedades del objetos los campos de esa fila
+        $param[":nTarjeta"] = $comp->__get("nTarjeta"); //Le asignamos a las propiedades del objetos los campos de esa fila
+        $param[":idDireccion"] = $comp->__get("idDireccion"); //Le asignamos a las propiedades del objetos los campos de esa fila
         // $param[":fechaCompra"] = $comp->__get("fechaCompra"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $param[":totalCompra"] = $comp->__get("totalCompra"); //Le asignamos a las propiedades del objetos los campos de esa fila
         $this->consultaSimple($consulta, $param);
@@ -92,7 +96,7 @@ class Daocompra extends DB
         $this->consultaSimple($consulta, $param);
     }
 
-        public function borrarporIdUsuario($idUsuario)
+    public function borrarporIdUsuario($idUsuario)
     { //Se introduce un objeto por parametro que se insertará
         $consulta = " DELETE FROM compra WHERE idUsuario= :idUsuario";
         $param = array();
@@ -112,6 +116,8 @@ class Daocompra extends DB
             $comp->__set("idUsuario", $fila['idUsuario']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $comp->__set("fechaCompra", $fila['fechaCompra']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $comp->__set("totalCompra", $fila['totalCompra']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $comp->__set("nTarjeta", $fila['nTarjeta']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $comp->__set("idDireccion", $fila['idDireccion']); //Le asignamos a las propiedades del objetos los campos de esa fila
             $this->compras[] = $comp; //Guardamos ese objeto en el array de objetos comp
         }
     }

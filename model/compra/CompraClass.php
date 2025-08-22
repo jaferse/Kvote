@@ -6,6 +6,8 @@ class Compra implements JsonSerializable
     private $idUsuario;
     private $fechaCompra;
     private $totalCompra;
+    private $nTarjeta;
+    private $idDireccion;
     function __get($propiedad)
     {
         return $this->$propiedad;
@@ -22,7 +24,8 @@ class Compra implements JsonSerializable
             'idUsuario' => $this->idUsuario,
             'fechaCompra' => $this->fechaCompra,
             'totalCompra' => $this->totalCompra,
-
+            'nTarjeta' => $this->nTarjeta,
+            'idDireccion' => $this->idDireccion,
         ];
     }
 }

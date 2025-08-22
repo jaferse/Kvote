@@ -2768,7 +2768,7 @@
 .containerPedidos .titulo {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr;
   gap: 5px;
 }
 .containerPedidos .compra p,
@@ -2797,7 +2797,7 @@
 }
 .containerPedidos .compra .detalleCompra {
   display: none;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr;
   grid-column: 1/-1;
   /* hace que ocupe toda la fila */
   width: 90%;

@@ -446,10 +446,12 @@ function crearTarjetasDirecciones(direcciones) {
                 fetch(`index.php?controller=Perfil&action=obtenerNombreProvincia&parametro=${direccion.paisISO}:${direccion.provinciaMatricula}`)
                     .then(response => response.json())
                     .then(responseComunidad => {
-
-                        let tarjetaDireccion = document.createElement('div');
-                        tarjetaDireccion.classList.add('tarjetaDireccion');
-                        tarjetaDireccion.innerHTML = `
+                        fetch(`index.php?controller=Perfil&action=obtenerNombreLocalidad&parametro=${direccion.paisISO}:${direccion.provinciaMatricula}:${direccion.localidad}`)
+                            .then(response => response.json())
+                            .then(responseLocalidad => {
+                                let tarjetaDireccion = document.createElement('div');
+                                tarjetaDireccion.classList.add('tarjetaDireccion');
+                                tarjetaDireccion.innerHTML = `
                     <h2 class="lang" data-lang="direccion">Dirección ${i + 1}</h2>
                     <div class="direccion card theme--${darkMode}">
                     <div class='columna'>
@@ -462,7 +464,7 @@ function crearTarjetasDirecciones(direcciones) {
                     </div>
                     <div class='columna'>
                         <p class="titleDireccion lang" data-lang="localidad" >${idiomasJson[lang]['direciones']['localidad']}</p>
-                        <p class="localidad">${direccion.localidad}</p>
+                        <p class="localidad">${(responseLocalidad.nombre)?responseLocalidad.nombre:responseLocalidad}</p>
                     </div>
                     <div class='columna'>
                         <p class="titleDireccion lang" data-lang="cPostal" >${idiomasJson[lang]['direciones']['cPostal']}</p>
@@ -502,7 +504,8 @@ function crearTarjetasDirecciones(direcciones) {
                     </div>
 
                     </div>`;
-                        containerDirecciones.appendChild(tarjetaDireccion);
+                                containerDirecciones.appendChild(tarjetaDireccion);
+                            });
                     });
             });
     });

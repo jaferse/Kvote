@@ -469,10 +469,14 @@ function actualizarTexto(json, lang) {
     }
 
     if (document.querySelector('.direcciones .tarjetaDireccion .lang')) {
-        // document.querySelector('.titleDireccion').textContent = json[lang]["direciones"]["title"];
-        document.querySelectorAll('.direcciones .tarjetaDireccion .lang').forEach((element, i) => {
+        document.querySelectorAll('.direcciones .tarjetaDireccion h2.lang').forEach((element, i) => {
             let data_lang = element.getAttribute('data-lang');
-            element.textContent = json[lang]["direciones"][data_lang] + (data_lang == "direccion") ? ` ${i + 1}` : "";
+            element.textContent = json[lang]["direciones"]['title']+` ${i + 1}`;
+
+        })
+        document.querySelectorAll('.direcciones .tarjetaDireccion .lang:not(h2)').forEach(element => {
+            let data_lang = element.getAttribute('data-lang');
+            element.textContent = json[lang]["direciones"][data_lang];
         })
     }
 

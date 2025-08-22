@@ -116,11 +116,15 @@ function crearTarjetasDirecciones(direcciones) {
                 fetch(`index.php?controller=Perfil&action=obtenerNombreProvincia&parametro=${direccion.paisISO}:${direccion.provinciaMatricula}`)
                     .then(response => response.json())
                     .then(responseComunidad => {
+                        fetch(`index.php?controller=Perfil&action=obtenerNombreLocalidad&parametro=${direccion.paisISO}:${direccion.provinciaMatricula}:${direccion.localidad}`)
+                            .then(response => response.json())
+                            .then(responseLocalidad => {
 
-                        let tarjetaDireccion = document.createElement('div');
-                        tarjetaDireccion.classList.add('tarjetaDireccion');
-                        tarjetaDireccion.innerHTML = `
-                    <h2 class="lang" data-lang="direccion">Dirección ${i + 1}</h2>
+
+                                let tarjetaDireccion = document.createElement('div');
+                                tarjetaDireccion.classList.add('tarjetaDireccion');
+                                tarjetaDireccion.innerHTML = `
+                    <h2 class="lang" data-lang="direccion">${data[lang]['direciones']['title']} ${i + 1}</h2>
                     <div class="direccion card theme--${darkMode}">
                     <div class='columna'>
                         <p class="titleDireccion lang" data-lang="pais" >${data[lang]['direciones']['pais']}</p>
@@ -132,7 +136,7 @@ function crearTarjetasDirecciones(direcciones) {
                     </div>
                     <div class='columna'>
                         <p class="titleDireccion lang" data-lang="localidad" >${data[lang]['direciones']['localidad']}</p>
-                        <p class="localidad">${direccion.localidad}</p>
+                        <p class="localidad">${(responseLocalidad.nombre) ? responseLocalidad.nombre : responseLocalidad}</p>
                     </div>
                     <div class='columna'>
                         <p class="titleDireccion lang" data-lang="cPostal" >${data[lang]['direciones']['cPostal']}</p>
@@ -160,7 +164,8 @@ function crearTarjetasDirecciones(direcciones) {
                     </div>
                         
                         </div>`;
-                        containerDirecciones.appendChild(tarjetaDireccion);
+                                containerDirecciones.appendChild(tarjetaDireccion);
+                            });
                     });
             });
     });
@@ -273,6 +278,20 @@ document.addEventListener('click', function (e) {
     if (e.target.closest('.anterior')) {
         cambiarPagina(false);
     }
+    if (e.target.closest('.newDireccion')) {
+        // cambiarPagina(false);
+        localStorage.setItem('seccionPerfil','direcciones')
+        console.log(e.target.closest('.newDireccion'));
+        window.location.href = "index.php?controller=Perfil&action=view";
+    }
+    if (e.target.closest('.newTarjeta')) {
+        // cambiarPagina(false);
+        localStorage.setItem('seccionPerfil','tarjetaCredito')
+        console.log(e.target.closest('.newTarjeta'));
+        window.location.href = "index.php?controller=Perfil&action=view";
+    }
+
+
 
 })
 
@@ -300,50 +319,57 @@ function cambiarPagina(subir) {
 async function comprar() {
     let carritoUsuarios = JSON.parse(localStorage.getItem("carrito")) || {};
     carrito = carritoUsuarios[usuarioLogueadoId] || {};
-    console.log(carrito);
+    const nTarjeta= document.querySelector('.tarjeta input:checked').value;
+    const idDireccion= document.querySelector('.direccion input:checked').value;
+    // carrito.nTarjeta=nTarjeta;
+    // carrito.idDireccion=idDireccion;
+    console.log(JSON.stringify({carrito,nTarjeta,idDireccion}));
+    // console.log(document.querySelector('.direccion input:checked').value);
+    // console.log(document.querySelector('.tarjeta input:checked').value);
     //Obtener los datos de la tarjeta y de la direccion antes de realizar la compra
-    // if (Object.keys(carrito).length > 0) {
-    //     try {
-    //         // Redirigir a la página de compra
-    //         const responseCompra = await fetch('index.php?controller=Cesta&action=comprar', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(carrito)
-    //         });
-    //         const data = await responseCompra.json();
-    //         console.log('Respuesta del servidor:', data);
-    //         if (data.status === 'success') {
-    //             // Si la compra fue exitosa, limpiar el carrito
-    //             localStorage.removeItem("carrito");
-    //             document.querySelector('.productos').innerHTML = ''; // Limpiar los productos mostrados
-    //             document.querySelector('.precioTotal').textContent = 'Precio total: 0.00 €'; // Reiniciar el precio total
-    //             let datos = {};
-    //             datos['titulo'] = 'Compra realizada con exito';
-    //             datos['mensaje'] = 'Compra realizada con exito';
-    //             datos['mensajeAceptar'] = 'Aceptar';
-    //             datos['mensajeCancelar'] = 'Ver Pedidos';
-    //             datos['data'] = data;
-    //             crearDialogo
-    //                 (datos,
-    //                     () => {
-    //                         location.reload();
-    //                     },
-    //                     () => {
-    //                         window.location.href = "index.php?controller=HistorialPedidos&action=view";
-    //                     });
-    //         } else {
-    //             alert('Error en la compra: ' + (data.message || 'Respuesta inesperada'));
-    //         }
-    //     } catch (error) {
-    //         console.error('Error al enviar el carrito:', error);
-    //         alert('Ha ocurrido un error al realizar la compra. Intenta más tarde.');
-    //     }
+    if (Object.keys(carrito).length > 0) {
+        try {
+            // Redirigir a la página de compra
+            const responseCompra = await fetch('index.php?controller=Cesta&action=comprar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({carrito,nTarjeta,idDireccion})
 
-    // } else {
-    //     alert("No hay productos en la cesta para comprar.");
-    // }
+            });
+            const data = await responseCompra.json();
+            console.log('Respuesta del servidor:', data);
+            if (data.status === 'success') {
+                // Si la compra fue exitosa, limpiar el carrito
+                localStorage.removeItem("carrito");
+                document.querySelector('.productos').innerHTML = ''; // Limpiar los productos mostrados
+                document.querySelector('.precioTotal').textContent = 'Precio total: 0.00 €'; // Reiniciar el precio total
+                let datos = {};
+                datos['titulo'] = 'Compra realizada con exito';
+                datos['mensaje'] = 'Compra realizada con exito';
+                datos['mensajeAceptar'] = 'Aceptar';
+                datos['mensajeCancelar'] = 'Ver Pedidos';
+                datos['data'] = data;
+                crearDialogo
+                    (datos,
+                        () => {
+                            location.reload();
+                        },
+                        () => {
+                            window.location.href = "index.php?controller=HistorialPedidos&action=view";
+                        });
+            } else {
+                alert('Error en la compra: ' + (data.message || 'Respuesta inesperada'));
+            }
+        } catch (error) {
+            console.error('Error al enviar el carrito:', error);
+            alert('Ha ocurrido un error al realizar la compra. Intenta más tarde.');
+        }
+
+    } else {
+        alert("No hay productos en la cesta para comprar.");
+    }
 
 }
 
@@ -368,3 +394,5 @@ function actualizarPrecio() {
         window.location.reload();
     }
 }
+
+
