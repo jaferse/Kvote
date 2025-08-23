@@ -29,12 +29,19 @@ async function construirGridPedidos(pedidos) {
         compra.innerHTML = `
             <p class="fecha lang" data-fecha="${pedido.compra.fechaCompra}">${formatoFecha}</p>
             <p class="idPedido">${pedido.compra.idCompra}</p>
-            <p class="nTarjeta">*${pedido.compra.nTarjeta.slice(-4)}</p>
-            <p class="direccion">${pedido.compra.idDireccion}</p>
+            <p class="nTarjeta">${pedido.compra.nTarjeta}</p>
+            <p class="direccion">
+            ${pedido.compra.idDireccion.pais} <br>
+            ${pedido.compra.idDireccion.provincia} <br>
+            ${pedido.compra.idDireccion.nombreLocalidad} <br>
+            CP: ${pedido.compra.idDireccion.codigo_postal} <br>
+            C/ ${pedido.compra.idDireccion.calle} <br>
+            Nº ${pedido.compra.idDireccion.numero} <br>
+            Piso: ${pedido.compra.idDireccion.piso}${pedido.compra.idDireccion.puerta}
+            </p>
             <p class="precioTotal">${pedido.compra.totalCompra}€</p>
             <a class="detallePedido btn btnPrimario lang theme--${darkMode}" data-lang="botonDetalle">Ver Detalle</a>
         `;
-
         let divDetalleCompra = document.createElement('div');
         divDetalleCompra.classList.add('detalleCompra');
         divDetalleCompra.innerHTML = `
