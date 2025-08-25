@@ -358,15 +358,18 @@ function actualizarTexto(json, lang) {
     document.querySelectorAll('.footer .lang').forEach(element => {
 
         let data_lang = element.getAttribute('data-lang');
-
+        console.log(data_lang);
+        
+        console.log(element.parentElement.classList);
+        
         switch (element.parentElement.classList.value) {
             case "footer__ayuda":
                 element.textContent = json[lang]["Footer"]["ayuda"][data_lang]
                 break;
-            case "footer__nosotros":
+            case "footer__nosotros__contacto":
                 element.textContent = json[lang]["Footer"]["Contacto"]["title"]
                 break;
-            case "footer__redes":
+            case "footer__redes__contenedor":
                 element.textContent = json[lang]["Footer"]["Redes Sociales"]["title"]
                 break;
             default:

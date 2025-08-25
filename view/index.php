@@ -16,7 +16,7 @@
     ?>
     <div class="containerMain">
         <main class="main" style="display: none;">
-            <article class="main__sliderFrame">
+            <div class="main__sliderFrame">
                 <ul>
                     <li>
                         <img src="./assets/img/carruselProvidence.jpg" alt="">
@@ -37,21 +37,19 @@
                         <img src="./assets/img/carrruselKilling.png" alt="">
                     </li>
                 </ul>
-            </article>
+            </div>
 
             <article class="main__bestSellers">
                 <h2 class="main__bestSellers__title lang" data-lang="comicMonth">Comic de Febrero</h2>
-
-                <section class="main__bestSellers__portadas">
+                <div class="main__bestSellers__portadas">
                     <!-- Se renderiza los comic más vendidos -->
-                </section>
+                </div>
             </article>
             <article class="main__bestSellers">
                 <h2 class="main__bestSellers__title lang" data-lang="bookMonth">Libros de Febrero</h2>
-
-                <section class="main__bestSellers__portadas">
+                <div class="main__bestSellers__portadas">
                     <!-- Se renderiza los libros más vendidos -->
-                </section>
+                </div>
             </article>
         </main>
         <div id="content" class="cardSkeleton" style="height: 50rem;">

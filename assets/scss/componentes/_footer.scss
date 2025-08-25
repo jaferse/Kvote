@@ -22,8 +22,8 @@
         padding: 0.2rem 0;
     }
 
-    &>section {
-        margin-bottom: 1rem;
+    .footer__nosotros, .footer__redes {
+        margin-bottom: 1.5rem;
     }
 
     &__nosotros {
@@ -82,59 +82,63 @@
         width: 30%;
 
         &__contenedor {
-            @include flex(row, space-around, center);
+            @include flex(column, space-around, center);
 
-            a {
-                text-decoration: none;
-                @include dimensiones(2.3rem, 2.3rem, 14px);
-                @include flex(row, center, center);
+            &__redes {
+            @include flex(row, space-around, space-around);
 
-                overflow: hidden;
-                position: relative;
-                margin: 0 0.5rem;
+                a {
+                    text-decoration: none;
+                    @include dimensiones(2.3rem, 2.3rem, 14px);
+                    @include flex(row, center, center);
+
+                    overflow: hidden;
+                    position: relative;
+                    margin: 0 0.5rem;
+                }
+
+                a:before {
+                    background: var(--color);
+                    content: "";
+                    position: absolute;
+
+                    left: -110%;
+                    top: 80%;
+                    transform: rotate(45deg);
+                    @include dimensiones(130%, 130%, 50%);
+                }
+
+                a:hover:before {
+                    animation: slide 0.7s forwards;
+                }
+
+                img {
+                    width: 100%;
+                    z-index: 1;
+                }
+
+
+                a:has(.instagram) {
+                    --color: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+                }
+
+                a:has(.bluesky) {
+                    --color: linear-gradient(45deg, rgba(84, 182, 255, 1) 0%, rgba(66, 165, 255, 1) 38%, rgba(36, 149, 253, 1) 69%, rgba(36, 149, 253, 1) 100%)
+                }
+
+                a:has(.youtube) {
+                    --color: linear-gradient(84deg, rgba(213, 29, 19, 1) 33%, rgba(250, 34, 22, 1) 71%);
+                }
+
+                a:has(.facebook) {
+                    --color: #0077b5;
+                }
+
+                a:has(.tiktok) {
+                    --color: linear-gradient(77deg, rgba(252, 12, 83, 1) 30%, rgba(3, 240, 234, 1) 75%);
+                }
+
             }
-
-            a:before {
-                background: var(--color);
-                content: "";
-                position: absolute;
-
-                left: -110%;
-                top: 80%;
-                transform: rotate(45deg);
-                @include dimensiones(130%, 130%, 50%);
-            }
-
-            a:hover:before {
-                animation: slide 0.7s forwards;
-            }
-
-            img {
-                width: 100%;
-                z-index: 1;
-            }
-
-
-            a:has(.instagram) {
-                --color: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
-            }
-
-            a:has(.bluesky) {
-                --color: linear-gradient(45deg, rgba(84, 182, 255, 1) 0%, rgba(66, 165, 255, 1) 38%, rgba(36, 149, 253, 1) 69%, rgba(36, 149, 253, 1) 100%)
-            }
-
-            a:has(.youtube) {
-                --color: linear-gradient(84deg, rgba(213, 29, 19, 1) 33%, rgba(250, 34, 22, 1) 71%);
-            }
-
-            a:has(.facebook) {
-                --color: #0077b5;
-            }
-
-            a:has(.tiktok) {
-                --color: linear-gradient(77deg, rgba(252, 12, 83, 1) 30%, rgba(3, 240, 234, 1) 75%);
-            }
-
         }
 
     }

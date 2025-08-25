@@ -347,8 +347,8 @@
   font-size: 0.8rem;
   padding: 0.2rem 0;
 }
-.footer > section {
-  margin-bottom: 1rem;
+.footer .footer__nosotros, .footer .footer__redes {
+  margin-bottom: 1.5rem;
 }
 .footer__nosotros {
   width: 65%;
@@ -418,12 +418,19 @@
 }
 .footer__redes__contenedor {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
 }
-.footer__redes__contenedor a {
+.footer__redes__contenedor__redes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: space-around;
+  flex-wrap: nowrap;
+}
+.footer__redes__contenedor__redes a {
   text-decoration: none;
   width: 2.3rem !important;
   height: 2.3rem !important;
@@ -438,7 +445,7 @@
   position: relative;
   margin: 0 0.5rem;
 }
-.footer__redes__contenedor a:before {
+.footer__redes__contenedor__redes a:before {
   background: var(--color);
   content: "";
   position: absolute;
@@ -450,26 +457,26 @@
   border-radius: 50% !important;
   border: none !important;
 }
-.footer__redes__contenedor a:hover:before {
+.footer__redes__contenedor__redes a:hover:before {
   animation: slide 0.7s forwards;
 }
-.footer__redes__contenedor img {
+.footer__redes__contenedor__redes img {
   width: 100%;
   z-index: 1;
 }
-.footer__redes__contenedor a:has(.instagram) {
+.footer__redes__contenedor__redes a:has(.instagram) {
   --color: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
 }
-.footer__redes__contenedor a:has(.bluesky) {
+.footer__redes__contenedor__redes a:has(.bluesky) {
   --color: linear-gradient(45deg, rgba(84, 182, 255, 1) 0%, rgba(66, 165, 255, 1) 38%, rgba(36, 149, 253, 1) 69%, rgba(36, 149, 253, 1) 100%) ;
 }
-.footer__redes__contenedor a:has(.youtube) {
+.footer__redes__contenedor__redes a:has(.youtube) {
   --color: linear-gradient(84deg, rgba(213, 29, 19, 1) 33%, rgba(250, 34, 22, 1) 71%);
 }
-.footer__redes__contenedor a:has(.facebook) {
+.footer__redes__contenedor__redes a:has(.facebook) {
   --color: #0077b5;
 }
-.footer__redes__contenedor a:has(.tiktok) {
+.footer__redes__contenedor__redes a:has(.tiktok) {
   --color: linear-gradient(77deg, rgba(252, 12, 83, 1) 30%, rgba(3, 240, 234, 1) 75%);
 }
 

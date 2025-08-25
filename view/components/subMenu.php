@@ -52,7 +52,7 @@
                 case 'Catalogo|comic':
                     echo "
                             <a class='breadcrumb__home' href='" . $url_actual . "'>
-                                <svg class='iconSvg' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                                <svg class='iconSvg' version='1.1'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                     viewBox='0 0 46.098 46.098'
                                     xml:space='preserve'>
                                 <g>
@@ -238,7 +238,7 @@
                         if (comprobarSiEsComic($params['isbn'])) {
                             echo "
                             <a class='breadcrumb__home' href='index.php?controller=Catalogo&action=comic'>
-                             <svg class='iconSvg' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                             <svg class='iconSvg' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                     viewBox='0 0 46.098 46.098'
                                     xml:space='preserve'>
                                 <g>
@@ -612,7 +612,7 @@
         </li>
         <li>
             <a class="en">
-                <svg class="iconSvg" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                <svg class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 473.68 473.68" xml:space="preserve">
                     <g>
                         <path style="fill:#29337A;" d="M41.712,102.641c-15.273,22.168-26.88,47.059-33.918,73.812h107.734L41.712,102.641z" />
@@ -697,7 +697,7 @@
         </li>
         <li>
             <a class="ja">
-                <svg class="iconSvg" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                <svg class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 473.68 473.68" xml:space="preserve">
                     <g>
                         <circle style="fill:#FFFFFF;" cx="236.85" cy="236.85" r="236.83" />
