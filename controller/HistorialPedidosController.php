@@ -1,4 +1,5 @@
 <?php
+require_once("core/funcionesGenericas.php");
 
 class HistorialPedidosController
 {
@@ -23,13 +24,12 @@ class HistorialPedidosController
 
     public function view()
     {
+        comprobarLogin();
         require_once("view/historialPedidos/historialPedidos.php");
     }
 
     public function listarPedidos()
     {
-        // echo $_SESSION['username'];
-        // echo $_SESSION['usernameId'];
         $compraDAO = new Daocompra(DDBB_NAME);
         $detalleCompraDAO = new Daodetallecompra(DDBB_NAME);
 

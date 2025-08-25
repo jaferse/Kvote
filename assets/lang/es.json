@@ -215,7 +215,8 @@
                 },
                 "generoFavorito": "Elige un genero favorito",
                 "tipoTarjeta": "Elige un tipo de tarjeta",
-                "emisorTarjeta": "Elige un emisor de tarjeta"
+                "emisorTarjeta": "Elige un emisor de tarjeta",
+                "confirmaDatos": "Confirma los datos"
             }
         },
         "formularioLogIn": {
@@ -344,7 +345,8 @@
             "precioUnitario": "Precio unidad",
             "unidades": "Unidades",
             "subtotal": "Subtotal",
-            "botonDetalle": "Ver Detalle"
+            "botonDetalle": "Ver Detalle",
+            "sinPedidos": "No existen pedidos"
         },
         "wishList": {
             "titulo": "Productos de ",
@@ -986,7 +988,8 @@
                 },
                 "generoFavorito": "Choose a favorite genre",
                 "tipoTarjeta": "Choose a card type",
-                "emisorTarjeta": "Choose a card issuer"
+                "emisorTarjeta": "Choose a card issuer",
+                "confirmaDatos": "Confirm data"
             }
         },
         "formularioLogIn": {
@@ -1115,7 +1118,8 @@
             "precioUnitario": "Unit Price",
             "unidades": "Units",
             "subtotal": "Subtotal",
-            "botonDetalle": "View Details"
+            "botonDetalle": "View Details",
+            "sinPedidos": "There are no orders"
         },
         "wishList": {
             "titulo": "Products by ",
@@ -1749,7 +1753,8 @@
                 },
                 "generoFavorito": "お気に入りのジャンルを選択してください",
                 "tipoTarjeta": "カードの種類を選択してください",
-                "emisorTarjeta": "カードの発行会社を選択してください"
+                "emisorTarjeta": "カードの発行会社を選択してください",
+                "confirmaDatos": "情報を確認してください"
             }
         },
         "formularioLogIn": {
@@ -1879,7 +1884,8 @@
             "precioUnitario": "単価",
             "unidades": "数量",
             "subtotal": "小計",
-            "botonDetalle": "詳細を見る"
+            "botonDetalle": "詳細を見る",
+            "sinPedidos": "注文履歴はありません"
         },
         "wishList": {
             "titulo": "の製品 ",

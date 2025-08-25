@@ -1,10 +1,12 @@
 <?php
+require_once("core/funcionesGenericas.php");
 class CestaController
 {
 
     public function __construct()
     {
         session_start();
+        comprobarLogin();
         require_once("model/compra/CompraPDO.php");
         require_once("model/detalleCompra/DetallecompraPDO.php");
         require_once("model/producto/ProductoPDO.php");

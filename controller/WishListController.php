@@ -1,4 +1,5 @@
 <?php
+require_once("core/funcionesGenericas.php");
 
 class WishListController
 {

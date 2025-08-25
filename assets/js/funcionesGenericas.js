@@ -302,11 +302,9 @@ export function aplicarValidaciones(justValidate, dataLand, lang) {
                     }
                     //Si el año es igual y el mes es mayor o igual 
                     else if ((value.substring(3) == ((hoy.getFullYear().toString()).substring(2))) && (parseInt(value.substring(0, 2)) >= parseInt(hoy.getMonth()) + 1)) {
-                        console.log("mes correcto");
                         valido = true;
 
                     } else {
-                        console.log("Año Incorrecto");
 
                     }
                     return valido;
@@ -407,14 +405,12 @@ export async function cargarIdioma() {
 export function crearDialogo(datos, onAceptar, onCancelar) {
     // Si ya existe, no lo volvemos a crear
     if (document.getElementById("dialogoPersonalizado")) return;
-    console.log(datos);
 
     let titulo = datos.titulo;
     let mensaje = datos.mensaje;
     // Crear overlay
     const overlay = document.createElement("div");
     overlay.id = "overlay";
-    console.log(typeof mensaje);
 
 
     // Crear diálogo

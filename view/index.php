@@ -2,13 +2,6 @@
 <html lang="es">
 
 <head>
-    <!-- 
-        Me hubiese gustado implementar si hubiese tenido tiempo, el carrito de la compra,
-        para poder mostrar el precio total de la compra, los productos y la cantidad
-        Además también hubiese estado bien implementar el buscador para filtrar por titulo, autor, etc.
-        Otra cosa interesante hubiese sido, una vez que te registraras, implementar el login, junto con 
-        una sección de wishlist, pedidos realizados, etc
-      -->
     <!-- Importamos links y metadatos -->
     <?php
     require_once("view/components/meta.php");

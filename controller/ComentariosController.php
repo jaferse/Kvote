@@ -1,4 +1,6 @@
 <?php
+require_once("core/funcionesGenericas.php");
+
 class ComentariosController
 {
     public function __construct()
@@ -14,6 +16,7 @@ class ComentariosController
 
     function nuevoComentario()
     {
+        comprobarLogin();
         $comentario = new Comentario();
         $comentario->__set("usuario_id", $_SESSION['usernameId']);
         $comentario->__set("producto_isbn_13", $_POST['isbn13']);
@@ -54,6 +57,7 @@ class ComentariosController
 
     function eliminarComentario($id)
     {
+        comprobarLogin();
         $comentarioPDO = new Daocomentario(DDBB_NAME);
         $comentarioPDO->borrar($id);
         $response['success'] = true;
@@ -67,6 +71,7 @@ class ComentariosController
 
     function editarComentario()
     {
+        comprobarLogin();
         echo $_POST['isbn13']."<br>";
         echo (new DateTime('now'))->format('Y-m-d H:i:s');
         $comentario = new Comentario();

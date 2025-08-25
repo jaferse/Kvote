@@ -2,6 +2,10 @@
 import { ocultarSkeleton } from './funcionesGenericas.js';
 window.addEventListener('DOMContentLoaded', async () => {
 
+    //Borramos si existe cookies de pagina actual y seteamos la sección
+    localStorage.removeItem('paginaActual');
+    localStorage.setItem('seccion', 'index');
+
     //Recogemos los productos mas vendidos de comic y novela
     const responseComic = await fetch(`index.php?controller=Producto&action=getBestSellers&tipo=comic`);
     const comic = await responseComic.json();

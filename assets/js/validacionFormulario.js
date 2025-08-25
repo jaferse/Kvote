@@ -26,9 +26,11 @@ function updateProgress(value, total) {
 const registro = document.querySelector('.registro');
 const justValidate = new JustValidate('.registro__formulario');
 const formulario = document.querySelector('.registro__formulario');
+let dataLand;
+let lang
 document.addEventListener('DOMContentLoaded', async () => {
-    const dataLand = await cargarIdioma();
-    let lang = localStorage.getItem("lang");
+    dataLand = await cargarIdioma();
+    lang = localStorage.getItem("lang");
 
     //Inicializo información de progreso
     updateProgress(0, (formulario.elements.length - 1));
@@ -142,11 +144,11 @@ formulario.addEventListener('submit', (e) => {
                             contenidoHTML += `<li>${element.previousElementSibling.textContent}: ${element.value}</li>`;
                         }
                     }
-                    console.log(contenidoHTML);
+                    // console.log(contenidoHTML);
 
                 }
             });
-            crearDialogo({ titulo: "Confirma los datos", mensaje: contenidoHTML, mensajeAceptar: "Registrarse", mensajeCancelar: "Atrás" },
+            crearDialogo({ titulo: dataLand[lang]['formulario']['validateSingIn']['confirmaDatos'], mensaje: contenidoHTML, mensajeAceptar: "Registrarse", mensajeCancelar: "Atrás" },
                 () => {
                     formulario.action = "index.php?controller=SingIn&action=registrar";
                     console.log(formulario);

@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once("./model/producto/ProductoPDO.php");
 require_once("./model/artista_producto/Artista_productoPDO.php");
 require_once("./model/detalleCompra/DetallecompraPDO.php");
@@ -24,6 +27,9 @@ class ProductoController
      */
     public function view()
     {
+        if ($_SESSION['admin'] == false) {
+            header("Location: index.php?controller=Index&action=view");
+        }
         require_once("./view/crud/producto.php");
     }
 

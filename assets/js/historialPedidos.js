@@ -1,9 +1,21 @@
-import { convertirFormatoFecha, ocultarSkeleton } from './funcionesGenericas.js';
+import { convertirFormatoFecha, ocultarSkeleton, cargarIdioma } from './funcionesGenericas.js';
 document.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('index.php?controller=HistorialPedidos&action=listarPedidos');
     const pedidos = await response.json();
     const darkMode = localStorage.getItem('darkMode');
-    construirGridPedidos(pedidos);
+    if (pedidos.length == 0) {
+        let jsonIdiomas = await cargarIdioma();
+        let lang = localStorage.getItem('lang') || 'es';
+        let containerPedidos = document.querySelector('.containerPedidos');
+        containerPedidos.innerHTML = `
+        <div class='card sinPedidos'>
+        <h1 class="lang" data-lang="sinPedidos">${jsonIdiomas[lang]['historialPedidos']['sinPedidos']}</h1>
+        </div>
+        `;
+        ocultarSkeleton('block');
+    } else {
+        construirGridPedidos(pedidos);
+    }
 });
 
 document.addEventListener('click', (e) => {
@@ -23,7 +35,7 @@ async function construirGridPedidos(pedidos) {
     pedidos.forEach(pedido => {
         let compra = document.createElement('div');
         console.log(pedido);
-        
+
         compra.classList.add('compra');
         let formatoFecha = convertirFormatoFecha(pedido.compra.fechaCompra, true);
         compra.innerHTML = `

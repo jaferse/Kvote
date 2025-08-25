@@ -240,6 +240,9 @@
     <script src="./assets/js/hamburguer.js"></script>
     <script src="./assets/js/animacionScroll.js"></script>
     <script>
+        //Borramos si existe cookies de página actual y seteamos la sección
+        localStorage.removeItem('paginaActual');
+        localStorage.setItem('seccion', 'index');
         document.querySelector('main').style.display = 'block';
         document.querySelector('.cardSkeleton').style.display = 'none';
     </script>

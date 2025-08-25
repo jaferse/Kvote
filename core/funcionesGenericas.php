@@ -152,3 +152,13 @@ function productoArtistaDetalle($producto)
     // var_dump($productoArtista);
     return $productoArtista;
 }
+
+function comprobarLogin()
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (!isset($_SESSION['logueado']) && $_SESSION['logueado'] == false) {
+        header("Location: index.php?controller=LogIn&action=view");
+    }
+}

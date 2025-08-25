@@ -1,4 +1,10 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if ($_SESSION['admin'] == false) {
+    header("Location: index.php?controller=Index&action=view");
+}
 require_once("./model/artista/ArtistaPDO.php");
 class ArtistaController
 {
@@ -114,7 +120,7 @@ class ArtistaController
             $_SESSION['type'] = "exito";
         } else {
             $_SESSION['mensaje'] = "1002";
-            $_SESSION['type'] = "error";  
+            $_SESSION['type'] = "error";
         }
         $this->scriptMessage();
     }

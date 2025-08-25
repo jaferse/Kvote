@@ -533,6 +533,10 @@ function actualizarTexto(json, lang) {
         })
     }
 
+    if(document.querySelector('.sinPedidos .lang')) {
+        document.querySelector('.sinPedidos .lang').textContent= json[lang]['historialPedidos']['sinPedidos']
+    }
+
     //Cambiar idioma de darse de baja
     darseBajaTraduccir(json, lang);
 
