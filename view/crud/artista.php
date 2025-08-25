@@ -38,7 +38,7 @@
     <div class="containerMain">
         <main class="mainAdmin artista">
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="formArtista" id="formArtista">
-                <h1 class="titulo" class="lang" data-lang="title">Artista</h1>
+                <h1 class="titulo lang" data-lang="title">Artista</h1>
                 <table>
                     <thead>
                         <tr>
@@ -61,7 +61,7 @@
                 </div>
             </form>
             <form action="index.php?controller=Artista&action=create" method="post" name="formArtista" id="formArtistaCreate">
-                <h1 class="titulo" class="lang" data-lang="title">Añadir Artista</h1>
+                <h1 class="titulo lang" data-lang="title">Añadir Artista</h1>
                 <table>
                     <thead>
                         <tr>
@@ -89,7 +89,7 @@
                             <td><input name="nombre" type="text" required minlength="2" maxlength="50"></td>
                             <td><input name="apellido1" type="text" required minlength="2" maxlength="45"></td>
                             <td><input name="apellido2" type="text" minlength="2" maxlength="45"></td>
-                            <td><select name="pais" id="" required>
+                            <td><select name="pais" required>
                                     <option class="lang" data-lang="Seleccione" value="" disabled selected>Seleccione País</option>
                                     <?php
                                     foreach ($tablaPais->paiss as $key => $value) {

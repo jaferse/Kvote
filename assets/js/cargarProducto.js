@@ -177,8 +177,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.Producto__info__caracteristicas__editorial>.svgContainer').innerHTML = /* html */
         `<svg class="iconSvg editorial" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
         viewBox="-3.84 -3.84 71.68 71.68" enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="1.3439999999999999">
-        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+        <g stroke-width="0"/>
+        <g stroke-linecap="round" stroke-linejoin="round"/>
         <g id="SVGRepo_iconCarrier"> 
         <g> 
             <path fill="#ffffff" d="M18,10v54h9V53c0-0.553,0.447-1,1-1h8c0.553,0,1,0.447,1,1v11h9V20V4c0-2.211-1.789-4-4-4H22 c-2.211,0-4,1.789-4,4V10z M34,9c0-0.553,0.447-1,1-1h4c0.553,0,1,0.447,1,1v4c0,0.553-0.447,1-1,1h-4c-0.553,0-1-0.447-1-1V9z M34,19c0-0.553,0.447-1,1-1h4c0.553,0,1,0.447,1,1v4c0,0.553-0.447,1-1,1h-4c-0.553,0-1-0.447-1-1V19z M34,29c0-0.553,0.447-1,1-1 h4c0.553,0,1,0.447,1,1v4c0,0.553-0.447,1-1,1h-4c-0.553,0-1-0.447-1-1V29z M34,39c0-0.553,0.447-1,1-1h4c0.553,0,1,0.447,1,1v4 c0,0.553-0.447,1-1,1h-4c-0.553,0-1-0.447-1-1V39z M24,9c0-0.553,0.447-1,1-1h4c0.553,0,1,0.447,1,1v4c0,0.553-0.447,1-1,1h-4 c-0.553,0-1-0.447-1-1V9z M24,19c0-0.553,0.447-1,1-1h4c0.553,0,1,0.447,1,1v4c0,0.553-0.447,1-1,1h-4c-0.553,0-1-0.447-1-1V19z M24,29c0-0.553,0.447-1,1-1h4c0.553,0,1,0.447,1,1v4c0,0.553-0.447,1-1,1h-4c-0.553,0-1-0.447-1-1V29z M24,39c0-0.553,0.447-1,1-1 h4c0.553,0,1,0.447,1,1v4c0,0.553-0.447,1-1,1h-4c-0.553,0-1-0.447-1-1V39z"/> 

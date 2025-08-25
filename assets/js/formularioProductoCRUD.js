@@ -337,7 +337,7 @@ function construirTabla() {
                      <span>${nombreArtista}</span>
                      </td>
                      <td>
-                     <select class='trabajo' name='trabajo_[${producto.isbn_13}]' id=''>
+                     <select class='trabajo' name='trabajo_[${producto.isbn_13}]'>
                      <option value='' disabled selected class='lang' data-lang='seleccione'>${jsonIdiomas[lang]['mainAdmin']['producto']['trabajos']['seleccione']}</option>
                      ${trabajos.map(trabajo => {
                             return `
@@ -353,7 +353,7 @@ function construirTabla() {
                      <input class='numero' name='numero_[${producto.isbn_13}]' type='number' value='${producto.numero}'>
                      </td>
                      <td>
-                     <select class='tipo' name='tipo_[${producto.isbn_13}]' id=''>
+                     <select class='tipo' name='tipo_[${producto.isbn_13}]'>
                      <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Tipo']['seleccione']}</option>
 
                     ${tipos.map(tipo => {
@@ -365,7 +365,7 @@ function construirTabla() {
                        </select>
                      </td>
                      <td>
-                     <select class='formato' name='formato_[${producto.isbn_13}]' id=''>
+                     <select class='formato' name='formato_[${producto.isbn_13}]'>
                      <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Formato']['seleccione']}</option>
 
                     ${formatos.map(formato => {
@@ -380,7 +380,7 @@ function construirTabla() {
                      <input class='paginas' name='paginas_[${producto.isbn_13}]' type='number' value='${producto.paginas}'>
                      </td>
                      <td>
-                     <select class='subtipo' name='subtipo_[${producto.isbn_13}]' id=''>
+                     <select class='subtipo' name='subtipo_[${producto.isbn_13}]'>
                      <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Subtipo']['seleccione']}</option>
 
                     ${subtipos.map(subtipo => {

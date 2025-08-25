@@ -17,12 +17,12 @@
     ?>
     <div class="containerMain">
         <main class="nosotros">
-            <article class="welcome">
+            <div class="welcome">
                 <h1 class="lang" data-lang="title">Nosotros</h1>
 
-            </article>
-            <article class="nosotros__historia" itemscope itemtype="http://schema.org/AboutPage">
-                <section class="nosotros__historia__text">
+            </div>
+            <div class="nosotros__historia" itemscope itemtype="http://schema.org/AboutPage">
+                <section class="nosotros__historia__text" itemscope itemtype="https://schema.org/Article">
                     <h2 class="lang" data-lang="title" itemprop="headline">Nuestra Historia</h2>
                     <p class="lang" data-lang="parrafo1" itemprop="description">
                         Todo comenzó en un pequeño rincón de Internet, donde un grupo de apasionados del cómic se reunía en
@@ -53,9 +53,9 @@
                 <picture class="nosotros__historia__img">
                     <img src="./assets/img/inicio.webp" alt="Imagen de un comic" itemprop="image">
                 </picture>
-            </article>
-            <article class="nosotros__mision" itemscope itemtype="http://schema.org/AboutPage">
-                <section class="nosotros__mision__text">
+            </div>
+            <div class="nosotros__mision" itemscope itemtype="http://schema.org/AboutPage">
+                <section class="nosotros__mision__text" itemscope itemtype="https://schema.org/Article">
 
                     <h2 class="lang" data-lang="title" itemprop="headline">Nuestra Mision</h2>
                     <p class="lang" data-lang="parrafo1" itemprop="description">
@@ -104,10 +104,10 @@
                 <picture class="nosotros__mision__img">
                     <img src="./assets/img/tiendaComic.webp" alt="Imagen de estantería de comic" itemprop="image">
                 </picture>
-            </article>
-            <article class="nosotros__editorial" itemscope itemtype="http://schema.org/Organization">
+            </div>
+            <div class="nosotros__editorial" itemscope itemtype="http://schema.org/Organization">
 
-                <section class="nosotros__editorial__text">
+                <section class="nosotros__editorial__text" itemscope itemtype="https://schema.org/Article">
                     <h2 class="lang" data-lang="title" itemprop="headline">Nuestra Editorial</h2>
                     <p class="lang" data-lang="parrafo1" itemprop="description">
                         En Kvote creemos en el poder transformador del cómic y en la necesidad de impulsar nuevas voces. Por
@@ -150,9 +150,9 @@
                 <picture class="nosotros__editorial__img">
                     <img src="./assets/img/editorial.jpg" alt="Imagen de un comic" itemprop="image">
                 </picture>
-            </article>
-            <article class="nosotros__talleres">
-                <section class="nosotros__talleres__text">
+            </div>
+            <div class="nosotros__talleres">
+                <section class="nosotros__talleres__text" itemscope itemtype="https://schema.org/Article">
                     <h2 class="lang" data-lang="title" itemprop="headline">Talleres y Formación</h2>
                     <p class="lang" data-lang="parrafo1" itemprop="description">
                         En Kvote estamos convencidos de que el futuro del cómic se construye compartiendo conocimientos y
@@ -192,7 +192,7 @@
                     </ul>
 
                 </section>
-                <section class="nosotros__talleres__colaboradores">
+                <section class="nosotros__talleres__colaboradores" itemscope itemtype="https://schema.org/Article">
                     <h2 class="lang" data-lang="title" itemprop="headline">Nuestros Profesores</h2>
                     <div class="nosotros__talleres__colaboradores__img" itemscope itemtype="http://schema.org/Person">
                         <h3 class="lang" data-lang="subtitulo1" itemprop="name">Autor de "Arrugas" y "La casa"</h3>
@@ -224,7 +224,7 @@
                     <h4 itemprop="name">Maria Medem</h4>
                     <h4 itemprop="name">Ana Penyas</h4>
                 </section>
-            </article>
+            </div>
         </main>
         <div id="content" class="cardSkeleton" style="height: 50rem;">
             <div class="skeleton image" style="width: 100%; height: 100%;"></div>

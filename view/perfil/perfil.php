@@ -31,20 +31,20 @@
                         <span class="usuario"></span>
                     </li>
                     <li id="datosPersonales" class="lang" data-lang="datosPersonales"></li>
-                    <hr>
+                    <!-- <hr> -->
                     <li id="passWord" class="lang" data-lang="passWord"></li>
-                    <hr>
+                    <!-- <hr> -->
                     <li id="direcciones" class="lang" data-lang="direcciones"></li>
-                    <hr>
+                    <!-- <hr> -->
                     <li id="tarjetaCredito" class="lang" data-lang="tarjetaCredito"></li>
-                    <hr>
+                    <!-- <hr> -->
                     <li id="baja" class="lang" data-lang="baja"></li>
                 </ul>
             </div>
             <div class="containerContenido">
                 <!-- CONTENEDOR BAJA -->
                 <div class="container  containerBaja">
-                    <h2 class="lang title" data-lang="title"></h2>
+                    <h2 class="lang title" data-lang="title">Darse de baja</h2>
                     <div class="lang">
                         <p class="lang" data-lang="bajaTexto1">
                         </p>
@@ -87,7 +87,7 @@
                             <input type="hidden" name="idUsuario" value=" <?php echo $_SESSION['usernameId']; ?>">
 
                             <div class="formGroup">
-                                <input type="button" class="lang btn btnTerciario btnCambiarPass" data-lang="cambiarPass" value="">
+                                <input type="button" class="lang btn btnTerciario btnCambiarPass" data-lang="cambiarPass" value="Cambiar contraseña">
                             </div>
 
                         </form>
@@ -115,7 +115,7 @@
                                 <input type="text" id="Apellido2" name="Apellido2" value="" required maxlength="45">
                             </div>
                             <div class="formGroup">
-                                <input type="button" class="lang btn btnTerciario btnCambiarData" data-lang="cambiarData" value="">
+                                <input type="button" class="lang btn btnTerciario btnCambiarData" data-lang="cambiarData" value="Actualizar">
                             </div>
                         </form>
                     </div>
@@ -124,7 +124,7 @@
                 <div class="container containerDirecciones">
                     <h2 class="lang title" data-lang="title">Direcciones</h2>
                     <div class="direcciones"></div>
-                    <h2 class="lang newDireccion" data-lang="newDireccion"></h2>
+                    <h2 class="lang newDireccion" data-lang="newDireccion">Nueva Dirección</h2>
                     <div class="formulario">
                         <form id="formularioDireccion" action="index.php?controller=Perfil&action=agregarDireccion" method="post">
                             <div class="formGroup">
@@ -171,35 +171,35 @@
                 <div class="container containerTarjetaCredito">
                     <h2 class="lang title" data-lang="title1">Tarjeta de crédito</h2>
                     <div class="tarjetasCredito"></div>
-                    <h2 class="lang title" data-lang="title2"></h2>
+                    <h2 class="lang title" data-lang="title2">Nueva Tarjeta</h2>
                     <div class="formulario">
                         <form id="formularioTarjeta" action="index.php?controller=Perfil&action=addCreditCard" method="post">
                             <div class="formGroup">
-                                <label class="labelNumeroTarjeta lang" for="numeroTarjeta" data-lang="tarjeta"></label>
+                                <label class="labelNumeroTarjeta lang" for="numeroTarjeta" data-lang="tarjeta">Número de tarjeta</label>
                                 <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
                             </div>
                             <div class="formGroup">
-                                <label for="nombre_titular" class="lang" data-lang="nombreTitular"></label>
+                                <label for="nombre_titular" class="lang" data-lang="nombreTitular">Nombre del titular</label>
                                 <input type="text" id="nombre_titular" name="nombre_titular" required>
                             </div>
                             <div class="formGroup">
-                                <label for="emisor_tarjeta" class="lang" data-lang="emisorTarjeta"></label>
+                                <label for="emisor_tarjeta" class="lang" data-lang="emisorTarjeta">Emisor de tarjeta</label>
                                 <select name="emisor_tarjeta" id="emisor_tarjeta" required>
-                                    <option class="lang" data-lang="SeleccioneEmisor" value=""></option>
+                                    <option class="lang" data-lang="SeleccioneEmisor" value="">Seleccione un emisor</option>
                                 </select>
                             </div>
                             <div class="formGroup">
-                                <label for="cvv_cvc" class="lang" data-lang="cvv"></label>
-                                <input type="number" id="cvv_cvc" name="cvv_cvc" required maxlength="3">
+                                <label for="cvv_cvc" class="lang" data-lang="cvv">CVV</label>
+                                <input type="number" id="cvv_cvc" name="cvv_cvc" required>
                             </div>
                             <div class="formGroup">
-                                <label for="tipo_tarjeta" class="lang" data-lang="tipoTarjeta"></label>
+                                <label for="tipo_tarjeta" class="lang" data-lang="tipoTarjeta">Tipo de tarjeta</label>
                                 <select name="tipo_tarjeta" id="tipo_tarjeta" required>
-                                    <option class="lang" value="" data-lang="SeleccioneTipo"></option>
+                                    <option class="lang" value="" data-lang="SeleccioneTipo">Seleccione un tipo de tarjeta</option>
                                 </select>
                             </div>
                             <div class="formGroup">
-                                <label for="fecha_caducidad" class="lang" data-lang="caducidad"></label>
+                                <label for="fecha_caducidad" class="lang" data-lang="caducidad">Caducidad</label>
                                 <input type="date" id="fecha_caducidad" name="fecha_caducidad" required>
                             </div>
                             <div>

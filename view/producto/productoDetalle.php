@@ -20,8 +20,8 @@
           <img src="./assets/img/portadas/sinPortada.avif" alt="Portada">
         </div>
         <div class="Producto__info">
-          <h2 class="Producto__info__titulo"></h2>
-          <h3 class="Producto__info__autor"></h3>
+          <h2 class="Producto__info__titulo">Título</h2>
+          <h3 class="Producto__info__autor">Autor</h3>
           <p class="Producto__info__sinopsis"></p>
           <div class="Producto__info__caracteristicas">
             <ul>
@@ -82,7 +82,7 @@
         if (isset($_SESSION['username'])) {
           echo "<form method='post' class='Producto__comentarios__formulario' id='formNuevoComentario'>";
           echo "<div class='Producto__comentarios__formulario__titulo'>";
-          echo "<input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder='' required></input>";
+          echo "<input class='Producto__comentarios__formulario__titulo__input lang' data-lang='tituloComentario' name='titulo' id='titulo' maxlength='100' placeholder='' required>";
           echo "</div>";
           echo "<div>";
           echo "    <textarea class='Producto__comentarios__formulario__texto lang nuevoComentario' data-lang='escribeComentario' name='comentario' placeholder='' required></textarea>";

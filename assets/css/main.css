@@ -1047,7 +1047,7 @@
     /* left: 90vw; */
   }
 }
-.nosotros.theme--dark article {
+.nosotros.theme--dark .nosotros__talleres, .nosotros.theme--dark .nosotros__editorial, .nosotros.theme--dark .nosotros__mision, .nosotros.theme--dark .nosotros__historia, .nosotros.theme--dark .welcome {
   background-color: #404040;
   color: #FCFAEE;
 }

@@ -1,7 +1,7 @@
 @use './variables' as *;
 
 .nosotros.theme--dark {
-    article {
+    .nosotros__talleres, .nosotros__editorial, .nosotros__mision, .nosotros__historia, .welcome {
         background-color: $fondoOscuro2;
         color: $blanco_letra;
     }

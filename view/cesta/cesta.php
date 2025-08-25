@@ -16,21 +16,20 @@
     <div class="containerMain">
         <main class="containerCesta">
             <section class="containerSeccion">
-                <h1 class="lang tituloCesta" data-lang="titulo"></h1>
+                <h1 class="lang tituloCesta" data-lang="titulo">Carrito de Compras</h1>
                 <div class="productos"></div>
                 <div class="resumen">
                     <h2 class="titulo lang" data-lang="resCesta">Resumen cesta</h2>
                     <div class="resumen__total">
                         <p class="precioTotal"><span></span></p>
                         <div class="enlaceBotonSmall siguiente">
-                            <!-- <a class="comprar lang" data-lang="finalizarCompra" href=""></a> -->
                             <a class="lang" data-lang="siguiente"></a>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="containerSeccion">
-                <h1 class="lang titleDireccion" data-lang="title"></h1>
+                <h1 class="lang titleDireccion" data-lang="title">Direcciones</h1>
                 <div class="direcciones">
                     <div class="direcciones__contenedor"></div>
                     <div class="buttons">
@@ -47,7 +46,7 @@
                 </div>
             </section>
             <section class="containerSeccion">
-                <!-- <h1 class="">Direcciones</h1> -->
+                <h1>Tarjetas</h1>
                 <div class="tarjetas">
                     <div class="tarjetas__contenedor"></div>
                     <div class="buttons">

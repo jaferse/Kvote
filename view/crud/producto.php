@@ -40,14 +40,14 @@
 
     <div class="containerMain">
         <main class="mainAdmin producto">
-            <form action="" method="post" name="formProducto" id="formProducto" enctype="multipart/form-data">
+            <form method="post" name="formProducto" id="formProducto" enctype="multipart/form-data">
             </form>
             <form action="index.php?controller=Producto&action=create" method="post" name="formProductoNuevo" id="formProductoNuevo" enctype="multipart/form-data">
                 <table class="tab">
                     <thead>
                         <tr>
                             <th scope="col" class="lang" data-lang="ISBN_13">ISBN_13</th>
-                            <th scope="col" class="lang" data-lang="Portada" colspan="2">Portada</th>
+                            <th scope="col" class="lang" data-lang="Portada" >Portada</th>
                             <th scope="col" class="lang" data-lang="Nombre">Nombre</th>
                             <th scope="col" class="lang" data-lang="Autor">Autor</th>
                             <th scope="col" class="lang" data-lang="Trabajo">Trabajo</th>
@@ -66,80 +66,78 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Validar Formulario!!!!!!!!!!!!!!!!!!!!!!!! -->
-                        <!-- Verifica tipo de dato de los imput -->
-                        <td><input name="isbn_13" type="text" minlength="13" required class="isbn"></td>
-                        <td colspan="2">
-                            <input type="file" name="portadaFile" class="portadaFile fileInput" id="fileInputInsert" accept="image/png, image/jpeg, image/webp, image/gif, image/bmp, image/svg+xml, image/x-icon">
-                            <label for='fileInputInsert' class='fileInputLabel'>Subir</label>
-                        </td>
-                        <td><input name="nombre" type="text" required class="nombre" minlength="1" maxlength="50"></td>
-                        <td>
-                            <select class="autor" name="autor" id="" required class="autor">
-                                <option value="" disabled selected>Seleccione Artista</option>
-                                <?php
-                                foreach ($tablaAutor->artistas as $key => $value) {
-                                    echo "<option value='" . $value->id . "'>" . $value->nombre . " " . $value->apellido1 . " " . $value->apellido2 . "</option>";
-                                }
-                                ?>
-                            </select>
-                        </td>
-                        <td>
-                            <select class="trabajo" name="trabajo" id="" required class="trabajo">
-                                <option class="lang" value="" disabled selected class='lang' data-lang='seleccione'>Trabajo</option>
-                                <?php
-                                foreach ($tablaArtista_Producto->getEnum("trabajo") as $key => $value) {
-                                    echo "<option class='lang' data-lang='" . $value . "' value='" . $value . "'>" . $value . "</option>";
-                                }
-                                ?>
-                            </select>
-                        </td>
-                        <td><input name="coleccion" type="text" required class="colleccion" maxlength="45"></td>
-                        <td><input name="numero" type="number" required class="numero" max="99999"></td>
-                        <td>
-                            <select class="tipo" name="tipo" id="" required class="tipo">
-                                <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Tipo</option>
-                                <?php
-                                foreach ($tablaProducto->getEnum("tipo") as $key => $value) {
-                                    echo "<option class='lang' data-lang='" . $value . "' value='" . $value . "'>" . $value . "</option>";
-                                }
-                                ?>
-                            </select>
-                        </td>
-                        <td>
-                            <select class="formato" name="formato" id="" required class="formato">
-                                <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Formato</option>
-                                <?php
-                                foreach ($tablaProducto->getEnum("formato") as $key => $value) {
-                                    echo "<option class='lang' data-lang='" . $value . "' value='" . $value . "'>" . $value . "</option>";
-                                }
-                                ?>
-                            </select>
-                        </td>
-                        <td><input name="paginas" type="number" required class="paginas" max="99999"></td>
-                        <td>
-                            <select class="subtipo" name="subtipo" required class="subtipo">;
-                                <option class="lang" data-lang="seleccione" value='' disabled selected>Seleccione Género</option>;
-                                <?php
-                                foreach ($tablaProducto->getEnum("subtipo") as $key => $valor) {
-                                    echo "<option class='lang' data-lang='" . $valor . "' value='" . $valor . "'"
-                                        . ($valor == $value->subtipo ? 'selected' : '') .
-                                        ">" . $valor . "</option>";
-                                }
-                                ?>
-                            </select>
-                        </td>
-                        <td><input name="editorial" type="text" required class="editorial" maxlength="45"></td>
-                        <td><input name="anio_publicacion" type="date" required class="anio_publicacion"></td>
-                        <td>
-                            <textarea name="sinopsis" id="" required maxlength="16000"></textarea>
-                        </td>
-                        <td><input name="precio" type="number" step="0.01" required class="precio"></td>
-                        <td><input class="stock" name="stock" type="number" required class="stock"></td>
-                        </select></td>
-                        <td>
-                            <input type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoProducto" data-lang="nuevo">
-                        </td>
+                        <tr>
+                            <td>
+                                <input name="isbn_13" type="text" minlength="13" required class="isbn">
+                            </td>
+                            <td >
+                                <input type="file" name="portadaFile" class="portadaFile fileInput" id="fileInputInsert" accept="image/png, image/jpeg, image/webp, image/gif, image/bmp, image/svg+xml, image/x-icon">
+                                <label for='fileInputInsert' class='fileInputLabel'>Subir</label>
+                            </td>
+                            <td><input name="nombre" type="text" required class="nombre" minlength="1" maxlength="50"></td>
+                            <td>
+                                <select class="autor" name="autor" required>
+                                    <option value="" disabled selected>Seleccione Artista</option>
+                                    <?php
+                                    foreach ($tablaAutor->artistas as $key => $value) {
+                                        echo "<option value='" . $value->id . "'>" . $value->nombre . " " . $value->apellido1 . " " . $value->apellido2 . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="trabajo" name="trabajo" required>
+                                    <option class="lang" value="" disabled selected data-lang='seleccione'>Trabajo</option>
+                                    <?php
+                                    foreach ($tablaArtista_Producto->getEnum("trabajo") as $key => $value) {
+                                        echo "<option class='lang' data-lang='" . $value . "' value='" . $value . "'>" . $value . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td><input name="coleccion" type="text" required maxlength="45"></td>
+                            <td><input name="numero" type="number" required max="99999"></td>
+                            <td>
+                                <select class="tipo" name="tipo" required>
+                                    <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Tipo</option>
+                                    <?php
+                                    foreach ($tablaProducto->getEnum("tipo") as $key => $value) {
+                                        echo "<option class='lang' data-lang='" . $value . "' value='" . $value . "'>" . $value . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="formato" name="formato" required>
+                                    <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Formato</option>
+                                    <?php
+                                    foreach ($tablaProducto->getEnum("formato") as $key => $value) {
+                                        echo "<option class='lang' data-lang='" . $value . "' value='" . $value . "'>" . $value . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td><input name="paginas" type="number" required class="paginas" max="99999"></td>
+                            <td>
+                                <select class="subtipo" name="subtipo" required>
+                                    <option class="lang" data-lang="seleccione" value='' disabled selected>Seleccione Género</option>
+                                    <?php
+                                    foreach ($tablaProducto->getEnum("subtipo") as $key => $valor) {
+                                        echo "<option class='lang' data-lang='" . $valor . "' value='" . $valor . "'>" . $valor . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td><input name="editorial" type="text" required maxlength="45"></td>
+                            <td><input name="anio_publicacion" type="date" required></td>
+                            <td>
+                                <textarea name="sinopsis" required maxlength="16000"></textarea>
+                            </td>
+                            <td><input name="precio" type="number" step="0.01" required></td>
+                            <td><input class="stock" name="stock" type="number" required></td>
+                            <td>
+                                <input type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoProducto" data-lang="nuevo">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
