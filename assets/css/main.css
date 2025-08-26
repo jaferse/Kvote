@@ -139,6 +139,8 @@
 }
 .header .nav__login .login .logeado {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 .header .nav__login .login .logeado:hover {
   transform: scale(1.1);
@@ -3613,4 +3615,12 @@ select.theme--dark {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.buttonTransparent {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  transform: scale(1.1);
+  min-width: 3.8rem;
 }/*# sourceMappingURL=main.css.map */

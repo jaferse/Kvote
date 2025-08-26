@@ -307,3 +307,10 @@ select.theme--dark{
     flex-wrap: wrap;
     gap: 1rem;
 }
+.buttonTransparent{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    transform: scale(1.1);
+    min-width: 3.8rem;
+}

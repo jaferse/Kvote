@@ -384,7 +384,7 @@
     </div>
     <ul class="translate">
         <li>
-            <a class="es">
+            <button class="es buttonTransparent">
                 <svg alt='Icono de sección de traducción al español' viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione iconSvg" preserveAspectRatio="xMidYMid meet">
 
                     <path d="M2 32c0 5.9 1.7 11.4 4.6 16h50.7c2.9-4.6 4.6-10.1 4.6-16s-1.7-11.4-4.6-16H6.6C3.7 20.6 2 26.1 2 32z" fill="#ffce31">
@@ -608,10 +608,10 @@
                     </g>
 
                 </svg>
-            </a>
+            </button>
         </li>
         <li>
-            <a class="en">
+            <button class="en buttonTransparent">
                 <svg alt='Icono de sección de traducción al inglés' class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 473.68 473.68" xml:space="preserve">
                     <g>
@@ -693,10 +693,10 @@
 	c0,17.034,1.84,33.626,5.25,49.643h184.834L70.847,405.724c7.808,7.67,16.121,14.813,24.921,21.349l95.023-95.023v137.116
 	c11.151,2.199,22.583,3.631,34.232,4.215c3.938,0.191,7.872,0.299,11.81,0.299C253.549,473.68,268.103,465.917,280.545,452.432z" />
                 </svg>
-            </a>
+            </button>
         </li>
         <li>
-            <a class="ja">
+            <button class="ja buttonTransparent">
                 <svg alt='Icono de sección de traducción al japones' class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 473.68 473.68" xml:space="preserve">
                     <g>
@@ -713,10 +713,10 @@
 	c7.173,0,14.263-0.352,21.274-0.98c36.401-19.954,59.227-83.359,68.423-157.829C332.788,264.208,332.747,208.466,326.412,157.874z" />
                     <circle style="fill:#EC1C24;" cx="236.85" cy="236.85" r="87.25" />
                 </svg>
-            </a>
+            </button>
         </li>
     </ul>
     <div class="darkMode">
-        <a class="darkMode__button"></a>
+        <button class="darkMode__button buttonTransparent"></button>
     </div>
 </nav>

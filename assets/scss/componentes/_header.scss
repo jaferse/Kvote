@@ -117,6 +117,8 @@
 
                 .logeado {
                     cursor: pointer;
+                    background-color: transparent;
+                    border: none;
                     &:hover {
                         transform: scale(1.1);
                     }
