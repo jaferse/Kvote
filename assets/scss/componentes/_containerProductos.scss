@@ -2,8 +2,6 @@
 
 .container {
 
-
-
     .containerProductos {
         margin: 0 auto;
         display: grid;
@@ -38,7 +36,11 @@
                 @include flex(column, flex-start, start);
                 width: 90%;
                 position: relative;
-
+                &__titulo{
+                    font-size: 1.3rem;
+                    margin: 0.2rem auto;
+                    width: 90%;
+                }
                 h2,
                 h3 {
                     font-size: 1rem;

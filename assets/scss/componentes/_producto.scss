@@ -198,7 +198,7 @@
 
                     &__anterior {
                         font-size: 0.8rem;
-                        color: rgb(148, 144, 144);
+                        color: $grisLetra;
                         text-decoration: line-through;
                         width: 100%;
                         text-align: center;
@@ -215,7 +215,7 @@
                     }
 
                     &__descuento {
-                        color: red;
+                        color: $rojo_primario;
                         font-size: 1rem;
                     }
                 }
@@ -492,6 +492,11 @@
 
         .iconSubtipo>g>path {
             fill: $blanco_letra !important;
+        }
+
+        .Producto__info__precioComprar__precio__descuento {
+            color: yellow !important;
+            font-size: 1rem;
         }
     }
 }

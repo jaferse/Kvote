@@ -103,12 +103,12 @@ function construirTabla() {
             .then(paisArtista => {
                 return `
                 <tr>
-                    <td><input id='id_${artista.id}' name='id_[${artista.id}]' type='text' value='${artista.id}' readonly></td>
-                    <td><input class='nombreAct' id='nombre_${artista.id}' name='nombre_[${artista.id}]' type='text' value='${artista.nombre}' required minlength="2" maxlength="50"></td>
-                    <td><input class='apellido1Act' id='apellido1_${artista.id}' name='apellido1_[${artista.id}]' type='text' value='${artista.apellido1}' required minlength="2" maxlength="45"></td>
-                    <td><input class='apellido2Act' id='apellido2_${artista.id}' name='apellido2_[${artista.id}]' type='text' value='${artista.apellido2}' minlength="2" maxlength="45"></td>
+                    <td><input aria-label="id de artista" id='id_${artista.id}' name='id_[${artista.id}]' type='text' value='${artista.id}' readonly></td>
+                    <td><input aria-label="Nombre de artista" class='nombreAct' id='nombre_${artista.id}' name='nombre_[${artista.id}]' type='text' value='${artista.nombre}' required minlength="2" maxlength="50"></td>
+                    <td><input aria-label="Primer apellido de artista" class='apellido1Act' id='apellido1_${artista.id}' name='apellido1_[${artista.id}]' type='text' value='${artista.apellido1}' required minlength="2" maxlength="45"></td>
+                    <td><input aria-label="Segundo apellido de artista" class='apellido2Act' id='apellido2_${artista.id}' name='apellido2_[${artista.id}]' type='text' value='${artista.apellido2}' minlength="2" maxlength="45"></td>
                     <td>
-                        <select class='paisAct' id='pais_${artista.id}' name='pais_[${artista.id}]' required>
+                        <select aria-label="Seleccion de país" class='paisAct' id='pais_${artista.id}' name='pais_[${artista.id}]' required>
                             <option class="lang" data-lang="Seleccione" value='' disabled>${jsonIdiomas[lang]['paises']['Seleccione']}</option>
                             ${paises.map(pais => `
                                     <option class='lang' data-lang='${pais.nombre}' value='${pais.codigo_iso}' ${pais.codigo_iso === paisArtista.codigo_iso ? 'selected' : ''}>
@@ -118,8 +118,8 @@ function construirTabla() {
                     }
                         </select>
                     </td>
-                    <td><input class='fecha_nacimientoAct' id='fecha_nacimiento_${artista.id}' name='fecha_nacimiento_[${artista.id}]' type='date' value='${artista.fecha_nacimiento}' max='${max}' required></td>
-                    <td><input type='checkbox' id='check${artista.id}' name='check[${artista.id}]'></td>
+                    <td><input aria-label="Fecha de nacimiento de artista" class='fecha_nacimientoAct' id='fecha_nacimiento_${artista.id}' name='fecha_nacimiento_[${artista.id}]' type='date' value='${artista.fecha_nacimiento}' max='${max}' required></td>
+                    <td><input aria-label="Check de artista" type='checkbox' id='check${artista.id}' name='check[${artista.id}]'></td>
                 </tr>
             `;
             });

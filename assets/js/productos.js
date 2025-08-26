@@ -13,7 +13,7 @@ import { cargarIdioma, ocultarSkeleton } from './funcionesGenericas.js';
  * @property {string} isbn - ISBN del producto
  */
 function crearTarjeta(containerProductos, producto, json) {
-    const darkMode = localStorage.getItem('darkMode')
+    const darkMode = localStorage.getItem('darkMode')    
     //creamos la sección
     let containerProductos__producto = document.createElement('section');
     ((darkMode == 'dark') ?
@@ -27,6 +27,7 @@ function crearTarjeta(containerProductos, producto, json) {
     //Creamos la imagen de portada
     let portada = document.createElement('img');
     portada.src = `data:image/jpeg;base64,${producto.portada}`;
+    portada.alt = `Portada de "${producto.nombre}"`;
     portada.classList.add('containerProductos__producto__img__portada');
     portada.id = producto.isbn_13;
     portada.style.cursor = "pointer";
@@ -40,9 +41,9 @@ function crearTarjeta(containerProductos, producto, json) {
     containerProductos__producto__info.classList.add('containerProductos__producto__info');
 
     //creamos el titulo
-    let containerProductos__producto__info__titulo = document.createElement('h2');
+    let containerProductos__producto__info__titulo = document.createElement('h1');
     containerProductos__producto__info__titulo.classList.add('containerProductos__producto__info__titulo');
-    containerProductos__producto__info__titulo.textContent = producto.titulo;
+    containerProductos__producto__info__titulo.textContent = producto.nombre;
 
     //creamos el hr
     let hr = document.createElement('hr');

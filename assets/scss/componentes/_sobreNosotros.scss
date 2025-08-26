@@ -13,7 +13,7 @@
     font-family: $fuente_general;
     font-size: larger;
     margin: 1rem auto;
-    text-align: justify;
+    text-align: right;
 
     font-family: $fuente_secundaria;
 
@@ -28,7 +28,6 @@
     }
 
     .welcome {
-        // flex($direction, $justify, $align, $wrap: nowrap)
         @include flex(row, center, center);
 
         &>h1 {
@@ -108,7 +107,7 @@
                         text-align: center;
                     }
 
-                    text-align: justify;
+                    text-align: right;
                 }
             }
 

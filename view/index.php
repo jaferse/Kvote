@@ -40,13 +40,13 @@
             </div>
 
             <article class="main__bestSellers">
-                <h2 class="main__bestSellers__title lang" data-lang="comicMonth">Comic de Febrero</h2>
+                <h1 class="main__bestSellers__title lang" data-lang="comicMonth">Comic de Febrero</h1>
                 <div class="main__bestSellers__portadas">
                     <!-- Se renderiza los comic más vendidos -->
                 </div>
             </article>
             <article class="main__bestSellers">
-                <h2 class="main__bestSellers__title lang" data-lang="bookMonth">Libros de Febrero</h2>
+                <h1 class="main__bestSellers__title lang" data-lang="bookMonth">Libros de Febrero</h1>
                 <div class="main__bestSellers__portadas">
                     <!-- Se renderiza los libros más vendidos -->
                 </div>

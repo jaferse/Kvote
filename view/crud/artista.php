@@ -80,16 +80,16 @@
                         <tr>
                             <td>
                                 <?php
-                                echo  "<input name='id' type='text' readonly value='";
+                                echo  "<input aria-label='id de artista' name='id' type='text' readonly value='";
                                 $tablaArtistas->obtenerId();
                                 echo $tablaArtistas->obtenerId();
                                 echo "'>";
                                 ?>
                             </td>
-                            <td><input name="nombre" type="text" required minlength="2" maxlength="50"></td>
-                            <td><input name="apellido1" type="text" required minlength="2" maxlength="45"></td>
-                            <td><input name="apellido2" type="text" minlength="2" maxlength="45"></td>
-                            <td><select name="pais" required>
+                            <td><input aria-label="Nombre de artista" name="nombre" type="text" required minlength="2" maxlength="50"></td>
+                            <td><input aria-label="Primer apellido de artista" name="apellido1" type="text" required minlength="2" maxlength="45"></td>
+                            <td><input  aria-label="Segundo apellido de artista" name="apellido2" type="text" minlength="2" maxlength="45"></td>
+                            <td><select aria-label="Seleccion de país" name="pais" required>
                                     <option class="lang" data-lang="Seleccione" value="" disabled selected>Seleccione País</option>
                                     <?php
                                     foreach ($tablaPais->paiss as $key => $value) {
@@ -97,9 +97,9 @@
                                     }
                                     ?>
                                 </select></td>
-                            <td><input name="fecha_nacimiento" type="date" max='<?php echo $hoy; ?>' required></td>
+                            <td><input aria-label="Fecha de nacimiento de artista" name="fecha_nacimiento" type="date" max='<?php echo $hoy; ?>' required></td>
                             <td>
-                                <input type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoArtista" data-lang="nuevo">
+                                <input aria-label="Check de artista" type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoArtista" data-lang="nuevo">
                             </td>
                         </tr>
                     </tbody>

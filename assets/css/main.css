@@ -27,14 +27,16 @@
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.75);
 }
 .header__logo {
-  background-image: url("./../img/Kvote.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   min-width: 3rem;
   border-radius: 70%;
   aspect-ratio: 1/1;
   margin: 0.5rem 1rem;
+}
+.header__logo img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0px !important;
+  border: none !important;
 }
 .header__logo:hover {
   transform: scale(1.1);
@@ -1061,7 +1063,7 @@
   font-family: "Kotta One", serif;
   font-size: larger;
   margin: 1rem auto;
-  text-align: justify;
+  text-align: right;
   font-family: "Montserrat", serif;
 }
 .nosotros h1,
@@ -1164,7 +1166,7 @@
 .nosotros__talleres__text ul li {
   width: 23%;
   list-style: none;
-  text-align: justify;
+  text-align: right;
 }
 .nosotros__talleres__text ul li h5 {
   font-size: 1.3rem;
@@ -1586,6 +1588,11 @@
   width: 90%;
   position: relative;
 }
+.container .containerProductos__producto__info__titulo {
+  font-size: 1.3rem;
+  margin: 0.2rem auto;
+  width: 90%;
+}
 .container .containerProductos__producto__info h2,
 .container .containerProductos__producto__info h3 {
   font-size: 1rem;
@@ -1609,7 +1616,7 @@
 .container .containerProductos__producto__info__autor {
   font-size: 1rem;
   font-weight: 400;
-  color: #808080;
+  color: #3b3b3b;
   margin: 0.5rem 1.8rem;
 }
 .container .containerProductos__producto__info__adicional {
@@ -1617,7 +1624,7 @@
   position: absolute;
   top: 12.4rem;
   width: 100%;
-  background-color: #808080;
+  background-color: #3b3b3b;
   color: #FCFAEE;
   z-index: 2;
   border-radius: 8px;
@@ -1954,7 +1961,7 @@
 }
 .ContainerProducto .Producto__info__precioComprar__precio__anterior {
   font-size: 0.8rem;
-  color: rgb(148, 144, 144);
+  color: #3b3b3b;
   text-decoration: line-through;
   width: 100%;
   text-align: center;
@@ -1972,7 +1979,7 @@
   content: "推奨価格： ";
 }
 .ContainerProducto .Producto__info__precioComprar__precio__descuento {
-  color: red;
+  color: #B8001F;
   font-size: 1rem;
 }
 .ContainerProducto .Producto__info__precioComprar__tooltip {
@@ -2187,6 +2194,10 @@
 }
 .ContainerProducto.theme--dark .Producto .iconSubtipo > g > path {
   fill: #FCFAEE !important;
+}
+.ContainerProducto.theme--dark .Producto .Producto__info__precioComprar__precio__descuento {
+  color: yellow !important;
+  font-size: 1rem;
 }
 
 .translate {
@@ -2726,6 +2737,21 @@
 .containerCesta .direccion .titleDireccion {
   font-weight: 800;
 }
+.containerCesta .direccion .columna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.containerCesta .direccion label {
+  display: block;
+  font-weight: 800;
+  font-family: "Montserrat", serif;
+  margin: 16px 0;
+}
+.containerCesta .direccion input[type=radio] {
+  margin: 16px 0;
+}
 .containerCesta .tarjeta {
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -2737,6 +2763,22 @@
   column-gap: 10px;
   background-color: #ffffff;
   width: 100%;
+}
+.containerCesta .tarjeta .columna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.containerCesta .tarjeta label {
+  display: block;
+  font-weight: 800;
+  font-family: "Montserrat", serif;
+  margin: 16px 0;
+}
+.containerCesta .tarjeta input[type=radio] {
+  margin-right: 1rem;
+  margin: 16px 0;
 }
 .containerCesta .tarjeta .titleColumna {
   font-weight: 800;
@@ -2950,6 +2992,7 @@
   margin: 0.5rem auto;
 }
 .perfilContainer .menuLateral ul .top {
+  color: #FCFAEE;
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -2965,7 +3008,7 @@
   margin-right: 0.5rem;
 }
 .perfilContainer .menuLateral ul .top .iconSvg path {
-  fill: #000000;
+  fill: #FCFAEE;
 }
 .perfilContainer .menuLateral hr {
   width: 95%;
@@ -3199,6 +3242,9 @@
     align-items: center;
     flex-wrap: wrap;
   }
+  .containerDirecciones .direcciones .tarjetaDireccion .direccion .columna label {
+    display: block;
+  }
   .containerDirecciones .direcciones .tarjetaDireccion .direccion .columna p {
     text-align: center;
   }
@@ -3210,6 +3256,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .tarjeta .columna label {
+    display: block;
   }
   .tarjeta p {
     text-align: center;
@@ -3480,7 +3529,7 @@ p {
   width: 100%;
 }
 .enlaceStyled.theme--dark {
-  color: #ff617b;
+  color: #FFA500;
 }
 
 .iconSvg {

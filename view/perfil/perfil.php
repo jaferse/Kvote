@@ -44,7 +44,7 @@
             <div class="containerContenido">
                 <!-- CONTENEDOR BAJA -->
                 <div class="container  containerBaja">
-                    <h2 class="lang title" data-lang="title">Darse de baja</h2>
+                    <h1 class="lang title" data-lang="title">Darse de baja</h1>
                     <div class="lang">
                         <p class="lang" data-lang="bajaTexto1">
                         </p>
@@ -65,7 +65,7 @@
 
                 <!-- CONTENEDOR CONTRASEÑA -->
                 <div class="container containerPassWord">
-                    <h2 class="lang title" data-lang="title">Contraseña</h2>
+                    <h1 class="lang title" data-lang="title">Contraseña</h1>
 
                     <div class="formulario">
                         <form id="formularioPass" action="index.php?controller=Perfil&action=cambiarPassword" method="post">
@@ -96,7 +96,7 @@
 
                 <!-- CONTENEDOR DATOS PERSONALES -->
                 <div class="container containerDatosPersonales">
-                    <h2 class="lang title" data-lang="title">Datos personales</h2>
+                    <h1 class="lang title" data-lang="title">Datos personales</h1>
 
                     <div class="formulario">
                         <form id="formularioDataUser" action="index.php?controller=Perfil&action=cambiarDatosUsuario" method="post">
@@ -122,9 +122,9 @@
                 </div>
                 <!-- CONTENEDOR DIRECCIONES -->
                 <div class="container containerDirecciones">
-                    <h2 class="lang title" data-lang="title">Direcciones</h2>
+                    <h1 class="lang title" data-lang="title">Direcciones</h1>
                     <div class="direcciones"></div>
-                    <h2 class="lang newDireccion" data-lang="newDireccion">Nueva Dirección</h2>
+                    <h1 class="lang newDireccion" data-lang="newDireccion">Nueva Dirección</h1>
                     <div class="formulario">
                         <form id="formularioDireccion" action="index.php?controller=Perfil&action=agregarDireccion" method="post">
                             <div class="formGroup">
@@ -169,9 +169,9 @@
 
                 <!-- CONTENEDOR TARJETA CREDITO -->
                 <div class="container containerTarjetaCredito">
-                    <h2 class="lang title" data-lang="title1">Tarjeta de crédito</h2>
+                    <h1 class="lang title" data-lang="title1">Tarjeta de crédito</h1>
                     <div class="tarjetasCredito"></div>
-                    <h2 class="lang title" data-lang="title2">Nueva Tarjeta</h2>
+                    <h1 class="lang title" data-lang="title2">Nueva Tarjeta</h1>
                     <div class="formulario">
                         <form id="formularioTarjeta" action="index.php?controller=Perfil&action=addCreditCard" method="post">
                             <div class="formGroup">

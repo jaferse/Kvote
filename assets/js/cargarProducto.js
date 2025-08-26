@@ -206,7 +206,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     document.querySelector('.Producto__info__precioComprar__precio__actual').textContent = (Math.ceil(producto.precio / 1.05));
     document.querySelector('.Producto__info__precioComprar__precio__anterior').textContent = producto.precio;
-    document.querySelector('.Producto__info__precioComprar__precio__descuento').textContent = descuento + '%';
+    document.querySelector('.Producto__info__precioComprar__precio__descuento').textContent = '-'+descuento + '%';
 
     //Si el producto pertenece a una coleccion
     if (producto.coleccion && producto.coleccion !== 'Autoconclusivo') {

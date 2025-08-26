@@ -472,6 +472,7 @@ function actualizarTexto(json, lang) {
     }
 
     if (document.querySelector('.direcciones .tarjetaDireccion .lang')) {
+        document.querySelector('.lang.titleDireccion').textContent = json[lang]["direciones"]["title"];
         document.querySelectorAll('.direcciones .tarjetaDireccion h2.lang').forEach((element, i) => {
             let data_lang = element.getAttribute('data-lang');
             element.textContent = json[lang]["direciones"]['title']+` ${i + 1}`;

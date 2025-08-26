@@ -7,7 +7,7 @@
     ?>
     <div class="breadcrumb">
         <a class="breadcrumb__home" href="/">
-            <svg class="iconSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg class="iconSvg" alt="Icono de inicio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M21 20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.48907C3 9.18048 3.14247 8.88917 3.38606 8.69972L11.3861 2.47749C11.7472 2.19663 12.2528 2.19663 12.6139 2.47749L20.6139 8.69972C20.8575 8.88917 21 9.18048 21 9.48907V20Z"></path>
             </svg>
         </a>
@@ -19,13 +19,13 @@
 
             // Descomponemos la URL en sus partes
             parse_str($query, $params);
-            echo "<svg class='iconSvg' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M19.1642 12L12.9571 5.79291L11.5429 7.20712L16.3358 12L11.5429 16.7929L12.9571 18.2071L19.1642 12ZM13.5143 12L7.30722 5.79291L5.89301 7.20712L10.6859 12L5.89301 16.7929L7.30722 18.2071L13.5143 12Z'></path></svg>";
+            echo "<svg alt='Icono flecha hacia la derecha' class='iconSvg' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M19.1642 12L12.9571 5.79291L11.5429 7.20712L16.3358 12L11.5429 16.7929L12.9571 18.2071L19.1642 12ZM13.5143 12L7.30722 5.79291L5.89301 7.20712L10.6859 12L5.89301 16.7929L7.30722 18.2071L13.5143 12Z'></path></svg>";
             switch ($params['controller'] . "|" . $params['action']) {
 
                 case 'Catalogo|novedades':
                     echo "
                             <a class='breadcrumb__home' href='" . $url_actual . "'>
-                                <svg class='iconSvg' version='1.1' id='Layer_1' 
+                                <svg alt='Icono de sección de novedades' class='iconSvg' version='1.1' id='Layer_1' 
                                 xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                     viewBox='0 0 512 512' xml:space='preserve'>
                                     <path class='contorno--fill' style='fill:#E04F5F;' d='M512,256.8l-67.2-54.224l43.2-74.96l-91.2-7.968l-8-87.728L312,68.608L259.2,0l-49.6,70.176
@@ -52,7 +52,7 @@
                 case 'Catalogo|comic':
                     echo "
                             <a class='breadcrumb__home' href='" . $url_actual . "'>
-                                <svg class='iconSvg' version='1.1'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                                <svg alt='Icono de sección de comics' class='iconSvg' version='1.1'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                     viewBox='0 0 46.098 46.098'
                                     xml:space='preserve'>
                                 <g>
@@ -67,7 +67,7 @@
                 case 'Catalogo|libros':
                     echo "  
                                 <a class='breadcrumb__home' href='" . $url_actual . "'>
-                                    <svg class='iconSvg' version='1.1' id='Icons' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                                    <svg alt='Icono de sección de libros' class='iconSvg' version='1.1' id='Icons' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                         viewBox='0 0 32 32' xml:space='preserve'>
                                     <style type='text/css'>
                                         .st0{fill:#FFFFFF;}
@@ -86,7 +86,7 @@
                 case 'Catalogo|categoria':
                     echo "  
                         <a class='breadcrumb__home' href='" . $url_actual . "'>
-                            <svg class='iconSvg fondo--fill' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                            <svg alt='Icono de sección de categoría' class='iconSvg fondo--fill' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'>
                                 <path class='contorno--stroke' d='M11 3.99995C12.8839 2.91716 14.9355 2.15669 17.07 1.74995C17.551 1.63467 18.0523 1.63283 18.5341 1.74458C19.016 1.85632 19.4652 2.07852 19.8464 2.39375C20.2276 2.70897 20.5303 3.10856 20.7305 3.56086C20.9307 4.01316 21.0229 4.50585 21 4.99995V13.9999C20.9699 15.117 20.5666 16.1917 19.8542 17.0527C19.1419 17.9136 18.1617 18.5112 17.07 18.7499C14.9355 19.1567 12.8839 19.9172 11 20.9999' stroke='#000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>
                                 <path class='contorno--stroke' d='M10.9995 3.99995C9.1156 2.91716 7.06409 2.15669 4.92957 1.74995C4.44856 1.63467 3.94731 1.63283 3.46546 1.74458C2.98362 1.85632 2.53439 2.07852 2.15321 2.39375C1.77203 2.70897 1.46933 3.10856 1.26911 3.56086C1.0689 4.01316 0.976598 4.50585 0.999521 4.99995V13.9999C1.0296 15.117 1.433 16.1917 2.14533 17.0527C2.85767 17.9136 3.83793 18.5112 4.92957 18.7499C7.06409 19.1567 9.1156 19.9172 10.9995 20.9999' stroke='#000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>
                                 <path class='contorno--stroke' d='M11 21V4' stroke='#000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>
@@ -96,7 +96,7 @@
                 case 'Catalogo|coleccion':
                     echo "  
                         <a class='breadcrumb__home' href='" . $url_actual . "'>
-                            <svg class='iconSvg' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='none'>
+                            <svg alt='Icono de sección de coleccion' class='iconSvg' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='none'>
                                 <g class='contorno--fill'>
                                     <path d='M6.75 8a.75.75 0 000 1.5h2.5a.75.75 0 000-1.5h-2.5z' />
                                     <path fill-rule='evenodd'
@@ -109,7 +109,7 @@
                 case 'Catalogo|editorial':
                     echo "  
                         <a class='breadcrumb__home' href='" . $url_actual . "'>
-                            <svg class='iconSvg contorno--fill contorno--stroke' version='1.0' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                            <svg alt='Icono de sección de editorial' class='iconSvg contorno--fill contorno--stroke' version='1.0' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                     viewBox='-3.84 -3.84 71.68 71.68' enable-background='new 0 0 64 64' xml:space='preserve' stroke-width='1.3439999999999999'>
                                     <g  stroke-width='0'/>
                                     <g  stroke-linecap='round' stroke-linejoin='round'/>
@@ -142,7 +142,7 @@
                 case 'Catalogo|formato':
                     echo "  
                         <a class='breadcrumb__home' href='" . $url_actual . "'>
-                            <svg version='1.1' id='Uploaded to svgrepo.com' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                            <svg alt='Icono de sección de formato' version='1.1' id='Uploaded to svgrepo.com' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                 class='iconSvg iconFormato' viewBox='0 0 32 32' xml:space='preserve'>
                             <style type='text/css'>
                                 .feather_een{fill:#0B1719;}
@@ -166,7 +166,7 @@
                 case 'Catalogo|subtipo':
                     echo "  
                         <a class='breadcrumb__home' href='" . $url_actual . "'>
-                            <svg class='iconSvg iconSubtipo' version='1.1' id='_x32_' xmlns='http://www.w3.org/2000/svg'
+                            <svg alt='Icono de sección de género' class='iconSvg iconSubtipo' version='1.1' id='_x32_' xmlns='http://www.w3.org/2000/svg'
                                 xmlns:xlink='http://www.w3.org/1999/xlink'
                                 viewBox='0 0 512 512' xml:space='preserve'>
                             <style type='text/css'>
@@ -206,7 +206,7 @@
                 case 'Nosotros|view':
                     echo "
                             <a class='breadcrumb__home' href='" . $url_actual . "'>
-                                <svg class='iconSvg contorno--fill' viewBox='0 0 24.00 24.00' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='#000000' stroke-width='0.00024'>
+                                <svg alt='Icono de sección de sobre nosotros' class='iconSvg contorno--fill' viewBox='0 0 24.00 24.00' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='#000000' stroke-width='0.00024'>
                                     <g  stroke-width='0'/>
                                     <g  stroke-linecap='round' stroke-linejoin='round'/>
                                     <g >
@@ -220,7 +220,7 @@
                 case 'LogIn|view':
                     echo " 
                             <a class='breadcrumb__home' href='" . $url_actual . "'>
-                               <svg class='iconSvg' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'>
+                               <svg alt='Icono de sección de login y sing in' class='iconSvg' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'>
                                     <rect fill='none' height='4.8' rx='1.6' width='27.2' x='12.4' y='26'/>
                                     <rect fill='none' height='4.8' rx='1.6' width='24' x='12.4' y='35.6'/>
                                     <g>
@@ -238,7 +238,7 @@
                         if (comprobarSiEsComic($params['isbn'])) {
                             echo "
                             <a class='breadcrumb__home' href='index.php?controller=Catalogo&action=comic'>
-                             <svg class='iconSvg' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                             <svg alt='Icono de sección de comics' class='iconSvg' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                     viewBox='0 0 46.098 46.098'
                                     xml:space='preserve'>
                                 <g>
@@ -251,7 +251,7 @@
                         } else {
                             echo "
                             <a class='breadcrumb__home' href='index.php?controller=Catalogo&action=libros'>
-                              <svg class='iconSvg' height='800px' width='800px' version='1.1' id='Icons' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                              <svg alt='Icono de sección de libros' class='iconSvg' height='800px' width='800px' version='1.1' id='Icons' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                         viewBox='0 0 32 32' xml:space='preserve'>
                                     <style type='text/css'>
                                         .st0{fill:#FFFFFF;}
@@ -267,10 +267,10 @@
                                     </svg>
                             </a>";
                         }
-                        echo "<svg class='iconSvg' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M19.1642 12L12.9571 5.79291L11.5429 7.20712L16.3358 12L11.5429 16.7929L12.9571 18.2071L19.1642 12ZM13.5143 12L7.30722 5.79291L5.89301 7.20712L10.6859 12L5.89301 16.7929L7.30722 18.2071L13.5143 12Z'></path></svg>";
+                        echo "<svg alt='Icono de sección de flecha hacia la derecha' class='iconSvg' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M19.1642 12L12.9571 5.79291L11.5429 7.20712L16.3358 12L11.5429 16.7929L12.9571 18.2071L19.1642 12ZM13.5143 12L7.30722 5.79291L5.89301 7.20712L10.6859 12L5.89301 16.7929L7.30722 18.2071L13.5143 12Z'></path></svg>";
                         echo "  
                         <a class='breadcrumb__home' href='" . $url_actual . "'>
-                        <svg class='iconSvg' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <svg alt='Icono de sección de sección producto actual' class='iconSvg' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                             <g  stroke-width='0'/>
                             <g  stroke-linecap='round' stroke-linejoin='round'/>
                             <g >
@@ -286,7 +286,7 @@
                 case 'Producto|view':
                     echo " 
                             <a class='breadcrumb__home' href='" . $url_actual . "'>
-                                <svg class='iconSvg' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                                <svg alt='Icono de sección de producto CRUD' class='iconSvg' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
 
                                     <g  stroke-width='0'/>
 
@@ -300,7 +300,7 @@
                     break;
                 case 'Artista|view':
                     echo "<a class='breadcrumb__home' href='" . $url_actual . "'>
-                            <svg class='iconSvg' fill='#000000' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                            <svg alt='Icono de sección de artista CRUD' class='iconSvg' fill='#000000' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                                     viewBox='0 0 511.999 511.999' xml:space='preserve'>
                                 <g>
                                     <g>
@@ -320,7 +320,7 @@
                 case 'Cesta|view':
 
                     echo "<a class='breadcrumb__home' href='" . $url_actual . "'>
-                    <svg class='iconSvg fondo--stroke' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <svg alt='Icono de sección de cesta' class='iconSvg fondo--stroke' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <g  stroke-width='0'/>
                         <g   stroke-linecap='round' stroke-linejoin='round'/>
                         <g  >
@@ -334,7 +334,7 @@
                 case 'HistorialPedidos|view':
 
                     echo "<a class='breadcrumb__home' href='" . $url_actual . "'>
-                        <svg class='iconSvg fondo--fill'  viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <svg alt='Icono de sección de historial de pedidos' class='iconSvg fondo--fill'  viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path class='contorno--stroke' d='M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15' stroke='#000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
                         <path class='contorno--stroke' d='M12 12H15' stroke='#000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
                         <path class='contorno--stroke' d='M12 16H15' stroke='#000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
@@ -348,7 +348,7 @@
                 case 'Perfil|view':
 
                     echo "<a class='breadcrumb__home' href='" . $url_actual . "'>
-                    <svg class='iconSvg' viewBox='0 0 20 20' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+                    <svg alt='Icono de sección de perfil' class='iconSvg' viewBox='0 0 20 20' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
                             <title>profile_image [#1349]</title>
                             <desc>Created with Sketch.</desc>
                             <defs>
@@ -367,7 +367,7 @@
 
                 case 'WishList|view':
                     echo "<a class='breadcrumb__home' href='" . $url_actual . "'>
-                            <svg class='iconSvg' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                            <svg alt='Icono de sección de WishList' class='iconSvg' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                                 <path class='contorno--stroke' d='M10 16H3' stroke='#000000ff' stroke-width='1.5' stroke-linecap='round' />
                                 <path class='contorno--stroke' d='M9 11H3' stroke='#000000ff' stroke-width='1.5' stroke-linecap='round' />
                                 <path class='contorno--fill'
@@ -385,7 +385,7 @@
     <ul class="translate">
         <li>
             <a class="es">
-                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione iconSvg" preserveAspectRatio="xMidYMid meet">
+                <svg alt='Icono de sección de traducción al español' viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione iconSvg" preserveAspectRatio="xMidYMid meet">
 
                     <path d="M2 32c0 5.9 1.7 11.4 4.6 16h50.7c2.9-4.6 4.6-10.1 4.6-16s-1.7-11.4-4.6-16H6.6C3.7 20.6 2 26.1 2 32z" fill="#ffce31">
 
@@ -612,7 +612,7 @@
         </li>
         <li>
             <a class="en">
-                <svg class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                <svg alt='Icono de sección de traducción al inglés' class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 473.68 473.68" xml:space="preserve">
                     <g>
                         <path style="fill:#29337A;" d="M41.712,102.641c-15.273,22.168-26.88,47.059-33.918,73.812h107.734L41.712,102.641z" />
@@ -697,7 +697,7 @@
         </li>
         <li>
             <a class="ja">
-                <svg class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                <svg alt='Icono de sección de traducción al japones' class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 473.68 473.68" xml:space="preserve">
                     <g>
                         <circle style="fill:#FFFFFF;" cx="236.85" cy="236.85" r="236.83" />

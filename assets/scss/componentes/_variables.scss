@@ -4,7 +4,7 @@ $fondoDark: rgb(47, 47, 47);
 /*Letra*/
 $blanco_letra: #FCFAEE;
 $negro_letra: #000000;
-$grisLetra: #808080;
+$grisLetra: #3b3b3b;
 $fuente_general: "Kotta One", serif;
 $fuente_secundaria: "Montserrat", serif;
 $fuente_logo: "Aladin", serif;
@@ -78,7 +78,7 @@ $grayDisabled: #b9b9b9;
 /*Enlaces colores*/
 $enlaceColor: $rojo_primario;
 $enlaceColorHover: $rojo_primario--hover;
-$enlaceColor--dark: #ff617b;
+$enlaceColor--dark: #FFA500;
 $enlaceColorHover--dark: #9c001a;
 
 @mixin cargarImagen($url, $size: cover) {

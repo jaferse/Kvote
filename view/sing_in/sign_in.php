@@ -21,7 +21,7 @@
             <main class="registro">
                 <section class="registro__contenedor SingIn">
 
-                    <h2 class="registro__title lang" data-lang="title">Rellene el formulario</h2>
+                    <h1 class="registro__title lang" data-lang="title">Rellene el formulario</h1>
 
                     <form class="registro__formulario" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 

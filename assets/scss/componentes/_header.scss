@@ -8,10 +8,9 @@
 
 
     &__logo {
-        background-image: url('./../img/Kvote.png');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        img{
+            @include dimensiones(100%, 100%);
+        }
         min-width: 3rem;
         border-radius: 70%;
         aspect-ratio: 1/1;

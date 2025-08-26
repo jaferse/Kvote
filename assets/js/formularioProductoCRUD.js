@@ -320,24 +320,24 @@ function construirTabla() {
                         return `
                     <tr>
                      <td>
-                     <input class='isbn' name='isbn_13_[${producto.isbn_13}]' type='text' value='${producto.isbn_13}' readonly >
+                     <input aria-label='ISBN13 del producto' class='isbn' name='isbn_13_[${producto.isbn_13}]' type='text' value='${producto.isbn_13}' readonly >
                      </td>
                      <td>
-                     <img src='data:image/jpeg;base64,${producto.portada}' width='120px'>
+                     <img src='data:image/jpeg;base64,${producto.portada}' width='120px' alt='Portada de ${producto.nombre}-${producto.numero}'>
                      </td>
                      <td>
-                     <input type='file' name='portadaFile_[${producto.isbn_13}]' class='fileInput' id='fileInput_${producto.isbn_13}'>
+                     <input aria-label='Enlace para subir portada' type='file' name='portadaFile_[${producto.isbn_13}]' class='fileInput' id='fileInput_${producto.isbn_13}'>
                      <label for='fileInput_${producto.isbn_13}' class='fileInputLabel' class='lang' data-lang='subir'>${jsonIdiomas[lang]['mainAdmin']['botones']['subir']}</label>
                      </td>
                      <td>
-                     <input class='nombre' name='nombre_[${producto.isbn_13}]' type='text' value='${producto.nombre}'>
+                     <input aria-label='Nombre del producto' class='nombre' name='nombre_[${producto.isbn_13}]' type='text' value='${producto.nombre}'>
                      </td>
                      <td>
                      <input type='hidden' class='autor' name='autor_[${producto.isbn_13}]' type='hidden' value='${artistaProducto.artista_id}'>
                      <span>${nombreArtista}</span>
                      </td>
                      <td>
-                     <select class='trabajo' name='trabajo_[${producto.isbn_13}]'>
+                     <select aria-label="Seleccione Trabajo del artista" class='trabajo' name='trabajo_[${producto.isbn_13}]'>
                      <option value='' disabled selected class='lang' data-lang='seleccione'>${jsonIdiomas[lang]['mainAdmin']['producto']['trabajos']['seleccione']}</option>
                      ${trabajos.map(trabajo => {
                             return `
@@ -347,13 +347,13 @@ function construirTabla() {
                        </select>
                      </td>
                      <td>
-                     <input class='colleccion' name='coleccion_[${producto.isbn_13}]' type='text' value='${producto.coleccion}'>
+                     <input aria-label='Coleccion a la que pertenece el producto' class='colleccion' name='coleccion_[${producto.isbn_13}]' type='text' value='${producto.coleccion}'>
                      </td>
                      <td>
-                     <input class='numero' name='numero_[${producto.isbn_13}]' type='number' value='${producto.numero}'>
+                     <input aria-label='Número de la colección' class='numero' name='numero_[${producto.isbn_13}]' type='number' value='${producto.numero}'>
                      </td>
                      <td>
-                     <select class='tipo' name='tipo_[${producto.isbn_13}]'>
+                     <select aria-label="Seleccione tipo de producto"<select class='tipo' name='tipo_[${producto.isbn_13}]'>
                      <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Tipo']['seleccione']}</option>
 
                     ${tipos.map(tipo => {
@@ -365,7 +365,7 @@ function construirTabla() {
                        </select>
                      </td>
                      <td>
-                     <select class='formato' name='formato_[${producto.isbn_13}]'>
+                     <select aria-label="Seleccione el formato del producto" class='formato' name='formato_[${producto.isbn_13}]'>
                      <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Formato']['seleccione']}</option>
 
                     ${formatos.map(formato => {
@@ -377,10 +377,10 @@ function construirTabla() {
                        </select>
                      </td>
                      <td>
-                     <input class='paginas' name='paginas_[${producto.isbn_13}]' type='number' value='${producto.paginas}'>
+                     <input aria-label='Páginas del producto' class='paginas' name='paginas_[${producto.isbn_13}]' type='number' value='${producto.paginas}'>
                      </td>
                      <td>
-                     <select class='subtipo' name='subtipo_[${producto.isbn_13}]'>
+                     <select aria-label="Seleccione el género del producto" class='subtipo' name='subtipo_[${producto.isbn_13}]'>
                      <option class="lang" data-lang="seleccione" value='' disabled selected>${jsonIdiomas[lang]['producto']['Subtipo']['seleccione']}</option>
 
                     ${subtipos.map(subtipo => {
@@ -392,22 +392,22 @@ function construirTabla() {
                        </select>
                      </td>
                      <td>
-                     <input class='editorial' name='editorial_[${producto.isbn_13}]' type='text' value='${producto.editorial}'>
+                     <input aria-label='Editorial que lo publica' class='editorial' name='editorial_[${producto.isbn_13}]' type='text' value='${producto.editorial}'>
                      </td>
                      <td>
-                     <input class='anio_publicacion' name='anio_publicacion_[${producto.isbn_13}]' type='date' value='${producto.anio_publicacion}'>
+                     <input aria-label='Año de publicación' class='anio_publicacion' name='anio_publicacion_[${producto.isbn_13}]' type='date' value='${producto.anio_publicacion}'>
                      </td>
                      <td>
-                     <textarea class='sinopsis' name='sinopsis_[${producto.isbn_13}]' type='text'>${producto.sinopsis}</textarea>
+                     <textarea aria-label='sinopsis del producto' class='sinopsis' name='sinopsis_[${producto.isbn_13}]' type='text'>${producto.sinopsis}</textarea>
                      </td>
                      <td>
-                     <input class='precio' name='precio_[${producto.isbn_13}]' type='number' value='${producto.precio}' step='0.01'>
+                     <input aria-label='Precio del producto' class='precio' name='precio_[${producto.isbn_13}]' type='number' value='${producto.precio}' step='0.01'>
                      </td>
                      <td>
-                     <input class='stock' name='stock_[${producto.isbn_13}]' type='number' value='${producto.stock}'>
+                     <input aria-label='stock del producto' class='stock' name='stock_[${producto.isbn_13}]' type='number' value='${producto.stock}'>
                      </td>
                      <td>
-                     <input class='check' type='checkbox' name='check[${producto.isbn_13}]'>
+                     <input aria-label='Seleccione el producto para actualizar o eliminar' class='check' type='checkbox' name='check[${producto.isbn_13}]'>
                      </td>
                      </tr>
                      `

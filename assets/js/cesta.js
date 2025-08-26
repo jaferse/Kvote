@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             divProducto.setAttribute('data-isbn', key);
             divProducto.innerHTML = /*html*/ `
                 <img src="data:image/jpeg;base64,${carrito[key].producto.portada}" alt="${carrito[key].producto.titulo}">
-                <h3>${carrito[key].producto.nombre}</h3>
+                <h2>${carrito[key].producto.nombre}</h2>
                 <div class="contenido">
                 <span class="lang" data-lang="autor">${data[lang]['carrito']['autor']}</span>
                 ${carrito[key].producto.nombreArtista} ${carrito[key].producto.apellido1} ${carrito[key].producto.apellido2}
@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <div class="contenido">
                 <span class="lang" data-lang="precioUnitario">${data[lang]['carrito']['precioUnitario']}</span>${carrito[key].producto.precio} €</div>
                 <div class="contenido">
-                <label for="cantidad[${key}]"  class="lang" data-lang="cantidad">${data[lang]['carrito']['cantidad']}</label><input id="cantidad[${key}]" type="number" value="${carrito[key].cantidad}"  min="0" max="${carrito[key].producto.stock}">  </label>
+                <label for="cantidad[${key}]"  class="lang" data-lang="cantidad">${data[lang]['carrito']['cantidad']}</label>
+                <input id="cantidad[${key}]" type="number" value="${carrito[key].cantidad}"  min="0" max="${carrito[key].producto.stock}">  </label>
                 <span class="error_stock lang">Stock maximo</span>
                 </div>
                 <div class="contenido">
@@ -107,8 +108,10 @@ async function cargarTarjetas() {
 }
 
 function crearTarjetasDirecciones(direcciones) {
+
     lang = localStorage.getItem('lang');
     let containerDirecciones = document.querySelector('.direcciones__contenedor');
+    document.querySelector('.lang.titleDireccion').textContent = data[lang]["direciones"]["title"];
     direcciones.forEach((direccion, i) => {
         fetch(`index.php?controller=Perfil&action=obtenerNombrePais&parametro=${direccion.paisISO}`)
             .then(response => response.json())
@@ -119,8 +122,6 @@ function crearTarjetasDirecciones(direcciones) {
                         fetch(`index.php?controller=Perfil&action=obtenerNombreLocalidad&parametro=${direccion.paisISO}:${direccion.provinciaMatricula}:${direccion.localidad}`)
                             .then(response => response.json())
                             .then(responseLocalidad => {
-
-
                                 let tarjetaDireccion = document.createElement('div');
                                 tarjetaDireccion.classList.add('tarjetaDireccion');
                                 tarjetaDireccion.innerHTML = `
@@ -159,8 +160,8 @@ function crearTarjetasDirecciones(direcciones) {
                         <p class="puerta">${direccion.puerta}</p>
                     </div>
                     <div class='columna'>
-                        <p class="titleDireccion lang" data-lang="selecionar" >${data[lang]['direciones']['selecionar']}</p>
-                        <input type="radio" name="direccion" value="${direccion.id}" ${((i == 0) ? 'checked' : '')}>
+                        <label for="direccion${i}" class="titleDireccion lang" data-lang="selecionar" >${data[lang]['direciones']['selecionar']}</label>
+                        <input type="radio" id="direccion${i}" name="direccion" value="${direccion.id}" ${((i == 0) ? 'checked' : '')}>
                     </div>
                         
                         </div>`;
@@ -207,8 +208,8 @@ function construirCardTarjeta(tarjetas) {
             <p>${tarjeta.fecha_caducidad}</p>
             </div>
             <div class="columna">
-                <p class="titleTarjeta titleColumna lang" data-lang="seleccionar" >${data[lang]['formularioTarjetaNew']['seleccionar']}</p>
-                        <input type="radio" name="tarjeta" value="${tarjeta.numero_tarjeta}" ${((i == 0) ? 'checked' : '')}>
+                <label for="tarjeta${i}" class="titleTarjeta titleColumna lang" data-lang="seleccionar" >${data[lang]['formularioTarjetaNew']['seleccionar']}</label>
+                        <input type="radio" id="tarjeta${i}" name="tarjeta" value="${tarjeta.numero_tarjeta}" ${((i == 0) ? 'checked' : '')}>
             </div>
         </div>`
         tarjetasCredito.appendChild(tarjetaCredito);

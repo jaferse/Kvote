@@ -153,6 +153,23 @@
         column-gap: 10px;
         background-color: #ffffff;
         width: 100%;
+
+        .columna {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        label {
+            display: block;
+            font-weight: 800;
+            font-family: $fuente_secundaria;
+             margin: 16px 0;
+        }
+        input[type="radio"] {
+            margin: 16px 0;
+        }
     }
 
     .tarjeta {
@@ -166,6 +183,24 @@
         column-gap: 10px;
         background-color: #ffffff;
         width: 100%;
+
+        .columna {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        label {
+            display: block;
+            font-weight: 800;
+            font-family: $fuente_secundaria;
+             margin: 16px 0;
+        }
+        input[type="radio"] {
+            margin-right: 1rem;
+             margin: 16px 0;
+        }
 
         .titleColumna {
             font-weight: 800;

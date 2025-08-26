@@ -68,15 +68,15 @@
                     <tbody>
                         <tr>
                             <td>
-                                <input name="isbn_13" type="text" minlength="13" required class="isbn">
+                                <input aria-label='ISBN13 del producto' name="isbn_13" type="text" minlength="13" required class="isbn">
                             </td>
                             <td >
-                                <input type="file" name="portadaFile" class="portadaFile fileInput" id="fileInputInsert" accept="image/png, image/jpeg, image/webp, image/gif, image/bmp, image/svg+xml, image/x-icon">
+                                <input aria-label='Enlace para subir portada' type="file" name="portadaFile" class="portadaFile fileInput" id="fileInputInsert" accept="image/png, image/jpeg, image/webp, image/gif, image/bmp, image/svg+xml, image/x-icon">
                                 <label for='fileInputInsert' class='fileInputLabel'>Subir</label>
                             </td>
-                            <td><input name="nombre" type="text" required class="nombre" minlength="1" maxlength="50"></td>
+                            <td><input aria-label='Nombre del producto' name="nombre" type="text" required class="nombre" minlength="1" maxlength="50"></td>
                             <td>
-                                <select class="autor" name="autor" required>
+                                <select aria-label="Seleccione Artista" class="autor" name="autor" required>
                                     <option value="" disabled selected>Seleccione Artista</option>
                                     <?php
                                     foreach ($tablaAutor->artistas as $key => $value) {
@@ -86,7 +86,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="trabajo" name="trabajo" required>
+                                <select aria-label="Seleccione Trabajo del artista" class="trabajo" name="trabajo" required>
                                     <option class="lang" value="" disabled selected data-lang='seleccione'>Trabajo</option>
                                     <?php
                                     foreach ($tablaArtista_Producto->getEnum("trabajo") as $key => $value) {
@@ -95,10 +95,10 @@
                                     ?>
                                 </select>
                             </td>
-                            <td><input name="coleccion" type="text" required maxlength="45"></td>
-                            <td><input name="numero" type="number" required max="99999"></td>
+                            <td><input aria-label='Colección a la que pertenece el producto' name="coleccion" type="text" required maxlength="45"></td>
+                            <td><input aria-label='Número de la colección' name="numero" type="number" required max="99999"></td>
                             <td>
-                                <select class="tipo" name="tipo" required>
+                                <select aria-label="Seleccione tipo de producto" class="tipo" name="tipo" required>
                                     <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Tipo</option>
                                     <?php
                                     foreach ($tablaProducto->getEnum("tipo") as $key => $value) {
@@ -108,7 +108,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="formato" name="formato" required>
+                                <select aria-label="Seleccione el formato del producto" class="formato" name="formato" required>
                                     <option class="lang" data-lang="seleccione" value="" disabled selected>Seleccione Formato</option>
                                     <?php
                                     foreach ($tablaProducto->getEnum("formato") as $key => $value) {
@@ -117,9 +117,9 @@
                                     ?>
                                 </select>
                             </td>
-                            <td><input name="paginas" type="number" required class="paginas" max="99999"></td>
+                            <td><input aria-label='Páginas del producto' name="paginas" type="number" required class="paginas" max="99999"></td>
                             <td>
-                                <select class="subtipo" name="subtipo" required>
+                                <select aria-label="Seleccione el género del producto" class="subtipo" name="subtipo" required>
                                     <option class="lang" data-lang="seleccione" value='' disabled selected>Seleccione Género</option>
                                     <?php
                                     foreach ($tablaProducto->getEnum("subtipo") as $key => $valor) {
@@ -128,13 +128,13 @@
                                     ?>
                                 </select>
                             </td>
-                            <td><input name="editorial" type="text" required maxlength="45"></td>
-                            <td><input name="anio_publicacion" type="date" required></td>
+                            <td><input aria-label='Editorial que lo publica' name="editorial" type="text" required maxlength="45"></td>
+                            <td><input aria-label='Año de publicación' name="anio_publicacion" type="date" required></td>
                             <td>
-                                <textarea name="sinopsis" required maxlength="16000"></textarea>
+                                <textarea aria-label='sinopsis del producto' name="sinopsis" required maxlength="16000"></textarea>
                             </td>
-                            <td><input name="precio" type="number" step="0.01" required></td>
-                            <td><input class="stock" name="stock" type="number" required></td>
+                            <td><input aria-label='Precio del producto' name="precio" type="number" step="0.01" required></td>
+                            <td><input aria-label='stock del producto' class="stock" name="stock" type="number" required></td>
                             <td>
                                 <input type="submit" value="Nuevo" class="btn btnPrimario lang" name="nuevoProducto" data-lang="nuevo">
                             </td>
