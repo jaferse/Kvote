@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <div class="contenido">
                 <span class="lang" data-lang="importe">${data[lang]['carrito']['importe']}</span> <span class="importeProducto">${(carrito[key].producto.precio * carrito[key].cantidad).toFixed(2)} €</span>
                 </div>
-                <a class="btnEliminar lang" data-isbn="${key}">
+                <button class="buttonTransparent btnEliminar lang" data-isbn="${key}">
                     <svg class="iconSvg" viewBox="-3 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                             <title>trash</title>
                             <desc>Created with Sketch Beta.</desc>
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                                 </g>
                             </g>
                     </svg>
-                </a>
+                </button>
             `;
             document.querySelector('.productos').appendChild(divProducto);
 

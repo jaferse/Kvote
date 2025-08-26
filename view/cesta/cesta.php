@@ -23,7 +23,7 @@
                     <div class="resumen__total">
                         <p class="precioTotal"><span></span></p>
                         <div class="enlaceBotonSmall siguiente">
-                            <a class="lang" data-lang="siguiente"></a>
+                            <button class="lang buttonTransparent" data-lang="siguiente"></button>
                         </div>
                     </div>
                 </div>
@@ -34,15 +34,15 @@
                     <div class="direcciones__contenedor"></div>
                     <div class="buttons">
                         <div class="enlaceBotonSmall anterior">
-                            <a class="lang" data-lang="anterior"></a>
+                            <button class="lang buttonTransparent" data-lang="anterior"></button>
                         </div>
                         <div class="enlaceBotonSmall siguiente">
-                            <a class="lang" data-lang="siguiente"></a>
+                            <button class="lang buttonTransparent" data-lang="siguiente"></button>
                         </div>
                     </div>
                 </div>
                 <div class="enlaceBoton newDireccion">
-                    <a data-lang="newDireccion">Añadir nuevas direcciones en el perfil</a>
+                    <button class="buttonTransparent" data-lang="newDireccion">Añadir nuevas direcciones en el perfil</button>
                 </div>
             </section>
             <section class="containerSeccion">
@@ -51,15 +51,15 @@
                     <div class="tarjetas__contenedor"></div>
                     <div class="buttons">
                         <div class="enlaceBotonSmall anterior">
-                            <a class="lang" data-lang="anterior"></a>
+                            <button class="lang buttonTransparent" data-lang="anterior"></button>
                         </div>
                         <div class="enlaceBotonSmall finalizarCompra">
-                            <a class="lang" data-lang="comprar"></a>
+                            <button class="lang buttonTransparent" data-lang="comprar"></button>
                         </div>
                     </div>
                 </div>
                 <div class="enlaceBoton newTarjeta">
-                    <a data-lang="newTarjeta" >Añadir nuevas tarjetas en el perfil</a>
+                    <button class="buttonTransparent" data-lang="newTarjeta" >Añadir nuevas tarjetas en el perfil</button>
                 </div>
             </section>
         </main>

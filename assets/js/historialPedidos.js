@@ -52,7 +52,7 @@ async function construirGridPedidos(pedidos) {
             Piso: ${pedido.compra.idDireccion.piso}${pedido.compra.idDireccion.puerta}
             </p>
             <p class="precioTotal">${pedido.compra.totalCompra}€</p>
-            <a class="detallePedido btn btnPrimario lang theme--${darkMode}" data-lang="botonDetalle">Ver Detalle</a>
+            <button aria-label="Ver Detalle" class="detallePedido btn btnPrimario lang theme--${darkMode} buttonTransparent" data-lang="botonDetalle">Ver Detalle</button>
         `;
         let divDetalleCompra = document.createElement('div');
         divDetalleCompra.classList.add('detalleCompra');

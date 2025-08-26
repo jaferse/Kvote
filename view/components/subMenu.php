@@ -384,7 +384,7 @@
     </div>
     <ul class="translate">
         <li>
-            <button class="es buttonTransparent">
+            <button aria-label="Traducción al español" class="es buttonTransparent">
                 <svg alt='Icono de sección de traducción al español' viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione iconSvg" preserveAspectRatio="xMidYMid meet">
 
                     <path d="M2 32c0 5.9 1.7 11.4 4.6 16h50.7c2.9-4.6 4.6-10.1 4.6-16s-1.7-11.4-4.6-16H6.6C3.7 20.6 2 26.1 2 32z" fill="#ffce31">
@@ -611,7 +611,7 @@
             </button>
         </li>
         <li>
-            <button class="en buttonTransparent">
+            <button aria-label="Traducción al inglés" class="en buttonTransparent">
                 <svg alt='Icono de sección de traducción al inglés' class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 473.68 473.68" xml:space="preserve">
                     <g>
@@ -622,13 +622,13 @@
                     </g>
                     <g>
                         <path style="fill:#FFFFFF;" d="M45.619,97.144c-1.324,1.81-2.629,3.646-3.908,5.501l73.816,73.812H7.793
-		c-1.746,6.645-3.171,13.418-4.345,20.284h141.776L45.619,97.144z" />
+		                    c-1.746,6.645-3.171,13.418-4.345,20.284h141.776L45.619,97.144z" />
                         <path style="fill:#FFFFFF;" d="M95.767,427.074c1.802,1.343,3.654,2.621,5.493,3.908l69.25-69.242v102.45
-		c6.653,1.945,13.41,3.624,20.284,4.974V332.05L95.767,427.074z" />
+		                    c6.653,1.945,13.41,3.624,20.284,4.974V332.05L95.767,427.074z" />
                         <path style="fill:#FFFFFF;" d="M5.25,286.487c1.47,6.873,3.205,13.642,5.258,20.284h105.001l-69.833,69.833
-		c7.595,10.377,16.017,20.115,25.168,29.12L190.08,286.487H5.25L5.25,286.487z" />
+		                    c7.595,10.377,16.017,20.115,25.168,29.12L190.08,286.487H5.25L5.25,286.487z" />
                         <path style="fill:#FFFFFF;" d="M170.511,9.48v111.982l-74.815-74.81c-10.314,7.67-19.955,16.185-28.888,25.403l123.983,123.983
-		V4.506C183.921,5.864,177.164,7.547,170.511,9.48z" />
+		                    V4.506C183.921,5.864,177.164,7.547,170.511,9.48z" />
                     </g>
                     <g>
                         <polygon style="fill:#D32030;" points="170.511,306.056 169.8,306.771 170.511,306.771 	" />
@@ -696,7 +696,7 @@
             </button>
         </li>
         <li>
-            <button class="ja buttonTransparent">
+            <button aria-label="Traducción al japones" class="ja buttonTransparent">
                 <svg alt='Icono de sección de traducción al japones' class="iconSvg" height="800px" width="800px" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 473.68 473.68" xml:space="preserve">
                     <g>
@@ -717,6 +717,6 @@
         </li>
     </ul>
     <div class="darkMode">
-        <button class="darkMode__button buttonTransparent"></button>
+        <button aria-label="Modo oscuro" class="darkMode__button buttonTransparent"></button>
     </div>
 </nav>

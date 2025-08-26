@@ -17,49 +17,57 @@
         box-shadow: $box_shadow;
         border-radius: $border-radius;
 
-        ul {
+        // ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: $border-radius;
+
+        button {
+            list-style: none;
+            width: 100%;
+            padding: 1rem;
+            font-family: $fuente_secundaria;
+            font-size: large;
+            font-weight: 700;
+            margin: 0.5rem auto;
+            cursor: pointer;
+            color: $negro_letra !important;
+        }
+
+        .top {
+            color: $blanco_letra;
+            width: 100%;
+            padding: 1rem;
+            font-family: $fuente_secundaria;
+            font-size: large;
+            font-weight: 700;
+            margin: 0.5rem auto;
+            // padding: 1rem;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex-direction: row;
+            justify-content: left;
             align-items: center;
-            margin: 0 auto;
-            padding: 0;
-            border-radius: $border-radius;
+            background-color: $rojo_primario;
+            margin: 0;
+            box-shadow: 0.313rem 0rem 0.625rem -0.313rem rgb(0, 0, 0);
+            border-radius: $border-radius $border-radius 0 0;
 
-            li {
-                list-style: none;
-                width: 100%;
-                padding: 1rem;
-                font-family: $fuente_secundaria;
-                font-size: large;
-                font-weight: 700;
-                cursor: pointer;
-                margin: 0.5rem auto;
-            }
+            .iconSvg {
+                width: 2.8rem;
+                height: 2.8rem;
+                margin-right: 0.5rem;
 
-            .top {
-                color: $blanco_letra;
-                // padding: 1rem;
-                display: flex;
-                flex-direction: row;
-                justify-content: left;
-                align-items: center;
-                background-color: $rojo_primario;
-                margin: 0;
-                box-shadow: 0.313rem 0rem 0.625rem -0.313rem rgb(0, 0, 0);
-                border-radius: $border-radius $border-radius 0 0;
-
-                .iconSvg {
-                    width: 2.8rem;
-                    height: 2.8rem;
-                    margin-right: 0.5rem;
-
-                    path {
-                        fill: $blanco_letra;
-                    }
+                path {
+                    fill: $blanco_letra;
                 }
             }
         }
+
+        // }
 
         hr {
             width: 95%;
@@ -336,10 +344,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            
-                    label {
-                        display: block;
-                    }
+
+            label {
+                display: block;
+            }
         }
 
         p {
