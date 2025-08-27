@@ -23,7 +23,7 @@ function calcularMapImg(fotos) {
         areaCenter.setAttribute("shape", "rect");
         areaCenter.setAttribute("coords", `${80 + 50},0,${foto.width - 80 - 50},${foto.height}`);
         areaCenter.setAttribute("class", "center");
-        areaCenter.setAttribute("href", "#");
+        areaCenter.setAttribute("href", enlacesCarrusel[key]);
         areaCenter.setAttribute("alt", "centro");
         /*
         Creamos una area para colocar el botón de siguiente,
@@ -44,6 +44,15 @@ function calcularMapImg(fotos) {
         foto.after(mapa);
     });
 }
+
+const enlacesCarrusel=[
+    'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=Providence',
+    'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=The%20Walking%20Dead',
+    'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=Antonia%20Scott',
+    'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=La%20Tierra%20Fragmentada',
+    'http://localhost/index.php?controller=Catalogo&action=autor&parametro=Megan-Maxwell-',
+    'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=Hay%20algo%20matando%20niños',
+];
 
 
 const sliderFrame = document.querySelector('.main__sliderFrame>ul');
@@ -113,7 +122,8 @@ const centerButton = document.querySelectorAll('.center');
 centerButton.forEach(botonCentro => {
 
     botonCentro.addEventListener('click', (e) => {
-        // console.log("Centro");
+        console.log(e.target);
+        
     });
 })
 
@@ -121,7 +131,6 @@ const beforeButton = document.querySelectorAll('.before');
 beforeButton.forEach(botonAtras => {
 
     botonAtras.addEventListener('click', (e) => {
-        // console.log("Atrás");
         e.preventDefault();
         if (currentIndex > 0) {
             currentIndex--; // Retrocede una imagen
@@ -134,12 +143,7 @@ const nextButton = document.querySelectorAll('.next');
 nextButton.forEach(botonAlante => {
 
     botonAlante.addEventListener('click', (e) => {
-        // console.log(e);
-
         e.preventDefault();
-
-        // console.log("Alante");
-
         if (currentIndex < numeroImagenes - 1) {
             currentIndex++; // Avanza una imagen
             let newMargin = -currentIndex * 100; // Calcula nuevo margen

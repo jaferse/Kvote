@@ -358,9 +358,6 @@ function actualizarTexto(json, lang) {
     document.querySelectorAll('.footer .lang').forEach(element => {
 
         let data_lang = element.getAttribute('data-lang');
-        console.log(data_lang);
-        
-        console.log(element.parentElement.classList);
         
         switch (element.parentElement.classList.value) {
             case "footer__ayuda":

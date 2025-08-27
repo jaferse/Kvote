@@ -19,19 +19,19 @@
             <div class="main__sliderFrame">
                 <ul>
                     <li>
-                        <img src="./assets/img/carruselProvidence.jpg" alt="">
+                        <img src="./assets/img/carruselProvidence.png" alt="Imagen promocional de Providence">
                     </li>
                     <li>
-                        <img src="./assets/img/carruselTheWalkingDead.jpg" alt="">
+                        <img src="./assets/img/carruselTheWalkingDead.png" alt="">
                     </li>
                     <li>
-                        <img src="./assets/img/carruselSpiderman.jpg" alt="">
+                        <img src="./assets/img/carruselReinaRoja.png" alt="">
                     </li>
                     <li>
-                        <img src="./assets/img/carruselbatman.jpg" alt="">
+                        <img src="./assets/img/carruselTierraFragmentada.png" alt="">
                     </li>
                     <li>
-                        <img src="./assets/img/carruselWonderWoman.jpg" alt="">
+                        <img src="./assets/img/carruselMeganMaxwell.png" alt="">
                     </li>
                     <li>
                         <img src="./assets/img/carrruselKilling.png" alt="">
