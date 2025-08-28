@@ -492,10 +492,8 @@ export function mostrarSkeleton(display = 'flex') {
 
 export function politicaCookies() {
     let cookieAceptada = localStorage.getItem('politicaAceptada') || false;
-    console.log(cookieAceptada);
 
     if (!cookieAceptada || cookieAceptada === 'false') {
-        console.log("Politica de cookies no aceptada");
 
         crearDialogo({
             "titulo": "POLÍTICA DE COOKIES",
@@ -539,7 +537,5 @@ export function politicaCookies() {
                 window.location.href = "https://www.google.com/"; // Redirige si no acepta
             }
         )
-    } else {
-        console.log("Politica de cookies aceptada");
     }
 }

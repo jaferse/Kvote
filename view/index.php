@@ -19,22 +19,22 @@
             <div class="main__sliderFrame">
                 <ul>
                     <li>
-                        <img src="./assets/img/carruselProvidence.png" alt="Imagen promocional de Providence">
+                        <img src="./assets/img/carruselProvidence_es.png" alt="Imagen promocional de Providence">
                     </li>
                     <li>
-                        <img src="./assets/img/carruselTheWalkingDead.png" alt="">
+                        <img src="./assets/img/carruselTheWalkingDead_es.png" alt="">
                     </li>
                     <li>
-                        <img src="./assets/img/carruselReinaRoja.png" alt="">
+                        <img src="./assets/img/carruselReinaRoja_es.png" alt="">
                     </li>
                     <li>
-                        <img src="./assets/img/carruselTierraFragmentada.png" alt="">
+                        <img src="./assets/img/carruselTierraFragmentada_es.png" alt="">
                     </li>
                     <li>
-                        <img src="./assets/img/carruselMeganMaxwell.png" alt="">
+                        <img src="./assets/img/carruselMeganMaxwell_es.png" alt="">
                     </li>
                     <li>
-                        <img src="./assets/img/carrruselKilling.png" alt="">
+                        <img src="./assets/img/carrruselKilling_es.png" alt="">
                     </li>
                 </ul>
             </div>

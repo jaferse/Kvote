@@ -358,7 +358,7 @@ function actualizarTexto(json, lang) {
     document.querySelectorAll('.footer .lang').forEach(element => {
 
         let data_lang = element.getAttribute('data-lang');
-        
+
         switch (element.parentElement.classList.value) {
             case "footer__ayuda":
                 element.textContent = json[lang]["Footer"]["ayuda"][data_lang]
@@ -473,7 +473,7 @@ function actualizarTexto(json, lang) {
         document.querySelector('.lang.titleDireccion').textContent = json[lang]["direciones"]["title"];
         document.querySelectorAll('.direcciones .tarjetaDireccion h2.lang').forEach((element, i) => {
             let data_lang = element.getAttribute('data-lang');
-            element.textContent = json[lang]["direciones"]['title']+` ${i + 1}`;
+            element.textContent = json[lang]["direciones"]['title'] + ` ${i + 1}`;
 
         })
         document.querySelectorAll('.direcciones .tarjetaDireccion .lang:not(h2)').forEach(element => {
@@ -535,8 +535,17 @@ function actualizarTexto(json, lang) {
         })
     }
 
-    if(document.querySelector('.sinPedidos .lang')) {
-        document.querySelector('.sinPedidos .lang').textContent= json[lang]['historialPedidos']['sinPedidos']
+    if (document.querySelector('.sinPedidos .lang')) {
+        document.querySelector('.sinPedidos .lang').textContent = json[lang]['historialPedidos']['sinPedidos']
+    }
+
+    if (document.querySelector('.main__sliderFrame')) {
+        document.querySelectorAll('.main__sliderFrame img').forEach((element, i) => {
+            let partes=element.src.split('.');
+            element.src=partes[0].slice(0,-3)+`_${lang}.`+partes[1];
+            console.log(partes[0]);
+            
+        });
     }
 
     //Cambiar idioma de darse de baja
