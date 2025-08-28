@@ -472,8 +472,8 @@ export function tooltip(mensaje, style, contenedor, time = 2000) {
 }
 
 
-export function ocultarSkeleton(display='flex') {
-    
+export function ocultarSkeleton(display = 'flex') {
+
     // Ocultamos el skeleton
     const skeleton = document.querySelector('.cardSkeleton');
     skeleton.style.display = 'none';
@@ -481,11 +481,65 @@ export function ocultarSkeleton(display='flex') {
     main.style.display = display;
 }
 
-export function mostrarSkeleton(display='flex') {
-    
+export function mostrarSkeleton(display = 'flex') {
+
     // Ocultamos el skeleton
     const skeleton = document.querySelector('.cardSkeleton');
     skeleton.style.display = display;
     const main = document.querySelector('main');
     main.style.display = 'none';
+}
+
+export function politicaCookies() {
+    let cookieAceptada = localStorage.getItem('politicaAceptada') || false;
+    console.log(cookieAceptada);
+
+    if (!cookieAceptada || cookieAceptada === 'false') {
+        console.log("Politica de cookies no aceptada");
+
+        crearDialogo({
+            "titulo": "POLÍTICA DE COOKIES",
+            "mensaje": /*html*/`
+                        <div>
+                            <div >
+                                <div >
+                                    <header >
+                                        <h4><span>www.kvoteTienda.es</span></h4>
+                                    </header>
+                                    <div>
+                                        <p style="text-align: left;">
+                                            Este sitio web utiliza únicamente <strong>cookies técnicas y necesarias</strong> para garantizar el correcto funcionamiento de la página y permitir la utilización de sus funciones esenciales, como:
+                                        </p>
+                                        <ul>
+                                            <li style="justify-content: left;">Mantener los productos en el carrito.</li>
+                                            <li style="justify-content: left;">Recordar el idioma de navegación.</li>
+                                            <li style="justify-content: left;">Guardar la preferencia de modo oscuro o claro.</li>
+                                            <li style="justify-content: left;">Mantener la página en la que te encuentras.</li>
+                                        </ul>
+                                        <p style="text-align: left;">
+                                            Estas cookies <strong>no recopilan datos personales</strong> ni se usan con fines publicitarios o de análisis.
+                                        </p>
+                                        <p style="text-align: left;">
+                                            El uso de estas cookies es <strong>imprescindible</strong> para que la web funcione correctamente. 
+                                            Si no aceptas su uso, <strong>no podrás acceder ni utilizar esta página</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `,
+            "mensajeAceptar": "Aceptar y continuar",
+            "mensajeCancelar": "Rechazar y salir",
+        },
+            () => {
+                localStorage.setItem('politicaAceptada', true);
+            },
+            () => {
+                localStorage.setItem('politicaAceptada', false);
+                window.location.href = "https://www.google.com/"; // Redirige si no acepta
+            }
+        )
+    } else {
+        console.log("Politica de cookies aceptada");
+    }
 }

@@ -227,7 +227,7 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.19/jquery.inputmask.min.js"></script>
     <script type="module" src="./assets/js/perfil.js"></script>
-
+<script type="module" src="./assets/js/politicaPrivacidad.js"></script>
 </body>
 
 </html>

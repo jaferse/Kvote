@@ -167,7 +167,7 @@
     <script src="./assets/js/search.js"></script>
     <script src="./assets/js/hamburguer.js"></script>
     <script type="module" src="./assets/js/formularioProductoCRUD.js"></script>
-
+<script type="module" src="./assets/js/politicaPrivacidad.js"></script>
 
 </body>
 

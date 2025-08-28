@@ -246,6 +246,7 @@
         document.querySelector('main').style.display = 'block';
         document.querySelector('.cardSkeleton').style.display = 'none';
     </script>
+    <script type="module" src="./assets/js/politicaPrivacidad.js"></script>
 </body>
 
 </html>

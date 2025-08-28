@@ -116,6 +116,7 @@
   <script type="module" src="./assets/js/lang.js"></script>
   <script type="module" src="./assets/js/comentarios.js"></script>
   <script type="module" src="./assets/js/cargarProducto.js"></script>
+  <script type="module" src="./assets/js/politicaPrivacidad.js"></script>
 </body>
 
 </html>

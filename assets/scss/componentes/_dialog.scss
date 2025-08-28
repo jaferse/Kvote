@@ -22,6 +22,8 @@
     border-radius: $border-radius;
     z-index: 1000;
     font-family: $fuente_secundaria;
+    max-height: 90vh; // límite de alto al 90% de la pantalla
+    overflow-y: auto; // activa scroll vertical dentro del diálogo
 
     h1 {
         text-align: center;

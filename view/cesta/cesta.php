@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="enlaceBoton newTarjeta">
-                    <button class="buttonTransparent" data-lang="newTarjeta" >Añadir nuevas tarjetas en el perfil</button>
+                    <button class="buttonTransparent" data-lang="newTarjeta">Añadir nuevas tarjetas en el perfil</button>
                 </div>
             </section>
         </main>
@@ -80,5 +80,6 @@
     <script src="./assets/js/hamburguer.js"></script>
     <script type="module" src="./assets/js/cesta.js"></script>
 </body>
+<script type="module" src="./assets/js/politicaPrivacidad.js"></script>
 
 </html>

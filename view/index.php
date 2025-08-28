@@ -68,6 +68,7 @@
     <script src="./assets/js/hamburguer.js"></script>
     <script src="./assets/js/carrusel.js"></script>
     <script type="module" src="./assets/js/masVendidos.js"></script>
+    <script type="module" src="./assets/js/politicaPrivacidad.js"></script>
 
 </body>
 

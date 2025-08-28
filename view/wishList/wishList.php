@@ -38,6 +38,7 @@
     <script src="./assets/js/hamburguer.js"></script>
     <script type="module" src="./assets/js/lang.js"></script>
     <script type="module" src="./assets/js/wishListCargar.js"></script>
+    <script type="module" src="./assets/js/politicaPrivacidad.js"></script>
     <!-- <script src="/js/carrusel.js"></script> -->
 </body>
 

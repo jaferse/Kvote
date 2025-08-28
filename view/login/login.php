@@ -78,6 +78,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.19/jquery.inputmask.min.js"></script>
+        <script type="module" src="./assets/js/politicaPrivacidad.js"></script>
     </div>
 
 </body>

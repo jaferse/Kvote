@@ -2903,6 +2903,8 @@
   border-radius: 8px;
   z-index: 1000;
   font-family: "Montserrat", serif;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 #dialog h1 {
   text-align: center;
