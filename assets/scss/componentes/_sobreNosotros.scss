@@ -1,7 +1,12 @@
 @use './variables' as *;
 
 .nosotros.theme--dark {
-    .nosotros__talleres, .nosotros__editorial, .nosotros__mision, .nosotros__historia, .welcome {
+
+    .nosotros__talleres,
+    .nosotros__editorial,
+    .nosotros__mision,
+    .nosotros__historia,
+    .welcome {
         background-color: $fondoOscuro2;
         color: $blanco_letra;
     }
@@ -116,6 +121,10 @@
                 position: relative;
                 width: 100%;
 
+                img {
+                    height: auto !important;
+
+                }
             }
         }
 

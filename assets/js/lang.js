@@ -440,6 +440,7 @@ function actualizarTexto(json, lang) {
 
     //Cambiar idioma de formulario de datos de usuario
     if (document.querySelector('#formularioDataUser label.lang')) {
+        document.querySelector('.containerDatosPersonales .title').textContent = json[lang]["menuLateralPerfil"]["datosPersonales"];
         document.querySelectorAll('#formularioDataUser label.lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
             element.textContent = json[lang]["formulario"][data_lang];
