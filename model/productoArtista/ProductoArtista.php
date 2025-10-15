@@ -19,6 +19,7 @@ class ProductoArtista implements JsonSerializable
     private $nombreArtista;
     private $apellido1;
     private $apellido2;
+    
     function __get($propiedad)
     {
         return $this->$propiedad;
