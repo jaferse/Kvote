@@ -54,6 +54,7 @@
                         <?php
                         if (isset($_SESSION['logueado']) && $_SESSION['logueado'] == false) {
                             echo "<p class='tooltip error'>" . $_SESSION['mensajeError'] . "</p>";
+                            echo "<script>setTimeout(() => { document.querySelector('.tooltip').remove(); }, 5000);</script>";
                             unset($_SESSION['logueado']);
                             unset($_SESSION['mensajeError']);
                         }
