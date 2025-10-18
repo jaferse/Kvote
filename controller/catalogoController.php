@@ -156,9 +156,14 @@ class CatalogoController
     {
         $this->tablaProductos->buscar($_GET['parametro']);
         $productos = $this->tablaProductos->productos;
-        $productoArtista['productos'] = productoArtista($productos);
-        $productoArtista['total'] = $this->tablaProductos->numeroProductosBusqueda($_GET['parametro']);
-        $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
+        //Si hay productos los asignamos, si no devolvemos un array vacio
+        if ($productos) {
+            $productoArtista['productos'] = productoArtista($productos);
+            $productoArtista['total'] = $this->tablaProductos->numeroProductosBusqueda($_GET['parametro']);
+            $productoArtista['productoPaginas'] = $this->tablaProductos->getProductoPaginas();
+        }else{
+            $productoArtista=[];
+        }
         header('Content-Type: application/json');
         echo json_encode($productoArtista);
     }

@@ -548,6 +548,11 @@ function actualizarTexto(json, lang) {
         });
     }
 
+    if (document.querySelector('.buscadorSinProductos')) {        
+        document.querySelector('.buscadorSinProductos > .lang').textContent = json[lang]['search']['sinProductos']
+        document.querySelector('.buscadorSinProductos > img').src=`assets/img/libroCestaVacia${lang}.png`;
+    }
+
     //Cambiar idioma de darse de baja
     darseBajaTraduccir(json, lang);
 

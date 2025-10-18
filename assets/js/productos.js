@@ -116,10 +116,20 @@ function crearTarjeta(containerProductos, producto, json) {
  * @param {string} tipo - tipo de producto que se va a renderizar
  */
 function contruirGridProductos(listaProductos, containerProductos, tipo, json) {
-
-    listaProductos.forEach(producto => {
-        crearTarjeta(containerProductos, producto, json);
-    });
+    
+    if (listaProductos) {   
+        listaProductos.forEach(producto => {
+            crearTarjeta(containerProductos, producto, json);
+        });
+    }else{
+        let lang = localStorage.getItem('lang');
+        let container = document.querySelector('.container');
+        
+        container.innerHTML = `<div class="buscadorSinProductos">
+                <p class='lang' data-lang='sinProductos'>${json[lang]['search']['sinProductos']}</p>
+                <img src='assets/img/libroCestaVacia${lang}.png'>
+        </div>`
+    }
 
 }
 
@@ -204,8 +214,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     contruirGridProductos(productos, containerProductos, seccion, json);
 
     const verMas = document.querySelectorAll('.verMas');
-
-    construirPaginacion(productosRespuesta, seccion, paginaActual, (parametro) ? parametro : false);
+    //Si existen productos construimos la paginación
+    if (productos) {   
+        construirPaginacion(productosRespuesta, seccion, paginaActual, (parametro) ? parametro : false);
+    }
 
     //Controlar el mostrar info
     verMas.forEach(boton => {

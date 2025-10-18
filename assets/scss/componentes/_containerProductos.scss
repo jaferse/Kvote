@@ -148,7 +148,33 @@
         .containerProductos__producto.theme--dark {
             border: 3px solid $fondoOscuro !important;
         }
+
     }
+    .buscadorSinProductos {
+    display: flex;
+    text-align: center;
+    width: 70%;
+    height: 60%;
+    margin: auto;
+    border: 1px solid $negroBorde;
+    border-radius: 8px;
+    background-color: $blancoFondo;
+    justify-content: space-evenly;
+    align-items: center;
+
+        img {
+            width: 15rem;
+            height: auto;
+        }
+
+        p {
+            font-family: $fuente_general;
+            font-size: 2rem;
+            vertical-align: middle;
+        }
+
+    }
+    
 }
 
 @media screen and (max-width: 992px) {

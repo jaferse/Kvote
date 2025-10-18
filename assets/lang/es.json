@@ -7,6 +7,9 @@
             "tercero": "Libros",
             "quinto": "Nosotros"
         },
+        "search":{
+            "sinProductos": "No se han encontrado productos"
+        },
         "buscador": "Buscar",
         "main__bestSellers": {
             "bookMonth": "Libros de ",
@@ -780,6 +783,9 @@
             "tercero": "Books",
             "quinto": "About Us"
         },
+        "search":{
+            "sinProductos": "No products found"
+        },
         "buscador": "Search",
         "main__bestSellers": {
             "bookMonth": "Books of ",
@@ -1544,6 +1550,9 @@
             "segundo": "コミック",
             "tercero": "書籍",
             "quinto": "私たちについて"
+        },
+        "search":{
+            "sinProductos": "製品が見つかりませんでした"
         },
         "buscador": "検索",
         "main__bestSellers": {
