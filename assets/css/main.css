@@ -3246,6 +3246,9 @@
 .perfilContainer.theme--dark .menuLateral ul hr {
   border-color: #FCFAEE;
 }
+.perfilContainer.theme--dark .menuLateral button {
+  color: #FCFAEE !important;
+}
 .perfilContainer.theme--dark .containerContenido {
   background-color: #404040;
   color: #FCFAEE;
