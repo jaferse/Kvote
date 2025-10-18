@@ -1601,6 +1601,7 @@
   font-size: 1.3rem;
   margin: 0.2rem auto;
   width: 90%;
+  min-height: 4rem;
 }
 .container .containerProductos__producto__info h2,
 .container .containerProductos__producto__info h3 {
@@ -1631,7 +1632,7 @@
 .container .containerProductos__producto__info__adicional {
   display: none;
   position: absolute;
-  top: 12.4rem;
+  top: 17.4rem;
   width: 100%;
   background-color: #3b3b3b;
   color: #FCFAEE;
