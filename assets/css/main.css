@@ -983,7 +983,7 @@
   right: 0.5rem;
 }
 .registro .error {
-  color: red;
+  color: #FCFAEE;
 }
 
 @media screen and (max-width: 992px) {
@@ -2985,6 +2985,8 @@
 .error {
   border-bottom: 3px solid #9c001a;
   background-color: #db6c7e;
+  color: #FCFAEE;
+  font-weight: 700;
 }
 
 .warning {

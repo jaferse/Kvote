@@ -19,13 +19,13 @@ let enumsTarjetaCredito;
 let tarjetas;
 formularioDireccion = document.querySelector('#formularioDireccion');
 const formularioTarjeta = document.querySelector('#formularioTarjeta');
-
+let user;
 document.addEventListener('DOMContentLoaded', async () => {
     const ResponseDataPerfil = await fetch(`index.php?controller=Perfil&action=obtenerDatosUsuario`);
     dataPerfil = await ResponseDataPerfil.json();
     seccionPerfil = localStorage.getItem('seccionPerfil') ?? 'datosPersonales';
     const responseUser = await fetch(`index.php?controller=LogIn&action=verificarLogIn`);
-    const user = await responseUser.json();
+    user = await responseUser.json();
     idiomasJson = await cargarIdioma();
     const responseDireccionesUsuario = await fetch(`index.php?controller=Perfil&action=obtenerDirecciones`);
     direcciones = await responseDireccionesUsuario.json();
@@ -93,8 +93,8 @@ document.addEventListener('click', async (event) => {
             const baja = await responseBaja.text();
             crearDialogo(
                 {
-                    title: 'Baja formalizada',
-                    message: 'Baja formalizada correctamente',
+                    titulo: 'Baja formalizada',
+                    mensaje: 'Baja formalizada correctamente',
                     mensajeAceptar: 'Aceptar',
                     mensajeCancelar: 'Registrarme',
                 },
@@ -105,7 +105,7 @@ document.addEventListener('click', async (event) => {
                     window.location.href = `index.php?controller=SingIn&action=view`;
                 }
             )
-            window.location.href = `index.php?controller=Index&action=view`;
+            // window.location.href = `index.php?controller=Index&action=view`;
         } catch (error) {
             console.error(error);
         }

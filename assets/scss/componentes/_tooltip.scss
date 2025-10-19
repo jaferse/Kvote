@@ -20,6 +20,8 @@
 .error {
     border-bottom: 3px solid $rojoTooltipBorder;
     background-color: $rojoTooltip;
+    color: $blanco_letra;
+    font-weight: 700;
 }
 
 .warning {
