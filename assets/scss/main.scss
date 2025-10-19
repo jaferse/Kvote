@@ -184,6 +184,17 @@ p {
             transform: scale(1.01);
         }
     }
+    &:has(button:disabled) {
+        cursor: not-allowed !important;
+        background: $grayDisabled !important;
+        border: $border_black;
+        a{
+            color: $negro_letra !important;
+        }
+    }
+    .buttonTransparent:disabled{
+        cursor: not-allowed !important;
+    }
 }
 
 .enlaceStyled {

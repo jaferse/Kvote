@@ -34,10 +34,10 @@
                     <div class="direcciones__contenedor"></div>
                     <div class="buttons">
                         <div class="enlaceBotonSmall anterior">
-                            <button class="lang buttonTransparent" data-lang="anterior"></button>
+                            <button type="button" class="lang buttonTransparent" data-lang="anterior"></button>
                         </div>
                         <div class="enlaceBotonSmall siguiente">
-                            <button class="lang buttonTransparent" data-lang="siguiente"></button>
+                            <button type="button" class="lang buttonTransparent" data-lang="siguiente"></button>
                         </div>
                     </div>
                 </div>
@@ -51,10 +51,10 @@
                     <div class="tarjetas__contenedor"></div>
                     <div class="buttons">
                         <div class="enlaceBotonSmall anterior">
-                            <button class="lang buttonTransparent" data-lang="anterior"></button>
+                            <button type="button" class="lang buttonTransparent" data-lang="anterior"></button>
                         </div>
                         <div class="enlaceBotonSmall finalizarCompra">
-                            <button class="lang buttonTransparent" data-lang="comprar"></button>
+                            <button type="button" class="lang buttonTransparent" data-lang="comprar"></button>
                         </div>
                     </div>
                 </div>

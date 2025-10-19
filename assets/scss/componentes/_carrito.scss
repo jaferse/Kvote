@@ -57,7 +57,7 @@
 
                 .error_stock {
                     display: none;
-                    color: red;
+                    color: red !important;
                     font-weight: lighter;
                     position: absolute;
                     bottom: -1.5rem;
@@ -118,8 +118,11 @@
         h5,
         p,
         span,
-        label {
+        label{
             color: $blanco_letra !important;
+        }
+         .error_stock {
+            color: red !important;
         }
 
         .productoCarrito {

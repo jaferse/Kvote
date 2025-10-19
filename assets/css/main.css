@@ -2694,7 +2694,7 @@
 }
 .containerCesta .productos .productoCarrito .contenido .error_stock {
   display: none;
-  color: red;
+  color: red !important;
   font-weight: lighter;
   position: absolute;
   bottom: -1.5rem;
@@ -2740,6 +2740,9 @@
 .containerCesta.theme--dark span,
 .containerCesta.theme--dark label {
   color: #FCFAEE !important;
+}
+.containerCesta.theme--dark .error_stock {
+  color: red !important;
 }
 .containerCesta.theme--dark .productoCarrito {
   background-color: #000000;
@@ -3544,6 +3547,17 @@ p {
 .enlaceBotonSmall.theme--dark:hover {
   background-color: #002a4b;
   transform: scale(1.01);
+}
+.enlaceBotonSmall:has(button:disabled) {
+  cursor: not-allowed !important;
+  background: #b9b9b9 !important;
+  border: 3px solid #000000;
+}
+.enlaceBotonSmall:has(button:disabled) a {
+  color: #000000 !important;
+}
+.enlaceBotonSmall .buttonTransparent:disabled {
+  cursor: not-allowed !important;
 }
 
 .enlaceStyled {
