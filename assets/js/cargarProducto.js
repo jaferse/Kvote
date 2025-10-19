@@ -73,7 +73,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     const responseProducto = await fetch(`index.php?controller=ProductoDetalle&action=getProducto&isbn=${getISBN13()}`);
     producto = await responseProducto.json();
-    console.log(producto);
 
     let fecha = convertirFormatoFecha(producto.anio_publicacion);
     document.querySelector('.Producto__img > img').src = `data:image/jpeg;base64,${producto.portada}`;
@@ -223,7 +222,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         </div>`;
 
         document.querySelector('.Producto__info__caracteristicas>ul').appendChild(coleccion);
-        console.log(producto.coleccion);
 
     }
     //Si existe le damos el valor del ISBN

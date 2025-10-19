@@ -84,8 +84,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     // Si el carrito está vacío, mostramos un mensaje
     else {
-        console.log(lang);
-
         document.querySelector('.containerCesta').innerHTML =
             `<div class="cestaVacia">
                 <img src='assets/img/libroCestaVacia${lang}.png'>
@@ -232,7 +230,6 @@ document.querySelector('.productos').addEventListener('change', function (e) {
         let cantidad = parseInt(e.target.value);
 
         if (carrito[isbn]) {
-            console.log(carrito[isbn]);
             // Actualizar la cantidad del producto en el carrito
             carrito[isbn].cantidad = cantidad;
             // Guardar el carrito actualizado en localStorage
@@ -350,7 +347,6 @@ async function comprar() {
 
                 });
                 const data = await responseCompra.json();
-                console.log('Respuesta del servidor:', data);
                 if (data.status === 'success') {
                     // Si la compra fue exitosa, limpiar el carrito
                     localStorage.removeItem("carrito");

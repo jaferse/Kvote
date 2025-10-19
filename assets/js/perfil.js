@@ -144,10 +144,8 @@ document.addEventListener('click', async (event) => {
         ((document.querySelector('.formGroup.localidad')) ? document.querySelector('.formGroup.localidad').innerHTML = "" : '');
         const responseLocalidades = await fetch(`index.php?controller=Perfil&action=obtenerLocalidades&parametro=${codPais}-${codComunidad}`);
         localidades = await responseLocalidades.json();
-        // console.log(localidades);
 
         const formGroupLocalidad = document.querySelector('.formGroup.localidad');
-        // console.log(formGroupLocalidad);
         if (localidades.length == 0) {
             formGroupLocalidad.innerHTML =
                 ` <label for="localidad" class="lang" data-lang="localidad">${idiomasJson[lang]['direciones']['localidad']}</label>
@@ -408,8 +406,6 @@ btnCambiarPass.addEventListener('click', (e) => {
     justValidate.revalidate().then((isValid) => {
         if (isValid) {
             formularioPass.submit();
-        } else {
-            console.log("Formulario no válido.");
         }
     }).catch((error) => {
         console.error("Error al validar el formulario:", error);

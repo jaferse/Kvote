@@ -231,7 +231,6 @@ export function aplicarValidaciones(justValidate, dataLand, lang) {
                     let introducida = new Date(value);
                     let fechaLimite = new Date();
                     fechaLimite.setFullYear(fechaLimite.getFullYear() - 18);
-                    // console.log(introducida + " - " + fechaLimite);
                     return (introducida) <= fechaLimite;
                 },
                 errorMessage: dataLand[lang]['formulario']['validateSingIn']['birth']['menor'],
@@ -292,10 +291,8 @@ export function aplicarValidaciones(justValidate, dataLand, lang) {
                 validator: (value) => {
                     let hoy = new Date();
                     let valido = false;
-                    // console.log(value.substring(0,2)," == ", (hoy.getMonth().toString()),(parseInt(value.substring(0,2)) >= parseInt(hoy.getMonth())+1));
                     //Si el año es mayor la fecha es correcta
                     if (value.substring(3) > ((hoy.getFullYear().toString()).substring(2))) {
-                        // console.log("Año correcto");
 
                         valido = true;
 

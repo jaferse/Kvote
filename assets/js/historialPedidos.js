@@ -34,7 +34,6 @@ async function construirGridPedidos(pedidos) {
 
     pedidos.forEach(pedido => {
         let compra = document.createElement('div');
-        console.log(pedido);
 
         compra.classList.add('compra');
         let formatoFecha = convertirFormatoFecha(pedido.compra.fechaCompra, true);
@@ -64,7 +63,6 @@ async function construirGridPedidos(pedidos) {
             <p class="unidades lang" data-lang="unidades">Unidades</p>
             <p class="subPrecio lang" data-lang="subtotal">Subtotal</p>
             `;
-        // console.log(pedido.detalle);
         let index = 0;
         for (const key in pedido.detalle) {
             fetch(`index.php?controller=ProductoDetalle&action=getProducto&isbn=${pedido.detalle[key].isbn13}`)

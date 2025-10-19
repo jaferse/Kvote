@@ -132,8 +132,6 @@ formProducto.addEventListener('submit', function (event) {
 
 formProductoNuevo.addEventListener('submit', function (event) {
     event.preventDefault();
-    console.log(event.target[1].value);
-    console.log(formProductoNuevo.value);
     formProductoNuevo.querySelectorAll('input[type="text"]').forEach(text => {
         text.value = text.value.trim(); // Elimina espacios en blanco al inicio y al final
     });
@@ -185,7 +183,6 @@ document.addEventListener('input', async (e) => {
     }
 
     if (e.target.classList.contains('fileInput')) {
-        console.log(e.target);
 
         comprobarExtensionImagen(e.target.files[0], e.target)
         //Si hay más de una archivo se borra el input y se muestra un tooltip de error

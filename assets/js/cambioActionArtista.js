@@ -8,7 +8,6 @@ formArtista.addEventListener('submit', function (event) {
     event.preventDefault(); // Evita el envío del formulario por defecto
     let checkPulsados = 0;
     formArtista.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-        console.log("Pulsado: " + checkbox.checked);
         if (checkbox.checked) {
             checkPulsados++;
         }
@@ -69,9 +68,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //Si hay un mensaje en localStorage, lo mostramos
     if (localStorage.getItem('flash_msg')) {
-        console.log(lang);
-        console.log(jsonIdiomas);
-        console.log((jsonIdiomas[lang]['backMessage'][JSON.parse(localStorage.getItem('flash_msg')).message]));
         tooltip(jsonIdiomas[lang]['backMessage'][JSON.parse(localStorage.getItem('flash_msg')).message], JSON.parse(localStorage.getItem('flash_msg')).type, document.querySelector('.mainAdmin'));
         localStorage.removeItem('flash_msg');
     }

@@ -60,9 +60,7 @@ function crearTarjeta(containerProductos, producto, json) {
     //creamos boton
     let botonVermas = document.createElement('button');
     botonVermas.classList.add('verMas', 'lang', 'btn', 'btnPrimario', (darkMode == 'dark') ? 'theme--dark' : 'theme--light');
-    // botonVermas.classList.add();
     botonVermas.setAttribute('data-lang', 'verMas');
-    // console.log(json);
     let lang = localStorage.getItem('lang');
     botonVermas.textContent = json[lang]["producto"]["verMas"];
 
@@ -144,9 +142,6 @@ async function sacarProductos(seccion, page = 1, parametro) {
     //Ponemos en el titulo la seccion en mayuscula la primera letra
     let seccionMayuscula = seccion.charAt(0).toUpperCase() + seccion.slice(1)
     let responseProductos
-    console.log(parametro);
-    console.log(seccion);
-    console.log(page);
     
     if (parametro) {
         responseProductos = await fetch(`index.php?controller=Catalogo&action=get${seccionMayuscula}&parametro=${parametro}&page=${page}`);
@@ -249,13 +244,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     container.addEventListener('click', async (e) => {
 
         if (e.target.classList.contains('numeroPaginacion')) {
-            // console.log(e.target);
             e.preventDefault();
             let parametro;
             if (parametros.get("parametro")) {
                 parametro = parametros.get("parametro");
             }
-            console.log(e.target.getAttribute('data-page'));
             localStorage.setItem("paginaActual", e.target.getAttribute('data-page'));
             e.target.parentNode.querySelectorAll('.active').forEach(element => {
                 element.classList.remove('active');

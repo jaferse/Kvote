@@ -543,7 +543,6 @@ function actualizarTexto(json, lang) {
         document.querySelectorAll('.main__sliderFrame img').forEach((element, i) => {
             let partes=element.src.split('.');
             element.src=partes[0].slice(0,-3)+`_${lang}.`+partes[1];
-            console.log(partes[0]);
             
         });
     }

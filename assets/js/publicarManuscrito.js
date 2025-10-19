@@ -160,14 +160,12 @@ const tablaPrecios = {
         },
     },
 }
-console.log(tablaPrecios['primero']);
 
 let opciones = document.querySelectorAll('.opcion');
 let selecciones = [];
 const secciones = document.querySelectorAll('.seccion');
 opciones.forEach((opcion, i) => {
     opcion.addEventListener('click', (e) => {
-        console.log("[DEBUG] Seleccionado" + e.target);
 
         //Si es la primera selección
         if (opcion.classList.contains('containerEditorial__primero__opc')) {
@@ -217,7 +215,6 @@ document.addEventListener('click', (e) => {
 
         //Si la encontramos
         if (seccionPadre) {
-            console.log(seccionPadre);
             //Sacamos el indice de la sección en la que nos encontramos
             const indiceBoton = Array.from(secciones).indexOf(seccionPadre);
             //Si es siguiente avanzamos
@@ -241,12 +238,10 @@ document.addEventListener('click', (e) => {
 });
 
 function mostrarSiguiente(secciones, indice) {
-    console.log(indice);
 
     secciones[indice].style.display = "none";
     secciones[indice + 1].style.display = "flex";
     if (indice == 8) {
-        console.log("Resumen");
 
         rellenarResumen(selecciones);
     }
@@ -279,7 +274,6 @@ function selecionar(indiceArray, claseSeccion, selecciones, opcion) {
 
     //Condición para controlar que no están ambas marcadas con estilo active
     if ((opcion.getAttribute('data-valor') !== selecciones[indiceArray]) && selecciones[indiceArray] !== "") {
-        console.log("[DEBUG] La está eliminando");
         let seccion = document.querySelectorAll(claseSeccion);
         eliminarOpciones(seccion);
         opcion.classList.toggle('active');
@@ -288,20 +282,17 @@ function selecionar(indiceArray, claseSeccion, selecciones, opcion) {
     }
     //Si se desmarca borramos el contenido del array
     if (!opcion.classList.contains('active')) {
-        console.log("[DEBUG] La está desmarcando");
         selecciones[indiceArray] = "";
     } else {
         selecciones[indiceArray] = opcion.getAttribute('data-valor');
     }
-    console.log("[DEBUG]" + selecciones[indiceArray]);
 }
 
 function rellenarResumen(selecciones) {
     let resumen = document.querySelector('.resumen');
     let precioTotal = 0;
     resumen.querySelectorAll('tr').forEach((parrafo, i) => {
-        console.log(parrafo, " ", parrafo.id);
-        console.log(selecciones[parrafo.id]);
+
         if (i > 0) {
 
             if (parrafo.id !== "precioTotal") {
@@ -315,7 +306,6 @@ function rellenarResumen(selecciones) {
         }
     });
 
-    console.log(precioTotal);
 
 }
 

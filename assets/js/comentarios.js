@@ -76,8 +76,6 @@ document.addEventListener('click', async function (event) {
         <input type='hidden' name='isbn13' id='isbn13' value='${getISBN13()}'>
         <input type='hidden' name='idComentario' id='idComentario' value='${idComentario}'>
         `;
-        console.log(comentario);
-        console.log(form);
 
         //ocultamos el comentario
         comentario.style.display = "none";
@@ -89,23 +87,18 @@ document.addEventListener('click', async function (event) {
     
     //Botón de atrás
     if (event.target.getAttribute("id") === "backComment") {
-        console.log("Boton atras");
-        console.log(event.target.parentElement.parentElement);
         let comentarioDiv = event.target.parentElement.parentElement;
         comentarioDiv.querySelector(".Producto__comentario").style.display = "block";
         comentarioDiv.querySelector(".Producto__comentarios__formulario").remove();
     }
 
     if (event.target.getAttribute("id") === "deleteComment") {
-        console.log("Eliminar comentario no implementado");
-        console.log(event.target.parentElement.parentElement.getAttribute("data-id"));
 
         fetch(`index.php?controller=Comentarios&action=eliminarComentario&id=${event.target.parentElement.parentElement.getAttribute("data-id")}`, {
             method: 'DELETE',
         })
             .then(response => response.text())
             .then(data => {
-                console.log("Comentario eliminado:", data);
                 window.location.reload(); // Recargar la página para ver los cambios
             }).catch(error => {
                 console.error("Error en la solicitud:", error);

@@ -24,15 +24,6 @@ const nosotros__talleres = document.querySelector('.nosotros__talleres');
 function visualizarSeccion(seccion, retardoPx, direcion) {
     const rect = seccion.getBoundingClientRect();
     // let viewportInferior = window.scrollY + window.innerHeight;
-    // console.log("Rect Top: ", rect.top);
-    // console.log("Rect Bottom: ", rect.bottom);
-    // console.log("Dimensiones de viewport: ", window.innerWidth, "X", window.innerHeight);
-    // console.log("ViewPort superior: ", window.scrollY, "px ", "ViewPort inferior: ", viewportInferior);
-    // // console.log("distancia a visualizar?: ", viewportInferior-rect.top );
-
-    // console.log((rect.top-window.innerHeight+550));
-
-    // console.log("--------------------------------------------------------------");
 
     if (((rect.top - window.innerHeight) + retardoPx) < 0) {
         if (direcion) {

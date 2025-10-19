@@ -6,14 +6,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const dataLand = await cargarIdioma();
     let lang = localStorage.getItem("lang");
-    // console.log(lang);
 
-    // console.log(dataLand[lang]['formulario']['validateSingIn']['username']['required']);
     //Recogemos todos los elementos del formulario
     for (const element of formulario.elements) {
         //Si no es un botón de tipo submit, le añadimos el evento blur y input
         if (element.type !== 'submit') {
-            // console.log(element);
             //Le añadimos el evento blur y input para que sea interactivo
             element.addEventListener("blur", () => {
                 justValidate.revalidateField(`#${element.id}`);
@@ -92,9 +89,6 @@ formulario.addEventListener('submit', async (e) => {
         if (isValid) {
             formulario.action = "index.php?controller=LogIn&action=logear";
             formulario.submit();
-
-        } else {
-            console.log("Formulario no válido, corrige los errores.");
         }
     });
 

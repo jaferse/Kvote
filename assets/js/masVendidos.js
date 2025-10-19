@@ -24,7 +24,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('click', (e) => {
         if (e.target.closest('.tarjetaProducto__enlace')) {
             e.preventDefault();
-            console.log(e.target);
             window.location.href = e.target.closest('.tarjetaProducto__enlace').getAttribute('href');
         }
     });

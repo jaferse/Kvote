@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     for (const element of formulario.elements) {
 
         if (element.type !== 'submit') {
-            // console.log(element);
 
             element.addEventListener("blur", () => {
 
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                         //Ocultamos mensaje
                         element.nextElementSibling.style.visibility = "hidden";
                     }, 1)
-                    // console.log(element.previousElementSibling);
 
                 }
 
@@ -65,7 +63,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                     //Si tiene 5 digitos le ponemos "/"
                     if (element.value.length == 5) {
-                        console.log("entro 5");
 
                         element.value = element.value.slice(0, 2) + "/" + element.value.slice(3);
                     }
@@ -74,10 +71,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
 
                 const claseVerificacion = document.querySelectorAll('.just-validate-success-field');
-                // console.log(claseVerificacion.length);
 
                 updateProgress(claseVerificacion.length, (formulario.elements.length - 1))
-                // console.log(contador);
 
             });
             element.addEventListener("input", (e) => {
@@ -109,7 +104,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 formulario.addEventListener('submit', (e) => {
 
     e.preventDefault();
-    console.log(e.target);
 
 
     justValidate.revalidate().then((isValid) => {
@@ -144,14 +138,12 @@ formulario.addEventListener('submit', (e) => {
                             contenidoHTML += `<li>${element.previousElementSibling.textContent}: ${element.value}</li>`;
                         }
                     }
-                    // console.log(contenidoHTML);
 
                 }
             });
             crearDialogo({ titulo: dataLand[lang]['formulario']['validateSingIn']['confirmaDatos'], mensaje: contenidoHTML, mensajeAceptar: "Registrarse", mensajeCancelar: "Atrás" },
                 () => {
                     formulario.action = "index.php?controller=SingIn&action=registrar";
-                    console.log(formulario);
                     formulario.submit();
                 },
                 () => {
@@ -160,8 +152,6 @@ formulario.addEventListener('submit', (e) => {
 
 
 
-        } else {
-            console.log("Formulario no válido, corrige los errores.");
         }
     });
 
@@ -184,7 +174,6 @@ formulario.addEventListener('submit', (e) => {
 document.addEventListener('click', (e) => {
 
     if (e.target.parentElement.classList.contains('mostrarPassword')) {
-        console.log(e.target.parentElement);
 
         const passwordItem = e.target.closest('.password'); // el <li>
 

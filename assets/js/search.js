@@ -1,7 +1,6 @@
 const lupa = document.querySelector('.search > label');
 const input = document.querySelector('.search>input');
 lupa.addEventListener('click', (e) => {
-    console.log(window.matchMedia("(max-width: 992px)").matches);
     if (window.matchMedia("(max-width: 992px)").matches) {
         if (input.style.display == "flex") {
             input.style.display = "none";
@@ -16,8 +15,6 @@ lupa.addEventListener('click', (e) => {
         if (input.value != '') {
             location.href = `index.php?controller=Catalogo&action=buscar&parametro=${input.value}`
         }
-        console.log(input.value);
-        console.log('Pulsado');
     }
 })
 window.addEventListener('resize', () => {

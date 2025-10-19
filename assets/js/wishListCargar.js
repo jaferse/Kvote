@@ -6,11 +6,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const productos = await responseProducto.json();
     if (document.querySelector(".containerProductosWishList")) {
         //Cargamos los productos que el usuario tiene en su wishlist
-        console.log(json);
-        console.log(productos);
 
         let lang = localStorage.getItem("lang");
-        console.log(productos.length);
         const contenedor = document.createElement('div');
         contenedor.classList.add('productosWishList');
         contenedor.innerHTML = "";

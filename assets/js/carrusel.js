@@ -1,7 +1,6 @@
 function calcularMapImg(fotos) {
     fotos.forEach((foto, key) => {
         let centro = foto.width / 2;
-        // console.log(foto.width + "X" + foto.height);
         //Asignamos un usemap a la foto
         foto.setAttribute('usemap', `#mapa${key}`)
 
@@ -61,71 +60,14 @@ let currentIndex = 0;
 let inicio = 0;
 
 //Recalcular acho del contenedor
-// console.log("Numero de imagenes: " + numeroImagenes);
 sliderFrame.style.width = `${numeroImagenes * 100}%`;
 
 // document.addEventListener('DOMContentLoaded', function () {
 const fotos = document.querySelectorAll('.main__sliderFrame>ul>li>img');
 
-// console.log(fotos.length);
 calcularMapImg(fotos);
 
-
-
-
-
-
-
-// });
-
-
-/**
- * Calcular el tamaño del carrusel
-*/
-// document.addEventListener('DOMContentLoaded', () => {
-//     let size = numeroImagenes * 100;
-//     let numTransiciones = 100 / numeroImagenes;
-//     console.log(numTransiciones);
-
-//     sliderFrame.style.width = `${size}%`;
-//     let adelante=true;
-//    setInterval(() => {
-//     if (adelante) {
-
-//         inicio-=0.5;
-//     }else{
-//         inicio+=0.5;
-
-//     }
-
-//     if (inicio==-(100*(numeroImagenes-1))) {
-//         adelante=false;
-//     }
-//     if (inicio==0) {
-//         adelante=true;
-//     }
-//     sliderFrame.style.marginLeft = `${inicio}%`;
-//     console.log(inicio);
-
-//     if (Number.isInteger(inicio/100)) {
-//         setTimeout(()=>{
-//             console.log("Para");
-
-//         },1000);
-//     }
-//    },30)
-// });
-
-
 const centerButton = document.querySelectorAll('.center');
-
-centerButton.forEach(botonCentro => {
-
-    botonCentro.addEventListener('click', (e) => {
-        console.log(e.target);
-        
-    });
-})
 
 const beforeButton = document.querySelectorAll('.before');
 beforeButton.forEach(botonAtras => {
