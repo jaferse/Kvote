@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     let fecha = convertirFormatoFecha(producto.anio_publicacion);
     document.querySelector('.Producto__img > img').src = `data:image/jpeg;base64,${producto.portada}`;
     document.querySelector('.Producto__info__titulo').textContent = producto.nombre;
-    document.querySelector('.Producto__info__autor').innerHTML = `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=autor&parametro=${producto.nombreArtista}-${producto.apellido1}-${producto.apellido2}">${producto.nombreArtista} ${producto.apellido1} ${producto.apellido2}</a>`;
+    document.querySelector('.Producto__info__autor').innerHTML = `<a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=autor&parametro=${producto.nombreArtista}:${producto.apellido1}:${producto.apellido2}">${producto.nombreArtista} ${producto.apellido1} ${producto.apellido2}</a>`;
     document.querySelector('.Producto__info__sinopsis').textContent = producto.sinopsis;
 
     document.querySelector('.Producto__info__caracteristicas__publicacion>.info').textContent = fecha;

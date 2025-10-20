@@ -189,7 +189,7 @@ class Daoproducto extends DB
     public function listarPorAutor($nombre_autor)
     {
         $_GET['page']; //Forzamos a que la paginación empiece desde la primera página
-        $partes = explode("-", $nombre_autor);
+        $partes = explode(":", $nombre_autor);
         $consulta = 'SELECT * FROM producto WHERE isbn_13 IN 
             (SELECT ISBN_13 FROM artista_producto WHERE artista_id IN 
                 (SELECT id FROM artista WHERE nombre = :nombre AND apellido1= :apellido1 AND apellido2= :apellido2)
@@ -458,7 +458,7 @@ class Daoproducto extends DB
             (SELECT ISBN_13 FROM artista_producto WHERE artista_id IN 
                 (SELECT id FROM artista WHERE nombre = :nombre AND apellido1= :apellido1 AND apellido2= :apellido2)
             )";
-            $partes = explode("-", $valor);
+            $partes = explode(":", $valor);
             $param[":nombre"] = $partes[0];
             $param[":apellido1"] = $partes[1];
             $param[":apellido2"] = $partes[2];
