@@ -128,4 +128,20 @@ class Daoartista_producto extends DB
         }
         return $arti;
     }
+
+    public function obtenerProductoArtista($artista_id)
+    {
+        $consulta = "SELECT * FROM artista_producto WHERE artista_id= :artista_id";
+        $param = array();
+        $param[":artista_id"] = $artista_id;
+        $this->consultaDatos($consulta, $param);
+        $arti = new Artista_producto(); //creamos un objeto de la entidad Artista_producto
+        foreach ($this->filas as $fila) {
+            $arti = new Artista_producto(); //creamos un objeto de la entidad situacion
+            $arti->__set("artista_id", $fila['artista_id']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $arti->__set("isbn_13", $fila['isbn_13']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $arti->__set("trabajo", $fila['trabajo']); //Le asignamos a las propiedades del objetos los campos de esa fila
+            $this->artista_productos[] = $arti; //Guardamos ese objeto en el array de objetos arti
+        }
+    }
 }

@@ -6,13 +6,16 @@ if ($_SESSION['admin'] == false) {
     header("Location: index.php?controller=Index&action=view");
 }
 require_once("./model/artista/ArtistaPDO.php");
+require_once("./model/artista_producto/Artista_productoPDO.php");
 class ArtistaController
 {
     private $tabla;
+    private $tablaArtistaProducto;
     public $artistasPagina = 10;
     public function __construct()
     {
         $this->tabla = new Daoartista(DDBB_NAME);
+        $this->tablaArtistaProducto = new Daoartista_producto(DDBB_NAME);
     }
     public function view()
     {
@@ -89,8 +92,18 @@ class ArtistaController
         if (isset($_POST["check"])) {
             //Recorremos los valores del array $_POST["check"] y los mostramos
             foreach ($_POST["check"] as $key => $value) {
-                //Eliminamos el dato de la base de datos
-                $this->tabla->borrar($key);
+                //TODO: Debemos hacer una consulta, si el artista tiene productos asociados no se puede eliminar
+                $this->tablaArtistaProducto->obtenerProductoArtista($key);
+                // var_dump($this->tablaArtistaProducto->artista_productos);
+                if (count($this->tablaArtistaProducto->artista_productos) > 0) {
+                    $_SESSION['mensaje'] = "2009";
+                    $_SESSION['type'] = "error";
+                    $this->scriptMessage();
+                    exit();
+                }else{
+                    //Eliminamos el dato de la base de datos
+                    $this->tabla->borrar($key);
+                }
             }
             $_SESSION['mensaje'] = "2001";
             $_SESSION['type'] = "exito";

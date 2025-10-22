@@ -743,6 +743,7 @@
             "1007": "La contraseña actual no es correcta.",
             "1008": "Faltan datos en el formulario.",
             "1009": "La tarjeta de credito ya está registrada",
+            "2009": "El autor no se puede eliminar, tiene libros asociados, eliminalos antes.",
             "2000": "Artista insertado correctamente",
             "2001": "Artista eliminado correctamente",
             "2002": "Artista actualizado correctamente",

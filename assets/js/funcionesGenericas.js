@@ -454,7 +454,7 @@ export function crearDialogo(datos, onAceptar, onCancelar) {
  * @param {number} [time=2000] - El tiempo en ms que el tooltip permanecerá visible
  * @returns {HTMLElement} El elemento del tooltip
  */
-export function tooltip(mensaje, style, contenedor, time = 2000) {
+export function tooltip(mensaje, style, contenedor, time = 5000) {
     if (!mensaje) {
         mensaje = "Error inesperado";
     }
