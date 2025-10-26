@@ -420,10 +420,14 @@ btnCambiarData.addEventListener('click', (e) => {
     if (
         datos.get('nombre').length > 2 &&
         datos.get('Apellido1').length > 2 &&
-        datos.get('Apellido2').length > 2 &&
         datos.get('nombre').length < 50 &&
         datos.get('Apellido1').length < 45 &&
-        datos.get('Apellido2').length < 45
+        (
+            datos.get('Apellido2') == '' ||
+            (datos.get('Apellido2').length > 2 &&
+                datos.get('Apellido2').length < 45
+            )
+        )
     ) {
         formularioDataUser.submit();
     } else {
@@ -460,7 +464,7 @@ function crearTarjetasDirecciones(direcciones) {
                     </div>
                     <div class='columna'>
                         <p class="titleDireccion lang" data-lang="localidad" >${idiomasJson[lang]['direciones']['localidad']}</p>
-                        <p class="localidad">${(responseLocalidad.nombre)?responseLocalidad.nombre:responseLocalidad}</p>
+                        <p class="localidad">${(responseLocalidad.nombre) ? responseLocalidad.nombre : responseLocalidad}</p>
                     </div>
                     <div class='columna'>
                         <p class="titleDireccion lang" data-lang="cPostal" >${idiomasJson[lang]['direciones']['cPostal']}</p>

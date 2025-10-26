@@ -136,26 +136,32 @@ class PerfilController
 
     public function cambiarDatosUsuario()
     {
+        echo $_POST['Apellido2'];
         if (
             isset($_POST['idUsuario']) &&
             isset($_POST['nombre']) &&
             isset($_POST['Apellido1']) &&
-            isset($_POST['Apellido2']) &&
+            // isset($_POST['Apellido2']) &&
             !empty($_POST['idUsuario']) &&
             !empty($_POST['nombre']) &&
             !empty($_POST['Apellido1']) &&
-            !empty($_POST['Apellido2']) &&
+            // !empty($_POST['Apellido2']) &&
             $_POST['idUsuario'] == $_SESSION['usernameId'] &&
             strlen($_POST['nombre']) <= 50 &&
-            strlen($_POST['Apellido1']) <= 45 &&
-            strlen($_POST['Apellido2']) <= 45
+            strlen($_POST['Apellido1']) <= 45
+            // strlen($_POST['Apellido2']) <= 45
         ) {
             $usuarioDao = new Daousuario(DDBB_NAME);
-
             $datoUsuario =  $usuarioDao->obtener($_POST['idUsuario']);
             $datoUsuario->__set("nombre", $_POST['nombre']);
             $datoUsuario->__set("apellido1", $_POST['Apellido1']);
-            $datoUsuario->__set("apellido2", $_POST['Apellido2']);
+             if ( isset($_POST['Apellido2']) &&
+            !empty($_POST['Apellido2']) &&
+            strlen($_POST['Apellido2']) <= 45) {
+                $datoUsuario->__set("apellido2", $_POST['Apellido2']);
+            }else{
+                $datoUsuario->__set("apellido2", null);
+            }
 
             $usuarioDao->actualizar($datoUsuario);
 
@@ -165,13 +171,13 @@ class PerfilController
             $_SESSION['mensaje'] = "1006";
             $_SESSION['type'] = "error";
         }
-        echo "<script>
-                localStorage.setItem('flash_msg', JSON.stringify({
-                    type: '" . ($_SESSION['type']) . "',
-                    message: '" . addslashes($_SESSION['mensaje']) . "'
-                }));
-                window.location.href = 'index.php?controller=Perfil&action=view';
-            </script>";
+        // echo "<script>
+        //         localStorage.setItem('flash_msg', JSON.stringify({
+        //             type: '" . ($_SESSION['type']) . "',
+        //             message: '" . addslashes($_SESSION['mensaje']) . "'
+        //         }));
+        //         window.location.href = 'index.php?controller=Perfil&action=view';
+        //     </script>";
     }
     public function obtenerComunidades()
     {
