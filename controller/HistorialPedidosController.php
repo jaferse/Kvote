@@ -58,21 +58,25 @@ class HistorialPedidosController
     {
         $direccionDAO = new Daodireccion(DDBB_NAME);
         $direccion = $direccionDAO->obtener($id);
-        //Obtener pais
-        $paisDAO = new Daopais(DDBB_NAME);
-        $pais = $paisDAO->obtenerNombre($direccion->__get('paisISO'));
-        $direccion->__set('pais', $pais);
-        //Obtener provincia
-        $provinciaDAO = new Daoprovincia(DDBB_NAME);
-        $provincia = $provinciaDAO->obtenerNombre($direccion->__get('provinciaMatricula'), $direccion->__get('paisISO'));
-        $direccion->__set('provincia', $provincia);
-        //Obtener localidad
-        $localidadDAO = new Daolocalidad(DDBB_NAME);
-        $localidad = $localidadDAO->obtenerNombre($direccion->__get('localidad'), $direccion->__get('provinciaMatricula'), $direccion->__get('paisISO'));
-        if (gettype($localidad) == 'array') {
-            $direccion->__set('nombreLocalidad', $localidad['nombre']);
-        } else {
-            $direccion->__set('nombreLocalidad', $direccion->__get('localidad'));
+        if ($direccion->__get('paisISO') != null
+        && $direccion->__get('provinciaMatricula') != null
+        && $direccion->__get('localidad') != null) {
+            //Obtener pais
+            $paisDAO = new Daopais(DDBB_NAME);
+            $pais = $paisDAO->obtenerNombre($direccion->__get('paisISO'));
+            $direccion->__set('pais', $pais);
+            //Obtener provincia
+            $provinciaDAO = new Daoprovincia(DDBB_NAME);
+            $provincia = $provinciaDAO->obtenerNombre($direccion->__get('provinciaMatricula'), $direccion->__get('paisISO'));
+            $direccion->__set('provincia', $provincia);
+            //Obtener localidad
+            $localidadDAO = new Daolocalidad(DDBB_NAME);
+            $localidad = $localidadDAO->obtenerNombre($direccion->__get('localidad'), $direccion->__get('provinciaMatricula'), $direccion->__get('paisISO'));
+            if (gettype($localidad) == 'array') {
+                $direccion->__set('nombreLocalidad', $localidad['nombre']);
+            } else {
+                $direccion->__set('nombreLocalidad', $direccion->__get('localidad'));
+            }
         }
         return $direccion;
     }

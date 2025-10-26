@@ -41,15 +41,24 @@ async function construirGridPedidos(pedidos) {
             <p class="fecha lang" data-fecha="${pedido.compra.fechaCompra}">${formatoFecha}</p>
             <p class="idPedido">${pedido.compra.idCompra}</p>
             <p class="nTarjeta">${pedido.compra.nTarjeta}</p>
-            <p class="direccion">
-            ${pedido.compra.idDireccion.pais} <br>
-            ${pedido.compra.idDireccion.provincia} <br>
-            ${pedido.compra.idDireccion.nombreLocalidad} <br>
-            CP: ${pedido.compra.idDireccion.codigo_postal} <br>
-            C/ ${pedido.compra.idDireccion.calle} <br>
-            Nº ${pedido.compra.idDireccion.numero} <br>
-            Piso: ${pedido.compra.idDireccion.piso}${pedido.compra.idDireccion.puerta}
-            </p>
+            `
+        if (pedido.compra.idDireccion.pais) {
+            compra.innerHTML += `
+                <p class="direccion">
+                ${pedido.compra.idDireccion.pais || 'Dirección eliminada'} <br>
+                ${pedido.compra.idDireccion.provincia || ''} <br>
+                ${pedido.compra.idDireccion.nombreLocalidad || ''} <br>
+                CP: ${pedido.compra.idDireccion.codigo_postal || ''} <br>
+                C/ ${pedido.compra.idDireccion.calle || ''} <br>
+                Nº ${pedido.compra.idDireccion.numero || ''} <br>
+                Piso: ${pedido.compra.idDireccion.piso || ''}${pedido.compra.idDireccion.puerta || ''}
+                </p>
+                `;
+        }else{
+            compra.innerHTML += `<p class="direccion">Dirección eliminada</p>`;
+        }
+        compra.innerHTML += `
+        
             <p class="precioTotal">${pedido.compra.totalCompra}€</p>
             <button aria-label="Ver Detalle" class="detallePedido btn btnPrimario lang theme--${darkMode} buttonTransparent" data-lang="botonDetalle">Ver Detalle</button>
         `;
