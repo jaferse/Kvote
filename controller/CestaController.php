@@ -28,8 +28,7 @@ class CestaController
             $data = $body["carrito"];
             $idDireccion = $body["idDireccion"];
             $nTarjeta = $body["nTarjeta"];
-            // echo $idDireccion;
-            // echo $nTarjeta;
+
             $idCompra = $this->generateUUIDv4();
             $compra = new Compra();
             $compra->__set("idCompra", $idCompra);
@@ -53,8 +52,6 @@ class CestaController
                 $this->actualizarVenta($producto["producto"]["isbn_13"],$producto["cantidad"]);
                 $detalleCompraDAO->insertar($detalleCompra);
 
-                // var_dump($detalleCompra);
-                // echo "<br>";
             }
             $respuesta = [
                 "status" => "success",

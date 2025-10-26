@@ -65,15 +65,11 @@ class ComentariosController
 
         header('Content-Type: application/json');
         echo json_encode($response);
-        // echo $_POST['isbn13'];
-        // header('location: index.php?controller=ProductoDetalle&action=view&isbn='.$_POST['isbn13']);
     }
 
     function editarComentario()
     {
         comprobarLogin();
-        echo $_POST['isbn13']."<br>";
-        echo (new DateTime('now'))->format('Y-m-d H:i:s');
         $comentario = new Comentario();
         $comentario->__set("id", $_POST['idComentario']);
         $comentario->__set("usuario_id", $_SESSION['usernameId']);

@@ -56,14 +56,11 @@ class PerfilController
             $compraDao->obtenerPedidosUsuario($idUsuario);
             $compras = $compraDao->compras;
             foreach ($compras as $key => $compra) {
-                //    echo "Id compra:". $compra->idCompra . "<br>";
                 $detalleCompraDao->obtenerDetalleCompra($compra->idCompra);
 
                 foreach ($detalleCompraDao->detallecompras as $key => $detalle) {
-                    // echo "Id Detalle:". $detalle->idDetalle . "<br>";
                     $detalleCompraDao->borrar($detalle->idDetalle);
                 }
-                //    echo "<br>";
                 $compraDao->borrar($compra->idCompra);
             }
             //borrar pedidos del usuario
@@ -136,7 +133,6 @@ class PerfilController
 
     public function cambiarDatosUsuario()
     {
-        echo $_POST['Apellido2'];
         if (
             isset($_POST['idUsuario']) &&
             isset($_POST['nombre']) &&
@@ -181,7 +177,6 @@ class PerfilController
     }
     public function obtenerComunidades()
     {
-        // echo $_GET['parametro'];
         $provinciaDao = new Daoprovincia(DDBB_NAME);
         $comunidades = $provinciaDao->listarPorPais($_GET['parametro']);
         header('Content-Type: application/json');
@@ -189,10 +184,8 @@ class PerfilController
     }
     public function obtenerLocalidades()
     {
-        // echo $_GET['parametro'];
         $codPais = explode("-", $_GET['parametro'])[0];
         $codProvincia = explode("-", $_GET['parametro'])[1];
-        // echo "CodPais: $codPais, CodProvincia: $codProvincia";
         $localidadDao = new Daolocalidad(DDBB_NAME);
         $localidades = $localidadDao->listarPorPaisYProvincia($codPais, $codProvincia);
         header('Content-Type: application/json');

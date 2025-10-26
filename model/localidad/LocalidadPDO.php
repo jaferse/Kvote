@@ -82,7 +82,6 @@ class Daolocalidad extends DB
         } else {
             $fila = $localidadDao;
         }
-        // echo $fila; 
         return $fila;
     }
     /**

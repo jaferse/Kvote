@@ -466,7 +466,6 @@ class Daoproducto extends DB
             $consulta .= " AND $campo LIKE :valor";
             $param[":valor"] = $valor;
         }
-        // echo $consulta;
         $this->consultaDatos($consulta, $param);
         return $this->filas[0]['total'];
     }
@@ -478,7 +477,6 @@ class Daoproducto extends DB
         OR editorial LIKE :busqueda ";
         $param = array();
         $param[":busqueda"] = '%' . $valor . '%';
-        // echo $consulta;
         $this->consultaDatos($consulta, $param);
         return $this->filas[0]['total'];
     }

@@ -27,10 +27,8 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
     }else {
         $dato = null;
     }
-    // echo "Existen controladores";
 } else {
     //Si no existen cargamos el controlador y la accion por defecto
-    // echo "No Existen controladores";
     $controller = CONTROLADOR_DEFECTO;
     $action = ACCION_DEFECTO;
     $dato = null;

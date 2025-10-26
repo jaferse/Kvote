@@ -15,7 +15,6 @@ function cargarControlador($controller)
 
     //Pone en mayuscula la primera letra del controlador introducido
     $controlador = ucwords($controller) . 'Controller';
-    // echo getcwd(); //Visualiza ubicacon del proyecto C:\xampp7013\htdocs\EjemploMVC2
     // Cargamos el controlador
     $strFileController = './controller/' . $controlador . '.php';
 
@@ -26,7 +25,6 @@ function cargarControlador($controller)
 
     //Incluye el fichero
     require_once $strFileController;
-    // echo "<br>Controlador: " . $strFileController;
     //Creamos una instancia del controlador
     $controllerObj = new $controlador();
 
@@ -45,8 +43,6 @@ function cargarControlador($controller)
 function cargarAccion($controllerObj, $action, $argumento = null)
 {
     $accion = $action;
-    // echo "<br>Accion: " . $accion;
-    // echo "<br>Argumento: " . $argumento;
     $controllerObj->$accion($argumento);
 }
 
@@ -62,11 +58,7 @@ function cargarAccion($controllerObj, $action, $argumento = null)
  */
 function lanzarAccion($controllerObj, $accion, $argumento = null)
 {
-    // echo "<br>Accion: " . $accion;
-    // echo "<br>argumento: " . $argumento;
-    // echo "<br>:". method_exists($controllerObj, $accion);
     if (isset($_GET["action"]) && method_exists($controllerObj, $accion)) {
-        // echo "<br>argumento: " . $argumento;
         cargarAccion($controllerObj, $accion, $argumento);
     } else {
         cargarAccion($controllerObj, ACCION_DEFECTO);

@@ -33,12 +33,8 @@ class SingInController
         $tarjetaNumero = str_replace("-", "", $_POST['tarjeta']);
         $datosTarjeta = $this->daotarjeta->obtener($tarjetaNumero);
 
-        // echo $tarjetaNumero."<br>";
-        // echo $datosTarjeta-> __get("numero_tarjeta")."<br>";
-
         //Comprobar que el usuario no existe, ni la tarjeta ni el email
         if (!$datosUsuario->__get("username") && !$datosUsuarioEmail->__get("email") && !$datosTarjeta->__get("numero_tarjeta")) {
-            // echo "El usuario no existe";
 
             $usuario = new Usuario();
             //Devuelve el último id de la tabla usuario
@@ -65,7 +61,6 @@ class SingInController
             $tarjeta->__set("numero_tarjeta", $tarjetaNumero);
             $tarjeta->__set("nombre_titular", $_POST['nombre']);
             $tarjeta->__set("emisor_tarjeta", $_POST['emisor_tarjeta']);
-            // echo "<br>". $_POST['CVV'];
             $tarjeta->__set("cvv_cvc", $_POST['CVV']);
             $tarjeta->__set("tipo_tarjeta", $_POST['tipo_tarjeta']);
             //Comvertirmos la fecha de caducidad a formato YYYY-MM-DD

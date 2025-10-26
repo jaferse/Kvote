@@ -26,11 +26,6 @@ class LogInController
         // de nuevo al inicio pero estando logueado
 
         $loginDatos = $this->daologinDatos->obtener($_POST['userName']);
-        // echo $loginDatos->username . "<br>";
-        // echo $_POST['userName'] . "<br>";
-        // echo $loginDatos->password . "<br>";
-        // echo  password_verify($_POST['password'], $loginDatos->password) . "<br>";
-        // echo $_POST['password'] . "<br>";
         if ($loginDatos->username == $_POST['userName'] && password_verify($_POST['password'], $loginDatos->password)) {
             session_start();
             $_SESSION['logueado'] = true;
@@ -43,7 +38,6 @@ class LogInController
             }
             header("Location: index.php?controller=Index&action=view");
         } else {
-            echo "No logueado <br>";
             $_SESSION['logueado'] = false;
             $_SESSION['mensajeError'] = "El usuario o contraseña son incorrectos";
             header("Location: index.php?controller=LogIn&action=view");

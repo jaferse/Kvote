@@ -102,13 +102,11 @@ class Daoartista_producto extends DB
         $param[":columna"] = $columna;
         $param[":schema"] = "kvote_db";
         $this->consultaDatos($consulta, $param);
-        // echo $this->filas[0]['COLUMN_TYPE'];
 
         $dato = str_replace("enum(", "", $this->filas[0]['COLUMN_TYPE']);
         $dato = str_replace(")", "", $dato);
         $dato = str_replace("'", "", $dato);
         $dato = explode(",", $dato);
-        // echo $dato;
         return $dato;
     }
 
