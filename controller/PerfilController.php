@@ -171,13 +171,13 @@ class PerfilController
             $_SESSION['mensaje'] = "1006";
             $_SESSION['type'] = "error";
         }
-        // echo "<script>
-        //         localStorage.setItem('flash_msg', JSON.stringify({
-        //             type: '" . ($_SESSION['type']) . "',
-        //             message: '" . addslashes($_SESSION['mensaje']) . "'
-        //         }));
-        //         window.location.href = 'index.php?controller=Perfil&action=view';
-        //     </script>";
+        echo "<script>
+                localStorage.setItem('flash_msg', JSON.stringify({
+                    type: '" . ($_SESSION['type']) . "',
+                    message: '" . addslashes($_SESSION['mensaje']) . "'
+                }));
+                window.location.href = 'index.php?controller=Perfil&action=view';
+            </script>";
     }
     public function obtenerComunidades()
     {
