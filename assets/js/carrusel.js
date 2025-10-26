@@ -48,8 +48,8 @@ const enlacesCarrusel=[
     'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=Providence',
     'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=The%20Walking%20Dead',
     'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=Antonia%20Scott',
-    'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=La%20Tierra%20Fragmentada',
-    'http://localhost/index.php?controller=Catalogo&action=autor&parametro=Megan-Maxwell-',
+    'http://localhost/index.php?controller=Catalogo&action=autor&parametro=N.%20K.:Jemisin:',
+    'http://localhost/index.php?controller=Catalogo&action=autor&parametro=Megan:Maxwell:',
     'http://localhost/index.php?controller=Catalogo&action=coleccion&parametro=Hay%20algo%20matando%20niños',
 ];
 
