@@ -149,7 +149,6 @@ function productoArtistaDetalle($producto)
     $productoArtista->__set("apellido1", $artista->__get("apellido1"));
     $productoArtista->__set("apellido2", $artista->__get("apellido2"));
     header('Content-Type: application/json');
-    // var_dump($productoArtista);
     return $productoArtista;
 }
 

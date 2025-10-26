@@ -94,7 +94,6 @@ class ArtistaController
             foreach ($_POST["check"] as $key => $value) {
                 //TODO: Debemos hacer una consulta, si el artista tiene productos asociados no se puede eliminar
                 $this->tablaArtistaProducto->obtenerProductoArtista($key);
-                // var_dump($this->tablaArtistaProducto->artista_productos);
                 if (count($this->tablaArtistaProducto->artista_productos) > 0) {
                     $_SESSION['mensaje'] = "2009";
                     $_SESSION['type'] = "error";

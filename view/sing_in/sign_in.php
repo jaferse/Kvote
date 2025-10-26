@@ -95,7 +95,6 @@
                             <select name="tipo_tarjeta" id="tipo_tarjeta">
                                 <option value="" data-lang="tipoTarjeta0">Selecionar tipo de tarjeta</option>
                                 <?php
-                                // var_dump($tarjetaDao->getEnum("tipo_tarjeta"));
                                 foreach ($tarjetaDao->getEnum("tipo_tarjeta") as $key => $tipoTarjeta) {
                                     echo "<option value='$tipoTarjeta' data-lang='tipoTarjeta" . ($key + 1) . "'>$tipoTarjeta</option>";
                                 }
@@ -107,7 +106,6 @@
                             <select name="emisor_tarjeta" id="emisor_tarjeta">
                                 <option value="" data-lang="emisor0">Selecionar emisor de tarjeta</option>
                                 <?php
-                                // var_dump($tarjetaDao->getEnum("tipo_tarjeta"));
                                 foreach ($tarjetaDao->getEnum("emisor_tarjeta") as $key => $emisorTarjeta) {
                                     echo "<option value='$emisorTarjeta' data-lang='emisor" . ($key + 1) . "'>$emisorTarjeta</option>";
                                 }

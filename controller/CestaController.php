@@ -23,7 +23,6 @@ class CestaController
         $compraDAO = new Daocompra(DDBB_NAME);
         $detalleCompraDAO = new Daodetallecompra(DDBB_NAME);
         $body = json_decode(file_get_contents("php://input"), true);
-        // var_dump($body);
         if ($body) {
             $data = $body["carrito"];
             $idDireccion = $body["idDireccion"];
@@ -40,7 +39,6 @@ class CestaController
             $compra->__set("totalCompra", $totalCompra);
             $compra->__set("nTarjeta", $nTarjeta);
             $compra->__set("idDireccion", $idDireccion);
-            // var_dump($compra);
             $compraDAO->insertar($compra);
             foreach ($data as $key => $producto) {
                 $detalleCompra = new Detallecompra();
