@@ -210,8 +210,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     //Si el producto pertenece a una coleccion
     if (producto.coleccion && producto.coleccion !== 'Autoconclusivo') {
         let coleccion = document.createElement('li');
+        //Sustituir & por |Y| para evitar errores en la URL
+        let paramColeccion =  producto.coleccion.replace(/&/g, "|Y|");
         coleccion.classList.add('Producto__info__caracteristicas__coleccion', lang);
-        coleccion.innerHTML = `<p class="info"><a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=coleccion&parametro=${producto.coleccion}">${producto.coleccion} ${producto.numero}</a></p>
+        coleccion.innerHTML = `<p class="info"><a class="enlaceStyled theme--${darkMode}" href="index.php?controller=Catalogo&action=coleccion&parametro=${paramColeccion}">${producto.coleccion} ${producto.numero}</a></p>
         <div class="svgContainer">
         <svg class="iconSvg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
             <g class="contorno--fill">

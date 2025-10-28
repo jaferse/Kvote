@@ -12,12 +12,14 @@ lupa.addEventListener('click', (e) => {
     }    
     if (e.target.closest('.buscarLabel')) {
         const input= document.querySelector('.search>input');
-        input.value = input.value.trim();
-        if (input.value != '') {
+        let value = input.value.trim();
+        value =input.value.replace(/&/g, "|Y|");
+        if (value != '') {
             location.href = `index.php?controller=Catalogo&action=buscar&parametro=${input.value}`
         }
     }
-})
+});
+
 window.addEventListener('resize', () => {
     if (window.matchMedia("(min-width: 992px)").matches) {
         input.style.display = "flex";
