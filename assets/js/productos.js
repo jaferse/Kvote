@@ -128,7 +128,7 @@ function contruirGridProductos(listaProductos, containerProductos, tipo, json) {
                 <img src='assets/img/libroCestaVacia${lang}.png'>
         </div>`
     }
-
+contruirEventoVermas(json);
 }
 
 /**
@@ -208,31 +208,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     contruirGridProductos(productos, containerProductos, seccion, json);
 
-    const verMas = document.querySelectorAll('.verMas');
     //Si existen productos construimos la paginación
     if (productos) {   
         construirPaginacion(productosRespuesta, seccion, paginaActual, (parametro) ? parametro : false);
     }
 
-    //Controlar el mostrar info
-    verMas.forEach(boton => {
-
-        boton.addEventListener('click', (e) => {
-            let lang = localStorage.getItem("lang");
-            //Si esta oculto se muestra y si está mostrado se oculta
-
-            if (boton.nextElementSibling.style.display == "block") {
-                boton.nextElementSibling.style.display = "none";
-            } else {
-                e.target.parentNode.parentNode.style.height = "auto";
-                boton.nextElementSibling.style.display = "block";
-            }
-            boton.classList.toggle('active');
-
-            boton.textContent = (boton.classList.contains('active')) ? json[lang]["producto"]["ocultar"] : json[lang]["producto"]["verMas"];
-
-        });
-    });
 
     //Redirigir al detalle del producto al hacer click en la imagen
     containerProductos.addEventListener('click', (e) => {
@@ -266,3 +246,28 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     ocultarSkeleton('block');
 });
+
+function contruirEventoVermas(json){
+ const verMas = document.querySelectorAll('.verMas');
+
+    //Controlar el mostrar info
+    verMas.forEach(boton => {
+        console.log(boton);
+        
+        boton.addEventListener('click', (e) => {
+            let lang = localStorage.getItem("lang");
+            //Si esta oculto se muestra y si está mostrado se oculta
+
+            if (boton.nextElementSibling.style.display == "block") {
+                boton.nextElementSibling.style.display = "none";
+            } else {
+                e.target.parentNode.parentNode.style.height = "auto";
+                boton.nextElementSibling.style.display = "block";
+            }
+            boton.classList.toggle('active');
+
+            boton.textContent = (boton.classList.contains('active')) ? json[lang]["producto"]["ocultar"] : json[lang]["producto"]["verMas"];
+
+        });
+    });
+}
