@@ -12,6 +12,7 @@ lupa.addEventListener('click', (e) => {
     }    
     if (e.target.closest('.buscarLabel')) {
         const input= document.querySelector('.search>input');
+        input.value = input.value.trim();
         if (input.value != '') {
             location.href = `index.php?controller=Catalogo&action=buscar&parametro=${input.value}`
         }
