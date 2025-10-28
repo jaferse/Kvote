@@ -252,7 +252,6 @@ function contruirEventoVermas(json){
 
     //Controlar el mostrar info
     verMas.forEach(boton => {
-        console.log(boton);
         
         boton.addEventListener('click', (e) => {
             let lang = localStorage.getItem("lang");
