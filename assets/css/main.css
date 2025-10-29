@@ -2980,18 +2980,22 @@
 .exito {
   border-bottom: 3px solid #0c500c;
   background-color: #a2e3a2;
+  color: #000000;
+  font-weight: 700;
 }
 
 .error {
   border-bottom: 3px solid #9c001a;
   background-color: #db6c7e;
-  color: #FCFAEE;
+  color: #000000;
   font-weight: 700;
 }
 
 .warning {
   border-bottom: 3px solid #c67607;
   background-color: #ffd08e;
+  color: #000000;
+  font-weight: 700;
 }
 
 .perfilContainer {

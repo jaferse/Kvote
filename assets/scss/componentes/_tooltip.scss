@@ -15,16 +15,20 @@
 .exito {
     border-bottom: 3px solid $verdeTooltipBorder;
     background-color: $verdeTooltip;
+    color: $negro_letra;
+    font-weight: 700;
 }
 
 .error {
     border-bottom: 3px solid $rojoTooltipBorder;
     background-color: $rojoTooltip;
-    color: $blanco_letra;
+    color: $negro_letra;
     font-weight: 700;
 }
 
 .warning {
     border-bottom: 3px solid $warningTooltipBorder;
     background-color: $warningTooltip;
+    color: $negro_letra;
+    font-weight: 700;
 }
