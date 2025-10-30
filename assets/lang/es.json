@@ -7,7 +7,7 @@
             "tercero": "Libros",
             "quinto": "Nosotros"
         },
-        "search":{
+        "search": {
             "sinProductos": "No se han encontrado productos"
         },
         "buscador": "Buscar",
@@ -367,7 +367,8 @@
             "cantidad": "Cantidad",
             "subtotal": "Subtotal",
             "finalizarCompra": "Finalizar Compra",
-            "sinProductos": "No existen productos en la cesta"
+            "sinProductos": "No existen productos en la cesta",
+            "stockMaximo": "Stock máximo"
         },
         "perfil": {
             "passWord": "Contraseña"
@@ -411,6 +412,7 @@
         },
         "mainAdmin": {
             "artista": {
+                "title": "Artista",
                 "id": "ID",
                 "nombre": "Nombre",
                 "apellido1": "Primer Apellido",
@@ -429,6 +431,7 @@
                 "comprar": "Comprar"
             },
             "producto": {
+                "title": "Productos",
                 "th": {
                     "ISBN_13": "ISBN_13",
                     "Portada": "Portada",
@@ -774,7 +777,10 @@
             "1015": "El CVV debe tener 3 o 4 dígitos",
             "1016": "No puedes guardar una tarjeta caducada",
             "2000": "Portada seleccionada correctamente"
-        }
+        },
+        "tarjeta": "Tarjetas de credito",
+        "newTarjeta": "Añadir nuevas tarjetas en el perfil",
+        "newDireccion": "Añadir nuevas direcciones en el perfil"
     },
     "en": {
         "title": "Kvote Comic Store",
@@ -784,7 +790,7 @@
             "tercero": "Books",
             "quinto": "About Us"
         },
-        "search":{
+        "search": {
             "sinProductos": "No products found"
         },
         "buscador": "Search",
@@ -1144,7 +1150,8 @@
             "resCesta": "Summary basket",
             "subtotal": "Subtotal",
             "finalizarCompra": "Checkout",
-            "sinProductos": "You have no items in your shopping cart."
+            "sinProductos": "You have no items in your shopping cart.",
+            "stockMaximo": "Maximum stock"
         },
         "darseBaja": {
             "title": "Unsubscribe",
@@ -1185,6 +1192,7 @@
         },
         "mainAdmin": {
             "artista": {
+                "title": "Artist",
                 "id": "ID",
                 "nombre": "Name",
                 "apellido1": "First surname",
@@ -1203,6 +1211,7 @@
                 "comprar": "Buy"
             },
             "producto": {
+                "title": "Product",
                 "th": {
                     "ISBN_13": "ISBN_13",
                     "Portada": "Cover",
@@ -1542,7 +1551,10 @@
             "1015": "The CVV must be 3 or 4 digits",
             "1016": "You cannot save an expired card",
             "2000": "Cover image selected successfully"
-        }
+        },
+        "tarjeta": "Credit cards",
+        "newTarjeta": "Add new cards to your profile",
+        "newDireccion": "Add new addresses to your profile"
     },
     "ja": {
         "title": "Kvote コミックストア",
@@ -1552,7 +1564,7 @@
             "tercero": "書籍",
             "quinto": "私たちについて"
         },
-        "search":{
+        "search": {
             "sinProductos": "製品が見つかりませんでした"
         },
         "buscador": "検索",
@@ -1913,7 +1925,8 @@
             "resCesta": "サマリーバスケット",
             "subtotal": "小計",
             "finalizarCompra": "購入を完了する",
-            "sinProductos": "ショッピングカートに商品がありません。"
+            "sinProductos": "ショッピングカートに商品がありません。",
+            "stockMaximo": "最大在庫"
         },
         "darseBaja": {
             "title": "退会する",
@@ -1954,6 +1967,7 @@
         },
         "mainAdmin": {
             "artista": {
+                "title": "製品",
                 "id": "ID",
                 "nombre": "名前",
                 "apellido1": "名字",
@@ -1972,6 +1986,7 @@
                 "comprar": "購入"
             },
             "producto": {
+                "title": "アーティスト",
                 "th": {
                     "ISBN_13": "ISBN_13",
                     "Portada": "表紙",
@@ -2311,6 +2326,9 @@
             "1015": "CVV は 3 桁または 4 桁である必要があります",
             "1016": "有効期限切れのカードは保存できません",
             "2000": "表紙画像が正常に選択されました"
-        }
+        },
+        "tarjeta": "クレジットカード",
+        "newTarjeta": "プロフィールに新しいカードを追加する",
+        "newDireccion": "プロフィールに新しい住所を追加する"
     }
 }

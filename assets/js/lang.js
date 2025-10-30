@@ -308,7 +308,7 @@ function actualizarTexto(json, lang) {
                 });
 
             }
-            //Si es un enlacee
+            //Si es un enlace
             else if (elemento.tagName === 'A') {
                 elemento.textContent = json[lang]["formulario"][data_lang];
 
@@ -391,6 +391,16 @@ function actualizarTexto(json, lang) {
             let data_lang = element.getAttribute('data-lang');
             element.textContent = json[lang]["paises"][data_lang];
         });
+    }
+
+    //Titulo de la seccion de artistas
+    if (document.querySelector('.mainAdmin.artista .titulo.lang')) {
+        document.querySelector('.mainAdmin.artista .titulo.lang').textContent = json[lang]["mainAdmin"]["artista"]["title"];
+    }
+
+    //Titulo de la seccion de producto
+    if (document.querySelector('.mainAdmin.producto .titulo.lang')) {
+        document.querySelector('.mainAdmin.producto .titulo.lang').textContent = json[lang]["mainAdmin"]["producto"]["title"];
     }
 
     //Botones de los CRUD
@@ -481,7 +491,9 @@ function actualizarTexto(json, lang) {
             element.textContent = json[lang]["direciones"][data_lang];
         })
     }
-
+    if (document.querySelector('.containerSeccion .titleTarjetas.lang')) {
+        document.querySelector('.containerSeccion .titleTarjetas.lang').textContent = json[lang]["tarjeta"];
+    }
     if (document.querySelector('.tarjetaDireccion .lang')) {
         document.querySelectorAll('.tarjetaDireccion title.lang').forEach(element => {
             let data_lang = element.getAttribute('data-lang');
@@ -541,15 +553,26 @@ function actualizarTexto(json, lang) {
 
     if (document.querySelector('.main__sliderFrame')) {
         document.querySelectorAll('.main__sliderFrame img').forEach((element, i) => {
-            let partes=element.src.split('.');
-            element.src=partes[0].slice(0,-3)+`_${lang}.`+partes[1];
-            
+            let partes = element.src.split('.');
+            element.src = partes[0].slice(0, -3) + `_${lang}.` + partes[1];
+
         });
     }
 
-    if (document.querySelector('.buscadorSinProductos')) {        
+    if (document.querySelector('.buscadorSinProductos')) {
         document.querySelector('.buscadorSinProductos > .lang').textContent = json[lang]['search']['sinProductos']
-        document.querySelector('.buscadorSinProductos > img').src=`assets/img/libroCestaVacia${lang}.png`;
+        document.querySelector('.buscadorSinProductos > img').src = `assets/img/libroCestaVacia${lang}.png`;
+    }
+
+    if (document.querySelector('.enlaceBoton.newTarjeta .lang')) {
+        document.querySelector('.enlaceBoton.newTarjeta .lang').textContent = json[lang]['newTarjeta'];
+    }
+        if (document.querySelector('.enlaceBoton.newDireccion .lang')) {
+        document.querySelector('.enlaceBoton.newDireccion .lang').textContent = json[lang]['newTarjeta'];
+    }
+
+    if(document.querySelector('.error_stock.lang')) {
+        document.querySelector('.error_stock.lang').textContent = json[lang]['carrito']['stockMaximo'];
     }
 
     //Cambiar idioma de darse de baja

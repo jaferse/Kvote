@@ -1,11 +1,13 @@
 import { convertirFormatoFecha, ocultarSkeleton, cargarIdioma } from './funcionesGenericas.js';
+let jsonIdiomas;
+let lang;
 document.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('index.php?controller=HistorialPedidos&action=listarPedidos');
     const pedidos = await response.json();
     const darkMode = localStorage.getItem('darkMode');
+    jsonIdiomas = await cargarIdioma();
+    lang = localStorage.getItem('lang') || 'es';
     if (pedidos.length == 0) {
-        let jsonIdiomas = await cargarIdioma();
-        let lang = localStorage.getItem('lang') || 'es';
         let containerPedidos = document.querySelector('.containerPedidos');
         containerPedidos.innerHTML = `
         <div class='card sinPedidos'>
@@ -60,17 +62,17 @@ async function construirGridPedidos(pedidos) {
         compra.innerHTML += `
         
             <p class="precioTotal">${pedido.compra.totalCompra}€</p>
-            <button aria-label="Ver Detalle" class="detallePedido btn btnPrimario lang theme--${darkMode} buttonTransparent" data-lang="botonDetalle">Ver Detalle</button>
+            <button aria-label="Ver Detalle" class="detallePedido btn btnPrimario lang theme--${darkMode} buttonTransparent" data-lang="botonDetalle">${jsonIdiomas[lang]['historialPedidos']['botonDetalle']}</button>
         `;
         let divDetalleCompra = document.createElement('div');
         divDetalleCompra.classList.add('detalleCompra');
         divDetalleCompra.innerHTML = `
             <p class="isbn13">ISBN</p>
-            <p class="tituloProducto lang" data-lang="tituloProducto">Titulo</p>
-            <p class="autor lang" data-lang="autor">Autor</p>
-            <p class="precioUnitario lang" data-lang="precioUnitario">Precio Unitario</p>
-            <p class="unidades lang" data-lang="unidades">Unidades</p>
-            <p class="subPrecio lang" data-lang="subtotal">Subtotal</p>
+            <p class="tituloProducto lang" data-lang="tituloProducto">${jsonIdiomas[lang]['historialPedidos']['tituloProducto']}</p>
+            <p class="autor lang" data-lang="autor">${jsonIdiomas[lang]['historialPedidos']['autor']}</p>
+            <p class="precioUnitario lang" data-lang="precioUnitario">${jsonIdiomas[lang]['historialPedidos']['precioUnitario']}</p>
+            <p class="unidades lang" data-lang="unidades">${jsonIdiomas[lang]['historialPedidos']['unidades']}</p>
+            <p class="subPrecio lang" data-lang="subtotal">${jsonIdiomas[lang]['historialPedidos']['subtotal']}</p>
             `;
         let index = 0;
         for (const key in pedido.detalle) {

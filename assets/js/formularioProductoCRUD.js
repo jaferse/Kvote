@@ -278,7 +278,7 @@ function construirTabla() {
     let formularioCrudProducto = document.getElementById('formProducto');
 
     formularioCrudProducto.innerHTML =/*html*/`
-        <h1 class="titulo">Producto</h1>
+        <h1 class="titulo lang">${jsonIdiomas[lang]['mainAdmin']['producto']['title']}</h1>
         <table>
                 <thead>
                     <tr>

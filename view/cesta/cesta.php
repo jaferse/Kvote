@@ -42,11 +42,11 @@
                     </div>
                 </div>
                 <div class="enlaceBoton newDireccion">
-                    <button class="buttonTransparent" data-lang="newDireccion">Añadir nuevas direcciones en el perfil</button>
+                    <button class="buttonTransparent lang" data-lang="newDireccion">Añadir nuevas direcciones en el perfil</button>
                 </div>
             </section>
             <section class="containerSeccion">
-                <h1>Tarjetas</h1>
+                <h1 class="lang titleTarjetas" data-lang="title">Tarjetas</h1>
                 <div class="tarjetas">
                     <div class="tarjetas__contenedor"></div>
                     <div class="buttons">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="enlaceBoton newTarjeta">
-                    <button class="buttonTransparent" data-lang="newTarjeta">Añadir nuevas tarjetas en el perfil</button>
+                    <button class="buttonTransparent lang" data-lang="newTarjeta">Añadir nuevas tarjetas en el perfil</button>
                 </div>
             </section>
         </main>
